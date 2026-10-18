@@ -183,6 +183,8 @@ details summary{cursor:pointer;font-weight:800;min-height:44px;display:flex;alig
 .storebox{border-radius:12px;padding:12px 14px;font-size:15px;line-height:1.6;background:rgba(240,150,40,.14);border:1px solid rgba(240,150,40,.6)}
 .storebox b{display:block;margin-bottom:2px}
 .storeok{font-size:13px;opacity:.75;line-height:1.5}
+.codemodal{position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;padding:16px;overflow:auto}
+.codebox{width:100%;max-width:440px;background:var(--surface,#fff)}
 </style>
 
 <main id="app" class="wrap"></main>
@@ -3656,7 +3658,7 @@ function norm(s){return String(s||"").normalize("NFKC").toLowerCase().replace(/[
 const DIFF = {1:"基本",2:"標準",3:"応用"};
 const INTERVAL = {1:1,2:3,3:7,4:16,5:35};
 const KEY = "march-kobun-drill";
-const APP_VER = "1.1";
+const APP_VER = "1.2";
 
 /* ===== アイコン ===== */
 const IC = {
@@ -3691,18 +3693,19 @@ const STORE_OK=(()=>{try{const k="__t"+Date.now();localStorage.setItem(k,"1");co
 const IN_APP=/\bLine\/|FBAN|FBAV|Instagram|MicroMessenger/i.test(navigator.userAgent||"");
 
 /* ===== クラウド保存（合言葉） ===== */
-const SYNC_URL=(window.DRILL_CONFIG&&window.DRILL_CONFIG.syncUrl)||"";
-const CODE_KEY="march-drill-code";
+const SYNC_URL=(window.DRILL_CONFIG&&window.DRILL_CONFIG.syncUrl)||"https://script.google.com/macros/s/AKfycbw-FaOAP5IJJwQLfFn3Sg0CFnbXugXPmaOmxGB1tWxcb-WoWkUnG4zlixGO_QcFmMhy/exec";
+const CODE_KEY="march-drill-code",NAME_KEY="march-drill-name";
 function lsGet(k){try{return localStorage.getItem(k);}catch(e){return null;}}
 function lsSet(k,v){try{localStorage.setItem(k,v);}catch(e){}}
-function getCode(){return lsGet(CODE_KEY)||"";}
-function newCode(){const c="abcdefghjkmnpqrstuvwxyz23456789";let s="";for(let i=0;i<8;i++){s+=c[Math.floor(Math.random()*c.length)];if(i===3)s+="-";}return s;}
-function normCode(s){return String(s||"").normalize("NFKC").toLowerCase().replace(/[^a-z0-9-]/g,"");}
-function validCode(s){return /^[a-z0-9-]{6,20}$/.test(s);}
-if(SYNC_URL&&STORE_OK&&!getCode())lsSet(CODE_KEY,newCode());
+function getCode(){return lsGet(NAME_KEY)?(lsGet(CODE_KEY)||""):"";}
+function getName(){return lsGet(NAME_KEY)||"";}
+// 合言葉は自由な文字（ひらがな・漢字・英数字）。表記ゆれ（全角半角・大文字小文字・空白）はそろえる
+function normName(s){return String(s||"").normalize("NFKC").toLowerCase().replace(/\s+/g,"");}
+async function codeOf(name){const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode("march-drill:"+normName(name)));return "h-"+[...new Uint8Array(b)].slice(0,8).map(x=>x.toString(16).padStart(2,"0")).join("");}
 let SYNC={busy:false,dirty:false,last:+(lsGet(KEY+"-sync")||0),err:false};
 function summary(){
   const L=S.log.slice(-50),t=today();const cats={};
+  cats["合言葉:"+getName()]=null;
   Object.keys(CATS).forEach(k=>{const a=acc(k);cats[CATS[k]]=a.a==null?null:Math.round(a.a*100);});
   return {total:S.log.length,recent:L.length?Math.round(L.filter(l=>l.ok).length/L.length*100):null,streak:streakView(),today:S.days[t]||0,revenge:revengePool().length,cats};
 }
@@ -3722,45 +3725,75 @@ function adopt(o){if(!o||o.v!==1||!o.cards)return false;S=Object.assign(fresh(),
 // 開いたとき：クラウドの方が新しければ取り込む（別の端末で解いた分）
 if(SYNC_URL&&getCode()){cloudGet(getCode()).then(o=>{if(o&&(o.savedAt||0)>(S.savedAt||0)+60000&&adopt(o)){if(!SES)render();toast("クラウドの新しい記録を読み込みました");}else if(SYNC.dirty||(S.savedAt||0)>SYNC.last)cloudPush();}).catch(()=>{});}
 addEventListener("pagehide",()=>{if(SYNC.dirty)cloudPush(true);});
+function fmtTime(t){const d=new Date(t);return `${d.getMonth()+1}/${d.getDate()} ${d.getHours()}:${String(d.getMinutes()).padStart(2,"0")}`;}
 function syncLine(){
-  if(!SYNC_URL||!STORE_OK)return "";
-  const code=getCode();if(!code)return "";
-  let s=`・合言葉 <b>${esc(code)}</b>`;
-  if(SYNC.last){const d=new Date(SYNC.last);s+=`・クラウド保存 ${d.getMonth()+1}/${d.getDate()} ${d.getHours()}:${String(d.getMinutes()).padStart(2,"0")}`;}
+  if(!SYNC_URL||!STORE_OK||!getCode())return "";
+  let s=`・合言葉「${esc(getName())}」`;
+  if(SYNC.last)s+=`・クラウド保存 ${fmtTime(SYNC.last)}`;
   return s;
+}
+// ===== 合言葉を決める画面（最初に1回・あとから変更も） =====
+function openCodeModal(first){
+  if(!SYNC_URL||!STORE_OK||!(window.crypto&&crypto.subtle))return;
+  let m=document.getElementById("codeModal");if(m)m.remove();
+  m=document.createElement("div");m.id="codeModal";m.className="codemodal";
+  const body=()=>`<div class="card stack codebox">
+    <h2 style="margin:0">${first?"はじめに、合言葉を決めよう":"合言葉を変える・記録を戻す"}</h2>
+    <p class="small" style="margin:0">合言葉で記録をクラウドにも保存します。スマホを替えたときや記録が消えたときも、同じ合言葉を入れれば元に戻ります。政経・古文・現代文で共通です。</p>
+    <p class="small muted" style="margin:0">自分が忘れない言葉にしよう。ひらがな・漢字・英数字どれでもOK（4文字以上）。<br>例：ニックネーム＋好きな数字</p>
+    <input id="nameIn" autocomplete="off" autocapitalize="off" placeholder="合言葉を入力" value="${first?"":esc(getName())}" style="font-size:20px;padding:14px;border-radius:12px;border:2px solid var(--line,#ccc);background:transparent;color:inherit;width:100%">
+    <div id="codeMsg"></div>
+    <button class="btn primary" id="nameOk">この合言葉にする</button>
+    ${first?`<p class="small muted" style="margin:0">前に使っていた人は、そのときの合言葉を入れると記録が戻ります。</p>`:`<button class="btn slim" id="nameCancel">やめる</button>`}
+  </div>`;
+  m.innerHTML=body();document.body.appendChild(m);
+  const close=()=>{m.remove();render();};
+  const cc=document.getElementById("nameCancel");if(cc)cc.onclick=()=>m.remove();
+  const ok=document.getElementById("nameOk"),msg=document.getElementById("codeMsg");
+  const finish=(name,code,cloud)=>{
+    lsSet(NAME_KEY,name);lsSet(CODE_KEY,code);
+    if(cloud){adopt(cloud);SYNC.last=Date.now();lsSet(KEY+"-sync",String(SYNC.last));toast("記録を戻しました");}
+    else{toast("合言葉を決めました");if(S.log.length)cloudPush();}
+    close();
+  };
+  ok.onclick=async()=>{
+    const raw=document.getElementById("nameIn").value.trim();const name=raw.normalize("NFKC").replace(/\s+/g,"");
+    if([...name].length<4){msg.innerHTML=`<div class="note red small">4文字以上にしてください</div>`;return;}
+    if(!first&&normName(name)===normName(getName())){m.remove();return;}
+    ok.disabled=true;ok.textContent="確認中…";
+    const code=await codeOf(name);let cloud=null,net=true;
+    try{cloud=await cloudGet(code);}catch(e){net=false;}
+    if(!net&&!first){msg.innerHTML=`<div class="note red small">つながりませんでした。電波のよい所でもう一度</div>`;ok.disabled=false;ok.textContent="この合言葉にする";return;}
+    if(cloud&&cloud.log&&cloud.log.length){
+      msg.innerHTML=`<div class="note sky stack"><div><b>この合言葉の記録が見つかりました</b><br>解いた数 ${cloud.log.length}問・最後に保存 ${cloud.savedAt?fmtTime(cloud.savedAt):"—"}</div>
+        <button class="btn primary" id="useCloud">自分の記録なので、戻す</button>
+        <button class="btn slim" id="notMine">自分のではない（別の合言葉にする）</button></div>`;
+      ok.hidden=true;
+      document.getElementById("useCloud").onclick=()=>finish(name,code,cloud);
+      document.getElementById("notMine").onclick=()=>{msg.innerHTML=`<div class="note small">ほかの人が使っている合言葉です。少し変えてください（数字を足すなど）</div>`;ok.hidden=false;ok.disabled=false;ok.textContent="この合言葉にする";const i=document.getElementById("nameIn");i.focus();i.select();};
+      return;
+    }
+    finish(name,code,null);
+  };
 }
 function syncCard(){
   if(!SYNC_URL)return "";
-  const code=getCode();
+  const name=getName();
   return `<div class="card stack"><h2>記録のクラウド保存</h2>
-    <p class="small muted" style="margin:0">1セット解くたびに、記録をクラウドにも保存しています。名前やメールアドレスは送りません。機種変更や記録が消えたときは、下の合言葉で元に戻せます。</p>
-    <div class="note" style="text-align:center"><div class="small muted">あなたの合言葉（政経・古文・現代文で共通）</div><div style="font-size:26px;font-weight:800;letter-spacing:.06em">${esc(code||"—")}</div></div>
-    <button class="btn slim" id="copyCode">合言葉をコピー（メモやLINEに残しておく）</button><textarea id="codeOut" hidden readonly></textarea>
-    <details><summary>前の合言葉で記録を戻す</summary><div class="stack">
-      <p class="small muted" style="margin:0">前に使っていた合言葉を入れると、その記録をこの端末に戻し、これからはその合言葉で保存します。今この端末にある記録は置き換わります。</p>
-      <input id="codeIn" class="inp" inputmode="latin" autocapitalize="off" autocomplete="off" placeholder="例：abcd-2345" style="font-size:18px;padding:12px;border-radius:12px;border:1px solid var(--line,#ccc);background:transparent;color:inherit">
-      <button class="btn slim sky" id="codeLoad">この合言葉の記録を戻す</button>
-    </div></details>
+    <p class="small muted" style="margin:0">1セット解くたびに、記録をクラウドにも保存しています。スマホを替えたときや記録が消えたときは、合言葉を入れれば元に戻ります。</p>
+    <div class="note" style="text-align:center"><div class="small muted">あなたの合言葉（政経・古文・現代文で共通）</div><div style="font-size:24px;font-weight:800">${name?esc(name):"まだ決めていません"}</div>${SYNC.last?`<div class="small muted">クラウド保存 ${fmtTime(SYNC.last)}</div>`:""}</div>
+    <button class="btn slim" id="changeCode">${name?"合言葉を変える・前の記録を戻す":"合言葉を決める"}</button>
   </div>`;
 }
 function bindSync(){
-  const c=document.getElementById("copyCode");if(c)c.onclick=()=>copyText(`MARCHドリルの合言葉：${getCode()}`,$("#codeOut"));
-  const b=document.getElementById("codeLoad");if(!b)return;
-  b.onclick=async()=>{
-    const code=normCode($("#codeIn").value);if(!validCode(code)){toast("合言葉の形が違います（例：abcd-2345）");return;}
-    if(b.dataset.step!=="1"){b.dataset.step="1";b.textContent="もう一度押すと、今の記録と置き換えます";return;}
-    b.disabled=true;b.textContent="読み込み中…";
-    try{const o=await cloudGet(code);
-      if(!o){toast("その合言葉の記録は見つかりませんでした");b.disabled=false;b.dataset.step="";b.textContent="この合言葉の記録を戻す";return;}
-      lsSet(CODE_KEY,code);adopt(o);render();toast("記録を戻しました");}
-    catch(e){toast("つながりませんでした。電波のよい所でもう一度");b.disabled=false;b.dataset.step="";b.textContent="この合言葉の記録を戻す";}
-  };
+  const c=document.getElementById("changeCode");if(c)c.onclick=()=>openCodeModal(!getName());
 }
+setTimeout(()=>{if(SYNC_URL&&STORE_OK&&!getName())openCodeModal(true);},0);
 
 function storeBanner(){
   if(IN_APP)return `<div class="storebox" role="alert"><b>LINEなどアプリの中で開いています</b>この開き方だと、閉じたときに記録が消えることがあります。画面のメニュー（「…」や共有ボタン）から「Safariで開く」を選んでください。</div>`;
   if(!STORE_OK)return `<div class="storebox" role="alert"><b>この開き方では記録が保存できません</b>プライベートブラウズなどになっていないか確認し、Safariの通常の画面で開いてください。</div>`;
-  if(!S.savedAt)return `<div class="storeok">記録はこの端末に保存します（まだ記録はありません${syncLine()}）${SYNC_URL?"<br>前の記録がある人は「仕上がり」→「前の合言葉で記録を戻す」":""}</div>`;
+  if(!S.savedAt)return `<div class="storeok">記録はこの端末に保存します（まだ記録はありません${syncLine()}）</div>`;
   const d=new Date(S.savedAt);
   return `<div class="storeok">記録はこの端末に保存中（最後に保存：${d.getMonth()+1}/${d.getDate()} ${d.getHours()}:${String(d.getMinutes()).padStart(2,"0")}・解いた数 ${S.log.length}問${syncLine()}）</div>`;
 }
