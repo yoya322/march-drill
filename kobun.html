@@ -1,0 +1,4234 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>MARCH古文ドリル</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="MARCH古文">
+<meta name="theme-color" content="#2F7FD8">
+<link rel="apple-touch-icon" href="kobun-icon.png">
+<link rel="icon" href="kobun-icon.png">
+<script src="config.js"></script>
+<style>html,body{margin:0}*,*::before,*::after{box-sizing:border-box}</style>
+</head><body>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800&display=swap">
+<style>
+/* 片手で解く縦長の1画面アプリ。下にタブ、出題中は全画面。押すと沈む立体ボタンが基調 */
+:root{
+  --bg:#F4F8EF; --surface:#FFFFFF; --fg:#1E2A1B; --muted:#66745F; --line:#DCE5D4; --line-d:#C6D2BB;
+  --green:#2F7FD8; --green-d:#1E63B3; --green-t:#DCEBFB;
+  --red:#F24B4B; --red-d:#C93636; --red-t:#FDE4E4;
+  --sky:#1CA7EC; --sky-d:#1588C2; --sky-t:#DDF2FC;
+  --yellow:#FFC800; --yellow-d:#D9A900; --gold:#E9A800; --gold-t:#FFF3C9;
+  --on-color:#FFFFFF;
+  --font:"M PLUS Rounded 1c","Hiragino Maru Gothic ProN","Hiragino Sans","Meiryo",system-ui,sans-serif;
+  font-size:16px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#11180F; --surface:#1B2418; --fg:#EDF3E8; --muted:#9BAA93; --line:#2C3A28; --line-d:#3A4B35;
+  --green:#4C97EA; --green-d:#2F72C0; --green-t:#16304D;
+  --red:#F25F5F; --red-d:#B83D3D; --red-t:#3A2020;
+  --sky:#35B3F0; --sky-d:#1C86BD; --sky-t:#163246;
+  --yellow:#FFCE2E; --yellow-d:#C99E10; --gold:#F2BC2F; --gold-t:#3A3112;
+  --on-color:#FFFFFF; color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#11180F; --surface:#1B2418; --fg:#EDF3E8; --muted:#9BAA93; --line:#2C3A28; --line-d:#3A4B35;
+  --green:#4C97EA; --green-d:#2F72C0; --green-t:#16304D;
+  --red:#F25F5F; --red-d:#B83D3D; --red-t:#3A2020;
+  --sky:#35B3F0; --sky-d:#1C86BD; --sky-t:#163246;
+  --yellow:#FFCE2E; --yellow-d:#C99E10; --gold:#F2BC2F; --gold-t:#3A3112;
+  --on-color:#FFFFFF; color-scheme:dark;
+}
+:root[data-size="s"]{font-size:15px} :root[data-size="l"]{font-size:18px}
+html,body{height:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:1rem;line-height:1.6;-webkit-tap-highlight-color:transparent}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--sky);outline-offset:2px}
+.wrap{max-width:520px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:16px calc(96px + env(safe-area-inset-bottom,0px))}
+h1,h2,h3{margin:0;line-height:1.3;text-wrap:balance}
+h1{font-size:1.5rem;font-weight:800}
+h2{font-size:1.15rem;font-weight:800}
+.muted{color:var(--muted)}
+.small{font-size:.85rem}
+.stack{display:flex;flex-direction:column;gap:12px}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.card{background:var(--surface);border:2px solid var(--line);border-radius:20px;padding:16px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;min-height:56px;padding:10px 16px;border-radius:16px;border:2px solid var(--line-d);border-bottom-width:5px;background:var(--surface);font-weight:800;font-size:1rem;width:100%;transition:transform .06s}
+.btn:active:not(:disabled){transform:translateY(3px);border-bottom-width:2px;margin-bottom:3px}
+.btn:disabled{opacity:.45;cursor:default}
+.btn.primary{background:var(--green);border-color:var(--green-d);color:var(--on-color)}
+.btn.sky{background:var(--sky);border-color:var(--sky-d);color:var(--on-color)}
+.btn.red{background:var(--red);border-color:var(--red-d);color:var(--on-color)}
+.btn.gold{background:var(--yellow);border-color:var(--yellow-d);color:#3B2E00}
+.btn.slim{min-height:44px;font-size:.9rem;border-bottom-width:4px}
+.tabs{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--surface);border-top:2px solid var(--line);padding:6px max(8px,env(safe-area-inset-right,0px)) calc(6px + env(safe-area-inset-bottom,0px)) max(8px,env(safe-area-inset-left,0px))}
+.tabs-in{max-width:520px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+.tab{position:relative;display:flex;flex-direction:column;align-items:center;gap:2px;border:0;background:none;padding:6px 2px;border-radius:12px;font-size:.72rem;font-weight:800;color:var(--muted);min-height:56px}
+.tab svg{width:26px;height:26px}
+.tab[aria-selected="true"]{color:var(--green-d);background:var(--green-t)}
+:root[data-theme="dark"] .tab[aria-selected="true"]{color:var(--green)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tab[aria-selected="true"]{color:var(--green)}}
+.badge{position:absolute;top:2px;right:18%;min-width:20px;height:20px;padding:0 6px;border-radius:10px;background:var(--red);color:var(--on-color);font-size:.7rem;line-height:20px;text-align:center}
+.hero{display:flex;flex-direction:column;gap:14px;padding:18px;border-radius:24px;background:var(--surface);border:2px solid var(--line)}
+.hero-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.streak{display:flex;align-items:center;gap:6px;font-weight:800;font-size:1.1rem;color:var(--gold)}
+.streak svg{width:28px;height:28px}
+.week{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.wd{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:.7rem;color:var(--muted)}
+.dot{width:26px;height:26px;border-radius:50%;border:2px solid var(--line-d);display:grid;place-items:center;font-size:.75rem}
+.dot.on{background:var(--yellow);border-color:var(--yellow-d)}
+.dot.free{background:var(--sky-t);border-color:var(--sky)}
+.dot.today{outline:2px solid var(--green);outline-offset:2px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.stat{background:var(--bg);border-radius:14px;padding:10px;text-align:center}
+.stat b{display:block;font-size:1.35rem;font-weight:800;font-variant-numeric:tabular-nums}
+.stat span{font-size:.75rem;color:var(--muted)}
+.note{padding:12px 14px;border-radius:14px;background:var(--gold-t);font-size:.9rem}
+.note.sky{background:var(--sky-t)} .note.green{background:var(--green-t)} .note.red{background:var(--red-t)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:2px solid var(--line-d);border-bottom-width:4px;border-radius:14px;background:var(--surface);padding:10px 12px;font-weight:700;font-size:.9rem;min-height:48px;text-align:left}
+.chip[aria-pressed="true"]{background:var(--green-t);border-color:var(--green)}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.list{display:flex;flex-direction:column;gap:8px}
+.li{display:flex;gap:10px;align-items:center;padding:12px;border-radius:14px;background:var(--surface);border:2px solid var(--line)}
+.li .t{flex:1;min-width:0}
+.tag{display:inline-block;font-size:.7rem;font-weight:800;padding:2px 8px;border-radius:8px;background:var(--bg);color:var(--muted)}
+.tag.red{background:var(--red-t);color:var(--red-d)} .tag.sky{background:var(--sky-t);color:var(--sky-d)}
+.bars{display:flex;flex-direction:column;gap:12px}
+.bar-h{display:flex;justify-content:space-between;gap:8px;font-size:.85rem;font-weight:700}
+.bar-h span:last-child{color:var(--muted);font-weight:500;font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:14px;border-radius:7px;background:var(--bg);overflow:hidden;border:1px solid var(--line)}
+.bar i{display:block;height:100%;border-radius:7px;background:var(--green)}
+.toggle{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:52px}
+.sw{width:56px;height:32px;border-radius:16px;border:2px solid var(--line-d);background:var(--bg);position:relative;flex:none}
+.sw::after{content:"";position:absolute;top:2px;left:2px;width:24px;height:24px;border-radius:50%;background:var(--muted);transition:left .15s}
+.sw[aria-checked="true"]{background:var(--green);border-color:var(--green-d)}
+.sw[aria-checked="true"]::after{left:26px;background:var(--on-color)}
+textarea{width:100%;min-height:110px;border-radius:12px;border:2px solid var(--line-d);background:var(--bg);color:var(--fg);padding:10px;font:inherit;font-size:.8rem}
+input[type=text]{width:100%;min-height:48px;border-radius:12px;border:2px solid var(--line-d);background:var(--bg);color:var(--fg);padding:8px 12px;font:inherit}
+details summary{cursor:pointer;font-weight:800;min-height:44px;display:flex;align-items:center}
+
+/* 出題画面 */
+.quiz{position:fixed;inset:0;z-index:30;background:var(--bg);display:flex;flex-direction:column}
+.quiz.boss{box-shadow:inset 0 0 0 5px var(--gold),inset 0 0 40px var(--gold-t)}
+.qhead{padding:calc(10px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) 8px max(16px,env(safe-area-inset-left,0px))}
+.qhead-in{max-width:520px;margin:0 auto;display:flex;align-items:center;gap:12px}
+.x{width:44px;height:44px;border:0;background:none;border-radius:12px;display:grid;place-items:center;color:var(--muted);flex:none}
+.x svg{width:26px;height:26px}
+.prog{flex:1;display:flex;gap:4px}
+.prog i{flex:1;height:12px;border-radius:6px;background:var(--line)}
+.prog i.ok{background:var(--green)} .prog i.ng{background:var(--red)} .prog i.now{background:var(--sky)}
+.prog i.boss{outline:2px solid var(--gold);outline-offset:1px}
+.combo{display:flex;align-items:center;gap:2px;font-weight:800;color:var(--gold);min-width:44px;justify-content:flex-end;font-variant-numeric:tabular-nums}
+.combo svg{width:22px;height:22px}
+.combo.pop{animation:pop .35s}
+.qbody{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.qbody-in{max-width:520px;margin:0 auto;padding:8px max(16px,env(safe-area-inset-right,0px)) 16px max(16px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:14px}
+.bossbar{border-radius:14px;padding:10px 12px;background:var(--gold-t);border:2px solid var(--gold);font-weight:800;font-size:.9rem;display:flex;gap:8px;align-items:center}
+.bossbar svg{width:22px;height:22px;flex:none;color:var(--gold)}
+.qmeta{display:flex;gap:6px;flex-wrap:wrap}
+.qtext{font-size:1.08rem;font-weight:700;white-space:pre-line}
+.qcard.bounce{animation:bounce .45s}
+.qcard.shake{animation:shake .4s}
+.qcard.burst{animation:burst .6s}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{display:flex;gap:10px;align-items:flex-start;text-align:left;min-height:56px;padding:12px 14px;border-radius:16px;border:2px solid var(--line-d);border-bottom-width:5px;background:var(--surface);font-weight:700;font-size:.97rem;width:100%}
+.opt .n{flex:none;width:28px;height:28px;border-radius:9px;border:2px solid var(--line-d);display:grid;place-items:center;font-size:.85rem}
+.opt[aria-pressed="true"]{border-color:var(--sky);background:var(--sky-t)}
+.opt[aria-pressed="true"] .n{border-color:var(--sky);background:var(--sky);color:var(--on-color)}
+.opt.right{border-color:var(--green);background:var(--green-t)}
+.opt.right .n{background:var(--green);border-color:var(--green);color:var(--on-color)}
+.opt.wrong{border-color:var(--red);background:var(--red-t)}
+.opt.wrong .n{background:var(--red);border-color:var(--red);color:var(--on-color)}
+.opt:disabled{cursor:default}
+.recall-ans{padding:16px;border-radius:16px;background:var(--sky-t);border:2px solid var(--sky);font-weight:800;font-size:1.1rem;text-align:center}
+.sheet{border-radius:20px;padding:16px;display:flex;flex-direction:column;gap:12px;background:var(--surface);border:2px solid var(--line);animation:up .3s ease-out}
+.sheet.ok{border-color:var(--green)} .sheet.ng{border-color:var(--red)}
+.verdict{display:flex;align-items:center;gap:10px}
+.verdict svg{width:34px;height:34px;flex:none}
+.verdict b{font-size:1.2rem}
+.sheet.ok .verdict{color:var(--green-d)} .sheet.ng .verdict{color:var(--red-d)}
+.sec-t{font-size:.78rem;font-weight:800;color:var(--muted);letter-spacing:.04em}
+.pit{padding:10px 12px;border-radius:12px;background:var(--gold-t)}
+.onotes{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;font-size:.9rem}
+.onotes li{display:flex;gap:8px}
+.onotes .m{flex:none;font-weight:800}
+.onotes .m.ok{color:var(--green-d)} .onotes .m.ng{color:var(--red-d)}
+.src{font-size:.78rem;color:var(--muted);word-break:break-all}
+.src a{color:var(--sky-d)}
+.xpchip{display:inline-flex;align-items:center;gap:4px;font-weight:800;color:var(--sky-d);font-size:.9rem}
+.qfoot{padding:10px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));border-top:2px solid var(--line);background:var(--surface)}
+.qfoot-in{max-width:520px;margin:0 auto;display:flex;flex-direction:column;gap:8px}
+.confrow{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.confrow .btn{flex-direction:column;gap:0;font-size:.9rem;padding:6px}
+.confrow .btn .e{font-size:1.3rem;line-height:1.2}
+.ask{font-size:.85rem;font-weight:800;color:var(--muted);text-align:center}
+.result{position:fixed;inset:0;z-index:40;background:var(--bg);overflow-y:auto}
+.result .wrap{padding-block:calc(24px + env(safe-area-inset-top,0px)) calc(24px + env(safe-area-inset-bottom,0px))}
+.big{font-size:2rem;font-weight:800;text-align:center}
+#fx{position:fixed;inset:0;pointer-events:none;z-index:60}
+.toast{position:fixed;left:50%;bottom:calc(90px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:70;background:var(--fg);color:var(--bg);padding:10px 16px;border-radius:12px;font-weight:700;font-size:.9rem;max-width:90vw}
+@keyframes bounce{0%{transform:scale(1)}40%{transform:scale(1.04)}70%{transform:scale(.98)}100%{transform:scale(1)}}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(7px)}60%{transform:translateX(-5px)}80%{transform:translateX(3px)}}
+@keyframes burst{0%{transform:scale(1);opacity:1}50%{transform:scale(1.08);opacity:.6}100%{transform:scale(1);opacity:1}}
+@keyframes pop{0%{transform:scale(1)}50%{transform:scale(1.5)}100%{transform:scale(1)}}
+@keyframes up{from{transform:translateY(24px);opacity:0}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+.storebox{border-radius:12px;padding:12px 14px;font-size:15px;line-height:1.6;background:rgba(240,150,40,.14);border:1px solid rgba(240,150,40,.6)}
+.storebox b{display:block;margin-bottom:2px}
+.storeok{font-size:13px;opacity:.75;line-height:1.5}
+</style>
+
+<main id="app" class="wrap"></main>
+<nav class="tabs" id="tabs" aria-label="画面切り替え"><div class="tabs-in" role="tablist">
+  <button class="tab" role="tab" data-tab="daily" id="tab-daily"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c1 3 4 4.5 4 8.5a4 4 0 0 1-8 0c0-1.6.6-2.6 1.5-3.5.2 1.5 1 2 1.5 2C11 7.5 11 5 12 3z"/><path d="M5 21h14"/></svg>デイリー10</button>
+  <button class="tab" role="tab" data-tab="custom" id="tab-custom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r=".8" fill="currentColor"/></svg>範囲特訓</button>
+  <button class="tab" role="tab" data-tab="revenge" id="tab-revenge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 2.5-5.8"/><path d="M4 4v4h4"/><path d="M12 8v4l3 2"/></svg>リベンジ<span class="badge" id="rvBadge" hidden></span></button>
+  <button class="tab" role="tab" data-tab="status" id="tab-status"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>仕上がり</button>
+</div></nav>
+<div id="quiz" class="quiz" hidden></div>
+<div id="result" class="result" hidden></div>
+<canvas id="fx" hidden></canvas>
+<div id="toast" class="toast" hidden></div>
+
+<script>
+"use strict";
+/* ===== 問題データ（ここだけを差し替えれば問題が増える） ===== */
+const BANK_BASE = [
+ {
+  "id": "tango-101",
+  "version": 2,
+  "status": "verified",
+  "category": "tango",
+  "topic": "はしたなし（きまりが悪い）",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "次は『枕草子』「はしたなきもの」の段の書き出しである（本文は有朋堂文庫本による）。\n\nはしたなきもの\n他人を呼ぶに、我もとてさし出でたるもの。まして物とらするをりはいとど。\n\n本文中の「はしたなき」の意味として最も適当なものを選べ。\n\n※教科書（三巻本）では『こと人を呼ぶに、我ぞとさし出でたる。物など取らするをりはいとど。』",
+  "options": [
+   "中途半端で落ち着かない",
+   "間が悪く恥ずかしい",
+   "慎みがなく下品だ",
+   "そっけなくつれない"
+  ],
+  "answer": 1,
+  "explanation": "他人を呼んだのに自分のことだと思って出ていってしまう、物をくれる時ならなおさら――という場面なので「間が悪く恥ずかしい（きまりが悪い）」の意。デジタル大辞泉もこの段の例を「間が悪く、恥ずかしい。ばつが悪い」に挙げている。",
+  "optionNotes": [
+   "「中途半端だ」もはしたなしの意味だが、呼ばれてもいないのに出ていく場面には合わない",
+   "正解。勘違いして出ていった気まずさを言う",
+   "現代語「はしたない」の意味。この場面は下品さではなく気まずさの話",
+   "「そっけない」もはしたなしの意味の一つだが、自分が恥をかく場面には合わない"
+  ],
+  "pitfall": "現代語の「はしたない（下品だ）」に引かれて③を選びやすい。古文では「きまりが悪い」が最頻出。",
+  "related": "はしたなし：①中途半端だ ②きまりが悪い ③そっけない ④（雨風などが）激しい。同じ「〜もの」型の類聚章段に「すさまじきもの」「ありがたきもの」などがある。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "『枕草子』本文（有朋堂文庫本・バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/SeiMaku/text.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「はしたない」（デジタル大辞泉・精選版 日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E3%81%AF%E3%81%97%E3%81%9F%E3%81%AA%E3%81%84-358184",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "id": "tango-102",
+  "version": 3,
+  "status": "verified",
+  "category": "tango",
+  "topic": "うつくし（かわいらしい）",
+  "format": "choice4",
+  "difficulty": 1,
+  "question": "次は『枕草子』「うつくしきもの」の段の一節である（三巻本による。一部省略）。\n\n二つ三つばかりなるちごの、いそぎてはひ来る道に、いと小さき塵のありけるを、目ざとに見つけて、いとをかしげなる指にとらへて、……いとうつくし。\n\n本文中の「うつくし」の意味として最も適当なものを選べ。",
+  "options": [
+   "色や形が整っていてきれいだ",
+   "かわいらしい",
+   "りっぱで見事だ",
+   "いじらしく気の毒だ"
+  ],
+  "answer": 1,
+  "explanation": "二、三歳ほどの幼児が小さな塵を見つけて大人に見せるしぐさを言っているので「かわいらしい」。古文の「うつくし」は、小さいもの・幼いものを愛らしく思う気持ちが中心。",
+  "optionNotes": [
+   "現代語の「美しい」の意味。幼児のしぐさを言う文脈には合わない",
+   "正解。小さいもの・幼いものをかわいく思う気持ち",
+   "「りっぱだ」の意味もあるが、物の出来ばえについて言う用法で、ここには合わない",
+   "「気の毒だ」の意味はうつくしにはない"
+  ],
+  "pitfall": "現代語の「美しい（きれい）」と訳してしまう。古文では「かわいらしい」が基本。",
+  "related": "同じく「かわいい」の意をもつ語に「らうたし」がある。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "高知県教育委員会 中部教育事務所「国語科 課題改善プリント（中学校編）歴史的仮名遣い」10（『枕草子』「うつくしきもの」本文・現代語訳）",
+    "url": "https://www.pref.kochi.lg.jp/doc/2021030600013/file_contents/file_202391591019_3.pdf",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「美しい（うつくし）」（デジタル大辞泉・精選版 日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E7%BE%8E%E3%81%97%E3%81%84-440756",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "id": "tango-103",
+  "version": 2,
+  "status": "verified",
+  "category": "tango",
+  "topic": "つれづれなり（手持ちぶさた）",
+  "format": "write",
+  "difficulty": 2,
+  "question": "次は『徒然草』序段の書き出しである（本文は日本古典読本版による）。\n\n（　　）なるまゝに、日ぐらし硯にむかひて、心にうつりゆくよしなし事を、そこはかとなく書きつくれば、あやしうこそものぐるほしけれ。\n\n空欄には「することがなく、手持ちぶさたである」という意味の形容動詞の語幹が入る。ひらがな4字で答えよ。",
+  "answerText": "つれづれ",
+  "accept": [
+   "つれづれ",
+   "つれ〴〵"
+  ],
+  "explanation": "「つれづれなり」は、することがなく退屈で手持ちぶさたなさま。作品名『徒然草』もこの書き出しの語から来ている。",
+  "pitfall": "「つれづれ」は「しんみりと寂しい」「物思いにふける」の意でも使われる。「手持ちぶさた」だけと決めつけず、文脈で判断する。",
+  "related": "序段の「あやしうこそものぐるほしけれ」は係り結び（こそ→已然形「ものぐるほしけれ」）。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "『徒然草』本文（日本古典読本版・バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/YosTsur/text.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「徒然（つれづれ）」（デジタル大辞泉・精選版 日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E5%BE%92%E7%84%B6-573042",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "id": "tango-104",
+  "version": 1,
+  "status": "verified",
+  "category": "tango",
+  "topic": "かしこし（おそれ多い）",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次は『徒然草』第一段の一節である（本文は日本古典読本版による）。\n\n御門の御位は、いともかしこし。竹の園生の末葉まで、人間の種ならぬぞやんごとなき。\n\n本文中の「かしこし」の意味として最も適当なものを選べ。",
+  "options": [
+   "頭がよく賢明だ",
+   "おそれ多い",
+   "恐ろしく危険だ",
+   "都合がよい"
+  ],
+  "answer": 1,
+  "explanation": "帝の位について言っており、続く文でも皇族は「人間の種ならぬ」ほど尊いとしているので、尊いものをおそれ敬う「おそれ多い」の意。",
+  "optionNotes": [
+   "「賢し」の意味もあるが、帝の位という地位について言う文脈には合わない",
+   "正解。尊い存在をおそれ敬う気持ち",
+   "神や雷などの威力をおそれる意味もあるが、ここは敬意の文脈",
+   "帝の位について述べる文脈に合わない"
+  ],
+  "pitfall": "現代語の「賢い」と訳してしまう。帝・神・貴人が相手なら「おそれ多い」と考える。",
+  "related": "同じ段の「やんごとなき」は「高貴だ」の意。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "『徒然草』本文（日本古典読本版・バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/YosTsur/text.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「畏い（かしこし）」（デジタル大辞泉・精選版 日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E7%95%8F%E3%81%84-3137173",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "id": "tango-105",
+  "version": 1,
+  "status": "verified",
+  "category": "tango",
+  "topic": "やむごとなし・ときめく",
+  "format": "combo",
+  "difficulty": 3,
+  "question": "次は『源氏物語』桐壺巻の冒頭である（本文は渋谷栄一校訂本による）。\n\nいづれの御時にか、女御、更衣あまたさぶらひたまひけるなかに、いとやむごとなき際にはあらぬが、すぐれて時めきたまふありけり。\n\n本文中のA「やむごとなき」、B「時めき」の意味の組み合わせとして最も適当なものを選べ。",
+  "options": [
+   "A 高貴な　B 帝の寵愛を受けて栄える",
+   "A 高貴な　B 期待で胸がどきどきする",
+   "A 捨てておけない　B 帝の寵愛を受けて栄える",
+   "A 捨てておけない　B 期待で胸がどきどきする"
+  ],
+  "answer": 0,
+  "explanation": "A：「際」は身分のこと。「やむごとなき際」で「高貴な身分」。B：女御・更衣が帝に仕える後宮の話なので、「時めく」は帝の寵愛を受けて栄える意。デジタル大辞泉もこの箇所を「寵愛される」の例に挙げている。",
+  "optionNotes": [
+   "正解。高貴な身分ではない人が、格別に帝の寵愛を受けていた",
+   "Bが誤り。「胸がどきどきする」は現代語の意味",
+   "Aが誤り。「捨てておけない」もやむごとなしの意味だが、「際（身分）」にかかる文脈には合わない",
+   "AもBも誤り"
+  ],
+  "pitfall": "「時めく」を現代語の「ときめく（心が躍る）」と訳すミス。後宮の話なら「寵愛を受ける」。",
+  "related": "やむごとなし：①捨てておけない ②格別だ ③高貴だ。「めざまし（気にくわない）」も同じ段落に出る重要語。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "『源氏物語』桐壺 本文（渋谷栄一校訂・バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/MurGenj/vol1.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「止ん事無い（やむごとなし）」（デジタル大辞泉・精選版 日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E6%AD%A2%E3%82%93%E4%BA%8B%E7%84%A1%E3%81%84-650009",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「時めく」（デジタル大辞泉・精選版 日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E6%99%82%E3%82%81%E3%81%8F-582319",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "id": "tango-106",
+  "version": 2,
+  "status": "verified",
+  "category": "tango",
+  "topic": "おどろく（はっと気づく）",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "次は『古今和歌集』秋歌上（一六九番）、藤原敏行朝臣の「秋立つ日よめる」歌である。\n\nあききぬとめにはさやかに見えねども風のおとにぞおどろかれぬる\n\n本文中の「おどろかれぬる」の解釈として最も適当なものを選べ。",
+  "options": [
+   "（秋の訪れに）自然とはっと気づいた",
+   "目を覚まさせられた",
+   "恐ろしく感じられた",
+   "びっくりさせられたにちがいない"
+  ],
+  "answer": 0,
+  "explanation": "秋が来たと目にははっきり見えないが、風の音で（秋の訪れに）自然とはっと気づいた、という歌。「おどろく」は「はっと気づく」、「れ」は自発、「ぬる」は完了「ぬ」の連体形（「ぞ」の結び）。精選版日本国語大辞典もこの歌を「はっとして気づく」の例に挙げる。",
+  "optionNotes": [
+   "正解。「れ」は自発（自然と）、「ぬる」は完了（〜た）。風の音で秋の到来に自然とはっと気づいた",
+   "「目を覚ます」もおどろくの意味だが、眠りの場面ではない",
+   "おどろくに「恐ろしい」の意味はない",
+   "「ぬる」は完了で、推量（〜にちがいない）の意味は含まない"
+  ],
+  "pitfall": "おどろく＝「驚く」と決めつける。古文では「はっと気づく」「目を覚ます」が重要。",
+  "related": "「おどろかす」は「気づかせる・起こす」。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "『古今和歌集』巻第四 秋歌上 本文（バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/RodKoki/vol5.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「驚く（おどろく）」（デジタル大辞泉・精選版 日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E9%A9%9A%E3%81%8F-453583",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "id": "tango-107",
+  "version": 1,
+  "status": "verified",
+  "category": "tango",
+  "topic": "いみじ（すばらしい）",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次は『徒然草』第七段の冒頭である（本文は日本古典読本版による）。\n\nあだし野の露きゆる時なく、鳥部山の烟立ちさらでのみ住みはつるならひならば、いかに物のあはれもなからん。世はさだめなきこそいみじけれ。\n\n本文中の「いみじけれ」の意味として最も適当なものを選べ。",
+  "options": [
+   "すばらしい",
+   "ひどくつらい",
+   "恐ろしい",
+   "むなしい"
+  ],
+  "answer": 0,
+  "explanation": "人が死なずにいつまでも生き続けるのなら情趣もないだろう、と述べたうえで、世は無常だからこそ「すばらしい」と結論している。いみじは程度がはなはだしい意で、良い意味にも悪い意味にもなるため文脈で決める。",
+  "optionNotes": [
+   "正解。無常だからこそ物のあはれがある、という肯定の文脈",
+   "悪い意味の「いみじ」だが、ここは無常を肯定している",
+   "悪い意味の訳。文脈と逆",
+   "いみじに「むなしい」の意味はない。無常＝むなしいという連想に注意"
+  ],
+  "pitfall": "「さだめなき（無常）」から悲観的な意味を連想しやすい。前の文で「物のあはれもなからん」と言っているので、無常を肯定する文脈。",
+  "related": "「こそ〜いみじけれ」は係り結び（已然形）。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "『徒然草』本文（日本古典読本版・バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/YosTsur/text.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「いみじ」（デジタル大辞泉・精選版 日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E3%81%84%E3%81%BF%E3%81%98-206607",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "id": "tango-108",
+  "version": 2,
+  "status": "verified",
+  "category": "tango",
+  "topic": "あいなし（つまらない）",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次は『徒然草』第七十三段の冒頭である（本文は日本古典読本版による）。\n\n世に語り傳ふる事、まことはあいなきにや、多くは皆虚言なり。\n\n本文中の「あいなき」の意味として最も適当なものを選べ。",
+  "options": [
+   "おもしろみがない",
+   "愛情が感じられない",
+   "めったにない",
+   "おそれ多い"
+  ],
+  "answer": 0,
+  "explanation": "世に語り伝えられる話は多くがうそである。それは本当のことはおもしろみがないからだろうか、という文脈。あいなしは「つまらない・おもしろみがない」のほか「気にくわない」「むやみに」などの意もある。",
+  "optionNotes": [
+   "正解。真実はおもしろくないので話が誇張される",
+   "「愛無し」と字面で考えた誤り",
+   "「めったにない」は「ありがたし」の意味",
+   "「おそれ多い」は「かしこし」の意味"
+  ],
+  "pitfall": "語源は『愛無し』『合（あひ）無し』など諸説あって定まらない。字面から『愛がない』と訳さないこと。",
+  "related": "連用形「あいなく」は「むやみに」の意（例：『源氏物語』桐壺「あいなく目を側めつつ」）。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "『徒然草』本文（日本古典読本版・バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/YosTsur/text.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「あいなし」（デジタル大辞泉・精選版 日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E3%81%82%E3%81%84%E3%81%AA%E3%81%97-193624",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "id": "tango-109",
+  "version": 1,
+  "status": "verified",
+  "category": "tango",
+  "topic": "うしろめたし（気がかりだ）",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "次は『源氏物語』若紫巻で、尼君が孫の少女（のちの紫の上）の髪をなでながら言う言葉の冒頭である（本文は渋谷栄一校訂本による。後略）。\n\n尼君、髪をかき撫でつつ、「梳ることをうるさがりたまへど、をかしの御髪や。いとはかなうものしたまふこそ、あはれにうしろめたけれ。\n\n本文中の「うしろめたけれ」の意味として最も適当なものを選べ。",
+  "options": [
+   "やましく気がとがめる",
+   "この先が気がかりで心配だ",
+   "油断がならず気が許せない",
+   "うとましくいやだ"
+  ],
+  "answer": 1,
+  "explanation": "少女がまだたいそう幼く頼りないことを、年老いた尼君が案じている場面なので「気がかりで心配だ」。うしろめたしは、目の届かないものに対する不安が原義で、古くは「やましい」の意を含まなかった。",
+  "optionNotes": [
+   "現代語「後ろめたい」の意味。尼君にやましいことはない",
+   "正解。幼い孫の行く末を案じている",
+   "「信用できない」の意味もあるが、孫を案じる場面には合わない",
+   "うしろめたしにこの意味はない"
+  ],
+  "pitfall": "現代語の「後ろめたい（やましい）」と訳してしまう。古文では「気がかりだ・心配だ」が基本。",
+  "related": "反対の意味の語は「うしろやすし（安心だ）」。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "『源氏物語』若紫 本文（渋谷栄一校訂・バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/MurGenj/vol5.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「後ろめたい（うしろめたし）」（デジタル大辞泉・精選版 日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E5%BE%8C%E3%82%8D%E3%82%81%E3%81%9F%E3%81%84-439737",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "id": "tango-110",
+  "version": 1,
+  "status": "verified",
+  "category": "tango",
+  "topic": "ゆかし（見たい）",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次は『源氏物語』若紫巻で、光源氏が少女（のちの紫の上）を垣間見る場面である（本文は渋谷栄一校訂本による）。\n\nつらつきいとらうたげにて、眉のわたりうちけぶり、いはけなくかいやりたる額つき、髪ざし、いみじううつくし。「ねびゆかむさまゆかしき人かな」と、目とまりたまふ。\n\n本文中の「ゆかしき」の意味として最も適当なものを選べ。",
+  "options": [
+   "見てみたいと心ひかれる",
+   "上品で奥ゆかしい",
+   "昔がしのばれて懐かしい",
+   "いたわしく気の毒な"
+  ],
+  "answer": 0,
+  "explanation": "「ねびゆかむさま」は成長していく様子。愛らしい少女を見て、その成長していく姿を見たいと心ひかれている。ゆかしは「行く」から出た語で、見たい・聞きたい・知りたいという気持ちを表す。",
+  "optionNotes": [
+   "正解。成長した姿を見たいと思う",
+   "現代語「奥ゆかしい」の意味に引かれた誤り",
+   "現代語「ゆかしい（懐かしい）」の意味",
+   "ゆかしにこの意味はない"
+  ],
+  "pitfall": "現代語の「奥ゆかしい」「古式ゆかしい」に引かれる。古文では「〜したい（見たい・知りたい）」と訳す。",
+  "related": "ねぶ＝年をとる・成長する。「らうたげ」も「かわいらしい」の意。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "『源氏物語』若紫 本文（渋谷栄一校訂・バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/MurGenj/vol5.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「床しい（ゆかし）」（デジタル大辞泉・精選版 日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E5%BA%8A%E3%81%97%E3%81%84-651412",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "id": "tango-111",
+  "version": 1,
+  "status": "verified",
+  "category": "tango",
+  "topic": "ののしる（評判になる）",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "次は『源氏物語』若紫巻で、僧都が尼君に言う言葉の一部である（本文は渋谷栄一校訂本による。後略）。\n\n「この世に、ののしりたまふ光源氏、かかるついでに見たてまつりたまはむや。\n\n本文中の「ののしりたまふ」の解釈として最も適当なものを選べ。",
+  "options": [
+   "大声で騒ぎ立てていらっしゃる",
+   "世間で評判になっていらっしゃる",
+   "人を口汚く非難していらっしゃる",
+   "ひっそりと人目を避けていらっしゃる"
+  ],
+  "answer": 1,
+  "explanation": "「この世に、ののしりたまふ光源氏」で、世間で盛んに評判になっている光源氏、の意。この機会にお目にかかってはどうかと勧めている。ののしるは「大声で騒ぐ」のほか「評判になる」の意もある。",
+  "optionNotes": [
+   "「大声で騒ぐ」はののしるの基本の意味だが、「この世に」と光源氏を紹介する言い方には合わない",
+   "正解。世間で評判の光源氏",
+   "現代語「罵る」の意味",
+   "ののしるにこの意味はない"
+  ],
+  "pitfall": "現代語の「罵る（悪口を言う）」と訳す。古文の基本は「大騒ぎする」で、人について「世に〜」と言うときは「評判になる」。",
+  "related": "同じく「評判」に関わる語に「おぼえ（評判・寵愛）」がある。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "『源氏物語』若紫 本文（渋谷栄一校訂・バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/MurGenj/vol5.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「罵る（ののしる）」（デジタル大辞泉・精選版 日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E7%BD%B5%E3%82%8B-597154",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "id": "tango-112",
+  "version": 1,
+  "status": "verified",
+  "category": "tango",
+  "topic": "おぼつかなし（気がかりだ）",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次は『源氏物語』桐壺巻で、帝が亡き更衣の母に伝えさせた言葉の一部である（本文は渋谷栄一校訂本による）。\n\n若宮のいとおぼつかなく、露けき中に過ぐしたまふも、心苦しう思さるるを、とく参りたまへ\n\n本文中の「おぼつかなく」の意味として最も適当なものを選べ。",
+  "options": [
+   "様子がわからず気がかりで",
+   "体が弱く病気がちで",
+   "ぼんやりとして、はっきり見えず",
+   "不審で疑わしく"
+  ],
+  "answer": 0,
+  "explanation": "若宮（のちの光源氏）は母の実家にいて、帝は会えずに様子がわからない。その状態を案じ、早く参内するよう促している。おぼつかなしは、対象の様子がはっきりせず不安な気持ちを表す。",
+  "optionNotes": [
+   "正解。会えない若宮の様子を案じている",
+   "おぼつかなしに「病弱だ」の意味はない",
+   "「ぼんやりしてはっきり見えない」は景色などについて言う意味で、ここには合わない",
+   "「不審だ」の意味もあるが、帝が若宮を案じる文脈には合わない"
+  ],
+  "pitfall": "現代語の「おぼつかない（うまくいきそうもない）」で訳すと文意が通らない。古文では「気がかりだ」「はっきりしない」が中心。",
+  "related": "「露けき中」は涙がちな（喪中の）暮らしの意。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "『源氏物語』桐壺 本文（渋谷栄一校訂・バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/MurGenj/vol1.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「覚束無い（おぼつかなし）」（デジタル大辞泉・精選版 日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E8%A6%9A%E6%9D%9F%E7%84%A1%E3%81%84-454333",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "id": "tango-113",
+  "version": 1,
+  "status": "verified",
+  "category": "tango",
+  "topic": "こころもとながる（待ち遠しく思う）",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次は『源氏物語』桐壺巻で、光源氏が誕生した場面である（本文は渋谷栄一校訂本による）。\n\n先の世にも御契りや深かりけむ、世になく清らなる玉の男御子さへ生まれたまひぬ。いつしかと心もとながらせたまひて、急ぎ参らせて御覧ずるに、めづらかなる稚児の御容貌なり。\n\n本文中の「心もとながらせたまひて」の解釈として最も適当なものを選べ。",
+  "options": [
+   "待ち遠しくお思いになって",
+   "気の毒にお思いになって",
+   "不満にお思いになって",
+   "恥ずかしくお思いになって"
+  ],
+  "answer": 0,
+  "explanation": "「いつしかと（早く〜したい）」と、生まれた皇子を急いで参内させて御覧になっているので、早く見たいと「待ち遠しくお思いになって」。こころもとなしは、思いがかなわず心が落ち着かない、待ち遠しい・じれったいの意。「せたまふ」は帝への最高敬語。",
+  "optionNotes": [
+   "正解。「いつしかと」「急ぎ参らせて」と合う",
+   "こころもとなしに「気の毒だ」の意味はない",
+   "こころもとなしに「不満だ」の意味はない",
+   "こころもとなしに「恥ずかしい」の意味はない"
+  ],
+  "pitfall": "現代語の「心もとない（頼りない）」で考えると「急ぎ参らせて」とつながらない。",
+  "related": "「いつしか」＋願望・意志は「早く〜したい」。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "『源氏物語』桐壺 本文（渋谷栄一校訂・バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/MurGenj/vol1.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「心許無い（こころもとなし）」（デジタル大辞泉・精選版 日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E5%BF%83%E8%A8%B1%E7%84%A1%E3%81%84-500747",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "id": "tango-114",
+  "version": 1,
+  "status": "verified",
+  "category": "tango",
+  "topic": "ながむ（物思いにふける）",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "次は『源氏物語』桐壺巻で、更衣を亡くした帝が使者を送り出す場面である（本文は渋谷栄一校訂本による）。\n\n野分だちて、にはかに肌寒き夕暮のほど、常よりも思し出づること多くて、靫負命婦といふを遣はす。夕月夜のをかしきほどに出だし立てさせたまひて、やがてながめおはします。\n\n本文中の「ながめおはします」の解釈として最も適当なものを選べ。",
+  "options": [
+   "物思いにふけりながら、ぼんやりと外を見ていらっしゃる",
+   "詩歌を声に出して吟じていらっしゃる",
+   "景色の美しさを楽しんで見渡していらっしゃる",
+   "長い間お休みになっていらっしゃる"
+  ],
+  "answer": 0,
+  "explanation": "いつもより亡き更衣を思い出すことが多い夕暮れで、使者を送り出したまま物思いに沈んでいる場面。デジタル大辞泉もこの箇所を「物思いにふけりながら、見るともなくぼんやり見る」の例に挙げる。",
+  "optionNotes": [
+   "正解。亡き人を思って物思いに沈んでいる",
+   "「詠む（ながむ）」は詩歌を吟じる意の別語。ここは悲しみに沈む文脈",
+   "現代語「眺める」の意味。悲しみの場面には合わない",
+   "ながむに「休む・寝る」の意味はない"
+  ],
+  "pitfall": "現代語の「眺める（景色を見渡す）」で訳してしまう。古文のながむは「物思いにふける」が中心。",
+  "related": "ながめ＝物思い。和歌では「長雨」との掛詞になることが多い。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "『源氏物語』桐壺 本文（渋谷栄一校訂・バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/MurGenj/vol1.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「眺める（ながむ）」（デジタル大辞泉・精選版 日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E7%9C%BA%E3%82%81%E3%82%8B-588159",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "id": "tango-115",
+  "version": 1,
+  "status": "verified",
+  "category": "tango",
+  "topic": "やがて（すぐに）",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次は『徒然草』第七十一段の冒頭である（本文は日本古典読本版による）。\n\n名を聞くより、やがて面影はおしはからるゝ心地するを、見る時は、又かねて思ひつるまゝの顏したる人こそなけれ。\n\n本文中の「やがて」の意味として最も適当なものを選べ。",
+  "options": [
+   "すぐに",
+   "いずれそのうちに",
+   "しだいに",
+   "かえって"
+  ],
+  "answer": 0,
+  "explanation": "名前を聞くとすぐに顔つきが自然と想像される、という文脈。精選版日本国語大辞典もこの箇所を「すぐさま。ただちに」の例に挙げる。古文のやがては「そのまま」「すぐに」が中心。",
+  "optionNotes": [
+   "正解。「名を聞くより（聞くとすぐ）」とつながる",
+   "現代語「やがて（そのうちに）」の意味",
+   "やがてに「しだいに」の意味はない",
+   "やがてに「かえって」の意味はない"
+  ],
+  "pitfall": "現代語の「やがて（そのうちに）」で訳してしまう。古文では「すぐに」「そのまま」。",
+  "related": "「より」は「〜するとすぐに」の意を表す格助詞の用法。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "『徒然草』本文（日本古典読本版・バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/YosTsur/text.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「軈て（やがて）」（デジタル大辞泉・精選版 日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E8%BB%88%E3%81%A6-647614",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "id": "tango-116",
+  "version": 1,
+  "status": "verified",
+  "category": "tango",
+  "topic": "さすがに（そうはいってもやはり）",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次は『徒然草』第十一段の一節である（本文は日本古典読本版による）。\n\n遙なる苔のほそ道をふみわけて、心ぼそくすみなしたる庵あり。木の葉にうづもるゝかけ樋の雫ならでは、つゆおとなふ物なし。閼伽棚に菊紅葉など折りちらしたる、さすがにすむ人のあればなるべし。\n\n本文中の「さすがに」の意味として最も適当なものを選べ。",
+  "options": [
+   "そうはいってもやはり",
+   "評判どおり、たいしたことに",
+   "まったく意外なことに",
+   "かろうじて"
+  ],
+  "answer": 0,
+  "explanation": "かけ樋のしずく以外に音を立てるものもない寂しい庵だが、閼伽棚に菊や紅葉が折り散らしてあるのは、そうはいってもやはり住む人がいるからだろう、という文脈。前の内容をいったん認めつつ、それと反する事柄を述べる。",
+  "optionNotes": [
+   "正解。人けがない様子を認めつつ、やはり人が住んでいると述べる",
+   "現代語「さすが（たいしたものだ）」の意味",
+   "「意外なことに」では前の内容を受ける働きが表せない",
+   "さすがにに「かろうじて」の意味はない"
+  ],
+  "pitfall": "現代語の「さすが（感心する）」で訳してしまう。古文では「そうはいってもやはり」。",
+  "related": "同じ段の「あはれに見る」「ことさめて（興ざめして）」もあわせて押さえる。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "『徒然草』本文（日本古典読本版・バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/YosTsur/text.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「流石（さすがに）」（デジタル大辞泉・精選版 日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E6%B5%81%E7%9F%B3-510701",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "id": "tango-117",
+  "version": 3,
+  "status": "verified",
+  "category": "tango",
+  "topic": "なまめく（若々しく優美だ）",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次は『伊勢物語』第一段の冒頭である（本文はバージニア大学図書館の公開本文による）。\n\nむかし、おとこ、うゐかうぶりして、ならの京、かすがのさとに、しるよしゝて、かりにいにけり。そのさとに、いとなまめいたるをむなはらからすみけり。\n※仮名遣いは底本のまま（教科書では『男』『初冠』『女』）\n\n本文中の「なまめいたる」の意味として最も適当なものを選べ。",
+  "options": [
+   "若々しく優美な",
+   "色っぽく男を誘うような",
+   "年を重ねて落ち着いた",
+   "身分が低く粗末な"
+  ],
+  "answer": 0,
+  "explanation": "元服したばかりの男が、旧都の春日の里で美しい姉妹を見かける場面。なまめくは、みずみずしく若々しい美しさや、上品で優美なさまを表す。デジタル大辞泉・精選版日本国語大辞典ともこの箇所を「若々しく美しい」「優美である」の例に挙げる。",
+  "optionNotes": [
+   "正解。若々しく上品で美しい姉妹",
+   "古語にも『色っぽい』の意はあるが、辞書はこの箇所を『若々しく美しい』の例に挙げている",
+   "「年を重ねた」は反対の意味",
+   "なまめくに「粗末だ」の意味はない"
+  ],
+  "pitfall": "現代語の「なまめかしい（色っぽい）」に引かれる。古文では「若々しく美しい・優美だ」。",
+  "related": "うひかうぶり（初冠）＝元服。形容詞「なまめかし」も同じく「優美だ」。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "『伊勢物語』本文（バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/AnoIsem/text.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「艶めく（なまめく）」（デジタル大辞泉・精選版 日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E8%89%B6%E3%82%81%E3%81%8F-572665",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "id": "tango-118",
+  "version": 2,
+  "status": "verified",
+  "category": "tango",
+  "topic": "ありがたし（めったにない）",
+  "format": "choice4",
+  "difficulty": 1,
+  "question": "次は『枕草子』「ありがたきもの」の段の書き出しである（本文は有朋堂文庫本による）。\n\nありがたきもの\n舅に褒めらるる壻。また姑に思はるる婦（よめ）の君。\n\n本文中の「ありがたき」の意味として最も適当なものを選べ。",
+  "options": [
+   "感謝したくなる",
+   "めったにない",
+   "尊くもったいない",
+   "生きていくのがむずかしい"
+  ],
+  "answer": 1,
+  "explanation": "舅にほめられる婿、姑にかわいがられる嫁という、なかなかないものを並べているので「めったにない」。ありがたしは「有り難し（存在することがむずかしい）」が原義。辞書もこの段を「めったにない」の例に挙げる。",
+  "optionNotes": [
+   "現代語「ありがたい（感謝）」の意味",
+   "正解。存在することがむずかしい＝めったにない",
+   "「尊くもったいない」の意味もあるが、婿や嫁を並べる文脈には合わない",
+   "「世に生きることがむずかしい」の意味もあるが、婿や嫁を並べる文脈には合わない"
+  ],
+  "pitfall": "現代語の「ありがたい（感謝する）」と訳してしまう。",
+  "related": "ありがたし：①めったにない ②（世に）生きていくのがむずかしい ③めったにないほどすぐれている。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "『枕草子』本文（有朋堂文庫本・バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/SeiMaku/text.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「有難い（ありがたし）」（デジタル大辞泉・精選版 日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E6%9C%89%E9%9B%A3%E3%81%84-428214",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "id": "tango-119",
+  "version": 1,
+  "status": "verified",
+  "category": "tango",
+  "topic": "すさまじ（興ざめだ）",
+  "format": "write",
+  "difficulty": 2,
+  "question": "次は『枕草子』の類聚章段の一つの書き出しである（本文は有朋堂文庫本による）。\n\n（　　　）もの\n晝ほゆる犬。春の網代。三四月の紅梅のきぬ。\n\n空欄には、この段の題となっている「時節はずれなどで興ざめだ」という意味の形容詞が、本文どおりの活用形（連体形）で入る。ひらがな5字で答えよ。",
+  "answerText": "すさまじき",
+  "accept": [
+   "すさまじき"
+  ],
+  "explanation": "昼に吠える犬、春の網代、三・四月の紅梅の着物など、その時節に合わず期待外れのものを並べた「すさまじきもの」の段。すさまじは「興ざめだ」の意で、デジタル大辞泉もこの段を「興ざめである」の例に挙げる。",
+  "pitfall": "現代語の「すさまじい（ものすごい）」と混同する。古文では「興ざめだ」「寒々としている」。",
+  "related": "すさまじ：①興ざめだ ②殺風景で寒々としている。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "『枕草子』本文（有朋堂文庫本・バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/SeiMaku/text.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「凄まじい（すさまじ）」（デジタル大辞泉・精選版 日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E5%87%84%E3%81%BE%E3%81%98%E3%81%84-541605",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "id": "tango-120",
+  "version": 1,
+  "status": "verified",
+  "category": "tango",
+  "topic": "めでたし（すばらしい）",
+  "format": "choice4",
+  "difficulty": 1,
+  "question": "次は『徒然草』第九段の冒頭である（本文は日本古典読本版による）。\n\n女は髪のめでたからんこそ、人のめたつべかめれ。\n\n本文中の「めでたからん」の意味として最も適当なものを選べ。",
+  "options": [
+   "祝うべきで縁起がよいような",
+   "見事ですばらしいような",
+   "お人よしで単純なような",
+   "短く切りそろえてあるような"
+  ],
+  "answer": 1,
+  "explanation": "女性は髪が見事ですばらしいのが、人の目をひくだろう、という文脈。めでたしは「愛づ（ほめる）＋いたし」から来た語で、ほめたたえたいほどすばらしい意。",
+  "optionNotes": [
+   "現代語「めでたい（祝うべき）」の意味",
+   "正解。ほめたたえるほど見事だ",
+   "現代語「おめでたい人」の意味",
+   "めでたしにこの意味はない"
+  ],
+  "pitfall": "現代語の「おめでたい（祝うべき）」で訳してしまう。古文では「すばらしい・見事だ」。",
+  "related": "「めたつ」は「目立つ」で、人の目をひく意。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "『徒然草』本文（日本古典読本版・バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/YosTsur/text.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「めでたい（めでたし）」（デジタル大辞泉・精選版 日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E3%82%81%E3%81%A7%E3%81%9F%E3%81%84-396330",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "version": 2,
+  "status": "verified",
+  "isJiji": false,
+  "id": "jodo-101",
+  "category": "jodoshi",
+  "topic": "「ぬ」の識別（完了か打消か）",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "次の傍線部「ぬ」のうち、文法的に他と異なるものを一つ選べ。いずれも『竹取物語』「かぐや姫の昇天」の一節で、傍線部は「」で示す。（本文の表記は読みやすく一部改めた）",
+  "options": [
+   "さらず罷り「ぬ」べければ",
+   "あの国の人をえ戦は「ぬ」なり",
+   "許さ「ぬ」迎まうで来て",
+   "あわて「ぬ」さまなり"
+  ],
+  "answer": 0,
+  "explanation": "アは四段動詞「罷る」の連用形「罷り」に付き、下に推量の「べし」が続く完了（確述）の助動詞「ぬ」の終止形（「きっと〜してしまうはずだ」）。イ・ウは四段動詞の未然形「戦は」「許さ」に付く打消の助動詞「ず」の連体形。エも下に体言「さま」が続くので「ず」の連体形である。",
+  "optionNotes": [
+   "正解。連用形＋ぬ＋べし＝完了（確述）の「ぬ」終止形。",
+   "四段「戦ふ」の未然形＋ぬ＝打消「ず」の連体形（下の「なり」は断定）。",
+   "四段「許す」の未然形＋ぬ＝打消「ず」の連体形。体言「迎」に続く。",
+   "下二段「あわつ」は未然形と連用形が同じ「あわて」。下に体言「さま」があるので連体形→打消「ず」の連体形（完了なら連体形は「ぬる」）。"
+  ],
+  "pitfall": "下二段・上二段などは未然形と連用形が同じ形なので、上の語だけでは決まらない。そのときは「ぬ」の活用形（下が体言なら連体形→打消。「べし」の上や、係助詞の結びでない文末なら終止形→完了）で見分ける。",
+  "related": "「ぬ」の後ろに「べし」「らむ」「む」などの推量がつくと完了の確述（強意）。打消「ず」は連体形「ぬ」・已然形「ね」、完了「ぬ」は命令形「ね」・連体形「ぬる」・已然形「ぬれ」。",
+  "sources": [
+   {
+    "title": "竹取物語（バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/AnoTake/text.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "竹取物語（國民文庫）ウィキソース",
+    "url": "https://ja.wikisource.org/wiki/%E7%AB%B9%E5%8F%96%E7%89%A9%E8%AA%9E_%28%E5%9C%8B%E6%B0%91%E6%96%87%E5%BA%AB%29",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "学研全訳古語辞典（Weblio古語辞典）「ぬ」",
+    "url": "https://kobun.weblio.jp/content/%E3%81%AC",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "isJiji": false,
+  "id": "jodo-102",
+  "category": "jodoshi",
+  "topic": "「ぬ」「ね」の識別と自発の「る」",
+  "format": "combo",
+  "difficulty": 3,
+  "question": "次の和歌は『古今和歌集』巻第四・秋歌上に収める藤原敏行の歌（詞書「秋立つ日よめる」）である。傍線部①〜④の助動詞の文法的意味の組み合わせとして最も適当なものを一つ選べ。（本文の表記は読みやすく一部改めた）\n\n秋来（き）「①ぬ」と目にはさやかに見え「②ね」ども風の音にぞおどろか「③れ」「④ぬる」",
+  "options": [
+   "①完了　②打消　③自発　④完了",
+   "①打消　②打消　③受身　④完了",
+   "①完了　②完了　③自発　④打消",
+   "①打消　②完了　③可能　④完了"
+  ],
+  "answer": 0,
+  "explanation": "①カ変「来」の連用形「き」に付き、引用の「と」の上で終止形→完了「ぬ」。②下二段「見ゆ」の「見え」に付き、已然形接続の「ども」が続く。「ね」が已然形なのは打消「ず」（完了「ぬ」の已然形は「ぬれ」）。③「おどろく（はっと気づく）」に付く自発の「る」の連用形。④係助詞「ぞ」の結びで、完了「ぬ」の連体形「ぬる」。",
+  "optionNotes": [
+   "正解。",
+   "①は連用形「き」に付く終止形なので完了。③は自然と気づかされる意で自発。",
+   "②の「ね」に「ども」が付くので已然形。已然形が「ね」になるのは打消「ず」。④「ぬる」は完了の連体形。",
+   "①は完了、②は打消。③は心の動き（気づく）なので自発。"
+  ],
+  "pitfall": "「見えね」の「見え」は未然形・連用形が同じ形なので上からは決まらない。下の「ども」（已然形接続）を見て「ね」＝已然形→打消「ず」と判断する。完了「ぬ」の「ね」は命令形のみ。",
+  "related": "「ぞ・なむ・や・か」の結びは連体形、「こそ」の結びは已然形。心情・知覚の動詞（思ふ・しのぶ・おどろく・泣く）に付く「る・らる」は自発が多い。",
+  "sources": [
+   {
+    "title": "古今和歌集 巻第四 秋歌上（バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/RodKoki/vol5.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "学研全訳古語辞典（Weblio古語辞典）「あききぬと…」",
+    "url": "https://kobun.weblio.jp/content/%E3%81%82%E3%81%8D%E3%81%8D%E3%81%AC%E3%81%A8%E2%80%A6",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "学研全訳古語辞典（Weblio古語辞典）「ぬ」",
+    "url": "https://kobun.weblio.jp/content/%E3%81%AC",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "学研全訳古語辞典（Weblio古語辞典）「る」",
+    "url": "https://kobun.weblio.jp/content/%E3%82%8B",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "isJiji": false,
+  "id": "jodo-103",
+  "category": "jodoshi",
+  "topic": "「なり」の識別（断定か伝聞推定か）",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次の傍線部「なり」「なる」のうち、文法的に他と異なるものを一つ選べ。いずれも『竹取物語』「かぐや姫の昇天」の一節で、傍線部は「」で示す。（本文の表記は読みやすく一部改めた）",
+  "options": [
+   "己が身は、この国の人にもあらず、月の都の人「なり」",
+   "あの国の人をえ戦はぬ「なり」",
+   "今まで過し侍りつる「なり」",
+   "この望になむ、月の都よりかぐや姫の迎にまうで来（く）「なる」"
+  ],
+  "answer": 3,
+  "explanation": "エはカ変「まうで来」の終止形「まうで来（く）」に付いているので、伝聞推定の助動詞「なり」の連体形（係助詞「なむ」の結び）。「迎えがやって来るそうだ」の意。ア（体言「人」に接続）、イ（打消「ず」の連体形「ぬ」に接続）、ウ（完了「つ」の連体形「つる」に接続）はいずれも断定の助動詞「なり」。",
+  "optionNotes": [
+   "体言「人」＋なり＝断定。",
+   "打消「ず」の連体形「ぬ」＋なり＝断定。",
+   "完了「つ」の連体形「つる」＋なり＝断定。",
+   "正解。カ変の終止形「く」＋なる＝伝聞推定（ここは「〜そうだ」の伝聞）。"
+  ],
+  "pitfall": "「なり」の上が終止形なら伝聞推定、体言・連体形なら断定。四段動詞は終止形と連体形が同じ形なので決まらないが、カ変（く／くる）・サ変（す／する）・下二段などは形で見分けられる。ラ変型（あり・侍り・べかり等）には伝聞推定も連体形で付くので要注意。",
+  "related": "『土佐日記』冒頭「男もすなる日記といふものを、女もしてみんとてするなり」は、「す（終止形）＋なる」＝伝聞推定、「する（連体形）＋なり」＝断定の対比で頻出。",
+  "sources": [
+   {
+    "title": "竹取物語（バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/AnoTake/text.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "竹取物語（國民文庫）ウィキソース",
+    "url": "https://ja.wikisource.org/wiki/%E7%AB%B9%E5%8F%96%E7%89%A9%E8%AA%9E_%28%E5%9C%8B%E6%B0%91%E6%96%87%E5%BA%AB%29",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "学研全訳古語辞典（Weblio古語辞典）「なり」",
+    "url": "https://kobun.weblio.jp/content/%E3%81%AA%E3%82%8A",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "isJiji": false,
+  "id": "jodo-104",
+  "category": "jodoshi",
+  "topic": "「けむ」の意味と撥音便＋「なり」（伝聞推定）",
+  "format": "combo",
+  "difficulty": 3,
+  "question": "次は『更級日記』「門出」の冒頭である。傍線部A「けむ」、B「なる」の文法的意味の組み合わせとして最も適当なものを一つ選べ。（本文の表記は読みやすく一部改めた）\n\nあづま路の道の果てよりも、なほ奥つ方に生ひ出でたる人、いかばかりかはあやしかり「Aけむ」を、いかに思ひ始めけることにか、世の中に物語といふもののあん「Bなる」を、いかで見ばやと思ひつつ、",
+  "options": [
+   "A過去推量　B伝聞",
+   "A過去の伝聞　B断定",
+   "A過去推量　B断定",
+   "A現在推量　B伝聞"
+  ],
+  "answer": 0,
+  "explanation": "A「けむ」は過去推量で、「（東国の奥で育った私は）どんなにか田舎じみていただろうに」の意。B「あんなる」は、ラ変「あり」の連体形「ある」が撥音便「あん」になったものに付く伝聞推定の「なり」の連体形で、「物語というものがあるそうだが」の意。",
+  "optionNotes": [
+   "正解。",
+   "Aは自分の過去の様子を推し量っているので過去推量。Bは撥音便「あん」の下にあるので断定ではない。",
+   "Bは「あん（ある）なる」で伝聞推定。ラ変の撥音便に付くのは伝聞推定。",
+   "「けむ」は過去推量の助動詞で、現在推量は「らむ」。"
+  ],
+  "pitfall": "「あんなり」「あなり」（撥音「ん」を書かない形）、「ななり」「ざんなり」など、撥音便（または無表記）の下の「なり」は伝聞推定。「けむ」は名詞の上では過去の伝聞・婉曲になることがあるが、ここは接続助詞「を」が続き、推量の意。",
+  "related": "「いかで見ばや」の「ばや」は自己の願望（どうにかして読みたい）。同じ冒頭の「物語の多く候ふなる」も伝聞の「なり」。",
+  "sources": [
+   {
+    "title": "更級日記（バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/SugSara/text.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "学研全訳古語辞典（Weblio古語辞典）「けむ」",
+    "url": "https://kobun.weblio.jp/content/%E3%81%91%E3%82%80",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "学研全訳古語辞典（Weblio古語辞典）「なり」",
+    "url": "https://kobun.weblio.jp/content/%E3%81%AA%E3%82%8A",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "isJiji": false,
+  "id": "jodo-105",
+  "category": "jodoshi",
+  "topic": "「に」の識別（断定・完了・接続助詞・格助詞）",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "次の傍線部「に」のうち、断定の助動詞であるものを一つ選べ。いずれも『竹取物語』「かぐや姫の昇天」の一節で、傍線部は「」で示す。（本文の表記は読みやすく一部改めた）",
+  "options": [
+   "かくこの国には、数多の年を経ぬる「に」なむありける",
+   "罷らむ道も安くもあるまじき「に」、月ごろも出で居て",
+   "髪も白く、腰も屈り、目もただれ「に」けり",
+   "物思には片時「に」なむ老になりにける"
+  ],
+  "answer": 0,
+  "explanation": "アは連体形「経ぬる」に付き、係助詞「なむ」をはさんで「あり（ける）」が続く「に（なむ）あり」の形なので、断定の助動詞「なり」の連用形（「〜年を過ごしてしまったのであった」）。イも連体形に付くが、下に「あり」がなく文が続くので接続助詞（〜のに）。ウは連用形＋に＋けりで完了「ぬ」の連用形。エは時を表す体言「片時」に付く格助詞。",
+  "optionNotes": [
+   "正解。連体形＋に＋（係助詞）＋あり＝断定「なり」の連用形。",
+   "連体形「まじき」＋に＋読点で下へ続く＝接続助詞（安らかでもないだろうのに）。",
+   "連用形「ただれ」＋に＋けり＝完了「ぬ」の連用形。",
+   "体言「片時」＋に＝格助詞（時）。「なりにける」の「に」なら完了。"
+  ],
+  "pitfall": "連体形に付く「に」は、断定と接続助詞の両方がありうる。下に「あり・侍り・おはす」（間に「や・か・ぞ・なむ・こそ・は・も」が入ることも多い）が続けば断定、続かず文が流れれば接続助詞。",
+  "related": "「に」の識別：①連用形＋に＋き・けり・たり・けむ→完了「ぬ」 ②体言・連体形＋に＋あり→断定 ③「〜げに」「あはれに」など→形容動詞の活用語尾 ④「死に」「往に」→ナ変動詞の活用語尾。",
+  "sources": [
+   {
+    "title": "竹取物語（バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/AnoTake/text.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "竹取物語（國民文庫）ウィキソース",
+    "url": "https://ja.wikisource.org/wiki/%E7%AB%B9%E5%8F%96%E7%89%A9%E8%AA%9E_%28%E5%9C%8B%E6%B0%91%E6%96%87%E5%BA%AB%29",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "学研全訳古語辞典（Weblio古語辞典）「に」",
+    "url": "https://kobun.weblio.jp/content/%E3%81%AB",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "version": 2,
+  "status": "verified",
+  "isJiji": false,
+  "id": "jodo-106",
+  "category": "jodoshi",
+  "topic": "「べし」（適当）と「る」（可能）",
+  "format": "combo",
+  "difficulty": 2,
+  "question": "次は『徒然草』第五十五段の冒頭である（本文の表記は読みやすく一部改めた）。傍線部A「べし」、B「る」の文法的意味の組み合わせとして最も適当なものを一つ選べ。\n\n家の作りやうは、夏をむねとす「Aべし」。冬はいかなる所にも住ま「Bる」。暑き比（ころ）、わろき住居は堪へがたき事なり。",
+  "options": [
+   "A適当　B可能",
+   "A当然　B自発",
+   "A推量　B受身",
+   "A命令　B尊敬"
+  ],
+  "answer": 0,
+  "explanation": "A「べし」は、家の造り方について「夏（の過ごしやすさ）を主とするのがよい」と勧める適当の意。B「る」は四段「住む」の未然形「住ま」に付き、「冬はどんな所にでも住むことができる」という可能の意。",
+  "optionNotes": [
+   "正解。",
+   "筆者の考えを勧める文脈なので適当。「住まる」は自然にそうなる意ではなく「住むことができる」。",
+   "推量（〜だろう）では文意が通らない。住まいが「住まれる」という受身でもない。",
+   "命令は主従関係のはっきりした場面で多い。「住まる」の主語は一般の人で、尊敬の対象ではない。"
+  ],
+  "pitfall": "可能の「る・らる」は中古では打消を伴う（え〜ず、〜れず）のがふつうだが、中世の『徒然草』では肯定文でも可能を表すことがある。",
+  "related": "「べし」の意味はスイカトメテ（推量・意志・可能・当然・命令・適当）。直後の「暑き比、わろき住居は堪へがたき事なり」が理由の説明になっている。",
+  "sources": [
+   {
+    "title": "徒然草（バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/YosTsur/text.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "徒然草（校註日本文學大系）ウィキソース",
+    "url": "https://ja.wikisource.org/wiki/%E5%BE%92%E7%84%B6%E8%8D%89_%28%E6%A0%A1%E8%A8%BB%E6%97%A5%E6%9C%AC%E6%96%87%E5%AD%B8%E5%A4%A7%E7%B3%BB%29",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "学研全訳古語辞典（Weblio古語辞典）「べし」",
+    "url": "https://kobun.weblio.jp/content/%E3%81%B9%E3%81%97",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "学研全訳古語辞典（Weblio古語辞典）「る」",
+    "url": "https://kobun.weblio.jp/content/%E3%82%8B",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "isJiji": false,
+  "id": "jodo-107",
+  "category": "jodoshi",
+  "topic": "「る・らる」の意味（尊敬・自発・受身）",
+  "format": "combo",
+  "difficulty": 3,
+  "question": "次の傍線部ア〜ウの助動詞の文法的意味の組み合わせとして最も適当なものを一つ選べ。（本文の表記は読みやすく一部改めた）\n\nア　後徳大寺大臣の寝殿に、鳶ゐさせじとて縄を張ら「れ」たりけるを（『徒然草』第十段）\nイ　かのためし思ひ出で「られ」侍りしに（『徒然草』第十段）\nウ　近く使は「るる」人々、竹取の翁に告げていはく（『竹取物語』「かぐや姫の昇天」）",
+  "options": [
+   "ア尊敬　イ自発　ウ受身",
+   "ア受身　イ可能　ウ尊敬",
+   "ア尊敬　イ可能　ウ受身",
+   "ア受身　イ自発　ウ尊敬"
+  ],
+  "answer": 0,
+  "explanation": "アは大臣が（鳶をとまらせまいとして）縄をお張りになっていた、という尊敬。イは心情を表す「思ひ出づ」に付き、「あの先例が自然と思い出されました」という自発。ウは「（かぐや姫の）そば近くで使われている人々」という受身。",
+  "optionNotes": [
+   "正解。",
+   "アの主体は大臣で、縄が「張られる」受身ではなく大臣の動作への敬意。ウの「使はるる人々」は召使いたちで尊敬の対象ではない。",
+   "イは打消を伴わず、心情語に付いているので自発。",
+   "アは尊敬、ウは受身。"
+  ],
+  "pitfall": "主語が身分の高い人で、本人の動作なら尊敬。心情・知覚の動詞（思ふ・思ひ出づ・しのぶ・泣く・ながむ）に付けば自発。打消（え〜ず、〜れず）と結べば可能。「〜に…らる」と動作の相手があれば受身、が目安。",
+  "related": "「る」は四段・ナ変・ラ変の未然形、「らる」はそれ以外の動詞の未然形に付く。「〜られ給ふ」の形の「られ」は尊敬にならない（受身か自発）。",
+  "sources": [
+   {
+    "title": "徒然草（バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/YosTsur/text.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "徒然草（校註日本文學大系）ウィキソース",
+    "url": "https://ja.wikisource.org/wiki/%E5%BE%92%E7%84%B6%E8%8D%89_%28%E6%A0%A1%E8%A8%BB%E6%97%A5%E6%9C%AC%E6%96%87%E5%AD%B8%E5%A4%A7%E7%B3%BB%29",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "竹取物語（バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/AnoTake/text.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "学研全訳古語辞典（Weblio古語辞典）「ゐる」",
+    "url": "https://kobun.weblio.jp/content/%E3%82%90%E3%82%8B",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "学研全訳古語辞典（Weblio古語辞典）「らる」",
+    "url": "https://kobun.weblio.jp/content/%E3%82%89%E3%82%8B",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "学研全訳古語辞典（Weblio古語辞典）「る」",
+    "url": "https://kobun.weblio.jp/content/%E3%82%8B",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "version": 2,
+  "status": "verified",
+  "isJiji": false,
+  "id": "jodo-108",
+  "category": "jodoshi",
+  "topic": "「なむ」（ぬ＋む）と「む」の適当",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "次は『徒然草』第六段の冒頭である（本文の表記は読みやすく一部改めた）。傍線部の現代語訳として最も適当なものを一つ選べ。\n\nわが身のやんごとなからんにも、まして数ならざらんにも、子といふもの「なくてありなん」。",
+  "options": [
+   "子どもというものは、ないほうがよい",
+   "子どもというものは、ないままでいてほしい",
+   "子どもというものは、なくてもきっと生まれてくるだろう",
+   "子どもというものは、なかったのだろう"
+  ],
+  "answer": 0,
+  "explanation": "「ありなん」は、ラ変「あり」の連用形「あり」＋完了（確述）の助動詞「ぬ」の未然形「な」＋推量の助動詞「む」。ここでの「む」は適当で、「（身分が高くても低くても）子どもというものはないほうがよい」という筆者の考えを述べている。",
+  "optionNotes": [
+   "正解。ぬ＋む（適当）＝「〜のがよい」。",
+   "他に対する願望の終助詞「なむ」は未然形に付く。「あり」の未然形は「あら」なので、「ありなん」は終助詞ではない。",
+   "「生まれてくる」にあたる語がなく、筆者の主張（子孫が絶えることを願った人々の例が続く）とも合わない。",
+   "「ぬ」「む」に過去の意味はない。"
+  ],
+  "pitfall": "「なむ」の識別は直前の活用形で決める。未然形＋なむ＝他への願望の終助詞、連用形＋なむ＝ぬ＋む、体言・連体形など＋なむ＝係助詞。ラ変「あり」は未然「あら」と連用「あり」で形が違うので見分けやすい。",
+  "related": "「わが身のやんごとなからんにも」の「ん（む）」は連体形で下に「時」などを補う婉曲・仮定（〜ような場合にも）。主語が二人称・一般論のときの「む」は適当・勧誘になりやすい。",
+  "sources": [
+   {
+    "title": "徒然草（バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/YosTsur/text.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "徒然草（校註日本文學大系）ウィキソース",
+    "url": "https://ja.wikisource.org/wiki/%E5%BE%92%E7%84%B6%E8%8D%89_%28%E6%A0%A1%E8%A8%BB%E6%97%A5%E6%9C%AC%E6%96%87%E5%AD%B8%E5%A4%A7%E7%B3%BB%29",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "学研全訳古語辞典（Weblio古語辞典）「なむ」",
+    "url": "https://kobun.weblio.jp/content/%E3%81%AA%E3%82%80",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "学研全訳古語辞典（Weblio古語辞典）「む」",
+    "url": "https://kobun.weblio.jp/content/%E3%82%80",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "isJiji": false,
+  "id": "jodo-109",
+  "category": "jodoshi",
+  "topic": "「じ」（打消意志）と「べし」（適当）",
+  "format": "combo",
+  "difficulty": 2,
+  "question": "次は『伊勢物語』第九段（東下り）の冒頭である。傍線部A「じ」、B「べき」の文法的意味の組み合わせとして最も適当なものを一つ選べ。（本文の表記は読みやすく一部改めた）\n\nむかし、男ありけり。その男、身をえうなきものに思ひなして、京にはあら「Aじ」、あづまの方に住む「Bべき」国求めにとて行きけり。",
+  "options": [
+   "A打消意志　B適当",
+   "A打消推量　B当然",
+   "A打消意志　B推量",
+   "A打消推量　B命令"
+  ],
+  "answer": 0,
+  "explanation": "A「じ」は男自身の決意で、「京にはいるまい（住むつもりはない）」という打消意志。B「べき」は「東国の方に住むのにふさわしい国」を探す、という適当。",
+  "optionNotes": [
+   "正解。",
+   "「京にはあらじ」は男が自分の行動について決めた心中の言葉なので、打消推量ではなく打消意志。",
+   "「住むべき国」は「住むだろう国」ではなく「住むのにふさわしい国」。",
+   "Aは打消意志。命令は相手に命じる場面の用法で、「国」を修飾する「住むべき」には当たらない。"
+  ],
+  "pitfall": "「じ」は「む」の打消。主語が一人称（自分の行動）なら打消意志、二人称・三人称なら打消推量が目安。会話文でなくても、心中の言葉（〜とて）なら一人称と考える。",
+  "related": "「求めに」の「に」は動作の目的を表す格助詞（求めるために）。",
+  "sources": [
+   {
+    "title": "伊勢物語（バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/AnoIsem/text.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "学研全訳古語辞典（Weblio古語辞典）「じ」",
+    "url": "https://kobun.weblio.jp/content/%E3%81%98",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "学研全訳古語辞典（Weblio古語辞典）「に」",
+    "url": "https://kobun.weblio.jp/content/%E3%81%AB",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "version": 2,
+  "status": "verified",
+  "isJiji": false,
+  "id": "jodo-110",
+  "category": "jodoshi",
+  "topic": "「む」（婉曲）と「まじ」（不適当・禁止）",
+  "format": "combo",
+  "difficulty": 3,
+  "question": "次は『徒然草』第九十八段で、尊い聖たちの言葉を書き留めた『一言芳談』から、兼好が心にかなったものを引いた一節である（本文の表記は読みやすく一部改めた）。傍線部A「ん」、B「まじき」の文法的意味の組み合わせとして最も適当なものを一つ選べ。\n\n一　後世を思は「Aん」者は糂汰瓶（じんだがめ）一つも持つ「Bまじき」ことなり。\n（注）糂汰瓶＝ぬかみそを入れるかめ。",
+  "options": [
+   "A婉曲　B不適当・禁止（〜てはならない）",
+   "A意志　B打消推量（〜ないだろう）",
+   "A推量　B打消意志（〜ないつもりだ）",
+   "A婉曲　B不可能（〜できそうにない）"
+  ],
+  "answer": 0,
+  "explanation": "A「ん（む）」は連体形で体言「者」に続く婉曲（来世の安楽を願うような者は）。B「まじき」は、そうした者の心得として「ぬかみそ瓶一つも持ってはならないことだ」と述べる不適当・禁止の意。",
+  "optionNotes": [
+   "正解。",
+   "Aは文中で体言に続く連体形なので婉曲。Bは見込みではなく心得（すべきでないこと）を述べている。",
+   "主語は一般の「後世を思はん者」で、話し手自身の意志ではない。",
+   "持つことが「できない」のではなく、持つ「べきでない」という教え。"
+  ],
+  "pitfall": "文中の連体形「む」で、下に体言（または「は・に・も」などで名詞的に続く形）があれば婉曲・仮定。「まじ」は「べし」の打消で、べしの適当・当然の裏返しが不適当・禁止（〜てはならない、〜べきでない）。",
+  "related": "「まじ」の意味：打消推量・打消意志・不可能推量・不適当（禁止）・打消当然。『竹取物語』の「えとどむまじければ」は「え〜まじ」で不可能推量。",
+  "sources": [
+   {
+    "title": "徒然草（バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/YosTsur/text.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "徒然草（校註日本文學大系）ウィキソース",
+    "url": "https://ja.wikisource.org/wiki/%E5%BE%92%E7%84%B6%E8%8D%89_%28%E6%A0%A1%E8%A8%BB%E6%97%A5%E6%9C%AC%E6%96%87%E5%AD%B8%E5%A4%A7%E7%B3%BB%29",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "学研全訳古語辞典（Weblio古語辞典）「まじ」",
+    "url": "https://kobun.weblio.jp/content/%E3%81%BE%E3%81%98",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "学研全訳古語辞典（Weblio古語辞典）「む」",
+    "url": "https://kobun.weblio.jp/content/%E3%82%80",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "isJiji": false,
+  "id": "jodo-111",
+  "category": "jodoshi",
+  "topic": "過去「き」のサ変への接続",
+  "format": "write",
+  "difficulty": 2,
+  "question": "次は『竹取物語』「かぐや姫の昇天」で、翁がかぐや姫を手放すまいと言う場面である。傍線部「し」は助動詞である。その終止形をひらがな1字で書け。\n\n竹の中より見つけ聞えたりしかど、菜種の大さおはせ「し」を、我が丈立ち並ぶまで養ひ奉りたる我が子を、何人か迎へ聞えむ。",
+  "answerText": "き",
+  "accept": [
+   "き"
+  ],
+  "explanation": "「おはせし」は、サ変動詞「おはす」の未然形「おはせ」に過去の助動詞「き」の連体形「し」が付いた形（菜種ほどの大きさでいらっしゃったのを）。「き」は連用形接続だが、サ変には連体形「し」・已然形「しか」が未然形「せ」に付く特殊な付き方をする。",
+  "pitfall": "「せし」の「せ」を過去「き」の未然形「せ」と考えないこと。「き」の活用は（せ）・○・き・し・しか・○。「〜せし」は多くサ変未然形＋「し」。",
+  "related": "同じ文の「見つけ聞えたりしかど」の「しか」も過去「き」の已然形。カ変には「こし」「こしか」「きし」「きしか」の形で付く。",
+  "sources": [
+   {
+    "title": "竹取物語（バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/AnoTake/text.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "竹取物語（國民文庫）ウィキソース",
+    "url": "https://ja.wikisource.org/wiki/%E7%AB%B9%E5%8F%96%E7%89%A9%E8%AA%9E_%28%E5%9C%8B%E6%B0%91%E6%96%87%E5%BA%AB%29",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "学研全訳古語辞典（Weblio古語辞典）「き」",
+    "url": "https://kobun.weblio.jp/content/%E3%81%8D",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "学研全訳古語辞典（Weblio古語辞典）「おはす」",
+    "url": "https://kobun.weblio.jp/content/%E3%81%8A%E3%81%AF%E3%81%99",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "isJiji": false,
+  "id": "jodo-112",
+  "category": "jodoshi",
+  "topic": "「らむ」の意味（原因推量）",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次は『古今和歌集』巻第二・春歌下に収める紀友則の歌（詞書「桜の花の散るをよめる」）である。傍線部「らむ」の文法的意味として最も適当なものを一つ選べ。（本文の表記は読みやすく一部改めた）\n\n久方の光のどけき春の日にしづ心なく花の散る「らむ」",
+  "options": [
+   "現在の原因推量（どうして〜のだろう）",
+   "現在推量（今ごろ〜しているだろう）",
+   "過去推量（〜ただろう）",
+   "現在の伝聞・婉曲（〜とかいう）"
+  ],
+  "answer": 0,
+  "explanation": "目の前で花が散っているのを見て、「日の光がのどかな春の日に、どうして落ち着いた心もなく花は散るのだろうか」とその理由を推し量っている。疑問語がなくても「なぜ・どうして」を補って訳す原因推量の「らむ」。",
+  "optionNotes": [
+   "正解。",
+   "現在推量は目の前にない場所の今の様子を推し量る用法。ここでは花が散るのは目の前の事実。",
+   "過去推量は「けむ」。",
+   "伝聞・婉曲は多く連体形で名詞の上に来る用法。ここは文末で理由を問う。"
+  ],
+  "pitfall": "「らむ」は終止形（ラ変型は連体形）接続。目の前の事実に付いていたら原因推量を疑う。この歌のように疑問語が省かれていても「どうして」を補う。",
+  "related": "「らむ」の連語と混同しない：四段の已然形・サ変の未然形に付く「ら・む」は完了「り」の未然形＋「む」（例：あはれ知れらむ人）。",
+  "sources": [
+   {
+    "title": "古今和歌集 巻第二 春歌下（バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/RodKoki/vol3.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "学研全訳古語辞典（Weblio古語辞典）「ひさかたの…」",
+    "url": "https://kobun.weblio.jp/content/%E3%81%B2%E3%81%95%E3%81%8B%E3%81%9F%E3%81%AE%E2%80%A6",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "学研全訳古語辞典（Weblio古語辞典）「らむ」",
+    "url": "https://kobun.weblio.jp/content/%E3%82%89%E3%82%80",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "isJiji": false,
+  "id": "jodo-113",
+  "category": "jodoshi",
+  "topic": "存続の「り」の接続",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次は『伊勢物語』第九段（東下り）で、一行が駿河の国で富士山を見る場面である。傍線部「降れり」の文法的説明として最も適当なものを一つ選べ。（本文の表記は読みやすく一部改めた）\n\n富士の山を見れば、五月のつごもりに、雪いと白う「降れり」。",
+  "options": [
+   "四段動詞「降る」の已然形（命令形と同形）＋存続の助動詞「り」の終止形",
+   "四段動詞「降る」の連用形＋完了の助動詞「たり」の一部",
+   "下二段動詞「降る」の連用形＋存続の助動詞「り」の終止形",
+   "四段動詞「降る」の未然形＋打消の助動詞「ず」の一部"
+  ],
+  "answer": 0,
+  "explanation": "「り」は四段動詞の已然形（命令形と同形のエ段）とサ変動詞の未然形「せ」に付く。「降れ」は四段「降る」のエ段の形で、「五月の末だというのに、雪がとても白く降り積もっている」という存続の「り」の終止形。",
+  "optionNotes": [
+   "正解。",
+   "「たり」は連用形接続で「降りたり」となる。「降れり」は「り」。",
+   "「降る」は四段活用。「り」は下二段動詞には付かない。",
+   "打消「ず」なら「降らず」。"
+  ],
+  "pitfall": "四段・サ変の活用語尾がエ段の音で、その下に「ら・り・る・れ」があれば完了・存続の「り」。「り」は四段の已然形接続とも命令形接続とも説明される（中古以降は同形）。",
+  "related": "「り」と「たり」は意味（完了・存続）が同じで接続が違う。同じ段の「かきつばたいとおもしろく咲きたり」は連用形＋存続「たり」。",
+  "sources": [
+   {
+    "title": "伊勢物語（バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/AnoIsem/text.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "学研全訳古語辞典（Weblio古語辞典）「り」",
+    "url": "https://kobun.weblio.jp/content/%E3%82%8A",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "isJiji": false,
+  "id": "jodo-114",
+  "category": "jodoshi",
+  "topic": "自発の「る」の活用",
+  "format": "write",
+  "difficulty": 2,
+  "question": "次は『更級日記』「門出」で、作者が上京のために住み慣れた家を出る場面である。傍線部「れ」は助動詞である。その終止形をひらがな1字で書け。（本文の表記は読みやすく一部改めた）\n\n見捨てたてまつる悲しくて、人知れずうち泣か「れ」ぬ。",
+  "answerText": "る",
+  "accept": [
+   "る"
+  ],
+  "explanation": "四段動詞「泣く」の未然形「泣か」に付く自発の助動詞「る」の連用形「れ」で、下に完了の「ぬ」が続く（人知れず自然と泣けてしまった）。「る」は下二段型に活用する（れ・れ・る・るる・るれ・れよ）。",
+  "pitfall": "「れ」を完了・存続の「り」の已然形・命令形と混同しない。「り」はエ段の音（例：降れり、言へる）の下に付く。ここは「泣か」（ア段＝未然形）の下なので「る」。",
+  "related": "「る」は四段・ナ変・ラ変の未然形、「らる」はそれ以外の動詞の未然形に付く。心情・知覚の動詞（泣く・思ふ）に付く「る」は自発になりやすい。",
+  "sources": [
+   {
+    "title": "更級日記（バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/SugSara/text.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "学研全訳古語辞典（Weblio古語辞典）「る」",
+    "url": "https://kobun.weblio.jp/content/%E3%82%8B",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "isJiji": false,
+  "id": "jodo-115",
+  "category": "joshi",
+  "topic": "係り結びの消滅（流れ）",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "次は『土佐日記』十二月二十一日（門出）の一節である。傍線部「なむ」の結びについての説明として最も適当なものを一つ選べ。（本文の表記は読みやすく一部改めた）\n\n年ごろよくくらべつる人々「なむ」、別れがたく思ひて、日しきりにとかくしつつ、ののしるうちに夜更けぬ。",
+  "options": [
+   "結びになるはずの「思ふ」（連体形）が、接続助詞「て」に続いて連用形「思ひ」となり、係り結びが成立していない（結びの消滅・流れ）。",
+   "結びは文末の「夜更けぬ」で、完了「ぬ」の終止形で結んでいる。",
+   "結びは「思ひ」で、係助詞「なむ」は連用形で結ぶ。",
+   "「なむ」は他に対する願望の終助詞なので、結びはない。"
+  ],
+  "answer": 0,
+  "explanation": "係助詞「なむ」は連体形で結ぶが、ここでは「思ふ」となるべきところに接続助詞「て」が付いて文が下へ続くため、連用形「思ひ」となり係り結びは成立しない。これを結びの消滅（結びの流れ）という。",
+  "optionNotes": [
+   "正解。",
+   "結びは「なむ」を受ける文節（別れがたく思ひ）で考える。文末の「夜更けぬ」は「なむ」の結びではない。",
+   "「なむ」の結びは連体形。連用形になっているのは結びが消滅したため。",
+   "「人々」という体言に付いているので係助詞。終助詞「なむ」は未然形に付き文末に置かれる。"
+  ],
+  "pitfall": "係助詞があるのに文末が連体形・已然形になっていないときは、①結びの消滅（流れ）②結びの省略、を疑う。結びの語に接続助詞（て・ば・ど・に・を等）が付くと消滅する。",
+  "related": "「くらべつる」は「親しく付き合ってきた」。「とかくしつつ」「ののしる」（大騒ぎする）も重要語。",
+  "sources": [
+   {
+    "title": "土佐日記（青谿書屋本／バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/KinSeik/text.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "学研全訳古語辞典（Weblio古語辞典）「なむ」",
+    "url": "https://kobun.weblio.jp/content/%E3%81%AA%E3%82%80",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "学研全訳古語辞典（Weblio古語辞典）「こそ」",
+    "url": "https://kobun.weblio.jp/content/%E3%81%93%E3%81%9D",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "version": 2,
+  "status": "verified",
+  "isJiji": false,
+  "id": "jodo-116",
+  "category": "joshi",
+  "topic": "係り結びの省略と断定の「に」",
+  "format": "combo",
+  "difficulty": 3,
+  "question": "次は『徒然草』第十段で、西行が後徳大寺大臣の邸の屋根に縄が張られているのを見た場面である（本文の表記は読みやすく一部改めた）。「さばかりにこそ」の「に」の文法的説明と、「こそ」の下に省略されている結びの語の活用形の組み合わせとして最も適当なものを一つ選べ。\n\n後徳大寺大臣の寝殿に、鳶ゐさせじとて縄をはられたりけるを、西行が見て、「鳶のゐたらんは、何かはくるしかるべき。此の殿の御心、さばかりにこそ」とて、そののちはまゐらざりけると聞き侍るに、",
+  "options": [
+   "断定の助動詞「なり」の連用形・已然形",
+   "格助詞・連体形",
+   "断定の助動詞「なり」の連用形・連体形",
+   "完了の助動詞「ぬ」の連用形・已然形"
+  ],
+  "answer": 0,
+  "explanation": "「さばかりにこそ」は、副詞「さばかり（その程度）」＋断定の助動詞「なり」の連用形「に」＋係助詞「こそ」で、下に「あれ」「おはしけれ」などの結びが省略されている（このお方のお心はその程度なのだ）。「こそ」の結びは已然形。",
+  "optionNotes": [
+   "正解。",
+   "「に」の下に「あり」の類が省略された「に（こそ）あれ」の形なので断定。「こそ」の結びは已然形。",
+   "「こそ」の結びは連体形ではなく已然形。",
+   "完了「ぬ」の連用形「に」は連用形に付き、下に「き・けり・たり」などが続く。「さばかり」は副詞。"
+  ],
+  "pitfall": "「〜にこそ」「〜にや」「〜にか」で文が終わっていたら、断定「に」＋係助詞で、下に「あれ（あらめ）」「あらむ」などが省略された結びの省略。省略された語の活用形は係助詞で決まる（こそ→已然形、や・か→連体形）。",
+  "related": "同じ段の「何かはくるしかるべき」は、係助詞「かは」（反語）の結びで「べき」が連体形。「鳶のゐたらんは」の「ん」は婉曲。",
+  "sources": [
+   {
+    "title": "徒然草（バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/YosTsur/text.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "徒然草（校註日本文學大系）ウィキソース",
+    "url": "https://ja.wikisource.org/wiki/%E5%BE%92%E7%84%B6%E8%8D%89_%28%E6%A0%A1%E8%A8%BB%E6%97%A5%E6%9C%AC%E6%96%87%E5%AD%B8%E5%A4%A7%E7%B3%BB%29",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "学研全訳古語辞典（Weblio古語辞典）「こそ」",
+    "url": "https://kobun.weblio.jp/content/%E3%81%93%E3%81%9D",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "学研全訳古語辞典（Weblio古語辞典）「さばかり」",
+    "url": "https://kobun.weblio.jp/content/%E3%81%95%E3%81%B0%E3%81%8B%E3%82%8A",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "version": 2,
+  "status": "verified",
+  "isJiji": false,
+  "id": "jodo-117",
+  "category": "joshi",
+  "topic": "「こそ〜已然形、」の逆接",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次は『徒然草』第一段の一節である（本文の表記は読みやすく一部改めた）。傍線部の現代語訳として最も適当なものを一つ選べ。\n\n「しなかたちこそ生れつきたらめ」、心はなどか、賢きより賢きにもうつさばうつらざらん。",
+  "options": [
+   "家柄や容貌は生まれつきのものであろうけれども",
+   "家柄や容貌こそ生まれつき備わっていてほしいので",
+   "家柄や容貌は生まれつきのものであったから",
+   "家柄や容貌は生まれつきのものであろうか、いやそうではない"
+  ],
+  "answer": 0,
+  "explanation": "「こそ」を受ける「め」は推量の助動詞「む」の已然形で、文が終わらず読点で下へ続くので、「こそ〜已然形、」の逆接（〜けれども）になる。「家柄や容貌は生まれつきであろうけれども、心はどうして、賢いうえにも賢く移そうとすれば移らないことがあろうか」の意。",
+  "optionNotes": [
+   "正解。こそ＋已然形「め」＋読点＝逆接。",
+   "「め」は推量「む」の已然形で、願望の意味はない。",
+   "「たら」は存続「たり」の未然形、「め」は推量。過去や順接の理由（〜から）にはならない。",
+   "反語になっているのは下の「心はなどか…うつらざらん」。傍線部は逆接。"
+  ],
+  "pitfall": "「こそ」の結びの已然形で文が終わらず、読点で下に続くときは「〜けれども」と逆接に訳す。結びが已然形「め」になるのは推量「む」。",
+  "related": "「こそ〜め」は文末では適当・勧誘（〜のがよい）になることが多い。「などか…ざらん」は反語（どうして〜ないことがあろうか、いや〜する）。",
+  "sources": [
+   {
+    "title": "徒然草（バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/YosTsur/text.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "徒然草（校註日本文學大系）ウィキソース",
+    "url": "https://ja.wikisource.org/wiki/%E5%BE%92%E7%84%B6%E8%8D%89_%28%E6%A0%A1%E8%A8%BB%E6%97%A5%E6%9C%AC%E6%96%87%E5%AD%B8%E5%A4%A7%E7%B3%BB%29",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "学研全訳古語辞典（Weblio古語辞典）「こそ」",
+    "url": "https://kobun.weblio.jp/content/%E3%81%93%E3%81%9D",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "学研全訳古語辞典（Weblio古語辞典）「む」",
+    "url": "https://kobun.weblio.jp/content/%E3%82%80",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "isJiji": false,
+  "id": "jodo-118",
+  "category": "joshi",
+  "topic": "呼応の副詞・願望の終助詞（な〜そ・ばや・もがな・え）",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次の傍線部の説明として適当でないものを一つ選べ。（本文の表記は読みやすく一部改めた）",
+  "options": [
+   "『竹取物語』「かぐや姫の昇天」の「月な見給ひそ」は、副詞「な」と終助詞「そ」が呼応して禁止を表し、「月をご覧になりますな」と訳す。",
+   "『更級日記』「門出」の「いかで見ばやと思ひつつ」の「ばや」は、他に対する願望を表し、「どうにかして（人に）見てほしい」と訳す。",
+   "『伊勢物語』第八十四段の「世の中にさらぬ別れのなくもがな」の「もがな」は、願望を表し、「世の中に避けられない別れがなければいいのになあ」と訳す。",
+   "『伊勢物語』第六段の「神鳴るさわぎにえ聞かざりけり」は、副詞「え」が打消と呼応して不可能を表し、「（雷の鳴る騒ぎで）聞くことができなかった」と訳す。"
+  ],
+  "answer": 1,
+  "explanation": "「ばや」は未然形に付く自己の願望（〜たい）の終助詞で、「どうにかして（物語を）読みたいものだと思いながら」と訳す。他に対する願望（〜てほしい）は終助詞「なむ」。ほかの三つは正しい説明である。",
+  "optionNotes": [
+   "正しい。「な〜そ」は穏やかな禁止。",
+   "正解（適当でない）。「ばや」は自己の願望。他に対する願望は「なむ」。",
+   "正しい。形容詞「なし」の連用形「なく」＋もがな（〜があればなあ）。「さらぬ別れ」は死別のこと。",
+   "正しい。「え〜ず」で不可能。"
+  ],
+  "pitfall": "願望の終助詞の区別：「ばや」＝自己の願望（〜たい）、「なむ」＝他に対する願望（〜てほしい）、「もがな」「がな」＝願望（〜があればなあ・〜であればなあ）、「てしがな」「にしがな」＝自己の願望。",
+  "related": "「な〜そ」の「そ」は連用形（カ変・サ変は未然形「こ」「せ」）に付く。「え」は打消のほか「じ・まじ・で」や反語とも呼応する。",
+  "sources": [
+   {
+    "title": "竹取物語（バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/AnoTake/text.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "更級日記（バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/SugSara/text.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "伊勢物語（バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/AnoIsem/text.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "学研全訳古語辞典（Weblio古語辞典）「そ」",
+    "url": "https://kobun.weblio.jp/content/%E3%81%9D",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "学研全訳古語辞典（Weblio古語辞典）「ばや」",
+    "url": "https://kobun.weblio.jp/content/%E3%81%B0%E3%82%84",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "学研全訳古語辞典（Weblio古語辞典）「もがな」",
+    "url": "https://kobun.weblio.jp/content/%E3%82%82%E3%81%8C%E3%81%AA",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "学研全訳古語辞典（Weblio古語辞典）「え」",
+    "url": "https://kobun.weblio.jp/content/%E3%81%88",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "version": 2,
+  "status": "verified",
+  "isJiji": false,
+  "id": "jodo-119",
+  "category": "joshi",
+  "topic": "呼応の副詞「をさをさ〜打消」",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次は『徒然草』第十九段で、四季の情趣を順に述べ、冬に移るところである（本文の表記は読みやすく一部改めた）。傍線部の現代語訳として最も適当なものを一つ選べ。\n\nさて、冬枯のけしきこそ、「秋にはをさをさ劣るまじけれ」。",
+  "options": [
+   "秋にはほとんど劣らないだろう",
+   "秋にはなかなか及ばないだろう",
+   "秋には決して劣るまいと思う",
+   "秋にはそれほど劣らなかった"
+  ],
+  "answer": 0,
+  "explanation": "副詞「をさをさ」は下に打消を伴って「ほとんど（〜ない）」の意。「まじけれ」は打消推量の助動詞「まじ」の已然形で、係助詞「こそ」の結び。「冬枯れの景色は、秋にはほとんど劣らないだろう」となる。",
+  "optionNotes": [
+   "正解。をさをさ＋打消（まじ）＝ほとんど〜ない。",
+   "「劣るまじ」は「劣らないだろう」で、「及ばない（劣る）」とは逆の意味。",
+   "主語は「冬枯のけしき」で人ではないので打消意志にはならない。",
+   "「まじ」に過去の意味はない。"
+  ],
+  "pitfall": "「をさをさ」は打消と呼応する副詞で、打消の語（ず・じ・まじ・なし など）が離れた位置にあっても見落とさない。打消を伴わない「をさをさ」は「しっかりと」の意になる。",
+  "related": "打消と呼応する副詞：え〜ず（できない）、をさをさ〜ず（ほとんど〜ない）、つゆ〜ず（少しも〜ない）、よに〜ず（決して〜ない）、さらに〜ず（まったく〜ない）、たえて〜ず（まったく〜ない）。",
+  "sources": [
+   {
+    "title": "徒然草（バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/YosTsur/text.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "徒然草（校註日本文學大系）ウィキソース",
+    "url": "https://ja.wikisource.org/wiki/%E5%BE%92%E7%84%B6%E8%8D%89_%28%E6%A0%A1%E8%A8%BB%E6%97%A5%E6%9C%AC%E6%96%87%E5%AD%B8%E5%A4%A7%E7%B3%BB%29",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "学研全訳古語辞典（Weblio古語辞典）「をさをさ」",
+    "url": "https://kobun.weblio.jp/content/%E3%82%92%E3%81%95%E3%82%92%E3%81%95",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "学研全訳古語辞典（Weblio古語辞典）「まじ」",
+    "url": "https://kobun.weblio.jp/content/%E3%81%BE%E3%81%98",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "isJiji": false,
+  "id": "jodo-120",
+  "category": "joshi",
+  "topic": "「なむ」の識別（終助詞・係助詞・ぬ＋む）",
+  "format": "combo",
+  "difficulty": 3,
+  "question": "次の傍線部ア〜ウの「なむ」の文法的説明の組み合わせとして最も適当なものを一つ選べ。（本文の表記は読みやすく一部改めた）\n\nア　いつしか梅咲か「なむ」、来むとありしを（『更級日記』「梅の立枝」）\nイ　名をば讃岐造麿と「なむ」いひける（『竹取物語』「かぐや姫の生ひ立ち」）\nウ　年ごろ馴らひて、立ち別れ「なむ」ことを（『竹取物語』「かぐや姫の昇天」）",
+  "options": [
+   "ア他に対する願望の終助詞　イ係助詞　ウ完了「ぬ」の未然形＋推量「む」",
+   "ア係助詞　イ他に対する願望の終助詞　ウ完了「ぬ」の未然形＋推量「む」",
+   "ア他に対する願望の終助詞　イ係助詞　ウ他に対する願望の終助詞",
+   "ア完了「ぬ」の未然形＋推量「む」　イ係助詞　ウ他に対する願望の終助詞"
+  ],
+  "answer": 0,
+  "explanation": "アは四段「咲く」の未然形「咲か」に付くので、他に対する願望の終助詞（早く梅が咲いてほしい）。イは格助詞「と」に付き、文末が連体形「ける」で結ばれているので係助詞（強意）。ウは「別れ」（下二段で未然形・連用形が同形）に付き、下に体言「こと」が続くので連体形の「む」を含む「ぬ＋む」（別れてしまうようなこと）。",
+  "optionNotes": [
+   "正解。",
+   "アは未然形「咲か」に付くので終助詞。イは「ける」（連体形）と係り結びしているので係助詞。",
+   "ウは文末ではなく体言「こと」に続いている。終助詞「なむ」は文末に置かれる。",
+   "アの「咲か」は未然形なので「ぬ＋む」（連用形接続）ではない。"
+  ],
+  "pitfall": "「別れ」「明け」のように未然形と連用形が同じ形の語に付く「なむ」は形だけでは決まらない。文末なら願望の終助詞の可能性、下に体言や「とす」が続くなら「ぬ＋む」の可能性を考え、文脈で確かめる。",
+  "related": "「なむ」は、未然形＋なむ＝終助詞（〜てほしい）、連用形＋なむ＝ぬ＋む（きっと〜だろう・〜てしまおう）、それ以外（体言・助詞など）＋なむ＝係助詞（結びは連体形）。ナ変「死なむ」「往なむ」は動詞の未然形語尾＋む。",
+  "sources": [
+   {
+    "title": "更級日記（バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/SugSara/text.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "竹取物語（バージニア大学図書館 Japanese Text Initiative）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/AnoTake/text.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "学研全訳古語辞典（Weblio古語辞典）「なむ」",
+    "url": "https://kobun.weblio.jp/content/%E3%81%AA%E3%82%80",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "id": "kaishaku-101",
+  "version": 1,
+  "status": "verified",
+  "category": "keigo",
+  "topic": "二方面の敬語（さぶらひ＋たまふ）の敬意の対象",
+  "format": "combo",
+  "difficulty": 3,
+  "question": "次は『源氏物語』桐壺巻の冒頭である。\n\nいづれの御時にか、女御、更衣あまた「さぶらひたまひ」けるなかに、いとやむごとなき際にはあらぬが、すぐれて時めきたまふありけり。\n\n＊御時＝帝の御代。＊女御・更衣＝帝の后妃の位。\n\n傍線部「さぶらひたまひ」の「さぶらひ」と「たまひ」は、作者から誰への敬意を表すか。組み合わせとして最も適当なものを選べ。",
+  "options": [
+   "さぶらひ＝女御・更衣への敬意／たまひ＝帝への敬意",
+   "さぶらひ＝帝への敬意／たまひ＝帝への敬意",
+   "さぶらひ＝帝への敬意／たまひ＝女御・更衣への敬意",
+   "さぶらひ＝女御・更衣への敬意／たまひ＝女御・更衣への敬意"
+  ],
+  "answer": 2,
+  "explanation": "「さぶらふ」は「貴人のおそばにお仕えする」意の謙譲語の本動詞で、仕えられる側＝帝を敬う。「たまふ」は尊敬の補助動詞で、動作の主体＝お仕えしている女御・更衣を敬う。一つの動作で受け手と主体の両方を敬う二方面の敬語である。",
+  "optionNotes": [
+   "謙譲語は動作の受け手（帝）を、尊敬語は主体（女御・更衣）を敬うので、向きが逆。",
+   "「たまひ」は尊敬語なので主体の女御・更衣への敬意。帝は動作の主体ではない。",
+   "正しい。謙譲語「さぶらひ」→受け手の帝、尊敬語「たまひ」→主体の女御・更衣。",
+   "「さぶらひ」は謙譲語なので、主体の女御・更衣ではなく受け手の帝への敬意。"
+  ],
+  "pitfall": "「さぶらふ」を丁寧語と決めつけない。地の文で貴人のそばに控える意なら謙譲語の本動詞。会話文で「あり」の意なら丁寧語。",
+  "related": "謙譲語＋尊敬語の順（例：申し給ふ、聞こえさせ給ふ）は二方面の敬語の典型。謙譲→受け手、尊敬→主体。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "Japanese Text Initiative『源氏物語』桐壺（バージニア大学図書館）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/MurGenj/vol1.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「候ふ（さぶらふ）」精選版日本国語大辞典・デジタル大辞泉",
+    "url": "https://kotobank.jp/word/%E5%80%99%E3%81%B5-511813",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「賜う（給ふ）」デジタル大辞泉・精選版日本国語大辞典",
+    "url": "https://kotobank.jp/word/%E8%B3%9C%E3%81%86-562678",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "id": "kaishaku-102",
+  "version": 2,
+  "status": "verified",
+  "category": "keigo",
+  "topic": "最高敬語（せたまふ）から主体を判定",
+  "format": "write",
+  "difficulty": 2,
+  "question": "次は『枕草子』「雪のいと高う降りたるを」の段の一節である。\n\n「少納言よ、香炉峰の雪いかならむ。」と仰せらるれば、御格子上げさせて、御簾を高く上げたれば、「笑はせたまふ」。\n\n＊少納言＝作者（清少納言）。作者は中宮（定子）に仕える女房。＊御格子・御簾＝部屋の仕切りの格子とすだれ。\n\n傍線部「笑はせたまふ」は誰の動作か。注に出てくる呼び名を漢字で答えよ。",
+  "answerText": "中宮",
+  "accept": [
+   "中宮",
+   "中宮定子",
+   "定子",
+   "中宮様"
+  ],
+  "explanation": "「せ」（尊敬の助動詞「す」）＋「たまふ」（尊敬の補助動詞）は最高敬語（二重尊敬）で、地の文では帝・中宮など最上位の人物に使うことが多い。簾を上げた作者の機転に、問いかけた中宮がお笑いになった場面である。",
+  "pitfall": "直前の「上げさせて」の「させ」は下に「たまふ」がなく、作者が他の女房に格子を上げさせた使役。『たまふ』が続かない『す・さす』は使役。『せたまふ』は尊敬が多いが、使役の相手がいれば使役＋尊敬にもなるので文脈で決める。",
+  "related": "「仰せらるれ」も「仰す」（「言ふ」の尊敬語）＋尊敬「らる」で、中宮の言葉。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "ウィキブックス 高等学校国語総合/枕草子「雪のいと高う降りたるを」（第二八〇段）",
+    "url": "https://ja.wikibooks.org/wiki/%E9%AB%98%E7%AD%89%E5%AD%A6%E6%A0%A1%E5%9B%BD%E8%AA%9E%E7%B7%8F%E5%90%88/%E6%9E%95%E8%8D%89%E5%AD%90",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "広島県公開資料『枕草子』「香炉峰の雪（雪のいと高う降りたるを）」本文（Word）",
+    "url": "https://www.pref.hiroshima.lg.jp/uploaded/attachment/122808.docx",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「賜う（給ふ）」デジタル大辞泉・精選版日本国語大辞典",
+    "url": "https://kotobank.jp/word/%E8%B3%9C%E3%81%86-562678",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「仰す」デジタル大辞泉",
+    "url": "https://kotobank.jp/word/%E4%BB%B0%E3%81%99-450050",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "id": "kaishaku-103",
+  "version": 2,
+  "status": "verified",
+  "category": "keigo",
+  "topic": "二方面の敬語（申し給ふ）の種類と方向",
+  "format": "combo",
+  "difficulty": 3,
+  "question": "次は『枕草子』「中納言参り給ひて」の段の一節である（三巻本による。表記は読みやすく一部改めた）。\n\n中納言参り給ひて、御扇奉らせ給ふに、「隆家こそいみじき骨は得て侍れ。それを、張らせて参らせむとするに、おぼろけの紙はえ張るまじければ、求め侍るなり。」と「申し給ふ」。\n\n＊中納言＝藤原隆家。中宮定子の弟。＊作者（清少納言）は中宮に仕える女房。\n\n傍線部「申し給ふ」の「申し」と「給ふ」の説明として最も適当なものを選べ。",
+  "options": [
+   "申し＝謙譲の補助動詞で中宮への敬意／給ふ＝尊敬の補助動詞で中納言への敬意",
+   "申し＝謙譲の本動詞で中納言への敬意／給ふ＝尊敬の補助動詞で中宮への敬意",
+   "申し＝謙譲の本動詞で中宮への敬意／給ふ＝尊敬の補助動詞で中納言への敬意",
+   "申し＝丁寧の本動詞で中宮への敬意／給ふ＝尊敬の本動詞で中納言への敬意"
+  ],
+  "answer": 2,
+  "explanation": "「申す」は「言ふ」の謙譲語の本動詞（ここでは「言う」という動作そのもの）で、言われる相手＝中宮を敬う。「給ふ」は「申し」に付いた尊敬の補助動詞で、言った主体＝中納言を敬う。どちらも地の文なので敬意の主は作者。",
+  "optionNotes": [
+   "「申し」は「言ふ」の意味を持つ本動詞。他の動詞に付いているわけではないので補助動詞ではない。",
+   "向きが逆。謙譲語は受け手（中宮）、尊敬語は主体（中納言）を敬う。",
+   "正しい。謙譲の本動詞→聞き手の中宮、尊敬の補助動詞→話し手の中納言。",
+   "「申す」は謙譲語。「給ふ」は動詞に付いた補助動詞で、本動詞ではない。"
+  ],
+  "pitfall": "本動詞か補助動詞かは「その語だけで動作の意味があるか」で判断する。「申し給ふ」の「申し」は動作（言う）、「給ふ」は敬意を添えるだけ。",
+  "related": "会話の中の「侍れ」「侍る」は丁寧語で、話し手の中納言から聞き手の中宮への敬意。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "松本昭彦「『枕草子』「中納言まゐりたまひて」段試考」（三重大学教育学部研究紀要 第67巻、2016年。三巻本本文を掲出）",
+    "url": "https://mie-u.repo.nii.ac.jp/record/3597/files/20C17666.pdf",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「賜う（給ふ）」デジタル大辞泉・精選版日本国語大辞典",
+    "url": "https://kotobank.jp/word/%E8%B3%9C%E3%81%86-562678",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "id": "kaishaku-104",
+  "version": 2,
+  "status": "verified",
+  "category": "keigo",
+  "topic": "謙譲＋尊敬（聞こえさせ給ふ）から主体を判定",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "次は『枕草子』「中納言参り給ひて」の段の一節である（三巻本による。表記は読みやすく一部改めた）。中納言が珍しい扇の骨を手に入れたと話したあとの場面。\n\n「いかやうにかある。」と「問ひ聞こえさせ給へ」ば、「すべていみじう侍り。『さらにまだ見ぬ骨のさまなり。』となむ人々申す。まことにかばかりのは見えざりつ。」と、言高くのたまへば、\n\n＊中納言＝藤原隆家。中宮定子の弟。＊作者（清少納言）は中宮に仕える女房。\n\n傍線部「問ひ聞こえさせ給へ」の主体（尋ねた人物）として最も適当なものを選べ。",
+  "options": [
+   "中納言（藤原隆家）",
+   "作者（清少納言）",
+   "周りの女房たち",
+   "中宮定子"
+  ],
+  "answer": 3,
+  "explanation": "「聞こえさせ」は謙譲語で尋ねられる相手（中納言）を、「給へ」は尊敬語で尋ねる主体を敬う。尊敬語が使われ、しかも中納言に向かって尋ねているので、主体は中宮。続く「すべていみじう侍り…」と「のたまへ」は中納言の返答である。",
+  "optionNotes": [
+   "中納言は尋ねられて答える側。謙譲語「聞こえさせ」が敬っている受け手にあたる。",
+   "作者の動作なら尊敬語「給ふ」は付かない。",
+   "女房の動作にも作者は尊敬語を使わない。",
+   "正しい。中宮が中納言にお尋ね申し上げなさる。"
+  ],
+  "pitfall": "謙譲語があるからといって主体を身分の低い人と決めない。謙譲語は「受け手を高める」だけで、主体が高貴なら尊敬語も重ねて使われる（中宮→弟の中納言）。",
+  "related": "「のたまふ」は「言ふ」の尊敬語。尊敬語一つの動作は中納言、という読み分けがこの段の基本。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "松本昭彦「『枕草子』「中納言まゐりたまひて」段試考」（三重大学教育学部研究紀要 第67巻、2016年。三巻本本文を掲出）",
+    "url": "https://mie-u.repo.nii.ac.jp/record/3597/files/20C17666.pdf",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「聞える（聞こゆ）」デジタル大辞泉",
+    "url": "https://kotobank.jp/word/%E8%81%9E%E3%81%88%E3%82%8B-473263",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「賜う（給ふ）」デジタル大辞泉・精選版日本国語大辞典",
+    "url": "https://kotobank.jp/word/%E8%B3%9C%E3%81%86-562678",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "id": "kaishaku-105",
+  "version": 2,
+  "status": "verified",
+  "category": "keigo",
+  "topic": "謙譲語（聞こゆ）から主体を判定",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次は『枕草子』「中納言参り給ひて」の段の一節である（三巻本による。表記は読みやすく一部改めた）。中納言が「これほどの扇の骨は見たことがない」と得意げに言ったあとの場面。\n\n「さては、扇のにはあらで、くらげのななり。」と「聞こゆれ」ば、「これは隆家が言にしてむ。」とて、笑ひ給ふ。\n\n＊隆家＝中納言の名。中宮定子の弟。＊作者（清少納言）は中宮に仕える女房。\n\n傍線部「聞こゆれ」の主体として最も適当なものを選べ。",
+  "options": [
+   "作者（清少納言）",
+   "中宮定子",
+   "中納言（藤原隆家）",
+   "周りの女房たち"
+  ],
+  "answer": 0,
+  "explanation": "「聞こゆ」は「言ふ」の謙譲語（申し上げる）。尊敬語がないので主体は作者自身で、中納言に申し上げている。機知に富んだ一言に、中納言が「これは自分が言ったことにしよう」と笑う流れである。",
+  "optionNotes": [
+   "正しい。尊敬語のない謙譲語だけの動作で、作者が中納言に申し上げた。",
+   "中宮の動作なら「聞こえさせ給ふ」のように尊敬語が付く。",
+   "中納言は申し上げられた相手。直後の「隆家が言にしてむ」と言って笑う人物。",
+   "女房の発言であることを示す語（「人々」など）がなく、尊敬語もない機知の一言は作者自身のものとして書かれている。"
+  ],
+  "pitfall": "「聞こゆ」を「聞こえる」と訳さない。会話を受ける「〜と聞こゆ」は「申し上げる」の謙譲語。",
+  "related": "『枕草子』の日記的章段では、尊敬語なしで気の利いたことを言うのは作者であることが多い。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "松本昭彦「『枕草子』「中納言まゐりたまひて」段試考」（三重大学教育学部研究紀要 第67巻、2016年。三巻本本文を掲出）",
+    "url": "https://mie-u.repo.nii.ac.jp/record/3597/files/20C17666.pdf",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「聞える（聞こゆ）」デジタル大辞泉",
+    "url": "https://kotobank.jp/word/%E8%81%9E%E3%81%88%E3%82%8B-473263",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "id": "kaishaku-106",
+  "version": 2,
+  "status": "verified",
+  "category": "keigo",
+  "topic": "会話文中の尊敬語・丁寧語の種類と方向",
+  "format": "combo",
+  "difficulty": 3,
+  "question": "次は『大鏡』「花山院の出家」の一節である（本文は国立国会図書館デジタルコレクション所収の『大鏡抄』〔松井簡治編、1933年〕・『大鏡新講』〔橘純一、1933年〕による。表記は読みやすく一部改めた）。\n\nあはれなることは、おりおはしましける夜は、藤壺の上の御局の小戸より出でさせ給ひけるに、有明の月のいみじう明かかりければ、『顕証にこそありけれ。いかがすべからむ。』と仰せられけるを、『さりとて、「とまらせ給ふ」べきやう「侍ら」ず。神璽・宝剣渡り給ひぬるには。』と、粟田殿の騒がし申し給ひけるは、\n\n＊会話は『 』で示した。退位した花山天皇がひそかに宮中を出て出家しようとする場面。＊粟田殿＝藤原道兼。＊神璽・宝剣＝三種の神器のうちの二つ。\n\n傍線部「とまらせ給ふ」と「侍ら」の説明として最も適当なものを選べ。",
+  "options": [
+   "とまらせ給ふ＝尊敬語で、作者から花山天皇への敬意／侍ら＝丁寧語で、作者から読者への敬意",
+   "とまらせ給ふ＝尊敬語で、粟田殿から花山天皇への敬意／侍ら＝謙譲語で、粟田殿から花山天皇への敬意",
+   "とまらせ給ふ＝謙譲語で、粟田殿から花山天皇への敬意／侍ら＝丁寧語で、粟田殿から神璽・宝剣への敬意",
+   "とまらせ給ふ＝尊敬語で、粟田殿から花山天皇への敬意／侍ら＝丁寧語で、粟田殿から花山天皇への敬意"
+  ],
+  "answer": 3,
+  "explanation": "どちらも粟田殿の会話文の中にあるので、敬意の主は話し手の粟田殿。「せ給ふ」は尊敬で、とりやめる主体＝花山天皇を敬う。「侍ら」は「あり」の丁寧語の本動詞（ございません）で、聞き手＝花山天皇への敬意を表す。",
+  "optionNotes": [
+   "会話文の中の敬語は、地の文の作者ではなく話し手（粟田殿）からの敬意。",
+   "「やう侍らず」の「侍ら」は「あり」の意の丁寧語（方法はございません）。謙譲語ではない。",
+   "「給ふ」は尊敬語。丁寧語は話題の人物ではなく聞き手への敬意なので、神璽・宝剣への敬意にはならない。",
+   "正しい。尊敬語→主体の天皇、丁寧語→聞き手の天皇。どちらも話し手の粟田殿から。"
+  ],
+  "pitfall": "敬意の「主」は、地の文なら作者（語り手）、会話文なら話し手。同じ「給ふ」でも、どこにあるかで「誰から」が変わる。",
+  "related": "直後の「渡り給ひぬる」の「給ひ」は、粟田殿から神璽・宝剣を敬ったもの。地の文の「騒がし申し給ひ」は、作者から天皇（申し）と粟田殿（給ひ）への二方面の敬語。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "国立国会図書館デジタルコレクション『大鏡抄 上級用』（松井簡治編、1933年）",
+    "url": "https://dl.ndl.go.jp/pid/1274949",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "国立国会図書館デジタルコレクション『大鏡新講』（橘純一、三省堂、1933年）",
+    "url": "https://dl.ndl.go.jp/pid/1107311",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「賜う（給ふ）」デジタル大辞泉・精選版日本国語大辞典",
+    "url": "https://kotobank.jp/word/%E8%B3%9C%E3%81%86-562678",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「侍り（はべり）」デジタル大辞泉",
+    "url": "https://kotobank.jp/word/%E4%BE%8D%E3%82%8A-604304",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "id": "kaishaku-107",
+  "version": 3,
+  "status": "verified",
+  "category": "keigo",
+  "topic": "謙譲の補助動詞（奉る）の敬意の対象",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次は『大鏡』「花山院の出家」の一節（本文は国立国会図書館デジタルコレクション所収の『大鏡』〔和田英松校訂、1932年〕による。表記は読みやすく一部改めた）で、粟田殿が花山天皇の出家をせき立てた理由を語り手が説明する部分である。\n\nまだ帝出でさせおはしまさざりけるさきに、手づから取りて、春宮の御方に渡し「奉り」給ひてければ、帰り入らせ給はむことはあるまじく思して、しか申させ給ひけるとぞ。\n\n＊帝＝花山天皇。＊春宮＝皇太子。＊「手づから取りて」の主語は粟田殿（藤原道兼）、取った物は神璽・宝剣。\n\n傍線部「奉り」は、作者（語り手）から誰への敬意を表すか。最も適当なものを選べ。",
+  "options": [
+   "花山天皇",
+   "粟田殿",
+   "春宮",
+   "神璽・宝剣"
+  ],
+  "answer": 2,
+  "explanation": "「奉り」は動詞「渡し」に付いた謙譲の補助動詞（お渡し申し上げる）で、動作の受け手＝神璽・宝剣を渡される春宮を敬う。直後の「給ひ」は尊敬の補助動詞で、主体の粟田殿への敬意。",
+  "optionNotes": [
+   "花山天皇はこの「渡す」動作に関わっていない。",
+   "粟田殿は渡す主体。主体を敬うのは尊敬語の「給ひ」のほう。",
+   "正しい。謙譲語は動作の受け手（渡される相手）である春宮を敬う。",
+   "神璽・宝剣は渡される物で、謙譲語が敬う「受け手」ではない。"
+  ],
+  "pitfall": "「奉り給ふ」は謙譲＋尊敬の二方面の敬語。謙譲→受け手（春宮）、尊敬→主体（粟田殿）と切り分ける。",
+  "related": "「奉る」は本動詞なら「差し上げる」、補助動詞なら「〜申し上げる」。「着る・食ふ・乗る」の尊敬語になる用法もある。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "国立国会図書館デジタルコレクション『大鏡』（和田英松校訂、1932年）",
+    "url": "https://dl.ndl.go.jp/pid/1027818",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「奉る」デジタル大辞泉",
+    "url": "https://kotobank.jp/word/%E5%A5%89%E3%82%8B-558421",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「賜う（給ふ）」デジタル大辞泉・精選版日本国語大辞典",
+    "url": "https://kotobank.jp/word/%E8%B3%9C%E3%81%86-562678",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "国立国会図書館デジタルコレクション『大鏡抄』",
+    "url": "https://dl.ndl.go.jp/pid/1274949",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "kaishaku-108",
+  "version": 1,
+  "status": "verified",
+  "category": "keigo",
+  "topic": "会話文の聞き手の判定（祈りの言葉）",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次は『更級日記』の冒頭部分の一節である（表記は読みやすく改めた）。作者は東国で育ち、物語を読みたいと強く願っている。\n\nいみじく心もとなきままに、等身に薬師仏を造りて、手洗ひなどして、人まにみそかに入りつつ、「京にとく上げ給ひて、物語の多く候ふなる、ある限り見せ給へ。」と、身を捨てて額をつき、祈り申すほどに、\n\n＊等身に＝自分の背丈と同じ大きさに。＊人まに＝人のいない間に。\n\n「 」の会話文は、作者が誰に向かって言ったものか。最も適当なものを選べ。",
+  "options": [
+   "姉や継母",
+   "薬師仏",
+   "京に住む人々",
+   "作者自身"
+  ],
+  "answer": 1,
+  "explanation": "作者が自ら造った薬師仏の前で額をつき「祈り申す」言葉であり、聞き手は薬師仏。「上げ給ひ」「見せ給へ」の尊敬語は薬師仏の動作、「候ふ」は聞き手の薬師仏への丁寧語、地の文の「申す」は謙譲語で祈る相手の薬師仏を敬う。",
+  "optionNotes": [
+   "姉や継母は物語を語ってくれた人。この言葉は人のいない間に仏の前で言っている。",
+   "正しい。祈りの言葉で、尊敬語・丁寧語・謙譲語がすべて薬師仏に向いている。",
+   "京の人々に向けた言葉ではない。「京に上げ給ひ」は京へ上らせてくださいという願い。",
+   "独り言なら尊敬語「給ふ」や丁寧語「候ふ」は使わない。"
+  ],
+  "pitfall": "会話文の聞き手は、その場面で誰に向かって言ったかと、丁寧語（候ふ・侍り）が誰に向くかで判断する。",
+  "related": "「上げ給ひて」の「上げ」は下二段の他動詞で「（京へ）上らせる」。作者自身が上る意味ではない。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "Japanese Text Initiative『更級日記』本文（バージニア大学図書館）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/SugSara/text.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「候ふ（さぶらふ）」精選版日本国語大辞典・デジタル大辞泉",
+    "url": "https://kotobank.jp/word/%E5%80%99%E3%81%B5-511813",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「賜う（給ふ）」デジタル大辞泉・精選版日本国語大辞典",
+    "url": "https://kotobank.jp/word/%E8%B3%9C%E3%81%86-562678",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "id": "kaishaku-109",
+  "version": 1,
+  "status": "verified",
+  "category": "keigo",
+  "topic": "尊敬語（おはします）と謙譲語（さぶらふ）から主体を判定",
+  "format": "combo",
+  "difficulty": 2,
+  "question": "次は『伊勢物語』第八十三段の一節である（表記は読みやすく改めた）。馬の頭である翁は、出家して小野に住む惟喬の親王のもとを訪ねる。\n\n正月に拝みたてまつらむとて、小野にまうでたるに、比叡の山の麓なれば、雪いと高し。しひて御室にまうでて拝みたてまつるに、つれづれといともの悲しくて「おはしまし」ければ、やや久しく「さぶらひ」て、いにしへのことなど思ひ出でて聞こえけり。\n\n＊御室＝親王の住まい。＊まうづ＝参上する。\n\n傍線部「おはしまし」と「さぶらひ」の主体の組み合わせとして最も適当なものを選べ。",
+  "options": [
+   "おはしまし＝翁／さぶらひ＝惟喬の親王",
+   "おはしまし＝惟喬の親王／さぶらひ＝翁",
+   "おはしまし＝惟喬の親王／さぶらひ＝惟喬の親王",
+   "おはしまし＝翁／さぶらひ＝翁"
+  ],
+  "answer": 1,
+  "explanation": "「おはします」は「あり」の尊敬語（いらっしゃる）で、つれづれと悲しげにいらっしゃるのは出家した親王。「さぶらふ」は貴人のそばにお仕えする意の謙譲語で、親王のもとに長く控えていたのは翁。尊敬語と謙譲語で主体が入れ替わる。",
+  "optionNotes": [
+   "向きが逆。尊敬語「おはします」を翁に使うことはない。",
+   "正しい。尊敬語→親王、謙譲語（おそばに控える）→翁。",
+   "「さぶらふ」は貴人のそばに控える側の動作なので、親王の動作ではない。",
+   "「おはします」は高い敬意の尊敬語で、親王の様子を表す。"
+  ],
+  "pitfall": "主語が書かれていない文では、尊敬語なら敬われる人物、謙譲語なら敬う側の人物が主体になりやすい。「拝みたてまつる」「まうづ」「聞こゆ」も翁の動作。",
+  "related": "この段の結びの歌「忘れては夢かとぞ思ふ思ひきや雪踏み分けて君を見むとは」も翁の歌。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "Japanese Text Initiative『伊勢物語』本文（バージニア大学図書館）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/AnoIsem/text.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「御座します（おはします）」デジタル大辞泉",
+    "url": "https://kotobank.jp/word/%E5%BE%A1%E5%BA%A7%E3%81%97%E3%81%BE%E3%81%99-455608",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「候ふ（さぶらふ）」精選版日本国語大辞典・デジタル大辞泉",
+    "url": "https://kotobank.jp/word/%E5%80%99%E3%81%B5-511813",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "id": "kaishaku-110",
+  "version": 1,
+  "status": "verified",
+  "category": "keigo",
+  "topic": "会話文中の丁寧語（侍り）の敬意の方向",
+  "format": "truefalse",
+  "difficulty": 1,
+  "question": "次は『徒然草』第五十二段で、石清水八幡宮に参拝したつもりの仁和寺の法師が、仲間に語った言葉である（表記は読みやすく改めた）。\n\nさて、かたへの人にあひて、『年ごろ思ひつること、果たし「侍り」ぬ。聞きしにも過ぎて尊くこそおはしけれ。……』（以下略）\n\n＊会話は『 』で示した。＊かたへの人＝仲間の人。\n\n次の説明は正しいか。\n「傍線部『侍り』は謙譲語で、法師から石清水八幡宮への敬意を表している。」",
+  "options": [
+   "〇（正しい）",
+   "×（誤り）"
+  ],
+  "answer": 1,
+  "explanation": "「侍り」は「果たし」に付いた丁寧の補助動詞（〜ました）で、話し手の法師から聞き手の仲間（かたへの人）への敬意。石清水八幡宮への敬意を表すのは、尊敬語の「おはし」のほう。",
+  "optionNotes": [
+   "種類（謙譲語）も、敬意の対象（石清水八幡宮）も誤り。",
+   "正しい判断。丁寧語で、聞き手の仲間への敬意。"
+  ],
+  "pitfall": "会話文中で動詞に付く「侍り」「候ふ」は、まず丁寧語（聞き手への敬意）と考える。話題の人物（神仏を含む）を敬うのは尊敬語・謙譲語。",
+  "related": "法師は極楽寺・高良などを拝んだだけで満足して帰り、参拝の人々が登っていく山の上へは行かなかった。結びは「少しのことにも、先達はあらまほしきことなり」。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "Japanese Text Initiative『徒然草』本文（バージニア大学図書館）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/YosTsur/text.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「侍り（はべり）」デジタル大辞泉",
+    "url": "https://kotobank.jp/word/%E4%BE%8D%E3%82%8A-604304",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「御座します（おはします）」デジタル大辞泉",
+    "url": "https://kotobank.jp/word/%E5%BE%A1%E5%BA%A7%E3%81%97%E3%81%BE%E3%81%99-455608",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "id": "kaishaku-111",
+  "version": 1,
+  "status": "verified",
+  "category": "kaishaku",
+  "topic": "反語「〜むや」の現代語訳",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次は『徒然草』第九十二段の一節である（表記は読みやすく改めた）。弓を習う人が、師から「初心者は矢を二本持ってはいけない」と戒められた話に続く部分。\n\nわづかに二つの矢、師の前にて、一つをおろかにせんと思はんや。\n\n＊おろかに＝いいかげんに。\n\nこの文の現代語訳として最も適当なものを選べ。",
+  "options": [
+   "たった二本の矢なのだから、師の前でも一本をいいかげんにしようと思うにちがいない。",
+   "たった二本の矢なのに、師の前で一本をいいかげんにしようと思ったのだろうか。",
+   "たった二本の矢なのに、師の前で一本をいいかげんにしようと思うだろうか、いや、思いはしない。",
+   "たった二本の矢なので、師の前で一本をいいかげんにしようと思ってはいけない。"
+  ],
+  "answer": 2,
+  "explanation": "文末の「思はんや」は、推量「ん（む）」＋係助詞「や」で反語。「（自分では）一本をいいかげんにしようなどと思うだろうか、いや思わない」。それでも怠け心は自分では気づかないうちに生じる、と続く。",
+  "optionNotes": [
+   "「や」の反語を訳していない。「にちがいない」は推量を強めすぎ。",
+   "「思ひけん」ではないので過去推量にはならない。",
+   "正しい。「〜んや」の反語を「〜だろうか、いや〜ない」と訳している。",
+   "禁止（〜てはいけない）の語はない。師の言葉「持つことなかれ」と混同している。"
+  ],
+  "pitfall": "文末の「〜むや」「〜めや」は疑問と反語の両方がありうるが、ここは「思うはずがない」と打ち消す反語。続く「懈怠の心、みづから知らずといへども」との対比で判断する。",
+  "related": "同じ段の「師の云はく、『初心の人、二つの矢を持つことなかれ』」の「なかれ」は禁止。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "Japanese Text Initiative『徒然草』本文（バージニア大学図書館）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/YosTsur/text.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「や」（係助詞・反語）デジタル大辞泉",
+    "url": "https://kotobank.jp/word/%E3%82%84-647430",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "id": "kaishaku-112",
+  "version": 2,
+  "status": "verified",
+  "category": "kaishaku",
+  "topic": "指示語「これ」の指す内容",
+  "format": "write",
+  "difficulty": 1,
+  "question": "次は『徒然草』第九十二段の一節である（表記は読みやすく改めた）。\n\nわづかに二つの矢、師の前にて、一つをおろかにせんと思はんや。懈怠の心、みづから知らずといへども、師「これ」を知る。この戒め、万事にわたるべし。\n\n＊懈怠＝怠けること。\n\n傍線部「これ」が指す内容を、本文中から4字で抜き出せ。",
+  "answerText": "懈怠の心",
+  "accept": [
+   "懈怠の心",
+   "けたいの心",
+   "けだいの心"
+  ],
+  "explanation": "「懈怠の心、みづから知らずといへども、師これを知る」は、「怠け心は、本人は気づかなくても、師はそれを見抜く」という意味。「これ」は直前の「懈怠の心」を指す。",
+  "pitfall": "「二つの矢」や「この戒め」を答えない。「みづから知らず」と「師これを知る」が対になっていることに注目する。",
+  "related": "『べし』は当然（〜はずだ）と取るのが一般的。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "Japanese Text Initiative『徒然草』本文（バージニア大学図書館）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/YosTsur/text.html",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "id": "kaishaku-113",
+  "version": 2,
+  "status": "verified",
+  "category": "kaishaku",
+  "topic": "反語「やは」の現代語訳",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次は『十訓抄』第三の「大江山」の話の一節である（本文は岩波文庫『十訓抄』による。表記は読みやすく改めた）。母に歌を代作してもらうのだろうとからかった定頼中納言に、小式部内侍がその場で見事な歌を詠みかけた場面。\n\n思はずに、あさましくて、「こはいかに、かかるやうやはある。」とばかり言ひて、返歌にも及ばず、袖を引き放ちて、逃げられけり。\n\n＊あさまし＝驚きあきれる。\n\n「こはいかに、かかるやうやはある」の現代語訳として最も適当なものを選べ。",
+  "options": [
+   "これはどうしたことか。こんなことがあってほしいものだ。",
+   "これはどうしたことか。こんなことがあるだろうか、いや、あるはずがない。",
+   "これはどうしたことか。こんなことがあってはならない。",
+   "これはどうしたことか。こんなことがあるのだろうか、あるかもしれない。"
+  ],
+  "answer": 1,
+  "explanation": "「やは」は係助詞で、ここは反語。「こんなことがあろうか、いやない」と、あまりに見事な即興の歌に驚きあきれた定頼の言葉である。返歌もできずに逃げ出す流れとも合う。",
+  "optionNotes": [
+   "願望（〜てほしい）の語はない。",
+   "正しい。係助詞「やは」の反語を訳している。",
+   "禁止・当為の意味になっている。「やは」は打ち消しの気持ちを込めた問いかけ（反語）。",
+   "「あるかもしれない」と肯定に傾けており、反語の打ち消しになっていない。"
+  ],
+  "pitfall": "「やは」「かは」は文末で反語になることが多い。「〜か、いや〜ない」と打ち消しまで訳す。",
+  "related": "同じ話の「いかに心もとなく思すらむ」の「らむ」は現在推量（今ごろさぞ待ち遠しくお思いだろう）。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "菅原利晃「小式部内侍「大江山」歌説話における教訓」（北海道教育大学学術リポジトリ。『十訓抄』本文は岩波文庫による）",
+    "url": "https://hokkyodai.repo.nii.ac.jp/record/7183/files/KJ00000204623.pdf",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "ウィキブックス 高等学校国語総合/十訓抄「大江山」",
+    "url": "https://ja.wikibooks.org/wiki/%E9%AB%98%E7%AD%89%E5%AD%A6%E6%A0%A1%E5%9B%BD%E8%AA%9E%E7%B7%8F%E5%90%88/%E5%8D%81%E8%A8%93%E6%8A%84",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「やは」デジタル大辞泉",
+    "url": "https://kotobank.jp/word/%E3%82%84%E3%81%AF-648894",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "id": "kaishaku-114",
+  "version": 1,
+  "status": "verified",
+  "category": "kaishaku",
+  "topic": "反語「いかでか〜む」と主語の補い",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "次は『更級日記』の冒頭部分の一節である（表記は読みやすく改めた）。\n\n姉、継母などやうの人々の、その物語、かの物語、光源氏のあるやうなど、ところどころ語るを聞くに、いとどゆかしさまされど、わが思ふままに、そらにいかでかおぼえ語らむ。\n\n＊ゆかしさ＝知りたい気持ち。＊そらに＝暗記して、何も見ずに。\n\n「わが思ふままに、そらにいかでかおぼえ語らむ」の現代語訳として最も適当なものを選べ。",
+  "options": [
+   "（姉や継母が）私の思うとおりに、どうして暗記して語ってくれようか、いや、語ってはくれない。",
+   "私の思うとおりに、どうにかして（私が）暗記して語りたいものだ。",
+   "（姉や継母は）私の思うとおりに、どのようにして暗記して語ったのだろうか。",
+   "私の思うとおりに、（私が）どうして暗記して語ることができようか、いや、できない。"
+  ],
+  "answer": 0,
+  "explanation": "「いかでか〜む」は反語。語るのは物語を断片的に語ってくれる姉や継母で、「私の望みどおりに、何も見ずに全部覚えて語ってくれるはずがない」という不満を述べている。だからこそ自分で読みたくて、次に薬師仏に祈る。",
+  "optionNotes": [
+   "正しい。反語で、語る主体を姉・継母と補っている。",
+   "「いかで〜む」の願望（どうにかして〜したい）と取り違えている。「か」があり、文脈も願望ではない。",
+   "過去推量の語（けむ）はなく、疑問のままで打ち消していない。",
+   "反語の形は合っているが、語る主体を作者にしている。作者は物語を聞く側。"
+  ],
+  "pitfall": "「いかで」は疑問・反語・願望のどれにもなる。「いかでか＋推量」は反語になりやすく、「いかで＋願望（ばや・てしがな・む）」は願望。主語も文脈で補う。",
+  "related": "直前の「いかで見ばや」は「どうにかして見たい」で、こちらは願望。同じ段落に両方の「いかで」がある。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "Japanese Text Initiative『更級日記』本文（バージニア大学図書館）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/SugSara/text.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「如何で（いかで）」デジタル大辞泉",
+    "url": "https://kotobank.jp/word/%E5%A6%82%E4%BD%95%E3%81%A7-430958",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "id": "kaishaku-115",
+  "version": 1,
+  "status": "verified",
+  "category": "kaishaku",
+  "topic": "伝聞推定「なり」と丁寧語「候ふ」を含む訳",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "次は『更級日記』の冒頭部分で、作者が薬師仏に祈った言葉である（表記は読みやすく改めた）。作者は東国（上総）で育ち、京の物語をまだ読んだことがない。\n\n「京にとく上げ給ひて、物語の多く候ふなる、ある限り見せ給へ。」\n\nこの言葉の現代語訳として最も適当なものを選べ。",
+  "options": [
+   "京に早く上っていらっしゃって、物語がたくさんお仕えしている所を、ある限りお見せしたい。",
+   "京に早く上らせてくださって、物語がたくさんございましたので、ある限り見せてくださるだろう。",
+   "京に早く上らせてくださって、物語がたくさんあるのでございますから、ある限り見せてください。",
+   "京に早く上らせてくださって、物語がたくさんあるそうですが、それをある限り全部見せてください。"
+  ],
+  "answer": 3,
+  "explanation": "「候ふ」は「あり」の丁寧語（あります・ございます）。「なる」は伝聞推定「なり」の連体形で、東国にいる作者が京には物語がたくさんあると聞いている（〜そうだ）。「上げ給ひ」「見せ給へ」は薬師仏への尊敬で、「見せ給へ」は命令形（見せてください）。",
+  "optionNotes": [
+   "「上げ」は他動詞で「上らせる」。「候ふ」は会話中の丁寧語で「お仕えする」ではない。「見せ給へ」は命令形。",
+   "過去の助動詞はなく、「給へ」は命令形なので「くださるだろう」にはならない。",
+   "「なる」を断定と取っている。作者は京の物語を見たことがなく、聞いて知っているだけなので伝聞。",
+   "正しい。丁寧語「候ふ」＋伝聞推定「なる」、尊敬語の命令形「給へ」を正しく訳している。"
+  ],
+  "pitfall": "「候ふ」は四段活用で終止形と連体形が同じ形なので、下の「なる」が伝聞推定か断定かは形では決まらない。見聞きしていない遠くのことを言っているので伝聞と判断する。",
+  "related": "同じ冒頭の「物語といふもののあんなるを」の「あんなる」も、「あるなる」の撥音便で伝聞推定。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "Japanese Text Initiative『更級日記』本文（バージニア大学図書館）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/SugSara/text.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「候ふ（さぶらふ）」精選版日本国語大辞典・デジタル大辞泉",
+    "url": "https://kotobank.jp/word/%E5%80%99%E3%81%B5-511813",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「賜う（給ふ）」デジタル大辞泉・精選版日本国語大辞典",
+    "url": "https://kotobank.jp/word/%E8%B3%9C%E3%81%86-562678",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "id": "kaishaku-116",
+  "version": 2,
+  "status": "verified",
+  "category": "kaishaku",
+  "topic": "「え〜まじ」（不可能推量）の現代語訳",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "次は『枕草子』「中納言参り給ひて」の段の一節（三巻本による。表記は読みやすく一部改めた）で、中納言（藤原隆家）が姉の中宮定子に言った言葉である。\n\n「隆家こそいみじき骨は得て侍れ。それを、張らせて参らせむとするに、おぼろけの紙はえ張るまじければ、求め侍るなり。」\n\n＊骨＝扇の骨。＊おぼろけ＝ふつう、ありふれた。\n\n「おぼろけの紙はえ張るまじければ」の現代語訳として最も適当なものを選べ。",
+  "options": [
+   "ありふれた紙は決して張ってはならないので",
+   "ありふれた紙はとても張ることができそうにないので",
+   "ありふれた紙は張らないつもりなので",
+   "ありふれた紙は張るはずがないけれど"
+  ],
+  "answer": 1,
+  "explanation": "副詞「え」は下の打消と呼応して不可能（〜できない）を表し、「え〜まじ」で「〜できそうにない」（不可能の推量）。「まじけれ＋ば」は已然形＋「ば」で「〜ので」。すばらしい骨なので、ふつうの紙では張れそうにないから良い紙を探している、という文脈。",
+  "optionNotes": [
+   "「まじ」には禁止の意味もあるが、「え」と呼応しているので不可能。",
+   "正しい。「え〜まじ」＝〜できそうにない、「已然形＋ば」＝〜ので。",
+   "打消意志の訳で、「え」の不可能が訳されていない。",
+   "「已然形＋ば」は順接の確定条件で、「けれど」（逆接）ではない。"
+  ],
+  "pitfall": "「まじ」の意味は前後で決まる。「え」があれば不可能、命令的な文脈なら禁止・不適当、一人称の決意なら打消意志。",
+  "related": "「参らせむ」の「参らす」は「与ふ」の謙譲語（差し上げる）で、中納言から中宮への敬意。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "松本昭彦「『枕草子』「中納言まゐりたまひて」段試考」（三重大学教育学部研究紀要 第67巻、2016年。三巻本本文を掲出）",
+    "url": "https://mie-u.repo.nii.ac.jp/record/3597/files/20C17666.pdf",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「まじ」デジタル大辞泉",
+    "url": "https://kotobank.jp/word/%E3%81%BE%E3%81%98-136099",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "id": "kaishaku-117",
+  "version": 2,
+  "status": "verified",
+  "category": "kaishaku",
+  "topic": "「ななり」（断定＋推定）の現代語訳",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "次は『枕草子』「中納言参り給ひて」の段の一節である（三巻本による。表記は読みやすく一部改めた）。中納言（藤原隆家）が「これほどの扇の骨は見たことがないと人々が言う」と自慢したのに対し、作者が言った言葉。\n\n「さては、扇のにはあらで、くらげのななり。」\n\nこの言葉の現代語訳として最も適当なものを選べ。",
+  "options": [
+   "それでは、扇の骨ではなくて、くらげの骨であるようだ。",
+   "それでは、扇の骨ではなくて、くらげという名前だ。",
+   "それでは、扇の骨であって、くらげの骨ではないようだ。",
+   "それでは、扇の骨ではなくて、くらげの骨になるにちがいない。"
+  ],
+  "answer": 0,
+  "explanation": "「ななり」は断定「なり」の連体形「なる」が撥音便「なん」になり「ん」が表記されないもの＋推定の「なり」。「〜であるようだ」と訳す。「あらで」の「で」は打消の接続助詞（〜ではなくて）。誰も見たことがない骨＝骨のないくらげの骨だ、というしゃれ。",
+  "optionNotes": [
+   "正しい。「にはあらで」＝〜ではなくて、「ななり」＝〜であるようだ。",
+   "「な」を名詞の「名」と取っている。",
+   "「あらで」の打消を落とし、意味を逆にしている。",
+   "「なり」を動詞「成る」と取り、さらに強い推量に訳している。"
+  ],
+  "pitfall": "「ななり」「なめり」「あなり」「あめり」は撥音の無表記。読むときは「なんなり」「なんめり」と補う。",
+  "related": "このあと中納言は「これは隆家が言にしてむ」（自分が言ったことにしてしまおう）と笑う。「てむ」は強意＋意志。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "松本昭彦「『枕草子』「中納言まゐりたまひて」段試考」（三重大学教育学部研究紀要 第67巻、2016年。三巻本本文を掲出）",
+    "url": "https://mie-u.repo.nii.ac.jp/record/3597/files/20C17666.pdf",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「ななり」デジタル大辞泉",
+    "url": "https://kotobank.jp/word/%E3%81%AA%E3%81%AA%E3%82%8A-589228",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "id": "kaishaku-118",
+  "version": 2,
+  "status": "verified",
+  "category": "kaishaku",
+  "topic": "禁止「な〜そ」と反語「いかがはせむ」",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次は『枕草子』「中納言参り給ひて」の段の結びである（三巻本による。表記は読みやすく一部改めた）。作者は自分がほめられた話を書き記したことについて述べている。\n\nかやうのことこそは、かたはらいたきことのうちに入れつべけれど、「一つな落としそ。」と言へば、いかがはせむ。\n\n＊かたはらいたし＝聞き苦しい。\n\n「『一つな落としそ。』と言へば、いかがはせむ」の現代語訳として最も適当なものを選べ。",
+  "options": [
+   "「一つも書き漏らしたくない」と言うので、どうしたらよいだろうか。",
+   "「一つ落としてしまった」と言うので、どうしようもない。",
+   "「一つも書き漏らすな」と言うので、どうしようもない。",
+   "「一つも書き漏らすはずがない」と言うので、どうにかしよう。"
+  ],
+  "answer": 2,
+  "explanation": "「な〜そ」は禁止（〜するな）。「いかがはせむ」は反語で「どうしようか、いや、どうしようもない（仕方がない）」。自慢めいた話は書くべきではないが、周りの人に「一つも書き漏らすな」と言われるので仕方なく書いた、という弁明。",
+  "optionNotes": [
+   "「な〜そ」は禁止で、願望ではない。「いかがはせむ」を疑問のままにしている。",
+   "「な」を完了の助動詞と取っているが、「な〜そ」は禁止の呼応。",
+   "正しい。禁止「な〜そ」と反語「いかがはせむ」を正しく訳している。",
+   "「な〜そ」を打消当然と取っている。「いかがはせむ」も「どうにかしよう」ではない。"
+  ],
+  "pitfall": "「な＋連用形＋そ」は禁止の呼応。「いかがはせむ」は反語の決まり文句で「仕方がない」と訳すことが多い。",
+  "related": "「入れつべけれ」は強意「つ」＋当然「べし」で「当然入れてしまうべきだ」。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "松本昭彦「『枕草子』「中納言まゐりたまひて」段試考」（三重大学教育学部研究紀要 第67巻、2016年。三巻本本文を掲出）",
+    "url": "https://mie-u.repo.nii.ac.jp/record/3597/files/20C17666.pdf",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「な」（副詞「な…そ」）デジタル大辞泉・精選版日本国語大辞典",
+    "url": "https://kotobank.jp/word/%E3%81%AA-586863",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「如何は（いかがは）」デジタル大辞泉・精選版日本国語大辞典",
+    "url": "https://kotobank.jp/word/%E5%A6%82%E4%BD%95%E3%81%AF-430883",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "id": "kaishaku-119",
+  "version": 2,
+  "status": "verified",
+  "category": "kaishaku",
+  "topic": "指示語「さること」の指す内容",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次は『枕草子』「雪のいと高う降りたるを」の段の一節である。雪の日、中宮から「少納言よ、香炉峰の雪いかならむ」と問われた作者は、黙って御簾を高く上げ、中宮はお笑いになった。\n\n人々も『「さること」は知り、歌などにさへ歌へど、思ひこそよらざりつれ。……』と言ふ。（一部省略）\n\n＊香炉峰＝中国の廬山の峰の名。\n\n傍線部「さること」が指す内容として最も適当なものを選べ。",
+  "options": [
+   "雪の日には格子を下ろして火をおこすという宮中のしきたり",
+   "香炉峰が日本の雪の名所として和歌に詠まれていること",
+   "中宮が女房たちの知識を試すのを好むということ",
+   "白居易の詩句「香炉峰の雪は簾をかかげて看る」"
+  ],
+  "answer": 3,
+  "explanation": "中宮の問いは白居易の詩句「香炉峰の雪は簾をかかげて看る」をふまえたもの。女房たちは「その詩句は知っていて歌にまで詠むが、（簾を上げるという行動には）思いつかなかった」と、作者の機転に感心している。",
+  "optionNotes": [
+   "格子を下ろしていたのは場面の状況で、女房たちが「歌にまで詠む」知識ではない。",
+   "香炉峰は中国の山で、日本の歌枕ではない。",
+   "中宮の性格の話ではない。「歌などにさへ歌へど」と合わない。",
+   "正しい。作者は詩句のとおりに簾を上げて答えた。"
+  ],
+  "pitfall": "作者が言葉で答えず、行動（簾を上げる）で答えた点が面白さの中心。指示語は直前の会話の典拠を指している。",
+  "related": "「思ひこそよらざりつれ」はこそ〜已然形の係り結び（「つれ」は完了「つ」の已然形）。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "ウィキブックス 高等学校国語総合/枕草子「雪のいと高う降りたるを」（第二八〇段）",
+    "url": "https://ja.wikibooks.org/wiki/%E9%AB%98%E7%AD%89%E5%AD%A6%E6%A0%A1%E5%9B%BD%E8%AA%9E%E7%B7%8F%E5%90%88/%E6%9E%95%E8%8D%89%E5%AD%90",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "広島県公開資料『枕草子』「香炉峰の雪（雪のいと高う降りたるを）」本文（Word）",
+    "url": "https://www.pref.hiroshima.lg.jp/uploaded/attachment/122808.docx",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「香炉峰」デジタル大辞泉・精選版日本国語大辞典",
+    "url": "https://kotobank.jp/word/%E9%A6%99%E7%82%89%E5%B3%B0-498038",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "id": "kaishaku-120",
+  "version": 1,
+  "status": "verified",
+  "category": "kaishaku",
+  "topic": "「まじ」（禁止・不適当）の現代語訳",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次は『徒然草』第四十九段の一節である（表記は読みやすく改めた）。年を取ってから仏道修行をしようと先延ばしにしてはいけない、と説く段。\n\n人はただ、無常の身に迫りぬることを、心にひしとかけて、つかのまも忘るまじきなり。\n\n＊無常＝死。＊ひしと＝しっかりと。\n\n「つかのまも忘るまじきなり」の現代語訳として最も適当なものを選べ。",
+  "options": [
+   "ほんのわずかの間も忘れることができないようだ。",
+   "ほんのわずかの間も忘れないつもりである。",
+   "ほんのわずかの間も忘れるはずがないのである。",
+   "ほんのわずかの間も忘れてはならないのである。"
+  ],
+  "answer": 3,
+  "explanation": "人一般（「人はただ」）に向けて心がけを説く文なので、「まじ」は禁止・不適当で「〜てはならない」。「まじき」は連体形、「なり」は連体形に付く断定（〜のである）。",
+  "optionNotes": [
+   "「なり」を推定と取り、「まじ」を不可能と取っている。「え」もなく不可能の意味にはならない。",
+   "打消意志（〜ないつもりだ）は自分の決意の文で使う。ここは人一般への教え。",
+   "打消当然（〜はずがない）では、忘れがちな人への戒めという文脈に合わない。",
+   "正しい。禁止・不適当の「まじ」＋断定「なり」。"
+  ],
+  "pitfall": "「まじ」の意味は主語と文脈で決める。教えや戒めの文で人一般が主語なら、禁止・不適当（〜てはならない）。",
+  "related": "同じ段の「其の時悔ゆともかひあらんや」は反語（後悔しても効き目があろうか、いやない）。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "Japanese Text Initiative『徒然草』本文（バージニア大学図書館）",
+    "url": "https://jti.lib.virginia.edu/japanese/texts/YosTsur/text.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「まじ」デジタル大辞泉",
+    "url": "https://kotobank.jp/word/%E3%81%BE%E3%81%98-136099",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "isJiji": false,
+  "id": "waka-101",
+  "category": "waka",
+  "topic": "掛詞（いなば・まつ）",
+  "format": "combo",
+  "difficulty": 2,
+  "question": "次の和歌は『古今和歌集』巻八・離別・365（在原行平。百人一首16番）である。\n\n立ちわかれ「いなば」の山の峰におふる「まつ」とし聞かば今かへりこむ\n\n傍線部「いなば」「まつ」に掛けられた語の組合せとして最も適当なものを選べ。",
+  "options": [
+   "いなば＝因幡（国名）・往なば（去ったならば）／まつ＝松・待つ",
+   "いなば＝因幡（国名）・往なば（去ったならば）／まつ＝待つ・先づ（まず）",
+   "いなば＝因幡（国名）・寝なば（寝たならば）／まつ＝松・待つ",
+   "いなば＝因幡（国名）・否は（いやだというのは）／まつ＝松・待つ"
+  ],
+  "answer": 0,
+  "explanation": "「いなば」は赴任先の「因幡」と「往なば（去なば）＝行ってしまったならば」、「まつ」は峰に生える「松」と「待つ」の掛詞。「（あなたが）待っていると聞いたなら、すぐに帰って来よう」という別れの挨拶の歌。",
+  "optionNotes": [
+   "正しい。地名＋仮定条件、植物＋動詞の二重の意味。",
+   "誤り。峰に「生ふる」ものは植物の「松」であり、「先づ」は掛からない。",
+   "誤り。旅立ちの歌なので「往なば（去ってしまったら）」。「寝なば」ではない。",
+   "誤り。「いなば」は動詞「往ぬ」の未然形＋「ば」で、拒否の「否」ではない。"
+  ],
+  "pitfall": "「いなば」を地名だけと読み、「往な（ナ変・未然形）＋ば＝順接仮定条件」を見落としやすい。",
+  "related": "「峰におふる」までが「松」を経て「待つ」へ転じる流れ。「まつ＝松・待つ」は掛詞の最頻出。",
+  "sources": [
+   {
+    "title": "千人万首（在原行平）",
+    "url": "https://www.asahi-net.or.jp/~sg2h-ymst/yamatouta/sennin/yukihira.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "嵯峨嵐山文華館「小倉百人一首の全首を見る」歌番号16",
+    "url": "https://www.samac.jp/search/poems_detail.php?id=16",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "isJiji": false,
+  "id": "waka-102",
+  "category": "waka",
+  "topic": "掛詞（ながめ）を漢字で",
+  "format": "write",
+  "difficulty": 2,
+  "question": "次の和歌は『古今和歌集』巻二・春下・113（小野小町。百人一首9番）である。\n\n花の色はうつりにけりないたづらにわが身世にふる「ながめ」せしまに\n\n傍線部「ながめ」には二つの語が掛けられている。その二語を漢字（送り仮名を含む）で書け。二語は「・」でつなぐこと（順不同）。",
+  "answerText": "長雨・眺め",
+  "accept": [
+   "長雨・眺め",
+   "眺め・長雨",
+   "長雨／眺め",
+   "眺め／長雨",
+   "長雨、眺め",
+   "眺め、長雨",
+   "長雨 眺め",
+   "眺め 長雨",
+   "長雨眺め",
+   "眺め長雨"
+  ],
+  "explanation": "「ながめ」は「長雨」と「眺め（物思いにふけってぼんやり見ること）」の掛詞。直前の「ふる」も「降る」と「経る（時を過ごす）」の掛詞で、「長雨が降る」と「世に経る…物思い」の二つの文脈が重なっている。",
+  "optionNotes": [],
+  "pitfall": "古語の「ながむ」は「物思いにふける」が中心の意味。現代語の「景色を眺める」だけで訳すとずれる。",
+  "related": "同じ歌の「ふる＝降る・経る」もあわせて問われる。小町は六歌仙の一人。",
+  "sources": [
+   {
+    "title": "千人万首（小野小町）",
+    "url": "https://www.asahi-net.or.jp/~sg2h-ymst/yamatouta/sennin/komati.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "嵯峨嵐山文華館「小倉百人一首の全首を見る」歌番号9",
+    "url": "https://www.samac.jp/search/poems_detail.php?id=9",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "isJiji": false,
+  "id": "waka-103",
+  "category": "waka",
+  "topic": "枕詞とかかる語",
+  "format": "choice4",
+  "difficulty": 1,
+  "question": "次の和歌は『古今和歌集』巻二・春下・84（紀友則。百人一首33番）である。\n\nひさかたの光のどけき春の日にしづ心なく花の散るらむ\n\n初句「ひさかたの」は枕詞である。枕詞と、それがかかる主な語の組合せとして適当でないものを一つ選べ。",
+  "options": [
+   "ひさかたの ― 天・空・月・光",
+   "あしひきの ― 山・峰",
+   "たらちねの ― 母・親",
+   "しろたへの ― 夜・黒"
+  ],
+  "answer": 3,
+  "explanation": "「夜」「黒」「髪」などにかかるのは「ぬばたまの」。「しろたへの」は「衣」「袖」など衣に関する語や、白い色から「雲」「雪」「波」などにかかる。",
+  "optionNotes": [
+   "正しい。「ひさかたの」は天・空・月・雲・雨・光などにかかる。",
+   "正しい。「あしひきの」は山や山を含む語（山鳥など）、峰にかかる。",
+   "正しい。「たらちねの」は母・親にかかる。",
+   "誤り。「夜・黒」にかかるのは「ぬばたまの」。「しろたへの」は衣・袖・雲・雪など。"
+  ],
+  "pitfall": "「しろたへ（白）」と「ぬばたま（黒）」は色が正反対なので取り違えに注意。",
+  "related": "枕詞は原則5音で、訳さなくてよい。2句以上にわたって語を導くのは序詞。",
+  "sources": [
+   {
+    "title": "コトバンク「久方の」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E4%B9%85%E6%96%B9%E3%81%AE-609679",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「足引きの」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E8%B6%B3%E5%BC%95%E3%81%8D%E3%81%AE-424628",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「垂乳根の」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E5%9E%82%E4%B9%B3%E6%A0%B9%E3%81%AE-563223",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「白妙の」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E7%99%BD%E5%A6%99%E3%81%AE-536300",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「射干玉の」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E5%B0%84%E5%B9%B2%E7%8E%89%E3%81%AE-594269",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "千人万首（紀友則）",
+    "url": "https://www.asahi-net.or.jp/~sg2h-ymst/yamatouta/sennin/tomonori.html",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "isJiji": false,
+  "id": "waka-104",
+  "category": "waka",
+  "topic": "序詞と枕詞",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次の和歌は『拾遺和歌集』恋三・778（柿本人麻呂。百人一首3番）である。\n\nあしひきの山鳥の尾のしだり尾のながながし夜をひとりかも寝ん\n\nこの歌の修辞の説明として最も適当なものを選べ。",
+  "options": [
+   "「あしひきの」は「山」にかかる枕詞で、初句から第三句「しだり尾の」までが「ながながし」を導く序詞である。",
+   "「あしひきの」は「山」にかかる枕詞で、初句から第三句「しだり尾の」までが「ひとり」を導く序詞である。",
+   "「ながながし夜を」の「夜」は「世」との掛詞で、歌全体は体言止めになっている。",
+   "第三句「しだり尾の」で意味が切れる三句切れの歌である。"
+  ],
+  "answer": 0,
+  "explanation": "「あしひきの」は「山」にかかる枕詞。はじめの三句「あしひきの山鳥の尾のしだり尾の」は、山鳥の垂れ下がった長い尾のイメージから「ながながし（長々し）」を導く序詞である。",
+  "optionNotes": [
+   "正しい。枕詞を含む上の三句が序詞となって「ながながし」を導く。",
+   "誤り。長い尾から連想されて導かれるのは「ながながし」。",
+   "誤り。「夜」に「世」は掛かっておらず、結句「寝ん」は動詞＋助動詞で体言止めではない。",
+   "誤り。「しだり尾の」は下の「ながながし」へ続いており、句切れはない。"
+  ],
+  "pitfall": "枕詞（5音・固定）と序詞（2句以上・自由）が同じ歌に重なっている点を見落としやすい。",
+  "related": "「あしひきの」は「山」のほか「山鳥」「峰」にもかかる。",
+  "sources": [
+   {
+    "title": "コトバンク「序詞」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E5%BA%8F%E8%A9%9E-80357",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「足引きの」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E8%B6%B3%E5%BC%95%E3%81%8D%E3%81%AE-424628",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "嵯峨嵐山文華館「小倉百人一首の全首を見る」歌番号3",
+    "url": "https://www.samac.jp/search/poems_detail.php?id=3",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "千人万首（柿本人麻呂）",
+    "url": "https://www.asahi-net.or.jp/~sg2h-ymst/yamatouta/sennin/hitomaro2.html",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "isJiji": false,
+  "id": "waka-105",
+  "category": "waka",
+  "topic": "折句・掛詞・縁語（唐衣の歌）",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "次の和歌は『古今和歌集』巻九・羇旅・410（在原業平。『伊勢物語』第九段にも見える）である。三河の国八橋で、「かきつばた」の五文字を句の頭に置いて旅の心を詠んだ歌である。\n\n唐衣きつつなれにしつましあればはるばるきぬる旅をしぞ思ふ\n\nこの歌の修辞の説明として適当でないものを一つ選べ。",
+  "options": [
+   "各句の頭の音を続けると「かきつはた」となる折句の歌である。",
+   "「つま」は衣の「褄」と「妻」の掛詞である。",
+   "「なれ」「つま」「はる」「き」は、いずれも「唐衣」の縁語である。",
+   "結句「旅をしぞ思ふ」は体言止めで、余情を残している。"
+  ],
+  "answer": 3,
+  "explanation": "結句は動詞「思ふ」で終わっている。係助詞「ぞ」を受けて連体形「思ふ」で結ぶ係り結びであり、体言止めではない。折句・掛詞（つま＝褄・妻、はる＝張る・遥々 など）・縁語（衣に関わる語）の説明はいずれも正しい。",
+  "optionNotes": [
+   "正しい。か・き・つ・は・たの五文字を各句の頭に置いた折句。",
+   "正しい。衣の「褄」と都に残した「妻」の掛詞。",
+   "正しい。馴る・褄・張る・着るは、いずれも「衣」に関連する縁語。",
+   "誤り。結句は動詞「思ふ」（「ぞ」の結びで連体形）で終わり、体言止めではない。"
+  ],
+  "pitfall": "「旅」という名詞に目を奪われて体言止めと誤る。歌の最後の語の品詞を必ず確かめる。",
+  "related": "「唐衣きつつ」までが「なれ」を導く序詞。「はるばる」には「張る」、「きぬる」には「着」が掛かる。",
+  "sources": [
+   {
+    "title": "千人万首（在原業平）",
+    "url": "https://www.asahi-net.or.jp/~sg2h-ymst/yamatouta/sennin/narihira.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「縁語」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E7%B8%81%E8%AA%9E-38109",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "isJiji": false,
+  "id": "waka-106",
+  "category": "waka",
+  "topic": "本歌取りと句切れ",
+  "format": "combo",
+  "difficulty": 3,
+  "question": "次の和歌は『新古今和歌集』巻六・冬・671（藤原定家）である。\n\n駒とめて袖うちはらふかげもなし佐野のわたりの雪の夕暮\n\nこの歌は古歌をふまえた本歌取りの歌である。本歌が収められた歌集と、この歌の句切れの組合せとして最も適当なものを選べ。",
+  "options": [
+   "本歌：『万葉集』／句切れ：三句切れ",
+   "本歌：『万葉集』／句切れ：二句切れ",
+   "本歌：『古今和歌集』／句切れ：三句切れ",
+   "本歌：『古今和歌集』／句切れ：句切れなし"
+  ],
+  "answer": 0,
+  "explanation": "本歌は『万葉集』265番の「苦しくも降り来る雨か三輪の崎狭野の渡りに家もあらなくに」。雨を雪に変えて「佐野のわたり」を取り込んだ。第三句「かげもなし」（形容詞「なし」の終止形）で切れる三句切れで、結句「雪の夕暮」は体言止め。",
+  "optionNotes": [
+   "正しい。本歌は万葉集の歌、句切れは「かげもなし」の三句切れ。",
+   "誤り。第二句「袖うちはらふ」は連体形で「かげ」にかかり、切れない。",
+   "誤り。本歌は『古今和歌集』ではなく『万葉集』の歌。",
+   "誤り。本歌も句切れも違う。"
+  ],
+  "pitfall": "新古今時代に本歌取りが盛んだったことから、本歌も平安の『古今和歌集』と思い込みやすい。",
+  "related": "本歌取りは、古歌の語句を取り入れて本歌を連想させ、歌に奥行きを持たせる技法。新古今時代に盛行した。",
+  "sources": [
+   {
+    "title": "コトバンク「本歌取り」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E6%9C%AC%E6%AD%8C%E5%8F%96%E3%82%8A-134987",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "千人万首（藤原定家）",
+    "url": "https://www.asahi-net.or.jp/~sg2h-ymst/yamatouta/sennin/teika.html",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "version": 2,
+  "status": "verified",
+  "isJiji": false,
+  "id": "waka-107",
+  "category": "waka",
+  "topic": "句切れ（二句切れ）",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次の和歌は『新古今和歌集』巻三・夏・175（持統天皇。百人一首2番）である。\n\n春すぎて夏来にけらし白妙の衣ほすてふ天の香具山\n\nこの歌の句切れとして最も適当なものを選べ。",
+  "options": [
+   "初句切れ",
+   "二句切れ",
+   "三句切れ",
+   "四句切れ"
+  ],
+  "answer": 1,
+  "explanation": "第二句「夏来にけらし」の「けらし」（過去の助動詞「けり」＋推量の助動詞「らし」の「けるらし」が変化した形）で文が言い切られるので二句切れ。第三句以下は「（白い衣を干すという）天の香具山」と名詞で結ぶ体言止め。",
+  "optionNotes": [
+   "誤り。「春すぎて」は接続助詞「て」で下へ続く。",
+   "正しい。「夏来にけらし」で言い切る。",
+   "誤り。「白妙の」は「衣」にかかる枕詞で、下へ続く。",
+   "誤り。『てふ』（＝といふ）は終止形と同形だが、ここでは連体形で『天の香具山』にかかるので、第四句では切れない。"
+  ],
+  "pitfall": "『万葉集』の原歌「衣乾したり天の香具山」なら「たり」で切れて四句切れにもなるが、新古今の形「衣ほすてふ」では切れない。",
+  "related": "「白妙の」は「衣」にかかる枕詞。百人一首の形は『新古今和歌集』による。",
+  "sources": [
+   {
+    "title": "嵯峨嵐山文華館「小倉百人一首の全首を見る」歌番号2",
+    "url": "https://www.samac.jp/search/poems_detail.php?id=2",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "サライ.jp（小学館）「春すぎて夏来にけらし白妙の…」解説（新古今和歌集175番）",
+    "url": "https://serai.jp/hobby/1214799",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「けらし」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E3%81%91%E3%82%89%E3%81%97-491115",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「白妙の」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E7%99%BD%E5%A6%99%E3%81%AE-536300",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "京都市教育委員会 学校公開資料「万葉集 授業プリント」（原歌の句切れ）",
+    "url": "https://cms.edu.city.kyoto.jp/206303/download/document/17723929",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "isJiji": false,
+  "id": "waka-108",
+  "category": "waka",
+  "topic": "掛詞をふまえた和歌の解釈（秋・飽き）",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "次の和歌は『古今和歌集』巻十五・恋五・822（小野小町）である。\n\n秋風にあふたのみこそ悲しけれわが身むなしくなりぬと思へば\n\n「秋」に「飽き」が、「たのみ」に「田の実（稲の実）」と「頼み」が掛けられていることをふまえ、恋の歌としての解釈として最も適当なものを選べ。",
+  "options": [
+   "相手に飽きられたわが身が、むなしいものになってしまったと思うと、相手を頼みにしてきた心が悲しい。",
+   "私のほうが相手に飽きてしまったので、もう相手を頼みにできず、わが身がむなしく思われて悲しい。",
+   "秋になって相手と逢うことを頼みにしていたのに、わが身はむなしく待つばかりになったと思うと悲しい。",
+   "秋風に吹かれた稲の実が空になってしまったように、今年の実りが乏しいことが悲しい。"
+  ],
+  "answer": 0,
+  "explanation": "表の意味は「秋風に吹かれた田の実（稲穂）は、中身が空になると思うと悲しい」。裏の意味は「相手の『飽き』に出あった（飽きられた）わが身ははかなくなったと思うと、相手に寄せていた『頼み』が悲しい」。二つの文脈が一首に重なっている。",
+  "optionNotes": [
+   "正しい。飽きたのは相手で、わが身は飽きられた側。頼みが空しくなった悲しみ。",
+   "誤り。「秋風にあふ」は相手の「飽き」に出あうこと。飽きたのは相手であって「私」ではない。",
+   "誤り。「あふ」を恋人と「逢ふ」と取っており、「飽き」の掛詞を読んでいない。",
+   "誤り。表の意味（稲の実）だけで、恋の文脈（飽き・頼み）を読んでいない。"
+  ],
+  "pitfall": "「飽き」の主体を取り違える。恋の歌の「秋（飽き）風」は、相手の心変わりを表すのが定番。",
+  "related": "この歌では「身」にも「実」が掛けられ、稲の実が空になることと、わが身がむなしくなることが重なる。",
+  "sources": [
+   {
+    "title": "千人万首（小野小町）",
+    "url": "https://www.asahi-net.or.jp/~sg2h-ymst/yamatouta/sennin/komati.html",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "isJiji": false,
+  "id": "waka-109",
+  "category": "waka",
+  "topic": "和歌の解釈（たえて〜なし・せば〜まし）",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "次の和歌は『古今和歌集』巻一・春上・53（在原業平。『伊勢物語』第八十二段にも見える）である。\n\n世の中にたえて桜のなかりせば春の心はのどけからまし\n\nこの歌の現代語訳として最も適当なものを選べ。",
+  "options": [
+   "この世の中にまったく桜というものがなかったならば、春の人の心はのどかであっただろうに。",
+   "この世の中に桜が絶えることなく咲いているならば、春の人の心はのどかであるだろう。",
+   "この世の中から桜がすっかり絶えてしまったので、春の人の心はのどかになったことだ。",
+   "この世の中に少しも桜がなかったとしても、春の人の心がのどかになることはないだろう。"
+  ],
+  "answer": 0,
+  "explanation": "副詞「たえて」は下の打消（ここでは「なし」）と呼応して「まったく（〜ない）」。「せば〜まし」は反実仮想で「もし〜だったら…だろうに」。実際には桜があるので、散るのが気になって春の心はのどかでいられない、という逆説の歌。",
+  "optionNotes": [
+   "正しい。「たえて〜なし」＝まったく〜ない、「せば〜まし」＝反実仮想。",
+   "誤り。「たえて」を「絶えず」と取り違えている。反実仮想の訳にもなっていない。",
+   "誤り。「せば」は過去の助動詞「き」の未然形「せ」＋「ば」の仮定。「〜ので」の確定条件ではない。",
+   "誤り。「まし」は反実仮想で、打消の意味はない。"
+  ],
+  "pitfall": "「たえて」を動詞「絶ゆ」と読んで「絶えて（なくなって）」と訳してしまう。下に打消があれば副詞の「まったく」。",
+  "related": "反実仮想の型：「ませば〜まし」「ましかば〜まし」「せば〜まし」。",
+  "sources": [
+   {
+    "title": "千人万首（在原業平）",
+    "url": "https://www.asahi-net.or.jp/~sg2h-ymst/yamatouta/sennin/narihira.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「絶えて」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E7%B5%B6%E3%81%88%E3%81%A6-558993",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「まし」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E3%81%BE%E3%81%97-634100",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "version": 2,
+  "status": "verified",
+  "isJiji": false,
+  "id": "waka-110",
+  "category": "waka",
+  "topic": "縁語（玉の緒）",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次の和歌は『新古今和歌集』巻十一・恋一・1034（式子内親王。百人一首89番）である。\n\n玉の緒よ絶えなば絶えねながらへば忍ぶることのよわりもぞする\n\nこの歌の「絶え」「ながらへ」「よわり」は、ある語の縁語として用いられている。その語として最も適当なものを選べ。",
+  "options": [
+   "玉の緒",
+   "忍ぶること",
+   "もぞする",
+   "ながらへば"
+  ],
+  "answer": 0,
+  "explanation": "「玉の緒」は玉を貫く緒（ひも）で、転じて「命」。緒は「絶える」「長く延びる（ながらふ）」「弱る」ものなので、これらは「緒」の縁語。歌意は「命よ、絶えるなら絶えてしまえ。生きながらえていると、忍ぶ心が弱ってしまうから」という忍ぶ恋の歌。",
+  "optionNotes": [
+   "正しい。「絶え」「ながらへ」「よわり」はいずれも緒（ひも）に関わる語。",
+   "誤り。「忍ぶること」は弱っていく主体であり、縁語の中心ではない。",
+   "誤り。「もぞ」は係助詞の連なりで、縁語の中心にはならない。",
+   "誤り。「ながらへ」は縁語の一つそのもので、中心となる語ではない。"
+  ],
+  "pitfall": "縁語は掛詞と違い、一首の中に意味上関連する語を散りばめる技法。中心となる語（ここでは玉の緒）を先に見つける。",
+  "related": "「絶えなば絶えね」の「な」「ね」は完了の助動詞「ぬ」の未然形・命令形。",
+  "sources": [
+   {
+    "title": "サライ.jp（小学館）「玉の緒よ絶えなば絶えね…」解説",
+    "url": "https://serai.jp/?p=1213542",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "千人万首（式子内親王）",
+    "url": "https://www.asahi-net.or.jp/~sg2h-ymst/yamatouta/sennin/syokusi.html",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「玉の緒」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E7%8E%89%E3%81%AE%E7%B7%92-562852",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "version": 2,
+  "status": "verified",
+  "isJiji": false,
+  "id": "waka-111",
+  "category": "joushiki",
+  "topic": "成立順（古今集と三大随筆）",
+  "format": "order",
+  "difficulty": 2,
+  "question": "次の作品を、成立の古い順に並べよ。",
+  "options": [
+   "方丈記",
+   "古今和歌集",
+   "徒然草",
+   "枕草子"
+  ],
+  "answer": [
+   1,
+   3,
+   0,
+   2
+  ],
+  "explanation": "『古今和歌集』（延喜5年＝905年の勅命。成立は905年とも913〜914年ごろともいわれる）→『枕草子』（1000年ごろ）→『方丈記』（1212年）→『徒然草』（1330〜1331年ごろ）。平安前期→平安中期→鎌倉初期→鎌倉末期。",
+  "optionNotes": [
+   "鎌倉初期の随筆。鴨長明作、1212年成立。",
+   "最初の勅撰和歌集。905年に醍醐天皇の命で撰進が始まった。",
+   "鎌倉末期の随筆。兼好作、1330〜1331年ごろ。",
+   "平安中期の随筆。清少納言作、1000年ごろ。"
+  ],
+  "pitfall": "三大随筆の順は「枕草子→方丈記→徒然草」。随筆はいずれも古今集より後。",
+  "related": "三大随筆：枕草子（清少納言）・方丈記（鴨長明）・徒然草（兼好）。",
+  "sources": [
+   {
+    "title": "コトバンク「古今和歌集」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E5%8F%A4%E4%BB%8A%E5%92%8C%E6%AD%8C%E9%9B%86-63702",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「枕草子」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E6%9E%95%E8%8D%89%E5%AD%90-135921",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「方丈記」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E6%96%B9%E4%B8%88%E8%A8%98-132139",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「徒然草」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E5%BE%92%E7%84%B6%E8%8D%89-99660",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "isJiji": false,
+  "id": "waka-112",
+  "category": "joushiki",
+  "topic": "成立順（日記・紀行）",
+  "format": "order",
+  "difficulty": 2,
+  "question": "次の日記・紀行を、成立の古い順に並べよ。",
+  "options": [
+   "更級日記",
+   "十六夜日記",
+   "土佐日記",
+   "蜻蛉日記"
+  ],
+  "answer": [
+   2,
+   3,
+   0,
+   1
+  ],
+  "explanation": "『土佐日記』（紀貫之、935年ごろ）→『蜻蛉日記』（藤原道綱母、974年以後）→『更級日記』（菅原孝標女、1060年ごろ）→『十六夜日記』（阿仏尼、1279年の鎌倉下向の記録。鎌倉中期）。",
+  "optionNotes": [
+   "菅原孝標女作。1060年ごろの成立。",
+   "阿仏尼作の鎌倉中期の紀行。1279年に京都から鎌倉へ下った旅と滞在の記録。",
+   "紀貫之作。935年ごろ成立、仮名文日記の最初のもの。",
+   "藤原道綱母作。974年以後の成立。"
+  ],
+  "pitfall": "『十六夜日記』は「日記」の名でも鎌倉時代の作品。平安の女流日記と混同しない。",
+  "related": "『土佐日記』は男性の紀貫之が女性に仮託して書いた仮名文日記。以後の女流日記の先がけとなった。",
+  "sources": [
+   {
+    "title": "コトバンク「土佐日記」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E5%9C%9F%E4%BD%90%E6%97%A5%E8%A8%98-105064",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「蜻蛉日記」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E8%9C%BB%E8%9B%89%E6%97%A5%E8%A8%98-43954",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「更級日記」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E6%9B%B4%E7%B4%9A%E6%97%A5%E8%A8%98-69932",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「十六夜日記」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E5%8D%81%E5%85%AD%E5%A4%9C%E6%97%A5%E8%A8%98-30418",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "isJiji": false,
+  "id": "waka-113",
+  "category": "joushiki",
+  "topic": "作品とジャンル",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "作品名とそのジャンルの組合せとして適当でないものを一つ選べ。",
+  "options": [
+   "『今昔物語集』 ― 説話集",
+   "『平家物語』 ― 軍記物語",
+   "『更級日記』 ― 日記",
+   "『大鏡』 ― 随筆"
+  ],
+  "answer": 3,
+  "explanation": "『大鏡』は平安後期の歴史物語。大宅世継・夏山繁樹という二人の老人の昔語りの形で、藤原氏（道長）の栄華を中心に描く。",
+  "optionNotes": [
+   "正しい。平安後期（12世紀初め）の説話集。天竺・震旦・本朝の3部。",
+   "正しい。鎌倉時代の軍記物語。",
+   "正しい。菅原孝標女の日記。",
+   "誤り。『大鏡』は随筆ではなく歴史物語。"
+  ],
+  "pitfall": "「鏡」の付く作品は歴史物語。随筆は『枕草子』『方丈記』『徒然草』の三つを押さえる。",
+  "related": "『大鏡』は、大宅世継・夏山繁樹という二人の老人の昔語りに若侍が批判を加える形式で書かれている。",
+  "sources": [
+   {
+    "title": "コトバンク「今昔物語集」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E4%BB%8A%E6%98%94%E7%89%A9%E8%AA%9E%E9%9B%86-67264",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「平家物語」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E5%B9%B3%E5%AE%B6%E7%89%A9%E8%AA%9E-128871",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「更級日記」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E6%9B%B4%E7%B4%9A%E6%97%A5%E8%A8%98-69932",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「大鏡」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E5%A4%A7%E9%8F%A1-39069",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "version": 2,
+  "status": "verified",
+  "isJiji": false,
+  "id": "waka-114",
+  "category": "joushiki",
+  "topic": "三代集",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "一般に『三代集』と呼ばれる三つの勅撰和歌集に含まれないものを一つ選べ。",
+  "options": [
+   "古今和歌集",
+   "後撰和歌集",
+   "拾遺和歌集",
+   "後拾遺和歌集"
+  ],
+  "answer": 3,
+  "explanation": "三代集は、最初の三つの勅撰和歌集『古今和歌集』『後撰和歌集』『拾遺和歌集』。「三代」は撰集を命じた醍醐・村上・花山天皇の三代を指す。『後拾遺和歌集』は八代集の4番目。",
+  "optionNotes": [
+   "含まれる。最初の勅撰和歌集（醍醐天皇）。",
+   "含まれる。2番目の勅撰和歌集（村上天皇）。",
+   "含まれる。3番目の勅撰和歌集（花山院）。",
+   "含まれない。八代集の4番目で、三代集の後に続く集。"
+  ],
+  "pitfall": "「拾遺」と「後拾遺」は名前が似ている。「後」が付く方が後の集。",
+  "related": "八代集：古今・後撰・拾遺・後拾遺・金葉・詞花・千載・新古今。",
+  "sources": [
+   {
+    "title": "コトバンク「三代集」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E4%B8%89%E4%BB%A3%E9%9B%86-70993",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「八代集」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E5%85%AB%E4%BB%A3%E9%9B%86-114801",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "isJiji": false,
+  "id": "waka-115",
+  "category": "joushiki",
+  "topic": "六歌仙",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "『古今和歌集』の序で論評された「六歌仙」に含まれない人物を一つ選べ。",
+  "options": [
+   "在原業平",
+   "小野小町",
+   "僧正遍昭",
+   "紀友則"
+  ],
+  "answer": 3,
+  "explanation": "六歌仙は、在原業平・僧正遍昭・喜撰法師・大友黒主・文屋康秀・小野小町の6人。紀友則は『古今和歌集』の撰者の一人で、六歌仙ではない。",
+  "optionNotes": [
+   "含まれる。",
+   "含まれる。",
+   "含まれる。",
+   "含まれない。古今集の撰者（紀貫之・凡河内躬恒・壬生忠岑とともに）。"
+  ],
+  "pitfall": "古今集の「撰者」（紀友則・紀貫之・凡河内躬恒・壬生忠岑）と、序で取り上げられた「六歌仙」を混同しやすい。",
+  "related": "六歌仙は古今集より少し前の時代の歌人たち。",
+  "sources": [
+   {
+    "title": "コトバンク「六歌仙」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E5%85%AD%E6%AD%8C%E4%BB%99-153012",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「古今和歌集」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E5%8F%A4%E4%BB%8A%E5%92%8C%E6%AD%8C%E9%9B%86-63702",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "isJiji": false,
+  "id": "waka-116",
+  "category": "joushiki",
+  "topic": "方丈記の作者",
+  "format": "write",
+  "difficulty": 1,
+  "question": "「ゆく河の流れは絶えずして、しかももとの水にあらず」で始まる、建暦2年（1212）成立の随筆の作者は誰か。姓と名を漢字で書け。",
+  "answerText": "鴨長明",
+  "accept": [
+   "鴨長明",
+   "鴨 長明"
+  ],
+  "explanation": "冒頭文は『方丈記』。作者は鴨長明（法名は蓮胤）。仏教的な無常観を基調に、災害の続く世の不安と、日野山の方丈の庵での閑居の生活を記した。",
+  "optionNotes": [],
+  "pitfall": "「鴨」を「賀茂」「加茂」と書かないこと。",
+  "related": "三大随筆：枕草子（清少納言）・方丈記（鴨長明）・徒然草（兼好）。",
+  "sources": [
+   {
+    "title": "コトバンク「方丈記」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E6%96%B9%E4%B8%88%E8%A8%98-132139",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "isJiji": false,
+  "id": "waka-117",
+  "category": "joushiki",
+  "topic": "古今集仮名序・土佐日記の作者",
+  "format": "write",
+  "difficulty": 2,
+  "question": "『古今和歌集』の撰者の一人で、その仮名序を書き、のちに承平5年（935）ころ、作者を女性に仮託して仮名で『土佐日記』を書いた人物は誰か。姓と名を漢字で書け。",
+  "answerText": "紀貫之",
+  "accept": [
+   "紀貫之",
+   "紀 貫之"
+  ],
+  "explanation": "紀貫之。『古今和歌集』の撰者（紀友則・凡河内躬恒・壬生忠岑とともに）で、仮名序を執筆した。『土佐日記』は、任地土佐から都へ帰る旅を女性に仮託して仮名で記した、仮名文日記の最初のもの。",
+  "optionNotes": [],
+  "pitfall": "同じ撰者の「紀友則」（貫之の従兄弟）と取り違えない。友則は古今集の完成前に没した。",
+  "related": "古今集の序は2つ：仮名序（紀貫之）と真名序（漢文。紀淑望）。",
+  "sources": [
+   {
+    "title": "コトバンク「古今和歌集」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E5%8F%A4%E4%BB%8A%E5%92%8C%E6%AD%8C%E9%9B%86-63702",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「土佐日記」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E5%9C%9F%E4%BD%90%E6%97%A5%E8%A8%98-105064",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "嵯峨嵐山文華館「小倉百人一首の全首を見る」歌番号33",
+    "url": "https://www.samac.jp/search/poems_detail.php?id=33",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "isJiji": false,
+  "id": "waka-118",
+  "category": "joushiki",
+  "topic": "時刻と方角（十二支）",
+  "format": "combo",
+  "difficulty": 3,
+  "question": "古文に出てくる時刻の「酉の刻」と、方角の「巽」が表すものの組合せとして最も適当なものを選べ。",
+  "options": [
+   "酉の刻：午後6時ごろ／巽：南東",
+   "酉の刻：午後6時ごろ／巽：北西",
+   "酉の刻：午前6時ごろ／巽：南東",
+   "酉の刻：午前10時ごろ／巽：北東"
+  ],
+  "answer": 0,
+  "explanation": "時刻は子（午前0時ごろ）から十二支を2時間ずつ当てるので、10番目の酉は午後6時ごろ。方角の「巽（たつみ）」は辰と巳の間で南東（東南）。",
+  "optionNotes": [
+   "正しい。酉＝午後6時ごろ、巽＝南東。",
+   "誤り。北西は「乾（いぬい）」。",
+   "誤り。午前6時ごろは「卯の刻」。",
+   "誤り。午前10時ごろは「巳の刻」、北東は「艮（うしとら）」。"
+  ],
+  "pitfall": "「巽（辰巳）」「乾（戌亥）」「艮（丑寅）」は、間にある二つの十二支の名で読むと方角を割り出せる。",
+  "related": "方角に当てると卯＝東、酉＝西。卯の刻は午前6時ごろ。",
+  "sources": [
+   {
+    "title": "コトバンク「酉」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E9%85%89-585605",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「巽」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E5%B7%BD-555745",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「乾」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E4%B9%BE-469056",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「艮」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E8%89%AE-505794",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「卯」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E5%8D%AF-438131",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "isJiji": false,
+  "id": "waka-119",
+  "category": "joushiki",
+  "topic": "物忌・方違え・後朝・通い婚",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "平安時代の生活や習俗についての説明として適当でないものを一つ選べ。",
+  "options": [
+   "物忌：夢見の悪いときや暦の凶日などに、家にこもるなどして身を慎むこと。",
+   "方違え：行き先が忌むべき方角にあたるとき、その日の外出をとりやめて家にこもり、身を慎むこと。",
+   "後朝（きぬぎぬ）：男女が共寝をした翌朝。また、その朝の別れ。",
+   "通い婚：夫婦が同居せず、男が女のもとに通う結婚の形。"
+  ],
+  "answer": 1,
+  "explanation": "方違えは、行き先が忌むべき方角にあたるとき、前夜に別の方角へ行って泊まり、方角を変えてから目的地へ行くこと。家にこもって慎むのは物忌である。",
+  "optionNotes": [
+   "正しい。物忌の札を冠や簾に付けることもあった。",
+   "誤り。方違えは「別の方角でいったん泊まってから行く」こと。「家にこもる」は物忌の説明。",
+   "正しい。「後朝」はきぬぎぬと読み、共寝の翌朝の別れをいう。",
+   "正しい。平安時代は男が女のもとに通うのが普通だった。"
+  ],
+  "pitfall": "物忌（こもる）と方違え（よそに泊まって方角を変える）は、どちらも陰陽道に基づく習俗なので混同しやすい。",
+  "related": "後朝の別れの後、男から女へ送る手紙が「後朝の文」。",
+  "sources": [
+   {
+    "title": "コトバンク「物忌」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E7%89%A9%E5%BF%8C-142636",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「方違え」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E6%96%B9%E9%81%95%E3%81%88-463497",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「後朝」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E5%BE%8C%E6%9C%9D-496579",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「衣衣」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E8%A1%A3%E8%A1%A3-475106",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「通い婚」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E9%80%9A%E3%81%84%E5%A9%9A-670783",
+    "checked": "2026-10-17"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "isJiji": false,
+  "id": "waka-120",
+  "category": "joushiki",
+  "topic": "月の異名と陰暦の季節",
+  "format": "combo",
+  "difficulty": 3,
+  "question": "陰暦（旧暦）で「秋」にあたる三か月の異名の組合せとして最も適当なものを選べ。",
+  "options": [
+   "文月・葉月・長月",
+   "葉月・長月・神無月",
+   "水無月・文月・葉月",
+   "長月・神無月・霜月"
+  ],
+  "answer": 0,
+  "explanation": "陰暦では7〜9月が秋。7月＝文月（ふみづき）、8月＝葉月（はづき）、9月＝長月（ながつき）。10月の神無月からは冬にあたる。",
+  "optionNotes": [
+   "正しい。陰暦7・8・9月。",
+   "誤り。神無月（10月）は陰暦では冬。現在の暦の感覚（9〜11月）で選ぶと誤る。",
+   "誤り。水無月（6月）は陰暦では夏。",
+   "誤り。神無月（10月）・霜月（11月）は冬。"
+  ],
+  "pitfall": "陰暦の四季は「春＝1〜3月、夏＝4〜6月、秋＝7〜9月、冬＝10〜12月」。現代の季節感とおよそ1か月ずれる。",
+  "related": "卯月（4月）から夏で、衣更えをした。",
+  "sources": [
+   {
+    "title": "コトバンク「秋」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E7%A7%8B-422967",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「文月」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E6%96%87%E6%9C%88-619093",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「葉月」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E8%91%89%E6%9C%88-602334",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「長月」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E9%95%B7%E6%9C%88-587894",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「水無月」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E6%B0%B4%E7%84%A1%E6%9C%88-639070",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「神無月」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E7%A5%9E%E7%84%A1%E6%9C%88-466552",
+    "checked": "2026-10-17"
+   },
+   {
+    "title": "コトバンク「霜月」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E9%9C%9C%E6%9C%88-524204",
+    "checked": "2026-10-17"
+   }
+  ]
+ }
+];
+
+/* ===== 家族からの応援メッセージ（連続3・7・14・30日の節目に表示。空なら出さない） ===== */
+const CHEERS = [];
+
+const CATS = {
+  tango:"古文単語", jodoshi:"助動詞", joshi:"助詞・副詞・係り結び", keigo:"敬語と人物", waka:"和歌と修辞", kaishaku:"解釈・現代語訳", joushiki:"文学史・古典常識"
+};
+const FORMATS = ["choice4","truefalse","combo","order","recall","write"];
+const BOSS_FORMATS = ["choice4","combo"]; // BOSSは実戦形式（多肢選択の正誤・組合せ・計算）だけ
+function isBossable(q){return q.difficulty===3&&BOSS_FORMATS.includes(q.format);}
+function norm(s){return String(s||"").normalize("NFKC").toLowerCase().replace(/[\s・･\.．。、,，「」『』（）()\[\]【】〔〕\-‐ー－]/g,"");}
+const DIFF = {1:"基本",2:"標準",3:"応用"};
+const INTERVAL = {1:1,2:3,3:7,4:16,5:35};
+const KEY = "march-kobun-drill";
+const APP_VER = "1.1";
+
+/* ===== アイコン ===== */
+const IC = {
+  flame:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1.2 3.4 4.8 5.2 4.8 10a4.8 4.8 0 0 1-9.6 0c0-1.9.7-3.1 1.8-4.2.2 1.8 1.2 2.4 1.8 2.4C10.8 7 10.8 4.4 12 2z"/></svg>',
+  x:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>',
+  ok:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" stroke-width="2.4"/><path d="M7.5 12.5l3 3 6-6.5"/></svg>',
+  ng:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 7.5v5.5M12 16.5v.2"/></svg>',
+  crown:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 11H5L3 8z"/></svg>',
+  flag:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg>'
+};
+
+/* ===== 声かけ ===== */
+const MSG = {
+  ok:["その調子！","正確。いい読みだった","知識が武器になってきた","迷わず取れたね","積み上げが効いてる","この1点が本番で効く","安定してる","完璧な判断","そう、それ！","いいリズム","本番でも同じように取れる","ちゃんと覚えてる証拠","よし、次もいこう","正誤の見極め、冴えてる","読み切った！","この感覚を覚えておこう","知識がつながってきた","合格点の取り方をしてる","手堅い！","強い。迷いがない","前より速く解けてる","基礎が固まってきた"],
+  ng:["ナイスチャレンジ！ここで穴が見つかってラッキー","今間違えたぶん、本番で取れる","解説を読めばもう自分のもの","間違いは記憶の入口","ここで気づけたのが大きい","引っかけの型をひとつ覚えた","次に出たときは取れる","惜しい！考え方は近い","弱点が見つかった。伸びしろそのもの","リベンジに登録した。必ず取り返そう","今の1問で、正解への道がはっきりした","知らなかったことを知れた。前進","この論点、もう忘れない","落とし穴を先に踏めた。本番では避けられる","迷った分だけ記憶に残る","大丈夫、ここから覚えればいい","解説を1回読むだけで変わる","次の出題で確かめよう","よく考えた跡がある","問題が教えてくれた。ありがたい1問"],
+  confNg:["自信ありの誤答は、直すと一番記憶に残るタイプ。チャンス！","思い込みに気づけた。ここが一番伸びるところ","自信があった分、正しい知識で上書きすると強く残る","本番前に見つかってよかった。最優先で復習に回す","「覚えたつもり」を見つけた。今日いちばんの収穫","この1問を直せば、同じ引っかけにもう掛からない","確信があった問題ほど、解説がよく効く","ここで修正できたのは大きい。次は自信を持って取れる"],
+  guessOk:["ナイスセーブ！でも要復習。リベンジに入れておいた","勘でも取れたのは実力のうち。次は確信で取ろう","正直に「勘」と言えたのが強い。復習で本物にしよう","当たりは当たり。でも本番に向けてもう一度","ラッキーを実力に変えよう。リベンジで待ってる","いい勘。根拠をつければ確実な1点になる","今の正解、解説で裏づけておこう","勘で取れた問題は伸びしろ。もう1回会おう"],
+  combo:{3:"3連続！波に乗ってる",5:"5連続！止まらない",7:"7連続！完全に流れをつかんだ",10:"10連続！今日は無敵"},
+  bossWin:["BOSS撃破！MARCHの引っかけを見破った","撃破！この1問が取れるなら本番も怖くない","ボスを倒した。応用レベルに手が届いてる","完勝！ここまで積み上げた成果","見事！激戦の1点をもぎ取った","撃破！自信を持っていい"],
+  bossLose:["BOSSは手強かった。リベンジに登録した。次は倒せる","惜しい！応用問題に挑めていること自体が成長","解説を読めば、次のボス戦は勝てる","ボスの手口が分かった。次に出たら返り討ち","ここで負けておくのが一番いい。本番で勝つために","強敵だった。リベンジで攻略しよう"],
+  eng:["英語で鍛えた読解力が、長い選択肢の見極めで効いてる","英語の強みと国際分野、相性がいい","長文を読む力が、正誤判定で生きてる"],
+  rest:"今日の集中は十分。寝ている間に記憶が固まる。続きは明日の自分に任せよう。"
+};
+
+/* ===== 保存 ===== */
+function fresh(){return {v:1,cards:{},log:[],days:{},streak:{count:0,last:null,freezeWeek:null},xp:0,popped:0,settings:{sound:false,conf:true,size:"m"},flags:[],extra:[],offset:0,cheered:[]};}
+function load(){try{const s=JSON.parse(localStorage.getItem(KEY));if(s&&s.v===1){return Object.assign(fresh(),s,{settings:Object.assign(fresh().settings,s.settings||{})});}}catch(e){}return fresh();}
+let S = load();
+function save(){S.savedAt=Date.now();try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+/* ===== 記録が残る開き方かの点検 ===== */
+const STORE_OK=(()=>{try{const k="__t"+Date.now();localStorage.setItem(k,"1");const ok=localStorage.getItem(k)==="1";localStorage.removeItem(k);return ok;}catch(e){return false;}})();
+const IN_APP=/\bLine\/|FBAN|FBAV|Instagram|MicroMessenger/i.test(navigator.userAgent||"");
+
+/* ===== クラウド保存（合言葉） ===== */
+const SYNC_URL=(window.DRILL_CONFIG&&window.DRILL_CONFIG.syncUrl)||"";
+const CODE_KEY="march-drill-code";
+function lsGet(k){try{return localStorage.getItem(k);}catch(e){return null;}}
+function lsSet(k,v){try{localStorage.setItem(k,v);}catch(e){}}
+function getCode(){return lsGet(CODE_KEY)||"";}
+function newCode(){const c="abcdefghjkmnpqrstuvwxyz23456789";let s="";for(let i=0;i<8;i++){s+=c[Math.floor(Math.random()*c.length)];if(i===3)s+="-";}return s;}
+function normCode(s){return String(s||"").normalize("NFKC").toLowerCase().replace(/[^a-z0-9-]/g,"");}
+function validCode(s){return /^[a-z0-9-]{6,20}$/.test(s);}
+if(SYNC_URL&&STORE_OK&&!getCode())lsSet(CODE_KEY,newCode());
+let SYNC={busy:false,dirty:false,last:+(lsGet(KEY+"-sync")||0),err:false};
+function summary(){
+  const L=S.log.slice(-50),t=today();const cats={};
+  Object.keys(CATS).forEach(k=>{const a=acc(k);cats[CATS[k]]=a.a==null?null:Math.round(a.a*100);});
+  return {total:S.log.length,recent:L.length?Math.round(L.filter(l=>l.ok).length/L.length*100):null,streak:streakView(),today:S.days[t]||0,revenge:revengePool().length,cats};
+}
+function cloudPush(keep){
+  const code=getCode();if(!SYNC_URL||!code||SYNC.busy)return;
+  SYNC.busy=true;SYNC.dirty=false;
+  const body=JSON.stringify({code,app:KEY,savedAt:S.savedAt||Date.now(),data:S,summary:summary()});
+  fetch(SYNC_URL,{method:"POST",keepalive:!!keep&&body.length<60000,headers:{"Content-Type":"text/plain;charset=utf-8"},body})
+    .then(r=>r.json()).then(j=>{if(!j.ok)throw 0;SYNC.last=Date.now();SYNC.err=false;lsSet(KEY+"-sync",String(SYNC.last));})
+    .catch(()=>{SYNC.err=true;SYNC.dirty=true;}).finally(()=>{SYNC.busy=false;});
+}
+async function cloudGet(code){
+  const r=await fetch(SYNC_URL+"?code="+encodeURIComponent(code)+"&app="+encodeURIComponent(KEY));const j=await r.json();
+  if(!j.ok)throw new Error("ng");return j.data||null;
+}
+function adopt(o){if(!o||o.v!==1||!o.cards)return false;S=Object.assign(fresh(),o,{settings:Object.assign(fresh().settings,o.settings||{})});try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}return true;}
+// 開いたとき：クラウドの方が新しければ取り込む（別の端末で解いた分）
+if(SYNC_URL&&getCode()){cloudGet(getCode()).then(o=>{if(o&&(o.savedAt||0)>(S.savedAt||0)+60000&&adopt(o)){if(!SES)render();toast("クラウドの新しい記録を読み込みました");}else if(SYNC.dirty||(S.savedAt||0)>SYNC.last)cloudPush();}).catch(()=>{});}
+addEventListener("pagehide",()=>{if(SYNC.dirty)cloudPush(true);});
+function syncLine(){
+  if(!SYNC_URL||!STORE_OK)return "";
+  const code=getCode();if(!code)return "";
+  let s=`・合言葉 <b>${esc(code)}</b>`;
+  if(SYNC.last){const d=new Date(SYNC.last);s+=`・クラウド保存 ${d.getMonth()+1}/${d.getDate()} ${d.getHours()}:${String(d.getMinutes()).padStart(2,"0")}`;}
+  return s;
+}
+function syncCard(){
+  if(!SYNC_URL)return "";
+  const code=getCode();
+  return `<div class="card stack"><h2>記録のクラウド保存</h2>
+    <p class="small muted" style="margin:0">1セット解くたびに、記録をクラウドにも保存しています。名前やメールアドレスは送りません。機種変更や記録が消えたときは、下の合言葉で元に戻せます。</p>
+    <div class="note" style="text-align:center"><div class="small muted">あなたの合言葉（政経・古文・現代文で共通）</div><div style="font-size:26px;font-weight:800;letter-spacing:.06em">${esc(code||"—")}</div></div>
+    <button class="btn slim" id="copyCode">合言葉をコピー（メモやLINEに残しておく）</button><textarea id="codeOut" hidden readonly></textarea>
+    <details><summary>前の合言葉で記録を戻す</summary><div class="stack">
+      <p class="small muted" style="margin:0">前に使っていた合言葉を入れると、その記録をこの端末に戻し、これからはその合言葉で保存します。今この端末にある記録は置き換わります。</p>
+      <input id="codeIn" class="inp" inputmode="latin" autocapitalize="off" autocomplete="off" placeholder="例：abcd-2345" style="font-size:18px;padding:12px;border-radius:12px;border:1px solid var(--line,#ccc);background:transparent;color:inherit">
+      <button class="btn slim sky" id="codeLoad">この合言葉の記録を戻す</button>
+    </div></details>
+  </div>`;
+}
+function bindSync(){
+  const c=document.getElementById("copyCode");if(c)c.onclick=()=>copyText(`MARCHドリルの合言葉：${getCode()}`,$("#codeOut"));
+  const b=document.getElementById("codeLoad");if(!b)return;
+  b.onclick=async()=>{
+    const code=normCode($("#codeIn").value);if(!validCode(code)){toast("合言葉の形が違います（例：abcd-2345）");return;}
+    if(b.dataset.step!=="1"){b.dataset.step="1";b.textContent="もう一度押すと、今の記録と置き換えます";return;}
+    b.disabled=true;b.textContent="読み込み中…";
+    try{const o=await cloudGet(code);
+      if(!o){toast("その合言葉の記録は見つかりませんでした");b.disabled=false;b.dataset.step="";b.textContent="この合言葉の記録を戻す";return;}
+      lsSet(CODE_KEY,code);adopt(o);render();toast("記録を戻しました");}
+    catch(e){toast("つながりませんでした。電波のよい所でもう一度");b.disabled=false;b.dataset.step="";b.textContent="この合言葉の記録を戻す";}
+  };
+}
+
+function storeBanner(){
+  if(IN_APP)return `<div class="storebox" role="alert"><b>LINEなどアプリの中で開いています</b>この開き方だと、閉じたときに記録が消えることがあります。画面のメニュー（「…」や共有ボタン）から「Safariで開く」を選んでください。</div>`;
+  if(!STORE_OK)return `<div class="storebox" role="alert"><b>この開き方では記録が保存できません</b>プライベートブラウズなどになっていないか確認し、Safariの通常の画面で開いてください。</div>`;
+  if(!S.savedAt)return `<div class="storeok">記録はこの端末に保存します（まだ記録はありません${syncLine()}）${SYNC_URL?"<br>前の記録がある人は「仕上がり」→「前の合言葉で記録を戻す」":""}</div>`;
+  const d=new Date(S.savedAt);
+  return `<div class="storeok">記録はこの端末に保存中（最後に保存：${d.getMonth()+1}/${d.getDate()} ${d.getHours()}:${String(d.getMinutes()).padStart(2,"0")}・解いた数 ${S.log.length}問${syncLine()}）</div>`;
+}
+
+/* ===== 日付 ===== */
+function today(){const d=new Date();return Math.floor(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())/864e5)+(S.offset||0);}
+function dlabel(n){const d=new Date(n*864e5);return (d.getUTCMonth()+1)+"/"+d.getUTCDate();}
+function wday(n){return "日月火水木金土"[new Date(n*864e5).getUTCDay()];}
+function weekOf(n){return Math.floor((n+3)/7);}
+
+/* ===== 道具 ===== */
+const $=s=>document.querySelector(s);
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function pick(a){return a[Math.floor(Math.random()*a.length)];}
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+const CIRC="①②③④⑤⑥⑦⑧";
+function toast(t){const e=$("#toast");e.textContent=t;e.hidden=false;clearTimeout(toast._t);toast._t=setTimeout(()=>e.hidden=true,2200);}
+function vib(p){try{navigator.vibrate&&navigator.vibrate(p);}catch(e){}}
+async function copyText(t,fallbackEl){try{await navigator.clipboard.writeText(t);toast("コピーしました");}catch(e){if(fallbackEl){fallbackEl.value=t;fallbackEl.hidden=false;fallbackEl.select();}toast("下の欄を長押しでコピーしてください");}}
+
+/* ===== 音（初期はOFF） ===== */
+let AC=null;
+function tone(seq){if(!S.settings.sound)return;try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();let t=AC.currentTime;seq.forEach(([f,d])=>{const o=AC.createOscillator(),g=AC.createGain();o.type="triangle";o.frequency.value=f;g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.18,t+.02);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g).connect(AC.destination);o.start(t);o.stop(t+d+.02);t+=d*.8;});}catch(e){}}
+const SND={ok:[[660,.12],[990,.18]],ng:[[300,.18],[240,.22]],fan:[[523,.12],[659,.12],[784,.12],[1047,.35]],pop:[[880,.08],[1320,.14]]};
+
+/* ===== 問題バンク ===== */
+function bank(){const m=new Map();BANK_BASE.forEach(q=>m.set(q.id,q));(S.extra||[]).forEach(q=>{const o=m.get(q.id);if(!o||(q.version||1)>=(o.version||1))m.set(q.id,q);});return [...m.values()].filter(q=>q.status==="verified");}
+function card(id){return S.cards[id]||(S.cards[id]={stage:0,due:null,seen:0,ok:0,ng:0,revenge:false,hits:0,hitDay:null,confWrong:false,grad:false,checkDue:null});}
+function isDue(q,t){const c=S.cards[q.id];if(!c||c.seen===0)return false;if(c.grad)return c.checkDue!=null&&c.checkDue<=t;return c.stage>=1&&c.due!=null&&c.due<=t;}
+function acc(cat,n=20){const L=S.log.filter(l=>l.cat===cat).slice(-n);if(!L.length)return {a:null,n:0};return {a:L.filter(l=>l.ok).length/L.length,n:L.length};}
+function targetDiff(cat){const {a,n}=acc(cat);if(a==null||n<4)return 2;if(a>.9)return 3;if(a<.6)return 1;return 2;}
+function mastery(cat){const qs=bank().filter(q=>q.category===cat);if(!qs.length)return null;let s=0;qs.forEach(q=>{const c=S.cards[q.id];if(!c)return;s+=c.grad?1:Math.min(c.stage,5)/5;});return s/qs.length;}
+function revengePool(){return bank().filter(q=>S.cards[q.id]&&S.cards[q.id].revenge);}
+
+function interleave(list){const out=[];let rest=list.slice();while(rest.length){let i=rest.findIndex(q=>!(out.length>=2&&out[out.length-1].category===q.category&&out[out.length-2].category===q.category));if(i<0)i=0;out.push(rest.splice(i,1)[0]);}return out;}
+
+function pickDaily(){
+  const B=bank(),t=today(),n=Math.min(10,B.length);
+  let due=B.filter(q=>isDue(q,t)).sort((a,b)=>{const A=S.cards[a.id],C=S.cards[b.id];return (C.confWrong-A.confWrong)||((A.due||A.checkDue||0)-(C.due||C.checkDue||0));}).slice(0,6);
+  const unseen=shuffle(B.filter(q=>!S.cards[q.id]||S.cards[q.id].seen===0)).sort((a,b)=>Math.abs(a.difficulty-targetDiff(a.category))-Math.abs(b.difficulty-targetDiff(b.category)));
+  const minNew=Math.min(3,unseen.length);
+  if(due.length>n-minNew)due=due.slice(0,n-minNew);
+  let set=due.concat(unseen.slice(0,n-due.length));
+  if(set.length<n){const ids=new Set(set.map(q=>q.id));const rest=shuffle(B.filter(q=>!ids.has(q.id))).sort((a,b)=>(acc(a.category).a??.5)-(acc(b.category).a??.5));set=set.concat(rest.slice(0,n-set.length));}
+  // BOSS（第10問）：応用問題を、苦手すぎない分野から
+  let bossIdx=-1,best=-1;
+  set.forEach((q,i)=>{if(!isBossable(q))return;const a=acc(q.category).a;const sc=(a==null?.6:(a>=.4&&a<=.9?1:.3))+Math.random()*.1;if(sc>best){best=sc;bossIdx=i;}});
+  if(bossIdx<0){const ids=new Set(set.map(q=>q.id));const cand=B.filter(q=>isBossable(q)&&!ids.has(q.id));if(cand.length&&set.length){const dueIds=new Set(due.map(q=>q.id));let ri=set.findIndex(q=>!dueIds.has(q.id));if(ri<0)ri=set.length-1;set[ri]=pick(cand);bossIdx=ri;}}
+  let boss=null;if(bossIdx>=0){boss=set.splice(bossIdx,1)[0];}
+  set=interleave(set);if(boss)set.push(boss);
+  return {list:set,bossId:boss?boss.id:null};
+}
+function pickCustom(cats,n){
+  const B=bank().filter(q=>cats.includes(q.category)),t=today();
+  const due=shuffle(B.filter(q=>isDue(q,t)));const ids=new Set(due.map(q=>q.id));
+  const unseen=shuffle(B.filter(q=>!ids.has(q.id)&&(!S.cards[q.id]||S.cards[q.id].seen===0)));unseen.forEach(q=>ids.add(q.id));
+  const rest=shuffle(B.filter(q=>!ids.has(q.id))).sort((a,b)=>(acc(a.category).a??.5)-(acc(b.category).a??.5));
+  return {list:interleave(due.concat(unseen,rest).slice(0,n)),bossId:null};
+}
+function pickRevenge(n=10){
+  const P=shuffle(revengePool()).sort((a,b)=>{const A=S.cards[a.id],C=S.cards[b.id];return (C.confWrong-A.confWrong)||(A.hits-C.hits);});
+  return {list:interleave(P.slice(0,n)),bossId:null};
+}
+
+/* ===== 判定後の記録（間隔反復） ===== */
+function applyResult(q,correct,conf){
+  const c=card(q.id),t=today(),r={};
+  c.seen++;S.log.push({id:q.id,cat:q.category,d:t,ok:correct,conf});if(S.log.length>3000)S.log=S.log.slice(-3000);
+  if(correct){
+    c.ok++;
+    if(conf==="guess"){c.revenge=true;if(c.stage<1)c.stage=1;c.grad=false;c.due=t+INTERVAL[c.stage];r.guess=true;}
+    else{
+      if(c.grad){c.checkDue=null;}
+      else if(c.stage>=5){c.grad=true;c.due=null;c.checkDue=t+60;r.grad=true;}
+      else{c.stage++;c.due=t+INTERVAL[c.stage];}
+      if(c.revenge){
+        if(c.hits>=1&&c.hitDay!=null&&c.hitDay<t){c.revenge=false;c.hits=0;c.hitDay=null;S.popped++;r.popped=true;}
+        else if(c.hits===0){c.hits=1;c.hitDay=t;r.cracked=true;}
+        else r.sameDay=true;
+      }
+      c.confWrong=false;
+    }
+  }else{
+    c.ng++;c.stage=1;c.due=t+1;c.grad=false;c.checkDue=null;c.revenge=true;c.hits=0;c.hitDay=null;
+    if(conf==="sure"){c.confWrong=true;r.confWrong=true;}
+  }
+  save();return r;
+}
+
+/* ===== 画面：タブ ===== */
+let TAB="daily";
+function setTab(t){TAB=t;document.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-selected",String(b.dataset.tab===t)));render();window.scrollTo(0,0);}
+document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>setTab(b.dataset.tab)));
+
+function streakView(){const t=today(),s=S.streak;if(s.last==null)return 0;if(s.last>=t-1)return s.count;if(s.last===t-2&&s.freezeWeek!==weekOf(t))return s.count;return 0;}
+function setsToday(){return S.days[today()]||0;}
+
+function render(){
+  document.documentElement.dataset.size=S.settings.size;
+  const rv=revengePool().length;const b=$("#rvBadge");b.hidden=!rv;b.textContent=rv;
+  const app=$("#app");
+  if(TAB==="daily")app.innerHTML=viewDaily();
+  else if(TAB==="custom")app.innerHTML=viewCustom();
+  else if(TAB==="revenge")app.innerHTML=viewRevenge();
+  else app.innerHTML=viewStatus();
+  bindView();
+}
+
+function weekDots(){
+  const t=today();let h="";
+  for(let i=6;i>=0;i--){const d=t-i;const on=(S.days[d]||0)>0;h+=`<div class="wd"><div class="dot ${on?"on":""} ${i===0?"today":""}">${on?"✓":""}</div>${wday(d)}</div>`;}
+  return h;
+}
+
+function viewDaily(){
+  const B=bank(),t=today();
+  const due=B.filter(q=>isDue(q,t)).length;
+  const unseen=B.filter(q=>!S.cards[q.id]||S.cards[q.id].seen===0).length;
+  const rv=revengePool().length;
+  const cw=B.filter(q=>S.cards[q.id]&&S.cards[q.id].confWrong).length;
+  const st=streakView(),sets=setsToday();
+  const freeLeft=S.streak.freezeWeek!==weekOf(t);
+  return `
+  <div class="stack">
+    <div class="row" style="justify-content:space-between"><h1>MARCH古文ドリル</h1><span class="xpchip">${S.xp.toLocaleString()} XP</span></div>
+    ${storeBanner()}
+    <section class="hero">
+      <div class="hero-top">
+        <div><div class="streak">${IC.flame}<span>${st}日連続</span></div>
+        <div class="small muted">${st===0?"今日の1セットから、また積み上げよう":(sets>0?"今日のぶんは達成！":"今日1セットで "+(st+1)+"日連続")}</div></div>
+        <div class="small muted" style="text-align:right">お休みチケット<br><b style="color:var(--sky-d)">${freeLeft?"今週1枚あり":"今週は使用済み"}</b></div>
+      </div>
+      <div class="week">${weekDots()}</div>
+      <button class="btn primary" id="startDaily" ${B.length?"":"disabled"}>今日の${Math.min(10,B.length)}問を始める</button>
+      <div class="stats">
+        <div class="stat"><b>${due}</b><span>今日の復習</span></div>
+        <div class="stat"><b>${unseen}</b><span>新しい問題</span></div>
+        <div class="stat"><b>${rv}</b><span>リベンジ</span></div>
+      </div>
+    </section>
+    ${cw?`<div class="note red">自信ありで間違えた問題が <b>${cw}問</b> あります。直すと一番記憶に残るタイプなので、今日の10問に優先して入れています。</div>`:""}
+    ${sets>=5?`<div class="note sky">${MSG.rest}</div>`:(sets>0?`<div class="note green">今日は ${sets}セット解きました。</div>`:"")}
+    <div class="card small muted">1セットは約5分。第10問は応用の「BOSS」問題です。間違えた問題と勘で当たった問題は、リベンジに入り、忘れかけるころにまた出てきます。</div>
+  </div>`;
+}
+
+let CUST={cats:Object.keys(CATS),n:10};
+function viewCustom(){
+  const B=bank();const avail=B.filter(q=>CUST.cats.includes(q.category)).length;
+  return `<div class="stack">
+    <h1>範囲特訓</h1>
+    <p class="muted small" style="margin:0">定期テストや志望校の対策に合わせて、分野をしぼって解けます。</p>
+    <div class="card stack"><h2>分野</h2>
+      <div class="chips">${Object.entries(CATS).map(([k,v])=>`<button class="chip" data-cat="${k}" aria-pressed="${CUST.cats.includes(k)}">${esc(v)} <span class="muted small">${B.filter(q=>q.category===k).length}</span></button>`).join("")}</div>
+      <div class="row"><button class="btn slim" id="catAll" style="width:auto;flex:1">すべて選ぶ</button><button class="btn slim" id="catNone" style="width:auto;flex:1">すべて外す</button></div>
+    </div>
+    <div class="card stack"><h2>問題数</h2>
+      <div class="seg">${[5,10,20].map(n=>`<button class="chip" data-n="${n}" aria-pressed="${CUST.n===n}" style="text-align:center">${n}問</button>`).join("")}</div>
+    </div>
+    <button class="btn primary" id="startCustom" ${avail?"":"disabled"}>${avail?`${Math.min(CUST.n,avail)}問で始める`:"分野を選んでください"}</button>
+    ${avail&&avail<CUST.n?`<p class="small muted" style="margin:0">選んだ分野の問題は今 ${avail}問です。問題が増えると、ここも増えます。</p>`:""}
+  </div>`;
+}
+
+function viewRevenge(){
+  const P=revengePool();
+  if(!P.length)return `<div class="stack"><h1>リベンジ</h1><div class="card stack" style="text-align:center;padding:28px 16px"><div class="big">0</div><p style="margin:0">リベンジは空っぽ。<br>間違えた問題と、勘で当たった問題がここにたまります。</p><button class="btn primary" id="goDaily">デイリー10へ</button></div></div>`;
+  const t=today();
+  const items=P.slice().sort((a,b)=>(S.cards[b.id].confWrong-S.cards[a.id].confWrong)).map(q=>{const c=S.cards[q.id];
+    const state=c.hits>=1?(c.hitDay<t?`<span class="tag sky">ヒビ・今日倒せる</span>`:`<span class="tag sky">ヒビ・明日以降あと1回</span>`):"";
+    return `<div class="li"><div class="t"><div style="font-weight:800">${esc(q.topic)}</div><div class="row" style="gap:6px;margin-top:4px"><span class="tag">${esc(CATS[q.category])}</span>${c.confWrong?`<span class="tag red">自信ありで誤答</span>`:""}${state}</div></div></div>`;}).join("");
+  return `<div class="stack">
+    <div class="row" style="justify-content:space-between"><h1>リベンジ</h1><span class="tag red" style="font-size:.85rem">${P.length}問</span></div>
+    <p class="muted small" style="margin:0">1回正解するとヒビが入り、別の日にもう1回正解すると弾けて消えます。これまでに消した数：<b>${S.popped}</b></p>
+    <button class="btn red" id="startRevenge">リベンジ開始（${Math.min(10,P.length)}問）</button>
+    <div class="list">${items}</div>
+  </div>`;
+}
+
+let testTap=0;
+function viewStatus(){
+  const B=bank();
+  const total=S.log.length;
+  const rows=Object.entries(CATS).map(([k,v])=>{const m=mastery(k),a=acc(k);const pct=m==null?0:Math.round(m*100);
+    return `<div><div class="bar-h"><span>${esc(v)}</span><span>習熟 ${m==null?"—":pct+"%"}・正答率 ${a.a==null?"—":Math.round(a.a*100)+"%"}</span></div><div class="bar"><i style="width:${pct}%"></i></div></div>`;}).join("");
+  // データから強みの一言
+  let best=null;Object.keys(CATS).forEach(k=>{const a=acc(k);if(a.n>=5&&(!best||a.a>best.a))best={k,a:a.a,n:a.n};});
+  let msg="まずは数セット解いてみよう。データがたまると、ここに強みが出ます。";
+  if(best){msg=`いちばんの強みは「${CATS[best.k]}」。直近${best.n}問の正答率は${Math.round(best.a*100)}%。`;if(best.k==="kokusai"||best.k==="kokukei")msg+="英語で鍛えた読解力と相性のいい分野です。";else msg+="この分野は本番で確実に取る得点源にしよう。";}
+  const flags=S.flags.map((f,i)=>`<div class="li"><div class="t"><div style="font-weight:800">${esc(f.topic)} <span class="tag">${esc(f.id)}</span></div><div class="small muted">${esc(f.memo||"（メモなし）")}・${dlabel(f.day)}</div></div><button class="btn slim" data-unflag="${i}" style="width:auto">取り消す</button></div>`).join("");
+  return `<div class="stack">
+    <h1>仕上がり</h1>
+    <div class="stats">
+      <div class="stat"><b>${total}</b><span>解いた数</span></div>
+      <div class="stat"><b>${S.popped}</b><span>倒したリベンジ</span></div>
+      <div class="stat"><b>${streakView()}</b><span>連続日数</span></div>
+    </div>
+    <div class="note green">${esc(msg)}</div>
+    <div class="card stack"><h2>分野ごとの習熟度</h2><div class="bars">${rows}</div>
+      <p class="small muted" style="margin:0">習熟度は、その分野の問題を何段階まで覚えたか（最後まで卒業すると100%）。正答率は直近20問。問題は今 ${B.length}問。</p></div>
+    <div class="card stack"><h2>これ合ってる？（${S.flags.length}件）</h2>
+      ${S.flags.length?`<div class="list">${flags}</div><button class="btn sky" id="copyFlags">一覧をコピー（LINEで送る用）</button><textarea id="flagsOut" hidden readonly></textarea>`:`<p class="small muted" style="margin:0">解説画面の「これ合ってる？」で印を付けた問題がここに並びます。</p>`}
+    </div>
+    <div class="card stack"><h2>設定</h2>
+      <div class="toggle"><span>効果音</span><button class="sw" role="switch" id="swSound" aria-checked="${S.settings.sound}" aria-label="効果音"></button></div>
+      <div class="toggle"><span>確信度を聞く（自信あり／たぶん／勘）</span><button class="sw" role="switch" id="swConf" aria-checked="${S.settings.conf}" aria-label="確信度を聞く"></button></div>
+      <div><div style="margin-bottom:6px">文字の大きさ</div><div class="seg">${[["s","小"],["m","中"],["l","大"]].map(([k,v])=>`<button class="chip" data-size="${k}" aria-pressed="${S.settings.size===k}" style="text-align:center">${v}</button>`).join("")}</div></div>
+    </div>
+    ${syncCard()}
+    <div class="card stack"><h2>データ</h2>
+      <details><summary>学習記録の書き出し・復元</summary><div class="stack">
+        <p class="small muted" style="margin:0">機種変更や、記録が消えたときのために。書き出した文字をメモなどに保存し、復元するときは下の欄に貼り付けます。</p>
+        <button class="btn slim" id="exp">学習記録をコピー</button><textarea id="expOut" hidden readonly></textarea>
+        <textarea id="impIn" placeholder="ここに書き出した記録を貼り付け"></textarea><button class="btn slim sky" id="imp">記録を復元</button>
+      </div></details>
+      <details><summary>問題データの読み込み（親用）</summary><div class="stack">
+        <p class="small muted" style="margin:0">問題データ（JSON）を貼り付けて追加します。出題されるのは status が verified（検証済み）の問題だけです。同じIDは、版が新しいもので置き換わります。</p>
+        <textarea id="qIn" placeholder='[{"id":"kenpo-101", ...}]'></textarea><button class="btn slim sky" id="qImp">問題を追加</button>
+      </div></details>
+      <details><summary>記録を全部消す</summary><div class="stack"><p class="small muted" style="margin:0">学習記録・連続日数・リベンジがすべて消えます。元に戻せません。</p><button class="btn slim red" id="reset">全部消す</button></div></details>
+    </div>
+    <p class="small muted" id="ver" style="text-align:center;margin:0">版 ${APP_VER}</p>
+    <div class="card stack" id="testBox" hidden><h2>テスト用（親向け）</h2><p class="small muted" style="margin:0">復習の期日や連続日数の動きを試すために日付をずらします。今の日付：${dlabel(today())}（ずれ ${S.offset}日）</p>
+      <div class="row"><button class="btn slim" id="dPlus" style="flex:1;width:auto">1日進める</button><button class="btn slim" id="dMinus" style="flex:1;width:auto">1日戻す</button><button class="btn slim" id="dZero" style="flex:1;width:auto">元に戻す</button></div></div>
+  </div>`;
+}
+
+function bindView(){
+  const on=(id,f)=>{const e=document.getElementById(id);if(e)e.addEventListener("click",f);};
+  on("startDaily",()=>startSession("daily"));
+  on("startCustom",()=>startSession("custom"));
+  on("startRevenge",()=>startSession("revenge"));
+  on("goDaily",()=>setTab("daily"));
+  document.querySelectorAll("[data-cat]").forEach(b=>b.onclick=()=>{const k=b.dataset.cat;CUST.cats=CUST.cats.includes(k)?CUST.cats.filter(x=>x!==k):CUST.cats.concat(k);render();});
+  on("catAll",()=>{CUST.cats=Object.keys(CATS);render();});
+  on("catNone",()=>{CUST.cats=[];render();});
+  document.querySelectorAll("[data-n]").forEach(b=>b.onclick=()=>{CUST.n=+b.dataset.n;render();});
+  document.querySelectorAll("#app [data-size]").forEach(b=>b.onclick=()=>{S.settings.size=b.dataset.size;save();render();});
+  on("swSound",()=>{S.settings.sound=!S.settings.sound;save();render();if(S.settings.sound)tone(SND.ok);});
+  on("swConf",()=>{S.settings.conf=!S.settings.conf;save();render();});
+  document.querySelectorAll("[data-unflag]").forEach(b=>b.onclick=()=>{S.flags.splice(+b.dataset.unflag,1);save();render();});
+  on("copyFlags",()=>{const t="【これ合ってる？】\n"+S.flags.map(f=>`・${f.id}（版${f.version}）${f.topic}：${f.memo||"メモなし"}（${dlabel(f.day)}）\n　問題文：${f.q}`).join("\n");copyText(t,$("#flagsOut"));});
+  on("exp",()=>copyText(JSON.stringify(S),$("#expOut")));
+  on("imp",()=>{try{const o=JSON.parse($("#impIn").value);if(!o||o.v!==1||!o.cards)throw 0;S=Object.assign(fresh(),o);save();cloudPush();render();toast("記録を復元しました");}catch(e){toast("復元できませんでした。書き出した文字をそのまま貼り付けてください");}});
+  on("qImp",()=>{try{let a=JSON.parse($("#qIn").value);if(!Array.isArray(a))a=[a];let ok=0,ng=0;a.forEach(q=>{if(q&&q.id&&CATS[q.category]&&FORMATS.includes(q.format)&&q.question&&((q.format==="recall"||q.format==="write")?(q.answerText||q.accept):Array.isArray(q.options))){S.extra=(S.extra||[]).filter(x=>x.id!==q.id);S.extra.push(q);ok++;}else ng++;});save();render();toast(`追加 ${ok}問${ng?`・読めなかった ${ng}問`:""}`);}catch(e){toast("JSONの形が読めませんでした");}});
+  on("reset",e=>{const b=e.currentTarget;if(b.dataset.step==="2"){S=fresh();save();setTab("daily");toast("記録を消しました");}else if(b.dataset.step==="1"){b.dataset.step="2";b.textContent="最後の確認：本当に全部消す";}else{b.dataset.step="1";b.textContent="もう一度押すと消えます";}});
+  on("ver",()=>{if(++testTap>=5){$("#testBox").hidden=false;}});
+  on("dPlus",()=>{S.offset++;save();render();$("#testBox").hidden=false;});
+  on("dMinus",()=>{S.offset--;save();render();$("#testBox").hidden=false;});
+  on("dZero",()=>{S.offset=0;save();render();$("#testBox").hidden=false;});
+  bindSync();
+}
+
+/* ===== 出題 ===== */
+let SES=null;
+function startSession(mode){
+  const p=mode==="daily"?pickDaily():mode==="custom"?pickCustom(CUST.cats,CUST.n):pickRevenge(10);
+  if(!p.list.length){toast("出せる問題がありません");return;}
+  SES={mode,queue:p.list.map(q=>({q,retry:false})),idx:0,first:p.list.length,done:[],firstOk:0,retakes:0,retakeOk:0,xp:0,combo:0,maxCombo:0,wrongIds:[],bossId:p.bossId,boss:null,popped:0,cracked:0,confNg:0};
+  $("#tabs").hidden=true;$("#quiz").hidden=false;document.body.style.overflow="hidden";
+  showQ();
+}
+function quitSession(){SES=null;$("#quiz").hidden=true;$("#tabs").hidden=false;document.body.style.overflow="";render();}
+
+let QS=null; // 1問ぶんの状態
+function showQ(){
+  const item=SES.queue[SES.idx];const q=item.q;
+  const nOpt=(q.options||[]).length;const canShuffle=["choice4","combo"].includes(q.format)&&!(q.options||[]).some(o=>/^[ア-エ][\s　]/.test(o));
+  QS={item,q,sel:null,order:[],phase:"answer",revealed:false,perm:canShuffle?shuffle([...Array(nOpt).keys()]):[...Array(nOpt).keys()]};
+  const isBoss=q.id===SES.bossId&&!item.retry;
+  const quiz=$("#quiz");quiz.classList.toggle("boss",isBoss);
+  quiz.innerHTML=`
+   <header class="qhead"><div class="qhead-in">
+     <button class="x" id="qx" aria-label="中断する">${IC.x}</button>
+     <div class="prog" aria-hidden="true">${progHTML()}</div>
+     <div class="combo" id="combo">${SES.combo>=2?IC.flame+SES.combo:""}</div>
+   </div></header>
+   <div class="qbody" id="qbody"><div class="qbody-in">
+     ${isBoss?`<div class="bossbar">${IC.crown}BOSS BATTLE：MARCH激戦の応用・引っかけ問題</div>`:""}
+     ${item.retry?`<div class="note sky small">取り返しチャンス！さっき間違えた問題です</div>`:""}
+     <div class="qcard stack" id="qcard">
+       <div class="qmeta"><span class="tag">${esc(CATS[q.category])}</span><span class="tag">${DIFF[q.difficulty]||""}</span>${q.isJiji?`<span class="tag sky">時事 ${esc(q.asOf||"")}</span>`:""}</div>
+       <div class="qtext">${esc(q.question)}</div>
+       <div id="qarea"></div>
+     </div>
+     <div id="sheet"></div>
+   </div></div>
+   <footer class="qfoot"><div class="qfoot-in" id="qfoot"></div></footer>`;
+  $("#qx").onclick=()=>{if(confirmQuit())quitSession();};
+  renderArea();renderFoot();
+  $("#qbody").scrollTop=0;
+}
+let quitArm=0;
+function confirmQuit(){if(Date.now()-quitArm<2500)return true;quitArm=Date.now();toast("もう一度押すと中断します（ここまでの記録は残ります）");return false;}
+function progHTML(){
+  let h="";for(let i=0;i<SES.first;i++){const d=SES.done[i];const cls=d===true?"ok":d===false?"ng":(i===firstIndex()?"now":"");const isB=SES.bossId&&i===SES.first-1;h+=`<i class="${cls} ${isB?"boss":""}"></i>`;}return h;
+}
+function firstIndex(){let c=0;for(let i=0;i<SES.idx;i++)if(!SES.queue[i].retry)c++;return SES.queue[SES.idx]&&SES.queue[SES.idx].retry?-1:c;}
+
+function renderArea(){
+  const q=QS.q,a=$("#qarea");
+  if(q.format==="write"){
+    if(QS.phase==="reveal"){a.innerHTML=`<div class="recall-ans" style="text-align:left">あなたの答え：${esc(QS.typed||"（空欄）")}</div>`;return;}
+    a.innerHTML=`<input type="text" id="qin" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="答えを入力" value="${esc(QS.typed||"")}" style="font-size:1.1rem">`;
+    const inp=$("#qin");inp.oninput=()=>{QS.typed=inp.value;renderFoot();};inp.onkeydown=e=>{if(e.key==="Enter"&&inp.value.trim()){e.preventDefault();checkWrite();}};
+    return;
+  }
+  if(q.format==="recall"){
+    a.innerHTML=QS.revealed?`<div class="recall-ans">${esc(q.answerText)}</div>`:`<p class="muted small" style="margin:0">答えを頭の中で言ってから、めくってください。</p>`;
+    return;
+  }
+  if(q.format==="order"){
+    a.innerHTML=`<p class="muted small" style="margin:0 0 8px">古い順にタップ（${QS.order.length}/${q.options.length}）</p><div class="opts">${q.options.map((o,i)=>{const k=QS.order.indexOf(i);const cls=QS.phase==="reveal"?(QS.correct?"right":"wrong"):"";return `<button class="opt ${cls}" data-i="${i}" aria-pressed="${k>=0}" ${QS.phase==="reveal"?"disabled":""}><span class="n">${k>=0?k+1:""}</span><span>${esc(o)}</span></button>`;}).join("")}</div>`;
+    a.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{if(QS.phase==="reveal")return;const i=+b.dataset.i;if(QS.order.includes(i))return;QS.order.push(i);if(QS.order.length===q.options.length)QS.phase=S.settings.conf?"conf":"judge";renderArea();renderFoot();if(QS.phase==="judge")judge(null);});
+    return;
+  }
+  a.innerHTML=`<div class="opts">${QS.perm.map((i,k)=>{const o=q.options[i];let cls="";if(QS.phase==="reveal"){if(i===q.answer)cls="right";else if(i===QS.sel)cls="wrong";}return `<button class="opt ${cls}" data-i="${i}" aria-pressed="${QS.phase!=="reveal"&&QS.sel===i}" ${QS.phase==="reveal"?"disabled":""}><span class="n">${CIRC[k]||k+1}</span><span>${esc(o)}</span></button>`;}).join("")}</div>`;
+  a.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{if(QS.phase==="reveal")return;QS.sel=+b.dataset.i;if(S.settings.conf){QS.phase="conf";renderArea();renderFoot();}else{judge(null);}});
+}
+function renderFoot(){
+  const f=$("#qfoot"),q=QS.q;
+  if(QS.phase==="reveal"){f.innerHTML=`<button class="btn primary" id="next">${SES.idx+1<SES.queue.length?"次へ":"結果を見る"}</button>`;$("#next").onclick=next;return;}
+  if(q.format==="write"){
+    f.innerHTML=`<button class="btn primary" id="wchk" ${(QS.typed||"").trim()?"":"disabled"}>答え合わせ</button>`;$("#wchk").onclick=checkWrite;return;
+  }
+  if(q.format==="recall"){
+    if(!QS.revealed){f.innerHTML=`<button class="btn sky" id="flip">答えを見る</button>`;$("#flip").onclick=()=>{QS.revealed=true;renderArea();renderFoot();};}
+    else{f.innerHTML=`<div class="ask">言えた？</div><div class="confrow"><button class="btn" id="r1"><span class="e">🔥</span>言えた</button><button class="btn" id="r2"><span class="e">🤔</span>あいまい</button><button class="btn" id="r3"><span class="e">💭</span>言えなかった</button></div>`;
+      $("#r1").onclick=()=>judge("sure",true);$("#r2").onclick=()=>judge("guess",true);$("#r3").onclick=()=>judge(null,false);}
+    return;
+  }
+  if(QS.phase==="conf"){
+    f.innerHTML=`<div class="ask">どのくらい自信がある？</div><div class="confrow"><button class="btn" id="c1"><span class="e">🔥</span>自信あり</button><button class="btn" id="c2"><span class="e">🤔</span>たぶん</button><button class="btn" id="c3"><span class="e">🎲</span>勘</button></div>${q.format==="order"?`<button class="btn slim" id="redo">並べ直す</button>`:""}`;
+    $("#c1").onclick=()=>judge("sure");$("#c2").onclick=()=>judge("maybe");$("#c3").onclick=()=>judge("guess");
+    const r=$("#redo");if(r)r.onclick=()=>{QS.order=[];QS.phase="answer";renderArea();renderFoot();};
+    return;
+  }
+  if(q.format==="order"&&QS.order.length){f.innerHTML=`<button class="btn slim" id="redo">並べ直す</button>`;$("#redo").onclick=()=>{QS.order=[];renderArea();renderFoot();};return;}
+  f.innerHTML=`<div class="ask">${q.format==="order"?"順番にタップして答えよう":"答えをタップしよう"}</div>`;
+}
+
+function judge(conf,recallOk){
+  const q=QS.q,item=QS.item;
+  let correct;
+  if(q.format==="recall"||q.format==="write")correct=!!recallOk;
+  else if(q.format==="order")correct=JSON.stringify(QS.order)===JSON.stringify(q.answer);
+  else correct=QS.sel===q.answer;
+  QS.correct=correct;QS.phase="reveal";
+  const isBoss=q.id===SES.bossId&&!item.retry;
+  let r={};let gain=0;let bonus=false;
+  if(!item.retry){
+    r=applyResult(q,correct,conf);
+    SES.done.push(correct);if(correct)SES.firstOk++;
+    if(!correct){SES.wrongIds.push(q.id);SES.queue.push({q,retry:true});}
+    if(r.popped)SES.popped++;if(r.cracked)SES.cracked++;if(r.confWrong)SES.confNg++;
+    if(isBoss)SES.boss=correct;
+  }else{SES.retakes++;if(correct)SES.retakeOk++;}
+  if(correct){SES.combo++;SES.maxCombo=Math.max(SES.maxCombo,SES.combo);gain=item.retry?4:10;if(SES.combo>=3)gain+=5;if(isBoss)gain+=20;if(!item.retry&&Math.random()<.1){bonus=true;gain*=2;}}
+  else{SES.combo=0;gain=2;}
+  if(conf&&conf!=="guess"&&!item.retry)gain+=1;
+  SES.xp+=gain;S.xp+=gain;save();
+  // 演出
+  const qc=$("#qcard");qc.classList.remove("bounce","shake","burst");void qc.offsetWidth;
+  if(r.popped){qc.classList.add("burst");tone(SND.pop);vib([20,40,20]);}
+  else if(correct){qc.classList.add("bounce");tone(SND.ok);vib(15);}
+  else{qc.classList.add("shake");tone(SND.ng);vib([40,30,40]);}
+  if(isBoss&&correct){tone(SND.fan);confetti();}
+  const cb=$("#combo");cb.innerHTML=SES.combo>=2?IC.flame+SES.combo:"";if(SES.combo>=2){cb.classList.remove("pop");void cb.offsetWidth;cb.classList.add("pop");}
+  $(".prog").innerHTML=progHTML();
+  renderArea();renderFoot();renderSheet(correct,conf,r,isBoss,gain,bonus);
+}
+
+function message(correct,conf,r,isBoss){
+  if(isBoss)return pick(correct?MSG.bossWin:MSG.bossLose);
+  if(r.popped)return "撃破！カードが弾けて消えた。もう自分の知識だ";
+  if(r.cracked)return "ヒビが入った！別の日にもう1回正解で撃破";
+  if(!correct&&conf==="sure")return pick(MSG.confNg);
+  if(correct&&conf==="guess")return pick(MSG.guessOk);
+  if(correct&&MSG.combo[SES.combo])return MSG.combo[SES.combo];
+  if(correct&&(QS.q.category==="kokusai"||QS.q.category==="kokukei")&&Math.random()<.2)return pick(MSG.eng);
+  return pick(correct?MSG.ok:MSG.ng);
+}
+
+function renderSheet(correct,conf,r,isBoss,gain,bonus){
+  const q=QS.q;
+  let notes="";
+  if(q.format==="order"){
+    notes=`<div class="sec-t">正しい順番</div><ol class="onotes">${q.answer.map((i,k)=>`<li><span class="m ok">${k+1}</span><span>${esc(q.options[i])}${q.optionNotes&&q.optionNotes[i]?`<br><span class="muted">${esc(q.optionNotes[i])}</span>`:""}</span></li>`).join("")}</ol>`;
+  }else if(q.format!=="recall"&&q.format!=="write"&&q.optionNotes){
+    notes=`<div class="sec-t">選択肢ごとの説明</div><ul class="onotes">${QS.perm.map((i,k)=>{const n=q.optionNotes[i];return `<li><span class="m ${i===q.answer?"ok":"ng"}">${CIRC[k]||k+1}</span><span>${esc(n)}${i===QS.sel&&i!==q.answer?` <span class="tag red">あなたの答え</span>`:""}</span></li>`;}).join("")}</ul>`;
+  }
+  const src=(q.sources||[]).map(s=>s.url?`<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>`:esc(s.title)).join("<br>");
+  $("#sheet").innerHTML=`<section class="sheet ${correct?"ok":"ng"}" aria-live="polite">
+    <div class="verdict">${correct?IC.ok:IC.ng}<div><b>${correct?(isBoss?"BOSS撃破！":"正解！"):(isBoss?"BOSSに挑んだ！":"ナイスチャレンジ")}</b><div class="small">${esc(message(correct,conf,r,isBoss))}</div></div></div>
+    <div class="row" style="gap:8px"><span class="xpchip">+${gain} XP</span>${bonus?`<span class="tag sky">ボーナス解説 XP×2</span>`:""}${r.guess?`<span class="tag red">リベンジに追加</span>`:""}${!correct&&!QS.item.retry?`<span class="tag red">リベンジに追加</span>`:""}</div>
+    ${q.format!=="recall"&&q.format!=="write"&&q.format!=="order"&&!correct?`<div><div class="sec-t">正解</div><div style="font-weight:800">${CIRC[QS.perm.indexOf(q.answer)]||""} ${esc(q.options[q.answer])}</div></div>`:""}
+    ${q.format==="recall"||q.format==="write"?`<div><div class="sec-t">答え</div><div style="font-weight:800">${esc(q.answerText)}</div>${q.format==="write"&&q.accept&&q.accept.length>1?`<div class="small muted">正解にする表記：${q.accept.map(esc).join("／")}</div>`:""}</div>`:""}
+    ${q.format==="write"&&!correct&&!QS.item.retry&&(QS.typed||"").trim()?`<button class="btn slim" id="wfix">表記が違うだけで、合っていた</button>`:""}
+    <div><div class="sec-t">解説</div><div>${esc(q.explanation)}</div></div>
+    ${q.pitfall?`<div class="pit"><div class="sec-t">落とし穴</div><div>${esc(q.pitfall)}</div></div>`:""}
+    ${notes}
+    ${q.related?`<div><div class="sec-t">あわせて覚えると強い</div><div class="small">${esc(q.related)}</div></div>`:""}
+    ${src?`<div class="src">出典：${src}</div>`:""}
+    <div id="flagBox"><button class="btn slim" id="flagBtn">${IC.flag}これ合ってる？</button></div>
+  </section>`;
+  const wf=$("#wfix");if(wf)wf.onclick=()=>{fixWrite();};
+  const fb=$("#flagBtn");fb.onclick=()=>{$("#flagBox").innerHTML=`<div class="stack"><input type="text" id="flagMemo" placeholder="どこが気になった？（なくてもOK）"><button class="btn slim sky" id="flagSave">親に知らせる印を付ける</button></div>`;$("#flagSave").onclick=()=>{S.flags.push({id:q.id,version:q.version||1,topic:q.topic,q:String(q.question).slice(0,60),memo:$("#flagMemo").value.trim(),day:today()});save();$("#flagBox").innerHTML=`<div class="note sky small">印を付けました。「仕上がり」タブからまとめて親に送れます。</div>`;};};
+  setTimeout(()=>{const s=$("#sheet .sheet");if(s)s.scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"});},250);
+}
+
+function checkWrite(){const q=QS.q;const v=norm(QS.typed);const acc=(q.accept&&q.accept.length?q.accept:[q.answerText]).map(norm);const ok=acc.includes(v);judge(ok?"sure":null,ok);}
+function fixWrite(){ // 表記ゆれの自己申告：記録を正解に直す（勘扱い＝リベンジには残す）
+  const q=QS.q,c=card(q.id),t=today();
+  const L=S.log;for(let i=L.length-1;i>=0;i--){if(L[i].id===q.id&&L[i].d===t){L[i].ok=true;L[i].conf="guess";break;}}
+  c.ng=Math.max(0,c.ng-1);c.ok++;c.confWrong=false;c.stage=Math.max(c.stage,1);c.due=t+1;c.revenge=true;
+  SES.done[SES.done.length-1]=true;SES.firstOk++;SES.wrongIds=SES.wrongIds.filter(id=>id!==q.id);
+  const qi=SES.queue.findIndex((it,i)=>i>SES.idx&&it.retry&&it.q.id===q.id);if(qi>=0)SES.queue.splice(qi,1);
+  save();$(".prog").innerHTML=progHTML();const w=$("#wfix");if(w)w.outerHTML=`<div class="note green small">正解に直しました。念のためリベンジに残しています。</div>`;$("#next").textContent=SES.idx+1<SES.queue.length?"次へ":"結果を見る";
+}
+function next(){SES.idx++;if(SES.idx<SES.queue.length)showQ();else finish();}
+
+function finish(){
+  const t=today();
+  S.days[t]=(S.days[t]||0)+1;
+  const s=S.streak;let usedFreeze=false;
+  if(s.last!==t){if(s.last===t-1)s.count++;else if(s.last===t-2&&s.freezeWeek!==weekOf(t)){s.count++;s.freezeWeek=weekOf(t);usedFreeze=true;}else s.count=1;s.last=t;}
+  let cheer="";if(CHEERS.length&&[3,7,14,30].includes(s.count)&&!S.cheered.includes(s.count)){cheer=pick(CHEERS);S.cheered.push(s.count);}
+  save();cloudPush();
+  const sc=SES.firstOk,n=SES.first,rate=n?sc/n:0;
+  const head=rate===1?"パーフェクト！":rate>=.8?"すばらしい仕上がり！":rate>=.5?"着実に前進！":"いい練習になった！";
+  const good=[];good.push(`今日も${n}問を積み上げた`);if(SES.retakeOk)good.push(`間違えた問題を${SES.retakeOk}問その場で取り返した`);if(SES.popped)good.push(`リベンジを${SES.popped}問撃破`);if(SES.cracked)good.push(`${SES.cracked}問にヒビを入れた`);if(SES.maxCombo>=3)good.push(`最大${SES.maxCombo}連続正解`);if(SES.confNg)good.push(`思い込みを${SES.confNg}つ発見（ここが一番伸びる）`);
+  const wrongLeft=SES.wrongIds.filter(id=>S.cards[id]&&S.cards[id].revenge).length;
+  const sets=S.days[t];
+  const R=$("#result");
+  R.innerHTML=`<div class="wrap stack">
+    <div class="big">${esc(head)}</div>
+    ${SES.boss===true?`<div class="note" style="text-align:center;font-weight:800">${IC.crown.replace('<svg','<svg width="22" height="22" style="vertical-align:-4px;color:var(--gold)"')} BOSS撃破</div>`:SES.boss===false?`<div class="note sky" style="text-align:center">BOSSはリベンジに登録。次は倒せる</div>`:""}
+    <div class="card stack"><div class="sec-t">今日よかったこと</div><ul style="margin:0;padding-left:1.2em">${good.map(g=>`<li>${esc(g)}</li>`).join("")}</ul></div>
+    <div class="stats">
+      <div class="stat"><b>${sc}/${n}</b><span>正解</span></div>
+      <div class="stat"><b>+${SES.xp}</b><span>XP</span></div>
+      <div class="stat"><b>${s.count}</b><span>連続日数</span></div>
+    </div>
+    ${usedFreeze?`<div class="note sky small">お休みチケットを使って、連続記録をつなげました。</div>`:""}
+    ${cheer?`<div class="note"><div class="sec-t">家族から</div>${esc(cheer)}</div>`:""}
+    ${sets>=5?`<div class="note sky">${MSG.rest}</div>`:""}
+    ${wrongLeft?`<button class="btn red" id="goRv">間違えた${wrongLeft}問を今すぐリベンジ</button>`:""}
+    <button class="btn ${wrongLeft?"":"primary"}" id="again">${sets>=5?"それでももう1セット":"もう1セット"}</button>
+    <button class="btn slim" id="home">ホームへ</button>
+  </div>`;
+  R.hidden=false;R.scrollTop=0;$("#quiz").hidden=true;
+  const mode=SES.mode;SES=null;
+  const close=()=>{R.hidden=true;$("#tabs").hidden=false;document.body.style.overflow="";};
+  const g=$("#goRv");if(g)g.onclick=()=>{close();startSession("revenge");};
+  $("#again").onclick=()=>{close();startSession(mode==="revenge"?"daily":mode);};
+  $("#home").onclick=()=>{close();setTab("daily");};
+  if(rate===1)confetti();
+}
+
+/* ===== 紙吹雪 ===== */
+function confetti(){
+  if(window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+  const c=$("#fx");c.hidden=false;const x=c.getContext("2d");const W=c.width=innerWidth,H=c.height=innerHeight;
+  const cs=getComputedStyle(document.documentElement);const cols=["--green","--yellow","--sky","--red","--gold"].map(v=>cs.getPropertyValue(v).trim()||"#58CC02");
+  const P=Array.from({length:120},()=>({x:W/2+(Math.random()-.5)*W*.3,y:H*.35,vx:(Math.random()-.5)*10,vy:-Math.random()*11-4,r:Math.random()*6+4,c:pick(cols),a:Math.random()*6,va:(Math.random()-.5)*.3}));
+  let f=0;(function step(){x.clearRect(0,0,W,H);P.forEach(p=>{p.vy+=.35;p.x+=p.vx;p.y+=p.vy;p.a+=p.va;x.save();x.translate(p.x,p.y);x.rotate(p.a);x.fillStyle=p.c;x.fillRect(-p.r/2,-p.r/4,p.r,p.r/2);x.restore();});if(++f<110)requestAnimationFrame(step);else{x.clearRect(0,0,W,H);c.hidden=true;}})();
+}
+
+setTab("daily");
+</script>
+</body></html>

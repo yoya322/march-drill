@@ -1,0 +1,3992 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>MARCH現代文ドリル</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="MARCH現代文">
+<meta name="theme-color" content="#E0712B">
+<link rel="apple-touch-icon" href="gendai-icon.png">
+<link rel="icon" href="gendai-icon.png">
+<script src="config.js"></script>
+<style>html,body{margin:0}*,*::before,*::after{box-sizing:border-box}</style>
+</head><body>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800&display=swap">
+<style>
+/* 片手で解く縦長の1画面アプリ。下にタブ、出題中は全画面。押すと沈む立体ボタンが基調 */
+:root{
+  --bg:#F4F8EF; --surface:#FFFFFF; --fg:#1E2A1B; --muted:#66745F; --line:#DCE5D4; --line-d:#C6D2BB;
+  --green:#E0712B; --green-d:#BC5718; --green-t:#FCE7D9;
+  --red:#F24B4B; --red-d:#C93636; --red-t:#FDE4E4;
+  --sky:#1CA7EC; --sky-d:#1588C2; --sky-t:#DDF2FC;
+  --yellow:#FFC800; --yellow-d:#D9A900; --gold:#E9A800; --gold-t:#FFF3C9;
+  --on-color:#FFFFFF;
+  --font:"M PLUS Rounded 1c","Hiragino Maru Gothic ProN","Hiragino Sans","Meiryo",system-ui,sans-serif;
+  font-size:16px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#11180F; --surface:#1B2418; --fg:#EDF3E8; --muted:#9BAA93; --line:#2C3A28; --line-d:#3A4B35;
+  --green:#F08A47; --green-d:#C2642A; --green-t:#3D2414;
+  --red:#F25F5F; --red-d:#B83D3D; --red-t:#3A2020;
+  --sky:#35B3F0; --sky-d:#1C86BD; --sky-t:#163246;
+  --yellow:#FFCE2E; --yellow-d:#C99E10; --gold:#F2BC2F; --gold-t:#3A3112;
+  --on-color:#FFFFFF; color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#11180F; --surface:#1B2418; --fg:#EDF3E8; --muted:#9BAA93; --line:#2C3A28; --line-d:#3A4B35;
+  --green:#F08A47; --green-d:#C2642A; --green-t:#3D2414;
+  --red:#F25F5F; --red-d:#B83D3D; --red-t:#3A2020;
+  --sky:#35B3F0; --sky-d:#1C86BD; --sky-t:#163246;
+  --yellow:#FFCE2E; --yellow-d:#C99E10; --gold:#F2BC2F; --gold-t:#3A3112;
+  --on-color:#FFFFFF; color-scheme:dark;
+}
+:root[data-size="s"]{font-size:15px} :root[data-size="l"]{font-size:18px}
+html,body{height:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:1rem;line-height:1.6;-webkit-tap-highlight-color:transparent}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--sky);outline-offset:2px}
+.wrap{max-width:520px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:16px calc(96px + env(safe-area-inset-bottom,0px))}
+h1,h2,h3{margin:0;line-height:1.3;text-wrap:balance}
+h1{font-size:1.5rem;font-weight:800}
+h2{font-size:1.15rem;font-weight:800}
+.muted{color:var(--muted)}
+.small{font-size:.85rem}
+.stack{display:flex;flex-direction:column;gap:12px}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.card{background:var(--surface);border:2px solid var(--line);border-radius:20px;padding:16px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;min-height:56px;padding:10px 16px;border-radius:16px;border:2px solid var(--line-d);border-bottom-width:5px;background:var(--surface);font-weight:800;font-size:1rem;width:100%;transition:transform .06s}
+.btn:active:not(:disabled){transform:translateY(3px);border-bottom-width:2px;margin-bottom:3px}
+.btn:disabled{opacity:.45;cursor:default}
+.btn.primary{background:var(--green);border-color:var(--green-d);color:var(--on-color)}
+.btn.sky{background:var(--sky);border-color:var(--sky-d);color:var(--on-color)}
+.btn.red{background:var(--red);border-color:var(--red-d);color:var(--on-color)}
+.btn.gold{background:var(--yellow);border-color:var(--yellow-d);color:#3B2E00}
+.btn.slim{min-height:44px;font-size:.9rem;border-bottom-width:4px}
+.tabs{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--surface);border-top:2px solid var(--line);padding:6px max(8px,env(safe-area-inset-right,0px)) calc(6px + env(safe-area-inset-bottom,0px)) max(8px,env(safe-area-inset-left,0px))}
+.tabs-in{max-width:520px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+.tab{position:relative;display:flex;flex-direction:column;align-items:center;gap:2px;border:0;background:none;padding:6px 2px;border-radius:12px;font-size:.72rem;font-weight:800;color:var(--muted);min-height:56px}
+.tab svg{width:26px;height:26px}
+.tab[aria-selected="true"]{color:var(--green-d);background:var(--green-t)}
+:root[data-theme="dark"] .tab[aria-selected="true"]{color:var(--green)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tab[aria-selected="true"]{color:var(--green)}}
+.badge{position:absolute;top:2px;right:18%;min-width:20px;height:20px;padding:0 6px;border-radius:10px;background:var(--red);color:var(--on-color);font-size:.7rem;line-height:20px;text-align:center}
+.hero{display:flex;flex-direction:column;gap:14px;padding:18px;border-radius:24px;background:var(--surface);border:2px solid var(--line)}
+.hero-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.streak{display:flex;align-items:center;gap:6px;font-weight:800;font-size:1.1rem;color:var(--gold)}
+.streak svg{width:28px;height:28px}
+.week{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.wd{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:.7rem;color:var(--muted)}
+.dot{width:26px;height:26px;border-radius:50%;border:2px solid var(--line-d);display:grid;place-items:center;font-size:.75rem}
+.dot.on{background:var(--yellow);border-color:var(--yellow-d)}
+.dot.free{background:var(--sky-t);border-color:var(--sky)}
+.dot.today{outline:2px solid var(--green);outline-offset:2px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.stat{background:var(--bg);border-radius:14px;padding:10px;text-align:center}
+.stat b{display:block;font-size:1.35rem;font-weight:800;font-variant-numeric:tabular-nums}
+.stat span{font-size:.75rem;color:var(--muted)}
+.note{padding:12px 14px;border-radius:14px;background:var(--gold-t);font-size:.9rem}
+.note.sky{background:var(--sky-t)} .note.green{background:var(--green-t)} .note.red{background:var(--red-t)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:2px solid var(--line-d);border-bottom-width:4px;border-radius:14px;background:var(--surface);padding:10px 12px;font-weight:700;font-size:.9rem;min-height:48px;text-align:left}
+.chip[aria-pressed="true"]{background:var(--green-t);border-color:var(--green)}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.list{display:flex;flex-direction:column;gap:8px}
+.li{display:flex;gap:10px;align-items:center;padding:12px;border-radius:14px;background:var(--surface);border:2px solid var(--line)}
+.li .t{flex:1;min-width:0}
+.tag{display:inline-block;font-size:.7rem;font-weight:800;padding:2px 8px;border-radius:8px;background:var(--bg);color:var(--muted)}
+.tag.red{background:var(--red-t);color:var(--red-d)} .tag.sky{background:var(--sky-t);color:var(--sky-d)}
+.bars{display:flex;flex-direction:column;gap:12px}
+.bar-h{display:flex;justify-content:space-between;gap:8px;font-size:.85rem;font-weight:700}
+.bar-h span:last-child{color:var(--muted);font-weight:500;font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:14px;border-radius:7px;background:var(--bg);overflow:hidden;border:1px solid var(--line)}
+.bar i{display:block;height:100%;border-radius:7px;background:var(--green)}
+.toggle{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:52px}
+.sw{width:56px;height:32px;border-radius:16px;border:2px solid var(--line-d);background:var(--bg);position:relative;flex:none}
+.sw::after{content:"";position:absolute;top:2px;left:2px;width:24px;height:24px;border-radius:50%;background:var(--muted);transition:left .15s}
+.sw[aria-checked="true"]{background:var(--green);border-color:var(--green-d)}
+.sw[aria-checked="true"]::after{left:26px;background:var(--on-color)}
+textarea{width:100%;min-height:110px;border-radius:12px;border:2px solid var(--line-d);background:var(--bg);color:var(--fg);padding:10px;font:inherit;font-size:.8rem}
+input[type=text]{width:100%;min-height:48px;border-radius:12px;border:2px solid var(--line-d);background:var(--bg);color:var(--fg);padding:8px 12px;font:inherit}
+details summary{cursor:pointer;font-weight:800;min-height:44px;display:flex;align-items:center}
+
+/* 出題画面 */
+.quiz{position:fixed;inset:0;z-index:30;background:var(--bg);display:flex;flex-direction:column}
+.quiz.boss{box-shadow:inset 0 0 0 5px var(--gold),inset 0 0 40px var(--gold-t)}
+.qhead{padding:calc(10px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) 8px max(16px,env(safe-area-inset-left,0px))}
+.qhead-in{max-width:520px;margin:0 auto;display:flex;align-items:center;gap:12px}
+.x{width:44px;height:44px;border:0;background:none;border-radius:12px;display:grid;place-items:center;color:var(--muted);flex:none}
+.x svg{width:26px;height:26px}
+.prog{flex:1;display:flex;gap:4px}
+.prog i{flex:1;height:12px;border-radius:6px;background:var(--line)}
+.prog i.ok{background:var(--green)} .prog i.ng{background:var(--red)} .prog i.now{background:var(--sky)}
+.prog i.boss{outline:2px solid var(--gold);outline-offset:1px}
+.combo{display:flex;align-items:center;gap:2px;font-weight:800;color:var(--gold);min-width:44px;justify-content:flex-end;font-variant-numeric:tabular-nums}
+.combo svg{width:22px;height:22px}
+.combo.pop{animation:pop .35s}
+.qbody{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.qbody-in{max-width:520px;margin:0 auto;padding:8px max(16px,env(safe-area-inset-right,0px)) 16px max(16px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:14px}
+.bossbar{border-radius:14px;padding:10px 12px;background:var(--gold-t);border:2px solid var(--gold);font-weight:800;font-size:.9rem;display:flex;gap:8px;align-items:center}
+.bossbar svg{width:22px;height:22px;flex:none;color:var(--gold)}
+.qmeta{display:flex;gap:6px;flex-wrap:wrap}
+.qtext{font-size:1.08rem;font-weight:700;white-space:pre-line}
+.qcard.bounce{animation:bounce .45s}
+.qcard.shake{animation:shake .4s}
+.qcard.burst{animation:burst .6s}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{display:flex;gap:10px;align-items:flex-start;text-align:left;min-height:56px;padding:12px 14px;border-radius:16px;border:2px solid var(--line-d);border-bottom-width:5px;background:var(--surface);font-weight:700;font-size:.97rem;width:100%}
+.opt .n{flex:none;width:28px;height:28px;border-radius:9px;border:2px solid var(--line-d);display:grid;place-items:center;font-size:.85rem}
+.opt[aria-pressed="true"]{border-color:var(--sky);background:var(--sky-t)}
+.opt[aria-pressed="true"] .n{border-color:var(--sky);background:var(--sky);color:var(--on-color)}
+.opt.right{border-color:var(--green);background:var(--green-t)}
+.opt.right .n{background:var(--green);border-color:var(--green);color:var(--on-color)}
+.opt.wrong{border-color:var(--red);background:var(--red-t)}
+.opt.wrong .n{background:var(--red);border-color:var(--red);color:var(--on-color)}
+.opt:disabled{cursor:default}
+.recall-ans{padding:16px;border-radius:16px;background:var(--sky-t);border:2px solid var(--sky);font-weight:800;font-size:1.1rem;text-align:center}
+.sheet{border-radius:20px;padding:16px;display:flex;flex-direction:column;gap:12px;background:var(--surface);border:2px solid var(--line);animation:up .3s ease-out}
+.sheet.ok{border-color:var(--green)} .sheet.ng{border-color:var(--red)}
+.verdict{display:flex;align-items:center;gap:10px}
+.verdict svg{width:34px;height:34px;flex:none}
+.verdict b{font-size:1.2rem}
+.sheet.ok .verdict{color:var(--green-d)} .sheet.ng .verdict{color:var(--red-d)}
+.sec-t{font-size:.78rem;font-weight:800;color:var(--muted);letter-spacing:.04em}
+.pit{padding:10px 12px;border-radius:12px;background:var(--gold-t)}
+.onotes{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;font-size:.9rem}
+.onotes li{display:flex;gap:8px}
+.onotes .m{flex:none;font-weight:800}
+.onotes .m.ok{color:var(--green-d)} .onotes .m.ng{color:var(--red-d)}
+.src{font-size:.78rem;color:var(--muted);word-break:break-all}
+.src a{color:var(--sky-d)}
+.xpchip{display:inline-flex;align-items:center;gap:4px;font-weight:800;color:var(--sky-d);font-size:.9rem}
+.qfoot{padding:10px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));border-top:2px solid var(--line);background:var(--surface)}
+.qfoot-in{max-width:520px;margin:0 auto;display:flex;flex-direction:column;gap:8px}
+.confrow{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.confrow .btn{flex-direction:column;gap:0;font-size:.9rem;padding:6px}
+.confrow .btn .e{font-size:1.3rem;line-height:1.2}
+.ask{font-size:.85rem;font-weight:800;color:var(--muted);text-align:center}
+.result{position:fixed;inset:0;z-index:40;background:var(--bg);overflow-y:auto}
+.result .wrap{padding-block:calc(24px + env(safe-area-inset-top,0px)) calc(24px + env(safe-area-inset-bottom,0px))}
+.big{font-size:2rem;font-weight:800;text-align:center}
+#fx{position:fixed;inset:0;pointer-events:none;z-index:60}
+.toast{position:fixed;left:50%;bottom:calc(90px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:70;background:var(--fg);color:var(--bg);padding:10px 16px;border-radius:12px;font-weight:700;font-size:.9rem;max-width:90vw}
+@keyframes bounce{0%{transform:scale(1)}40%{transform:scale(1.04)}70%{transform:scale(.98)}100%{transform:scale(1)}}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(7px)}60%{transform:translateX(-5px)}80%{transform:translateX(3px)}}
+@keyframes burst{0%{transform:scale(1);opacity:1}50%{transform:scale(1.08);opacity:.6}100%{transform:scale(1);opacity:1}}
+@keyframes pop{0%{transform:scale(1)}50%{transform:scale(1.5)}100%{transform:scale(1)}}
+@keyframes up{from{transform:translateY(24px);opacity:0}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+.storebox{border-radius:12px;padding:12px 14px;font-size:15px;line-height:1.6;background:rgba(240,150,40,.14);border:1px solid rgba(240,150,40,.6)}
+.storebox b{display:block;margin-bottom:2px}
+.storeok{font-size:13px;opacity:.75;line-height:1.5}
+</style>
+
+<main id="app" class="wrap"></main>
+<nav class="tabs" id="tabs" aria-label="画面切り替え"><div class="tabs-in" role="tablist">
+  <button class="tab" role="tab" data-tab="daily" id="tab-daily"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c1 3 4 4.5 4 8.5a4 4 0 0 1-8 0c0-1.6.6-2.6 1.5-3.5.2 1.5 1 2 1.5 2C11 7.5 11 5 12 3z"/><path d="M5 21h14"/></svg>デイリー10</button>
+  <button class="tab" role="tab" data-tab="custom" id="tab-custom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r=".8" fill="currentColor"/></svg>範囲特訓</button>
+  <button class="tab" role="tab" data-tab="revenge" id="tab-revenge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 2.5-5.8"/><path d="M4 4v4h4"/><path d="M12 8v4l3 2"/></svg>リベンジ<span class="badge" id="rvBadge" hidden></span></button>
+  <button class="tab" role="tab" data-tab="status" id="tab-status"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>仕上がり</button>
+</div></nav>
+<div id="quiz" class="quiz" hidden></div>
+<div id="result" class="result" hidden></div>
+<canvas id="fx" hidden></canvas>
+<div id="toast" class="toast" hidden></div>
+
+<script>
+"use strict";
+/* ===== 問題データ（ここだけを差し替えれば問題が増える） ===== */
+const BANK_BASE = [
+ {
+  "version": 1,
+  "status": "verified",
+  "category": "kanji_kaki",
+  "isJiji": false,
+  "id": "kaki-101",
+  "topic": "象徴の「徴」",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次の文のカタカナ部分を漢字に直したとき、「チョウ」にあたる漢字と同じ漢字を使うものを、次の4つから一つ選べ。\n鳩は平和の「ショウチョウ」とされる。",
+  "options": [
+   "違反者を厳しく「チョウバツ」する。",
+   "市民の声に「ケイチョウ」する。",
+   "会費を「チョウシュウ」する。",
+   "新しい分野に「チョウセン」する。"
+  ],
+  "answer": 2,
+  "explanation": "例文は「象徴」で、「チョウ」は「徴」。同じ「徴」を使うのは「徴収（ちょうしゅう）」。「徴」には「しるし」「取り立てる」の意味がある。",
+  "optionNotes": [
+   "懲罰（ちょうばつ）。「懲」は「こらしめる」。下に「心」がある別の字",
+   "傾聴（けいちょう）。「聴」は「きく」",
+   "正解。徴収（ちょうしゅう）。象徴と同じ「徴」",
+   "挑戦（ちょうせん）。「挑」は「いどむ」"
+  ],
+  "pitfall": "「徴」と「懲」は形がよく似ている（懲は下に「心」）。また「徴」と「微（ビ）」も形が似ているので、真ん中の下の部分（徴は「王」）で見分ける。",
+  "related": "「徴」を使う語：特徴・徴候・徴兵・追徴。",
+  "sources": [
+   {
+    "title": "コトバンク「象徴」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E8%B1%A1%E5%BE%B4-79528",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「徴収」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E5%BE%B4%E5%8F%8E-568536",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「懲罰」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E6%87%B2%E7%BD%B0-98150",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "文化庁「常用漢字表」（平成22年内閣告示）",
+    "url": "https://www.bunka.go.jp/kokugo_nihongo/sisaku/joho/joho/kijun/naikaku/pdf/joyokanjihyo_20101130.pdf",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "version": 2,
+  "status": "verified",
+  "category": "kanji_kaki",
+  "isJiji": false,
+  "id": "kaki-102",
+  "topic": "痕跡の「跡」",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "次の文のカタカナ部分を漢字に直したとき、「セキ」にあたる漢字と同じ漢字を使うものを、次の4つから一つ選べ。\n古代文明の「コンセキ」が今も残っている。",
+  "options": [
+   "「イセキ」の発掘調査が進む。",
+   "輝かしい「ギョウセキ」を残す。",
+   "土地の「メンセキ」を測る。",
+   "最後まで「セキニン」を果たす。"
+  ],
+  "answer": 0,
+  "explanation": "例文は「痕跡（こんせき）」で、「セキ」は「跡（あと）」。同じ「跡」を使うのは「遺跡（いせき）」。どちらも「何かがあったあと」という意味。",
+  "optionNotes": [
+   "正解。遺跡。痕跡と同じ「跡」（足へん）",
+   "業績（ぎょうせき）。「績」は糸へんで「なしとげた成果」",
+   "面積（めんせき）。「積」は禾（のぎ）へんで「つむ・広さ」",
+   "責任（せきにん）。「責」は「せめ・つとめ」"
+  ],
+  "pitfall": "「跡・績・積・責」はどれも「セキ」。績・積は右側が「責」と同じ形なので、へんで見分ける：糸へん＝成果、禾へん＝つみかさね。跡は足へんに「亦」で、あとの意味。",
+  "related": "跡：軌跡・追跡・形跡／績：実績・成績／積：蓄積・累積。",
+  "sources": [
+   {
+    "title": "コトバンク「痕跡」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E7%97%95%E8%B7%A1-67345",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「遺跡」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E9%81%BA%E8%B7%A1-166323",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「業績」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E6%A5%AD%E7%B8%BE-52840",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「面積」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E9%9D%A2%E7%A9%8D-141949",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "文化庁「常用漢字表」（平成22年内閣告示）",
+    "url": "https://www.bunka.go.jp/kokugo_nihongo/sisaku/joho/joho/kijun/naikaku/pdf/joyokanjihyo_20101130.pdf",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "category": "kanji_kaki",
+  "isJiji": false,
+  "id": "kaki-103",
+  "topic": "構築の「構」",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次の文のカタカナ部分を漢字に直したとき、「コウ」にあたる漢字と同じ漢字を使うものを、次の4つから一つ選べ。\n新しい理論を「コウチク」する。",
+  "options": [
+   "大学で「コウギ」を受ける。",
+   "新しいパソコンを「コウニュウ」する。",
+   "地域の発展に「コウケン」する。",
+   "建物の「コウゾウ」を調べる。"
+  ],
+  "answer": 3,
+  "explanation": "例文は「構築（こうちく）」で、「コウ」は「構（かまえる・くみたてる）」。同じ「構」を使うのは「構造（こうぞう）」。",
+  "optionNotes": [
+   "講義（こうぎ）。「講」は言べんで「説きあかす」",
+   "購入（こうにゅう）。「購」は貝へんで「買う」",
+   "貢献（こうけん）。「貢」は「みつぐ」",
+   "正解。構造。構築と同じ「構」（木へん）"
+  ],
+  "pitfall": "「構・講・購」はつくりが同じで形がそっくり。へんで判断する：木へん＝組み立てる、言べん＝話す・教える、貝へん＝お金で買う。",
+  "related": "構：構成・構想・機構／講：講演・講座／購：購読・購買。",
+  "sources": [
+   {
+    "title": "コトバンク「構築」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E6%A7%8B%E7%AF%89-496532",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「構造」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E6%A7%8B%E9%80%A0-62564",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「講義」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E8%AC%9B%E7%BE%A9-494567",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「購入」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E8%B3%BC%E5%85%A5-496997",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "文化庁「常用漢字表」（平成22年内閣告示）",
+    "url": "https://www.bunka.go.jp/kokugo_nihongo/sisaku/joho/joho/kijun/naikaku/pdf/joyokanjihyo_20101130.pdf",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "version": 2,
+  "status": "verified",
+  "category": "kanji_kaki",
+  "isJiji": false,
+  "id": "kaki-104",
+  "topic": "継承の「継」",
+  "format": "choice4",
+  "difficulty": 1,
+  "question": "次の文のカタカナ部分を漢字に直したとき、「ケイ」にあたる漢字と同じ漢字を使うものを、次の4つから一つ選べ。\n伝統芸能を次の世代に「ケイショウ」する。",
+  "options": [
+   "歴史を「タイケイ」的に学ぶ。",
+   "駅伝の様子を「チュウケイ」する。",
+   "二人の「カンケイ」を修復する。",
+   "旅行の「ケイカク」を立てる。"
+  ],
+  "answer": 1,
+  "explanation": "例文は「継承（けいしょう）」で、「ケイ」は「継（つぐ）」。同じ「継」を使うのは「中継（ちゅうけい）」（途中で引き継ぐこと）。",
+  "optionNotes": [
+   "体系（たいけい）。「系」は「つながり・すじ」",
+   "正解。中継。継承と同じ「継」",
+   "関係（かんけい）。「係」は「かかわる」",
+   "計画（けいかく）。「計」は「はかる」"
+  ],
+  "pitfall": "「継」は糸へんの字で、訓読みは「つぐ」。受け継ぐ・引き継ぐ意味のときに使う。",
+  "related": "継：後継・継続・継母。継承の対象は伝統・文化・王位・権利など。",
+  "sources": [
+   {
+    "title": "コトバンク「継承」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E7%B6%99%E6%89%BF-3106",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「中継」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E4%B8%AD%E7%B6%99-567343",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「体系」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E4%BD%93%E7%B3%BB-91036",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "文化庁「常用漢字表」（平成22年内閣告示）",
+    "url": "https://www.bunka.go.jp/kokugo_nihongo/sisaku/joho/joho/kijun/naikaku/pdf/joyokanjihyo_20101130.pdf",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "category": "kanji_kaki",
+  "isJiji": false,
+  "id": "kaki-105",
+  "topic": "変遷の「遷」",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "次の文のカタカナ部分を漢字に直したとき、「セン」にあたる漢字と同じ漢字を使うものを、次の4つから一つ選べ。\n時代による言葉の意味の「ヘンセン」をたどる。",
+  "options": [
+   "どの道に進むか「センタク」を迫られる。",
+   "彼の「センモン」は哲学だ。",
+   "本社から地方の支店へ「サセン」される。",
+   "学んだことを日々の生活で「ジッセン」する。"
+  ],
+  "answer": 2,
+  "explanation": "例文は「変遷（へんせん）」（時とともに移り変わること）で、「セン」は「遷（うつる）」。同じ「遷」を使うのは「左遷（させん）」（低い地位に移されること）。",
+  "optionNotes": [
+   "選択（せんたく）。「選」は「えらぶ」",
+   "専門（せんもん）。「専」は「もっぱら」",
+   "正解。左遷。変遷と同じ「遷」",
+   "実践（じっせん）。「践」は「ふむ・おこなう」"
+  ],
+  "pitfall": "「遷」は見慣れない字なので、同じしんにょうの「選」と混同しやすい。「遷」は「移る・移す」の意味で、変遷・左遷・遷都に使う。",
+  "related": "遷都（せんと）＝都を移すこと。変遷の類語：推移・移り変わり。",
+  "sources": [
+   {
+    "title": "コトバンク「変遷」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E5%A4%89%E9%81%B7-626388",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「左遷」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E5%B7%A6%E9%81%B7-510771",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「選択」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E9%81%B8%E6%8A%9E-5273",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「実践」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E5%AE%9F%E8%B7%B5-74120",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "文化庁「常用漢字表」（平成22年内閣告示）",
+    "url": "https://www.bunka.go.jp/kokugo_nihongo/sisaku/joho/joho/kijun/naikaku/pdf/joyokanjihyo_20101130.pdf",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "category": "kanji_kaki",
+  "isJiji": false,
+  "id": "kaki-106",
+  "topic": "獲得の「獲」",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次の文のカタカナ部分を漢字に直したとき、「カク」にあたる漢字と同じ漢字を使うものを、次の4つから一つ選べ。\n選挙で多くの票を「カクトク」した。",
+  "options": [
+   "二つの案を「ヒカク」する。",
+   "今年はサンマの「ギョカク」量が減った。",
+   "法律の「カクダイ」解釈は避けるべきだ。",
+   "感染した人を「カクリ」する。"
+  ],
+  "answer": 1,
+  "explanation": "例文は「獲得（かくとく）」で、「カク」は「獲（える・とる）」。同じ「獲」を使うのは「漁獲（ぎょかく）」（水産物をとること）。",
+  "optionNotes": [
+   "比較（ひかく）。「較」は「くらべる」",
+   "正解。漁獲。獲得と同じ「獲」（けものへん）",
+   "拡大（かくだい）。「拡」は「ひろげる」",
+   "隔離（かくり）。「隔」は「へだてる」"
+  ],
+  "pitfall": "作物をとりいれる「収穫（しゅうかく）」は禾（のぎ）へんの「穫」。けものへんの「獲」は、狩りや漁で獲物を得る・努力して手に入れる意味。",
+  "related": "獲：捕獲・乱獲・獲物／穫：収穫。",
+  "sources": [
+   {
+    "title": "コトバンク「獲得」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E7%8D%B2%E5%BE%97-460613",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「漁獲」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E6%BC%81%E7%8D%B2-479224",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「収穫」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E5%8F%8E%E7%A9%AB-526364",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "文化庁「常用漢字表」（平成22年内閣告示）",
+    "url": "https://www.bunka.go.jp/kokugo_nihongo/sisaku/joho/joho/kijun/naikaku/pdf/joyokanjihyo_20101130.pdf",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "category": "kanji_kaki",
+  "isJiji": false,
+  "id": "kaki-107",
+  "topic": "疎外の「疎」",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "次の文のカタカナ部分を漢字に直したとき、「ソ」にあたる漢字と同じ漢字を使うものを、次の4つから一つ選べ。\n集団の中で仲間はずれにされ、「ソガイ」感を覚える。",
+  "options": [
+   "計画の実現を「ソシ」する。",
+   "緊急の「ソチ」をとる。",
+   "音楽家としての「ソシツ」に恵まれる。",
+   "若者が減り、「カソ」化が進む村。"
+  ],
+  "answer": 3,
+  "explanation": "例文は「疎外感（そがいかん）」で、「ソ」は「疎（うとい・まばら）」。疎外は「嫌ってのけものにすること」。同じ「疎」を使うのは「過疎（かそ）」。",
+  "optionNotes": [
+   "阻止（そし）。「阻」は「はばむ」",
+   "措置（そち）。「措」は「おく・とりはからう」",
+   "素質（そしつ）。「素」は「もと」",
+   "正解。過疎。疎外と同じ「疎」"
+  ],
+  "pitfall": "「ソガイ」には同音の「阻害（さまたげること）」がある。仲間はずれの意味や「疎外感」「人間疎外」は「疎」。阻害と考えると「阻止」を選んでしまう。",
+  "related": "疎：疎遠・空疎・疎通。評論では「人間疎外」（人間が自分で作ったものに支配される状態）がよく出る。",
+  "sources": [
+   {
+    "title": "コトバンク「疎外」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E7%96%8E%E5%A4%96-89801",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「阻害」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E9%98%BB%E5%AE%B3-553635",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「過疎」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E9%81%8E%E7%96%8E-44807",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「阻止」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E9%98%BB%E6%AD%A2-554314",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "文化庁「常用漢字表」（平成22年内閣告示）",
+    "url": "https://www.bunka.go.jp/kokugo_nihongo/sisaku/joho/joho/kijun/naikaku/pdf/joyokanjihyo_20101130.pdf",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "category": "kanji_kaki",
+  "isJiji": false,
+  "id": "kaki-108",
+  "topic": "概念の「概」",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "次の文のカタカナ部分を漢字に直したとき、「ガイ」にあたる漢字と同じ漢字を使うものを、次の4つから一つ選べ。\n『自由』という「ガイネン」を定義する。",
+  "options": [
+   "報告書の「ガイヨウ」をまとめる。",
+   "母校を訪れ、「カンガイ」にふける。",
+   "条件に「ガイトウ」する人を探す。",
+   "「ショウガイ」学習に取り組む。"
+  ],
+  "answer": 0,
+  "explanation": "例文は「概念（がいねん）」で、「ガイ」は「概（おおむね・おおよそ）」。同じ「概」を使うのは「概要（がいよう）」。",
+  "optionNotes": [
+   "正解。概要。概念と同じ「概」（木へん）",
+   "感慨（かんがい）。「慨」はりっしんべんで「心に深く感じる・なげく」",
+   "該当（がいとう）。「該」は「あてはまる」",
+   "生涯（しょうがい）。「涯」は「はて・かぎり」"
+  ],
+  "pitfall": "「概」（木へん）と「慨」（りっしんべん）はつくりが同じ。心の動き（感慨・憤慨）ならりっしんべん、「おおよそ」（概要・概略・大概）なら木へん。",
+  "related": "概：概略・概括・一概に／慨：憤慨・慨嘆。",
+  "sources": [
+   {
+    "title": "コトバンク「概念」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E6%A6%82%E5%BF%B5-42803",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「概要」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E6%A6%82%E8%A6%81-458608",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「感慨」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E6%84%9F%E6%85%A8-469282",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "文化庁「常用漢字表」（平成22年内閣告示）",
+    "url": "https://www.bunka.go.jp/kokugo_nihongo/sisaku/joho/joho/kijun/naikaku/pdf/joyokanjihyo_20101130.pdf",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "category": "kanji_kaki",
+  "isJiji": false,
+  "id": "kaki-109",
+  "topic": "規範の「範」",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次の文のカタカナ部分を漢字に直したとき、「ハン」にあたる漢字と同じ漢字を使うものを、次の4つから一つ選べ。\n社会の「キハン」に従って行動する。",
+  "options": [
+   "若者の「イッパン」的な傾向を調べる。",
+   "新しい商品を「ハンバイ」する。",
+   "彼は学校の「モハン」となる生徒だ。",
+   "交通ルールに「イハン」する。"
+  ],
+  "answer": 2,
+  "explanation": "例文は「規範（きはん）」（行動や判断の基準となる手本）で、「ハン」は「範（のり・手本）」。同じ「範」を使うのは「模範（もはん）」。",
+  "optionNotes": [
+   "一般（いっぱん）。「般」は舟へん",
+   "販売（はんばい）。「販」は貝へんで「売る」",
+   "正解。模範。規範と同じ「範」（竹かんむり）",
+   "違反（いはん）。「反」は「そむく」"
+  ],
+  "pitfall": "「範」は竹かんむり。「範囲」「師範」も同じ字。「般」（一般・全般）と書き間違えやすい。",
+  "related": "規範は評論で「社会規範」「道徳規範」の形でよく出る。範：範囲・師範・範例。",
+  "sources": [
+   {
+    "title": "コトバンク「規範」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E8%A6%8F%E7%AF%84-51412",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「模範」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E6%A8%A1%E7%AF%84-646515",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「一般」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E4%B8%80%E8%88%AC-434542",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "文化庁「常用漢字表」（平成22年内閣告示）",
+    "url": "https://www.bunka.go.jp/kokugo_nihongo/sisaku/joho/joho/kijun/naikaku/pdf/joyokanjihyo_20101130.pdf",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "version": 2,
+  "status": "verified",
+  "category": "kanji_kaki",
+  "isJiji": false,
+  "id": "kaki-110",
+  "topic": "対称の「称」",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "次の文のカタカナ部分を漢字に直したとき、「ショウ」にあたる漢字と同じ漢字を使うものを、次の4つから一つ選べ。\n左右が「タイショウ」になるように図形を描く。",
+  "options": [
+   "資料を「サンショウ」しながら答える。",
+   "施設の正式な「メイショウ」を確認する。",
+   "「チュウショウ」的な議論が続く。",
+   "自分の無実を「ショウメイ」する。"
+  ],
+  "answer": 1,
+  "explanation": "例文は「対称（たいしょう）」（つりあいがとれていること・シンメトリー）で、「ショウ」は「称」。同じ「称」を使うのは「名称（めいしょう）」。",
+  "optionNotes": [
+   "参照（さんしょう）。「照」は対照（比べ合わせる）の字",
+   "正解。名称。対称と同じ「称」",
+   "抽象（ちゅうしょう）。「象」は対象（目標・相手）の字",
+   "証明（しょうめい）。「証」は「あかし」"
+  ],
+  "pitfall": "紛らわしいタイショウは主に3つ。対象＝目標・相手（調査の対象）、対照＝比べ合わせる・違いがきわだつ（対照的な性格）、対称＝つりあい（左右対称）。「左右」とあれば対称。",
+  "related": "称：称賛・呼称・敬称。対照的・対称的の区別に注意。",
+  "sources": [
+   {
+    "title": "コトバンク「対称」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E5%AF%BE%E7%A7%B0-91306",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「対照」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E5%AF%BE%E7%85%A7-557326",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「名称」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E5%90%8D%E7%A7%B0-643031",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「参照」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E5%8F%82%E7%85%A7-513764",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "文化庁「常用漢字表」（平成22年内閣告示）",
+    "url": "https://www.bunka.go.jp/kokugo_nihongo/sisaku/joho/joho/kijun/naikaku/pdf/joyokanjihyo_20101130.pdf",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "version": 2,
+  "status": "verified",
+  "category": "kanji_kaki",
+  "isJiji": false,
+  "id": "kaki-111",
+  "topic": "弊害の「弊」",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "次の文のカタカナ部分を漢字にしたとき、その漢字として最も適当なものを、次の4つから一つ選べ。\n過度な効率化がもたらす「ヘイ」害を指摘する。",
+  "options": [
+   "幣",
+   "弊",
+   "蔽",
+   "併"
+  ],
+  "answer": 1,
+  "explanation": "「弊害（へいがい）」は「害になること・悪い影響を与える物事」。「弊」は「やぶれる・悪い」の意味で、疲弊・旧弊にも使う。",
+  "optionNotes": [
+   "「幣」は下が「巾」。貨幣・紙幣の字",
+   "正解。弊害の「弊」（下が「廾」）",
+   "「蔽」はくさかんむり。隠蔽・遮蔽（おおいかくす）の字",
+   "「併」は「あわせる」。合併・併用の字"
+  ],
+  "pitfall": "「幣・弊・蔽」はどれも「敝」を含む。下が「巾」ならお金（貨幣）、下が「廾」なら悪い（弊害）、上にくさかんむりなら隠す（隠蔽）。",
+  "related": "弊：疲弊・旧弊・語弊・弊社。",
+  "sources": [
+   {
+    "title": "コトバンク「弊害」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E5%BC%8A%E5%AE%B3-623848",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "文化庁「常用漢字表」（平成22年内閣告示）",
+    "url": "https://www.bunka.go.jp/kokugo_nihongo/sisaku/joho/joho/kijun/naikaku/pdf/joyokanjihyo_20101130.pdf",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "category": "kanji_kaki",
+  "isJiji": false,
+  "id": "kaki-112",
+  "topic": "寛容の「寛」",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次の文のカタカナ部分を漢字にしたとき、その漢字として最も適当なものを、次の4つから一つ選べ。\n異なる意見に対して「カン」容な態度をとる。",
+  "options": [
+   "完",
+   "観",
+   "慣",
+   "寛"
+  ],
+  "answer": 3,
+  "explanation": "「寛容（かんよう）」は「心が広く、人の言動をよく受け入れること」。「寛」は「ひろい・ゆるやか」の意味。",
+  "optionNotes": [
+   "「完」は「まったし・おわる」。完成・完了の字",
+   "「観」は「みる」。観察・客観の字",
+   "「慣」は「なれる」。習慣・慣例の字",
+   "正解。寛容の「寛」"
+  ],
+  "pitfall": "「完」と「寛」はどちらもうかんむりで形が近い。「寛大」「寛容」はひろい心の意味なので「寛」。",
+  "related": "寛容の対義語的な語：狭量・不寛容。寛：寛大・寛恕。",
+  "sources": [
+   {
+    "title": "コトバンク「寛容」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E5%AF%9B%E5%AE%B9-49716",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "文化庁「常用漢字表」（平成22年内閣告示）",
+    "url": "https://www.bunka.go.jp/kokugo_nihongo/sisaku/joho/joho/kijun/naikaku/pdf/joyokanjihyo_20101130.pdf",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "category": "kanji_kaki",
+  "isJiji": false,
+  "id": "kaki-113",
+  "topic": "潜在の「潜」",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次の文のカタカナ部分を漢字にしたとき、その漢字として最も適当なものを、次の4つから一つ選べ。\n人間がもつ「セン」在的な能力を引き出す。",
+  "options": [
+   "潜",
+   "専",
+   "選",
+   "線"
+  ],
+  "answer": 0,
+  "explanation": "「潜在（せんざい）」は「表面には表れず内にひそんで存在すること」。「潜」は「ひそむ・もぐる」の意味。",
+  "optionNotes": [
+   "正解。潜在の「潜」（ひそむ）",
+   "「専」は「もっぱら」。専門・専念の字",
+   "「選」は「えらぶ」。選択の字",
+   "「線」は「すじ」。線路・路線の字"
+  ],
+  "pitfall": "対義語は「顕在（けんざい）」（はっきり表に現れていること）。評論では「潜在的／顕在的」の対でよく出る。",
+  "related": "潜：潜伏・潜水・沈潜。",
+  "sources": [
+   {
+    "title": "コトバンク「潜在」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E6%BD%9C%E5%9C%A8-549950",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "文化庁「常用漢字表」（平成22年内閣告示）",
+    "url": "https://www.bunka.go.jp/kokugo_nihongo/sisaku/joho/joho/kijun/naikaku/pdf/joyokanjihyo_20101130.pdf",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "category": "kanji_kaki",
+  "isJiji": false,
+  "id": "kaki-114",
+  "topic": "均衡の「衡」",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "次の文のカタカナ部分を漢字にしたとき、その漢字として最も適当なものを、次の4つから一つ選べ。\n需要と供給の均「コウ」が崩れる。",
+  "options": [
+   "衝",
+   "興",
+   "衡",
+   "講"
+  ],
+  "answer": 2,
+  "explanation": "「均衡（きんこう）」は「二つ以上の物事の間で力や重さのつりあいがとれていること」。「衡」は「はかり・つりあい」の意味。",
+  "optionNotes": [
+   "「衝」はショウと読む。衝動・衝突の字（中に「重」）",
+   "「興」は「おこる」。興味・復興の字",
+   "正解。均衡の「衡」",
+   "「講」は「説く」。講義・講演の字"
+  ],
+  "pitfall": "「衡（コウ）」と「衝（ショウ）」は、どちらも「行」の間に字をはさんだ形でそっくり。中が「重」なら衝。読みが違うので、読みとセットで覚える。",
+  "related": "衡：平衡・度量衡。均衡の類語：バランス・釣り合い。",
+  "sources": [
+   {
+    "title": "コトバンク「均衡」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E5%9D%87%E8%A1%A1-481069",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "文化庁「常用漢字表」（平成22年内閣告示）",
+    "url": "https://www.bunka.go.jp/kokugo_nihongo/sisaku/joho/joho/kijun/naikaku/pdf/joyokanjihyo_20101130.pdf",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "version": 2,
+  "status": "verified",
+  "category": "kanji_kaki",
+  "isJiji": false,
+  "id": "kaki-115",
+  "topic": "微妙の「微」",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次の文のカタカナ部分を漢字にしたとき、その漢字として最も適当なものを、次の4つから一つ選べ。\n二つの説には「ビ」妙な違いがある。",
+  "options": [
+   "徴",
+   "備",
+   "尾",
+   "微"
+  ],
+  "answer": 3,
+  "explanation": "「微妙（びみょう）」は「一言では言い表せないほど細かく複雑なさま」。「微」は「かすか・わずか」の意味。",
+  "optionNotes": [
+   "「徴」はチョウと読む。象徴・特徴の字",
+   "「備」は「そなえる」。準備・設備の字",
+   "「尾」は「お」。尾行・末尾の字",
+   "正解。微妙の「微」"
+  ],
+  "pitfall": "「微」と「徴」は形がそっくり。真ん中が「山」の下に「王」なら徴（チョウ）、「山」の下に横棒と「几」なら微（ビ）。",
+  "related": "微：微細・微量・微笑・機微。",
+  "sources": [
+   {
+    "title": "コトバンク「微妙」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E5%BE%AE%E5%A6%99-612476",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「象徴」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E8%B1%A1%E5%BE%B4-79528",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "文化庁「常用漢字表」（平成22年内閣告示）",
+    "url": "https://www.bunka.go.jp/kokugo_nihongo/sisaku/joho/joho/kijun/naikaku/pdf/joyokanjihyo_20101130.pdf",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "category": "kanji_kaki",
+  "isJiji": false,
+  "id": "kaki-116",
+  "topic": "軌跡",
+  "format": "write",
+  "difficulty": 2,
+  "question": "次の文のカタカナ部分を漢字2字で書け。\n惑星が太陽のまわりを回る「キセキ」を図に描く。",
+  "answerText": "軌跡",
+  "accept": [
+   "軌跡"
+  ],
+  "explanation": "「軌跡」は「車輪の通った跡」から転じて、物が動いたあと・物事がたどってきたあとをいう。数学では、点が一定の条件で動いて描く図形のこと。",
+  "pitfall": "同音の「奇跡」（ありえない不思議な出来事）と混同しやすい。「描く」「たどる」と結びつくのは「軌跡」。",
+  "related": "「作家の心の軌跡をたどる」のように、評論では人や思想の歩みの意味でも使う。",
+  "sources": [
+   {
+    "title": "コトバンク「軌跡」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E8%BB%8C%E8%B7%A1-50630",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「奇跡」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E5%A5%87%E8%B7%A1-50628",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "category": "kanji_kaki",
+  "isJiji": false,
+  "id": "kaki-117",
+  "topic": "循環",
+  "format": "write",
+  "difficulty": 1,
+  "question": "次の文のカタカナ部分を漢字2字で書け。\n水は海と空のあいだを「ジュンカン」している。",
+  "answerText": "循環",
+  "accept": [
+   "循環"
+  ],
+  "explanation": "「循環」は「ひとめぐりしてもとへ戻ることを繰り返すこと」。「循」は「したがう・めぐる」の意味。",
+  "pitfall": "「巡回」の「巡」を書いてしまうミスが多い。「循」はぎょうにんべん（彳）で、右側は矛盾の「盾」と同じ形。",
+  "related": "悪循環・循環型社会・血液循環。",
+  "sources": [
+   {
+    "title": "コトバンク「循環」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E5%BE%AA%E7%92%B0-529723",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "文化庁「常用漢字表」（平成22年内閣告示）",
+    "url": "https://www.bunka.go.jp/kokugo_nihongo/sisaku/joho/joho/kijun/naikaku/pdf/joyokanjihyo_20101130.pdf",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "category": "kanji_kaki",
+  "isJiji": false,
+  "id": "kaki-118",
+  "topic": "啓発",
+  "format": "write",
+  "difficulty": 2,
+  "question": "次の文のカタカナ部分を漢字2字で書け。\n環境問題への意識を「ケイハツ」するポスターを作る。",
+  "answerText": "啓発",
+  "accept": [
+   "啓発"
+  ],
+  "explanation": "「啓発」は「人が気づかずにいるところを教え示して、より高い認識・理解に導くこと」。「啓」は「ひらく」の意味。",
+  "pitfall": "「啓」を「敬」や「契」と書き間違えやすい。「啓」は上が「戸＋攵」、下が「口」。",
+  "related": "類語：啓蒙（けいもう）。自己啓発・拝啓も同じ「啓」。",
+  "sources": [
+   {
+    "title": "コトバンク「啓発」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E5%95%93%E7%99%BA-489165",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "文化庁「常用漢字表」（平成22年内閣告示）",
+    "url": "https://www.bunka.go.jp/kokugo_nihongo/sisaku/joho/joho/kijun/naikaku/pdf/joyokanjihyo_20101130.pdf",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "category": "kanji_kaki",
+  "isJiji": false,
+  "id": "kaki-119",
+  "topic": "抑制",
+  "format": "write",
+  "difficulty": 1,
+  "question": "次の文のカタカナ部分を漢字2字で書け。\n政府は物価の上昇を「ヨクセイ」する政策をとった。",
+  "answerText": "抑制",
+  "accept": [
+   "抑制"
+  ],
+  "explanation": "「抑制」は「おさえとどめること」。「抑」は「おさえる」の意味。",
+  "pitfall": "「抑」（てへん）を「仰」（にんべん、あおぐ）と書き間違えやすい。手でおさえるので、てへん。",
+  "related": "類語：抑止・抑圧。対になる語：促進。",
+  "sources": [
+   {
+    "title": "コトバンク「抑制」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E6%8A%91%E5%88%B6-145977",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "文化庁「常用漢字表」（平成22年内閣告示）",
+    "url": "https://www.bunka.go.jp/kokugo_nihongo/sisaku/joho/joho/kijun/naikaku/pdf/joyokanjihyo_20101130.pdf",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "version": 1,
+  "status": "verified",
+  "category": "kanji_kaki",
+  "isJiji": false,
+  "id": "kaki-120",
+  "topic": "享受",
+  "format": "write",
+  "difficulty": 2,
+  "question": "次の文のカタカナ部分を漢字2字で書け。\n私たちは科学技術の恩恵を「キョウジュ」している。",
+  "answerText": "享受",
+  "accept": [
+   "享受"
+  ],
+  "explanation": "「享受」は「受け入れて自分のものとし、味わい楽しむこと」。「恩恵を享受する」「自由を享受する」の形でよく使う。",
+  "pitfall": "同音の「教授」と混同しやすい。「恩恵」「自由」などを受けて楽しむ意味なら「享受」。「享」は「亭（料亭）」と形が似ている。",
+  "related": "享：享楽・享年。",
+  "sources": [
+   {
+    "title": "コトバンク「享受」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E4%BA%AB%E5%8F%97-478286",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "文化庁「常用漢字表」（平成22年内閣告示）",
+    "url": "https://www.bunka.go.jp/kokugo_nihongo/sisaku/joho/joho/kijun/naikaku/pdf/joyokanjihyo_20101130.pdf",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "yomi-101",
+  "version": 2,
+  "status": "verified",
+  "category": "kanji_yomi",
+  "topic": "出納の読み",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次の文の「出納」の読みとして正しいものを選べ。\n会計係が毎日の現金の出納を帳簿に記録する。",
+  "options": [
+   "しゅつとう",
+   "すいとう",
+   "すいどう",
+   "でいり"
+  ],
+  "answer": 1,
+  "explanation": "「出納」は「すいとう」と読み、金銭や物品を出し入れすること。常用漢字表では「出」のスイ、「納」のトウはどちらもこの語（出納）の読みとして示されている。",
+  "optionNotes": [
+   "「出」をシュツと読んだ誤り。",
+   "正しい。金銭や物品の出し入れ。",
+   "「納」をドウと読んだ誤り。",
+   "「出入（でいり）」と混同した誤り。"
+  ],
+  "pitfall": "「出」も「納」もふだんの読み（シュツ・ノウ）で読みたくなる。スイ・トウは常用漢字表でほぼこの語専用の読み。",
+  "related": "出納帳（すいとうちょう）。辞書には「しゅつのう」「すいのう」という見出しもあるが、一般には「すいとう」と読む。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "文化庁「常用漢字表」（平成22年内閣告示）",
+    "url": "https://www.bunka.go.jp/kokugo_nihongo/sisaku/joho/joho/kijun/naikaku/pdf/joyokanjihyo_20101130.pdf",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「出納」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E5%87%BA%E7%B4%8D-529013",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "yomi-102",
+  "version": 2,
+  "status": "verified",
+  "category": "kanji_yomi",
+  "topic": "漸次の読み（暫時との区別）",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "次の文の「漸次」の読みとして正しいものを選べ。\n新しい制度は、漸次全国へ広げられる予定だ。",
+  "options": [
+   "ざんじ",
+   "ぜんじ",
+   "せんじ",
+   "しんじ"
+  ],
+  "answer": 1,
+  "explanation": "「漸次」は「ぜんじ」と読み、「しだいに・だんだん」という意味の副詞。「漸」は常用漢字表で音ゼン（例：漸次・漸進的）。",
+  "optionNotes": [
+   "「暫時（ざんじ＝しばらくの間）」の読み。字形が似ているための誤り。",
+   "正しい。しだいに、だんだん。",
+   "「ゼン」を濁らずに読んだ誤り。",
+   "根拠のない読み。"
+  ],
+  "pitfall": "「暫時（ざんじ）」と字も音も似ている。漸次＝しだいに、暫時＝しばらくの間、と意味も別物。",
+  "related": "漸進的（ぜんしんてき）＝少しずつ進むさま。対になる語は「急進的」。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "文化庁「常用漢字表」（平成22年内閣告示）",
+    "url": "https://www.bunka.go.jp/kokugo_nihongo/sisaku/joho/joho/kijun/naikaku/pdf/joyokanjihyo_20101130.pdf",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「漸次」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E6%BC%B8%E6%AC%A1-550019",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「暫時」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E6%9A%AB%E6%99%82-513530",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "yomi-103",
+  "version": 1,
+  "status": "verified",
+  "category": "kanji_yomi",
+  "topic": "市井の読み",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "次の文の「市井」の読みとして正しいものを選べ。\n彼はその小説で、市井の人々の暮らしを丹念に描いた。",
+  "options": [
+   "いちい",
+   "しい",
+   "しせい",
+   "いちせい"
+  ],
+  "answer": 2,
+  "explanation": "「市井」は「しせい」と読み、人が集まり住む所・まち、またそこに住む人の意。「井」は常用漢字表で音セイ（例：油井・市井）。",
+  "optionNotes": [
+   "訓読みを組み合わせた誤り。",
+   "「井」をイと読んだ誤り（「恣意（しい）」とも紛らわしい）。",
+   "正しい。まち・ちまた。",
+   "「市」を訓、「井」を音で読んだ誤り。"
+  ],
+  "pitfall": "「井」は「い（井戸）」の訓が強く、音セイを思いつきにくい。",
+  "related": "「市井の人」＝ふつうの庶民。評論では「権力者・知識人」と対比して使われやすい。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "文化庁「常用漢字表」（平成22年内閣告示）",
+    "url": "https://www.bunka.go.jp/kokugo_nihongo/sisaku/joho/joho/kijun/naikaku/pdf/joyokanjihyo_20101130.pdf",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「市井」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E5%B8%82%E4%BA%95-519822",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "yomi-104",
+  "version": 1,
+  "status": "verified",
+  "category": "kanji_yomi",
+  "topic": "流布の読み",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次の文の「流布」の読みとして正しいものを選べ。\n根拠のない噂が、いつの間にか世間に流布していた。",
+  "options": [
+   "りゅうふ",
+   "るふ",
+   "りゅうほ",
+   "るほ"
+  ],
+  "answer": 1,
+  "explanation": "「流布」は「るふ」と読み、世に広まること。常用漢字表で「流」の音ルは流布・流転・流罪に用いる。",
+  "optionNotes": [
+   "「流」をリュウと読んだ誤り。",
+   "正しい。世に広まること。",
+   "「流」も「布」も読み誤り。",
+   "「布」をホと読んだ誤り。"
+  ],
+  "pitfall": "「流」をいつものリュウで読んでしまう。ルと読む語（流布・流転・流罪）はまとめて覚える。",
+  "related": "流転（るてん）＝絶えず移り変わること。「万物は流転する」。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "文化庁「常用漢字表」（平成22年内閣告示）",
+    "url": "https://www.bunka.go.jp/kokugo_nihongo/sisaku/joho/joho/kijun/naikaku/pdf/joyokanjihyo_20101130.pdf",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「流布」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E6%B5%81%E5%B8%83-660696",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "yomi-105",
+  "version": 1,
+  "status": "verified",
+  "category": "kanji_yomi",
+  "topic": "帰依の読み",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "次の文の「帰依」の読みとして正しいものを選べ。\n晩年の彼は、仏の教えに深く帰依した。",
+  "options": [
+   "きい",
+   "きえ",
+   "きよ",
+   "きぞく"
+  ],
+  "answer": 1,
+  "explanation": "「帰依」は「きえ」と読み、神仏や高僧を信じてその力にすがること。常用漢字表で「依」の音エは帰依に用いる。",
+  "optionNotes": [
+   "「依」をふだんのイで読んだ誤り。",
+   "正しい。神仏を信じて従うこと。",
+   "「寄与（きよ）」と混同した誤り。",
+   "「帰属（きぞく）」と混同した誤り。"
+  ],
+  "pitfall": "「依頼・依然」のイにつられて「きい」と読みやすい。エと読むのは常用漢字表では帰依だけ。",
+  "related": "同じく呉音エで読む語：会得（えとく）・会釈（えしゃく）。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "文化庁「常用漢字表」（平成22年内閣告示）",
+    "url": "https://www.bunka.go.jp/kokugo_nihongo/sisaku/joho/joho/kijun/naikaku/pdf/joyokanjihyo_20101130.pdf",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「帰依」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E5%B8%B0%E4%BE%9D-49887",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "yomi-106",
+  "version": 1,
+  "status": "verified",
+  "category": "kanji_yomi",
+  "topic": "凡例の読み",
+  "format": "write",
+  "difficulty": 2,
+  "question": "次の文の「凡例」の読みを、ひらがなで書け。\n辞書を使う前に、まず巻頭の凡例を読んでおこう。",
+  "answerText": "はんれい",
+  "accept": [
+   "はんれい"
+  ],
+  "explanation": "「凡例」は「はんれい」と読み、書物の初めにある編集方針や使い方の説明。常用漢字表で「凡」の音ハンは凡例に用いる。",
+  "pitfall": "「平凡・凡人」のボンにつられて「ぼんれい」と書きやすい。",
+  "related": "例言（れいげん）＝凡例と同じ意味の語。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "文化庁「常用漢字表」（平成22年内閣告示）",
+    "url": "https://www.bunka.go.jp/kokugo_nihongo/sisaku/joho/joho/kijun/naikaku/pdf/joyokanjihyo_20101130.pdf",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「凡例」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E5%87%A1%E4%BE%8B-118735",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "yomi-107",
+  "version": 1,
+  "status": "verified",
+  "category": "kanji_yomi",
+  "topic": "逐次の読み",
+  "format": "write",
+  "difficulty": 1,
+  "question": "次の文の「逐次」の読みを、ひらがなで書け。\n調査の結果は、まとまりしだい逐次報告する。",
+  "answerText": "ちくじ",
+  "accept": [
+   "ちくじ"
+  ],
+  "explanation": "「逐次」は「ちくじ」と読み、順を追って次々に物事がなされるさま（順次）。「逐」は常用漢字表で音チク（例：逐次・逐一・駆逐）。",
+  "pitfall": "「遂（スイ）」と字形が似ているため「すいじ」と読み誤りやすい。逐＝チク、遂＝スイ。",
+  "related": "逐一（ちくいち）＝一つ一つ順を追って。駆逐（くちく）＝追い払うこと。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "文化庁「常用漢字表」（平成22年内閣告示）",
+    "url": "https://www.bunka.go.jp/kokugo_nihongo/sisaku/joho/joho/kijun/naikaku/pdf/joyokanjihyo_20101130.pdf",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「逐次」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E9%80%90%E6%AC%A1-565556",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "yomi-108",
+  "version": 1,
+  "status": "verified",
+  "category": "kanji_yomi",
+  "topic": "会得の読み",
+  "format": "write",
+  "difficulty": 2,
+  "question": "次の文の「会得」の読みを、ひらがなで書け。\n師匠の技のこつを会得するまでに十年かかった。",
+  "answerText": "えとく",
+  "accept": [
+   "えとく"
+  ],
+  "explanation": "「会得」は「えとく」と読み、物事の意味を十分理解して自分のものとすること。常用漢字表で「会」の音エは会釈・会得・法会に用いる。",
+  "pitfall": "「会」をカイと読んで「かいとく」としやすい。",
+  "related": "会釈（えしゃく）＝軽く頭を下げて挨拶すること。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "文化庁「常用漢字表」（平成22年内閣告示）",
+    "url": "https://www.bunka.go.jp/kokugo_nihongo/sisaku/joho/joho/kijun/naikaku/pdf/joyokanjihyo_20101130.pdf",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「会得」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E4%BC%9A%E5%BE%97-445579",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "yomi-109",
+  "version": 1,
+  "status": "verified",
+  "category": "doukun",
+  "topic": "カンシン（歓心・関心・感心・寒心）",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次の文の「カンシン」に当てはまる漢字を選べ。\n部下は上司のカンシンを買おうと、毎朝だれよりも早く出社した。",
+  "options": [
+   "関心",
+   "感心",
+   "歓心",
+   "寒心"
+  ],
+  "answer": 2,
+  "explanation": "「歓心を買う」は、人の気に入るように努める・機嫌をとるという意味の決まった言い方。辞書にも「関心を買う」と書くのは誤りと明記されている。",
+  "optionNotes": [
+   "興味をもって注意を向けること。「〜を買う」とは言わない。",
+   "りっぱな行いに心を動かされること。",
+   "正しい。喜ぶ気持ち。「歓心を買う」で機嫌をとる意。",
+   "恐れや不安でぞっとすること。「寒心に堪えない」。"
+  ],
+  "pitfall": "ふだん一番よく使う「関心」を書いてしまう。「買う」とつながるのは「歓心」だけ。",
+  "related": "寒心に堪えない＝ぞっとするほど心配だ。評論文で社会の状況を嘆くときに使われる。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「歓心を買う」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E6%AD%93%E5%BF%83%E3%82%92%E8%B2%B7%E3%81%86-470282",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「歓心」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E6%AD%93%E5%BF%83-470281",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「寒心」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E5%AF%92%E5%BF%83-470276",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "yomi-110",
+  "version": 1,
+  "status": "verified",
+  "category": "doukun",
+  "topic": "ホショウ（保証・保障・補償）",
+  "format": "combo",
+  "difficulty": 3,
+  "question": "次のア〜ウの「ホショウ」に当てはまる漢字の組み合わせとして正しいものを選べ。\nア　この時計の品質は、当店が一年間ホショウします。\nイ　政府は、国家の安全をホショウする責任を負う。\nウ　工事でけがをした作業員の損失を、会社が金銭でホショウした。",
+  "options": [
+   "ア保障・イ保証・ウ補償",
+   "ア保証・イ保障・ウ補償",
+   "ア保証・イ補償・ウ保障",
+   "ア補償・イ保障・ウ保証"
+  ],
+  "answer": 1,
+  "explanation": "保証＝間違いない・大丈夫だと請け合い責任をもつこと（品質を保証）。保障＝ある状態がそこなわれないよう保護し守ること（安全を保障・社会保障）。補償＝損失を補ってつぐなうこと（損失を補償）。",
+  "optionNotes": [
+   "アとイが逆。品質は「保証」、安全は「保障」。",
+   "正しい。ア保証・イ保障・ウ補償。",
+   "イとウが逆。安全を守るのは「保障」、損失をつぐなうのは「補償」。",
+   "アとウが逆。品質を請け合うのは「保証」、損失をつぐなうのは「補償」。"
+  ],
+  "pitfall": "「保証」と「保障」の区別が甘い。請け合う＝保証、守る＝保障、つぐなう＝補償、と動詞で言い換えて判断する。",
+  "related": "保証人・保証書／社会保障・安全保障／損害補償・補償金。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「保証」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E4%BF%9D%E8%A8%BC-12060",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「保障」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E4%BF%9D%E9%9A%9C-630029",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「補償」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E8%A3%9C%E5%84%9F-133065",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "yomi-111",
+  "version": 1,
+  "status": "verified",
+  "category": "doukun",
+  "topic": "ツイキュウ（追及・追求・追究）",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次の文の「ツイキュウ」に当てはまる漢字を選べ。\n記者たちは会見で、事故の責任の所在を厳しくツイキュウした。",
+  "options": [
+   "追求",
+   "追究",
+   "追及",
+   "追窮"
+  ],
+  "answer": 2,
+  "explanation": "「追及」は、どこまでも追いつめて責任・欠点などを問いただすこと（責任の所在を追及する）。責任を問う文脈なので「追及」。",
+  "optionNotes": [
+   "目的を達するまでどこまでも追い求めること（利潤を追求）。",
+   "不明の事柄をどこまでも調べて明らかにすること（なぞを追究）。",
+   "正しい。責任などを問いただすこと。",
+   "「追究」の別表記。意味は追究と同じ。"
+  ],
+  "pitfall": "三つとも「どこまでも追う」点が共通。何を追うかで決める：目的・利益＝追求、真理・なぞ＝追究、責任・罪＝追及。",
+  "related": "幸福追求権（日本国憲法13条）／真理の追究／責任追及。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「追及」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E8%BF%BD%E5%8F%8A-570206",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「追求」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E8%BF%BD%E6%B1%82-570207",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「追究」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E8%BF%BD%E7%A9%B6-570208",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "yomi-112",
+  "version": 1,
+  "status": "verified",
+  "category": "doukun",
+  "topic": "タイショウ（対照・対称・対象）",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "次の文の「タイショウ」に当てはまる漢字を選べ。\n陽気でおしゃべりな姉と物静かな妹は、好タイショウをなしている。",
+  "options": [
+   "対象",
+   "対照",
+   "対称",
+   "大将"
+  ],
+  "answer": 1,
+  "explanation": "「対照」は、性質の違うものを並べたとき違いがきわだつこと（コントラスト）。姉妹の性格の違いが目立つ文脈なので「好対照」。",
+  "optionNotes": [
+   "行為の目標となるもの・めあて（調査の対象）。",
+   "正しい。違いがきわだつこと。",
+   "互いに対応してつり合うこと（左右対称）。違いの際立ちではない。",
+   "軍の指揮官など。文脈に合わない。"
+  ],
+  "pitfall": "「対称」は形がつり合うこと、「対照」は違いがきわだつこと。「をなす」「好〜」とつながるのは「対照」。",
+  "related": "対照的＝違いがはっきりしているさま。左右対称・線対称は「対称」。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「対照」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E5%AF%BE%E7%85%A7-557326",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「対称」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E5%AF%BE%E7%A7%B0-91306",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「対象」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E5%AF%BE%E8%B1%A1-91307",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "yomi-113",
+  "version": 1,
+  "status": "verified",
+  "category": "doukun",
+  "topic": "テキセイ（適正・適性）",
+  "format": "combo",
+  "difficulty": 3,
+  "question": "次のア・イの「テキセイ」に当てはまる漢字の組み合わせとして正しいものを選べ。\nア　市場の動きを見ながら、商品のテキセイな価格を決める。\nイ　入社試験では、営業職へのテキセイも調べられる。",
+  "options": [
+   "ア適性・イ適正",
+   "ア適正・イ適性",
+   "ア適正・イ適正",
+   "ア適性・イ適性"
+  ],
+  "answer": 1,
+  "explanation": "適正＝適当で正しいこと（適正な価格・適正な運用）。適性＝性格や性質がその物事に適していること（適性を見る・適性検査）。アは「〜な価格」、イは人の向き不向き。",
+  "optionNotes": [
+   "アとイが逆。",
+   "正しい。ア適正・イ適性。",
+   "イは人の性質が向いているかを言うので「適性」。",
+   "アは価格が正しく適当であることなので「適正」。"
+  ],
+  "pitfall": "「〜な」の形で物事の正しさを言うのが適正、人の向き不向き（性質）を言うのが適性。「性」の字に注目する。",
+  "related": "適性検査／適正価格・適正規模。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「適正」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E9%81%A9%E6%AD%A3-575393",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「適性」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E9%81%A9%E6%80%A7-100802",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "yomi-114",
+  "version": 2,
+  "status": "verified",
+  "category": "doukun",
+  "topic": "イジョウ（異常・異状）",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次の文の「イジョウ」に当てはまる漢字を選べ。\n今年の夏はイジョウな暑さが続き、各地で最高気温の記録が更新された。",
+  "options": [
+   "異状",
+   "異常",
+   "以上",
+   "委譲"
+  ],
+  "answer": 1,
+  "explanation": "「異常」は普通と違っていること・正常でないことで、名詞のほかに「異常な」「異常に」の形（形容動詞）でも使う。「異状」は普通と違う悪い状態を表す名詞で、「〜な」の形では原則として使わない。",
+  "optionNotes": [
+   "名詞として「異状は認められない」のように使う。「〜な暑さ」とは言わない。",
+   "正しい。正常でないさま。",
+   "数量・程度がそれより上であること。",
+   "権限などを他に譲り任せること。"
+  ],
+  "pitfall": "「異状なし」の印象で「異状」を選びやすい。「異常な暑さ」「異常に暑い」のように、「〜な」で名詞を、「〜に」で動詞・形容詞を修飾するなら「異常」。「異状に気づく」のような名詞の使い方なら「異状」。",
+  "related": "異常気象／異常発生。対義語は「正常」。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「異常」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E7%95%B0%E5%B8%B8-432330",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「異状」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E7%95%B0%E7%8A%B6-432327",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "yomi-115",
+  "version": 1,
+  "status": "verified",
+  "category": "doukun",
+  "topic": "カテイ（過程・課程・仮定）",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次の文の「カテイ」に当てはまる漢字を選べ。\n結論だけでなく、そこに至るまでのカテイも答案に書きなさい。",
+  "options": [
+   "課程",
+   "過程",
+   "仮定",
+   "家庭"
+  ],
+  "answer": 1,
+  "explanation": "「過程」は、物事が変化し進行してある結果に達するまでの道筋（プロセス）。結論に至る道筋なので「過程」。",
+  "optionNotes": [
+   "学校などで一定期間に割り当てる学習の範囲・順序（博士課程）。",
+   "正しい。結果に至るまでの道筋。",
+   "仮にこうと定めること（〜と仮定する）。",
+   "家族が生活する場。"
+  ],
+  "pitfall": "「課程」と「過程」の混同。学校のコース＝課程、物事の進み具合・道筋＝過程。",
+  "related": "生産過程・進化の過程／教職課程・修士課程。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「過程」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E9%81%8E%E7%A8%8B-464689",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「課程」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E8%AA%B2%E7%A8%8B-464692",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「仮定」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E4%BB%AE%E5%AE%9A-464679",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "yomi-116",
+  "version": 1,
+  "status": "verified",
+  "category": "doukun",
+  "topic": "はかる（諮る・図る・計る・謀る）",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "次の文の「ハカる」に当てはまる漢字を選べ。\n市は、新しい都市計画の案を審議会にハカった。",
+  "options": [
+   "図った",
+   "計った",
+   "諮った",
+   "謀った"
+  ],
+  "answer": 2,
+  "explanation": "文化庁「異字同訓の漢字の使い分け例」では、「諮る」は「ある問題について意見を聞く」意で、「審議会に諮る」「議案を委員会に諮る」と例示されている。",
+  "optionNotes": [
+   "あることが実現するように企てる（解決を図る）。",
+   "時間や数などを数える（時間を計る）。",
+   "正しい。意見を聞く。審議会に諮る。",
+   "良くない事をたくらむ（悪事を謀る）。"
+  ],
+  "pitfall": "「計画」の連想で「図る」「計る」を選びやすい。「〜に」相手があって意見を求めるなら「諮る」。",
+  "related": "諮問（しもん）＝有識者などに意見を求めること。諮問機関。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "文化審議会国語分科会「「異字同訓」の漢字の使い分け例（報告）」平成26年2月21日",
+    "url": "https://www.bunka.go.jp/seisaku/bunkashingikai/kokugo/hokoku/pdf/ijidokun_140221.pdf",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "文化庁「常用漢字表」（平成22年内閣告示）",
+    "url": "https://www.bunka.go.jp/kokugo_nihongo/sisaku/joho/joho/kijun/naikaku/pdf/joyokanjihyo_20101130.pdf",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "yomi-117",
+  "version": 1,
+  "status": "verified",
+  "category": "doukun",
+  "topic": "おさめる（修める・収める・納める・治める）",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次の文の「オサめる」に当てはまる漢字を選べ。\n彼は大学で経済学をオサめたのち、銀行に就職した。",
+  "options": [
+   "収めた",
+   "納めた",
+   "治めた",
+   "修めた"
+  ],
+  "answer": 3,
+  "explanation": "文化庁「異字同訓の漢字の使い分け例」では、「修める」は「人格や行いを立派にする。身に付ける」意で、「学を修める」「ラテン語を修める」と例示されている。学問を身に付ける文脈なので「修める」。",
+  "optionNotes": [
+   "中に入れる・良い結果を得る（成功を収める）。",
+   "あるべきところに落ち着かせる・引き渡す（税を納める）。",
+   "問題のない状態にする・統治する（領地を治める）。",
+   "正しい。学問などを身に付ける。"
+  ],
+  "pitfall": "「成績を収める」と混同しやすい。学問・技芸・身の行いなら「修める」。",
+  "related": "修身（しゅうしん）・修養（しゅうよう）＝行いを正し、人格をみがくこと。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "文化審議会国語分科会「「異字同訓」の漢字の使い分け例（報告）」平成26年2月21日",
+    "url": "https://www.bunka.go.jp/seisaku/bunkashingikai/kokugo/hokoku/pdf/ijidokun_140221.pdf",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "yomi-118",
+  "version": 2,
+  "status": "verified",
+  "category": "doukun",
+  "topic": "かえる（代える・変える・換える・替える）",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "次の文の「カえ」に当てはまる漢字を選べ。\n略式ではございますが、メールをもって年始のご挨拶にカえさせていただきます。",
+  "options": [
+   "変え",
+   "換え",
+   "替え",
+   "代え"
+  ],
+  "answer": 3,
+  "explanation": "文化庁「異字同訓の漢字の使い分け例」では、「代える」は「ある役割を別のものにさせる」意で、「書面をもって挨拶に代える」と例示されている。本来の挨拶の役割をメールにさせる文脈なので「代える」。",
+  "optionNotes": [
+   "前と異なる状態にする（形を変える）。",
+   "物と物を交換する（物を金に換える）。",
+   "新しく別のものにする（頭を切り替える）。",
+   "正しい。ある役割を別のものにさせる。"
+  ],
+  "pitfall": "「替える」と迷いやすい。「AをもってBに代える」は、Aに本来のBの役目をさせる意味なので「代」。",
+  "related": "余人をもって代え難い／身代わり・親代わり／投手を代える。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "文化審議会国語分科会「「異字同訓」の漢字の使い分け例（報告）」平成26年2月21日",
+    "url": "https://www.bunka.go.jp/seisaku/bunkashingikai/kokugo/hokoku/pdf/ijidokun_140221.pdf",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "yomi-119",
+  "version": 1,
+  "status": "verified",
+  "category": "doukun",
+  "topic": "さす（挿す・差す・指す・刺す）",
+  "format": "choice4",
+  "difficulty": 1,
+  "question": "次の文の「サし」に当てはまる漢字を選べ。\n玄関の花瓶に、庭で摘んだ花を一輪サした。",
+  "options": [
+   "差した",
+   "指した",
+   "刺した",
+   "挿した"
+  ],
+  "answer": 3,
+  "explanation": "文化庁「異字同訓の漢字の使い分け例」では、「挿す」は「細長い物を中に入れる」意で、「花瓶に花を挿す」「一輪挿し」と例示されている。",
+  "optionNotes": [
+   "挟み込む・かざす・注ぐ（傘を差す・目薬を差す）。",
+   "方向や事物を明らかに示す（目的地を指す）。",
+   "とがった物を突き入れる（針を刺す）。",
+   "正しい。細長い物を中に入れる。"
+  ],
+  "pitfall": "ひらがな感覚で一番よく見る「差す」を選びやすい。花や髪飾りを入れるのは「挿す」。",
+  "related": "挿絵（さしえ）・挿し木・挿入（そうにゅう）。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "文化審議会国語分科会「「異字同訓」の漢字の使い分け例（報告）」平成26年2月21日",
+    "url": "https://www.bunka.go.jp/seisaku/bunkashingikai/kokugo/hokoku/pdf/ijidokun_140221.pdf",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "文化庁「常用漢字表」（平成22年内閣告示）",
+    "url": "https://www.bunka.go.jp/kokugo_nihongo/sisaku/joho/joho/kijun/naikaku/pdf/joyokanjihyo_20101130.pdf",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "yomi-120",
+  "version": 1,
+  "status": "verified",
+  "category": "doukun",
+  "topic": "つとめる（務める・勤める・努める）",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "次の文の「ツトめる」と同じ漢字を用いるものを、選択肢から選べ。\n来年度は、兄が町内会の会長をツトめる。",
+  "options": [
+   "不良品を減らすようにツトめる。",
+   "父は市役所にツトめている。",
+   "文化祭の劇で主役をツトめる。",
+   "ツトめて明るく振る舞う。"
+  ],
+  "answer": 2,
+  "explanation": "例文の「会長をツトめる」は役目を果たす意の「務める」。文化庁「異字同訓の漢字の使い分け例」では「務める」を「役目や任務を果たす」とし、「主役は務まらない」「議長を務める」と例示している。",
+  "optionNotes": [
+   "力を尽くす意で「努める」。",
+   "給料をもらって仕事をする意で「勤める」。",
+   "正しい。役目を果たす意で「務める」。",
+   "力を尽くす・努力する意で「努める」（努めて早起きする）。"
+  ],
+  "pitfall": "「勤める」と「務める」の混同。職場に通って働く＝勤める、役（役職・役柄）を果たす＝務める。",
+  "related": "勤め人・お勤め（仏事）／親の務め・任務／努力・努めて。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "文化審議会国語分科会「「異字同訓」の漢字の使い分け例（報告）」平成26年2月21日",
+    "url": "https://www.bunka.go.jp/seisaku/bunkashingikai/kokugo/hokoku/pdf/ijidokun_140221.pdf",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "goi-101",
+  "version": 2,
+  "status": "verified",
+  "category": "goi",
+  "topic": "恣意的の意味",
+  "format": "choice4",
+  "difficulty": 1,
+  "question": "次の語の意味として最も適当なものを選べ。\n「恣意的」",
+  "options": [
+   "気ままで自分勝手なさま。論理的な必然性がないさま。",
+   "わざと手を加えて、不自然さが目立つさま。",
+   "細かいところまで注意が行き届いているさま。",
+   "他人の意見に流されやすいさま。"
+  ],
+  "answer": 0,
+  "explanation": "「恣意」は「ほしいまま（の心）」。恣意的は、気ままで自分勝手なさま、論理的な必然性がなく思うままにふるまうさまをいう。「恣意的な判断」「規則を恣意的に運用する」のように使う。",
+  "optionNotes": [
+   "正しい。辞書の語釈どおり。",
+   "誤り。「作為的」（故意に行うさま、不自然さが目立つさま）の意味。",
+   "誤り。「周到」などの意味。",
+   "誤り。「付和雷同」などに近い意味で、恣意的とは無関係。"
+  ],
+  "pitfall": "「恣意的＝意図的・わざと」と覚えている受験生が多い。中心は「自分勝手・必然性がない」。",
+  "related": "語釈の『論理的な必然性がない』と対比される語：必然的。『恣意性』は名詞形。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「恣意的」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E6%81%A3%E6%84%8F%E7%9A%84",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「作為的」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E4%BD%9C%E7%82%BA%E7%9A%84-509538",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "goi-102",
+  "version": 2,
+  "status": "verified",
+  "category": "goi",
+  "topic": "二律背反の意味",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次の語の意味として最も適当なものを選べ。\n「二律背反」",
+  "options": [
+   "互いに矛盾する二つの命題が、同じように正しいものとして主張されること。",
+   "二つの物事が、互いに足りないところを補い合うこと。",
+   "一つの言葉や事柄が、二通りの意味に受け取れること。",
+   "二つのものが、強く結びつきもせず離れもしない関係にあること。"
+  ],
+  "answer": 0,
+  "explanation": "二律背反はカントの「アンチノミー」の訳語で、相互に矛盾する二つの命題（定立と反定立）が同等の妥当性をもって主張されること。",
+  "optionNotes": [
+   "正しい。辞書の語釈どおり。",
+   "誤り。『相補』（互いに不足を補うこと）の説明。",
+   "誤り。「両義的」の説明。",
+   "誤り。「不即不離」の説明。"
+  ],
+  "pitfall": "「背反＝そむく」から「二つが対立する」とだけ覚えると、「どちらも正しく見える」という要点を落とす。",
+  "related": "類語：ジレンマ、矛盾。英語由来の言い方は「アンチノミー」。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「二律背反」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E4%BA%8C%E5%BE%8B%E8%83%8C%E5%8F%8D-110704",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「相補」",
+    "url": "https://kotobank.jp/word/%E7%9B%B8%E8%A3%9C-553162",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "goi-103",
+  "version": 1,
+  "status": "verified",
+  "category": "goi",
+  "topic": "不即不離の意味",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "次の語の意味として最も適当なものを選べ。\n「不即不離」",
+  "options": [
+   "二つのものが、強く結びつきもせず、また離れもしない関係にあること。",
+   "二つのものが固く結びつき、切り離すことができないこと。",
+   "二つのものが互いを全く寄せつけず、交わることがないこと。",
+   "一方が他方に完全に従っている関係にあること。"
+  ],
+  "answer": 0,
+  "explanation": "「即」はそばにくっつく意。不即不離は「くっつかず（不即）離れず（不離）」で、つかずはなれずの関係をいう。「不即不離の関係を保つ」のように使う。",
+  "optionNotes": [
+   "正しい。辞書の語釈どおり（つかずはなれず）。",
+   "誤り。これは「相即不離」（互いに密接に関連していて離れないこと）に近い意味。",
+   "誤り。「不離」の部分と矛盾する。",
+   "誤り。従属関係の説明で、無関係。"
+  ],
+  "pitfall": "「不離」だけを見て「離れられない＝一体」と選ぶ引っかけが多い。「不即」（くっつかない）も同時に成り立つのが要点。",
+  "related": "似た形の「相即不離」は、互いに密接に関連していて離れないこと。意味の方向が違うので区別する。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「不即不離」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E4%B8%8D%E5%8D%B3%E4%B8%8D%E9%9B%A2-618639",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「相即不離」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E7%9B%B8%E5%8D%B3%E4%B8%8D%E9%9B%A2-552800",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "goi-104",
+  "version": 1,
+  "status": "verified",
+  "category": "goi",
+  "topic": "捨象の意味",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "次の語の意味として最も適当なものを選べ。\n「捨象」",
+  "options": [
+   "物事からある要素や性質を抜き出すとき、それ以外の要素や性質を切り捨てて考えないこと。",
+   "物事から共通する要素や性質を抜き出して把握すること。",
+   "不要になったものを処分して捨てること。",
+   "形のない考えを、目に見える具体的な形にして表すこと。"
+  ],
+  "answer": 0,
+  "explanation": "捨象は、事物や表象からある要素・性質を抽象するとき、他の要素・性質を度外視すること。抽象（抜き出す）の裏側の働きで、「抽象作用の否定的側面」と説明される。",
+  "optionNotes": [
+   "正しい。辞書の語釈どおり。",
+   "誤り。これは「抽象」の意味。捨象と表裏の関係にある別の語。",
+   "誤り。字面の「捨てる」から作った誤り。物を捨てる意味ではない。",
+   "誤り。「具象化」などの説明。"
+  ],
+  "pitfall": "「抽象」と「捨象」を取り違えやすい。抽象＝必要なものを抜き出す、捨象＝それ以外を切り捨てる。",
+  "related": "抽象の対義語は具体・具象。「〜を捨象して論じる」は「〜を考えに入れずに論じる」の意。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「捨象」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E6%8D%A8%E8%B1%A1-525201",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「抽象」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E6%8A%BD%E8%B1%A1-97265",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "goi-105",
+  "version": 2,
+  "status": "verified",
+  "category": "goi",
+  "topic": "止揚の意味",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "次の語の意味として最も適当なものを選べ。\n「止揚」",
+  "options": [
+   "対立・矛盾する二つのものを、否定しつつも生かして、より高い次元で統一すること。",
+   "対立する二つの主張のうち、劣った一方を完全に捨て去ること。",
+   "いくつかの異なる考えのよいところを取り合わせて、一つにまとめること。",
+   "議論を途中でやめ、結論を先に延ばすこと。"
+  ],
+  "answer": 0,
+  "explanation": "止揚はドイツ語アウフヘーベンの訳語で、ヘーゲル弁証法の用語。低い次元で矛盾・対立する二つのものを、否定・保存・高揚の三つの意味をこめて、より高い段階で統一することをいう。「揚棄」とも訳す。",
+  "optionNotes": [
+   "正しい。辞書の語釈どおり。",
+   "誤り。止揚では、否定された側も「保存」されて高い段階に生かされる。完全に捨てるのではない。",
+   "誤り。これは「折衷」の意味。高い次元への統一ではない。",
+   "誤り。字面の「止」から作った誤り。"
+  ],
+  "pitfall": "「折衷（よいとこ取り・妥協）」と混同しやすい。止揚は「より高い次元」へ引き上げる点が決め手。",
+  "related": "同義語：揚棄、アウフヘーベン。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「止揚」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E6%AD%A2%E6%8F%9A-78783",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「折衷」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E6%8A%98%E8%A1%B7-548335",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「アウフヘーベン」",
+    "url": "https://kotobank.jp/word/%E3%81%82%E3%81%86%E3%81%B5%E3%81%B8%E3%83%BC%E3%81%B9%E3%82%93-3140402",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "goi-106",
+  "version": 1,
+  "status": "verified",
+  "category": "goi",
+  "topic": "敷衍の意味",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次の語の意味として最も適当なものを選べ。\n「敷衍」",
+  "options": [
+   "意味や趣旨をおし広げ、例などをあげて詳しく説明すること。",
+   "要点だけを取り出して、短くまとめること。",
+   "他人の文章をそのまま書き写すこと。",
+   "一度述べたことを取り消して、改めること。"
+  ],
+  "answer": 0,
+  "explanation": "「衍」はのべる意。敷衍は、おし広げること、また意味・趣旨をおし広げて説明すること、例などをあげて詳しく説明することをいう。「〜を社会全般に敷衍して論じる」のように使う。",
+  "optionNotes": [
+   "正しい。辞書の語釈どおり。",
+   "誤り。「要約」の意味で、敷衍とはほぼ逆。",
+   "誤り。「引き写し」などの意味。",
+   "誤り。「撤回」などの意味。"
+  ],
+  "pitfall": "「要約」と逆の働きだと押さえる。読みは「ふえん」。",
+  "related": "評論では「筆者の主張を敷衍すると〜」のように、一般化・具体化して述べ直す場面で使われる。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「敷衍」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E6%95%B7%E8%A1%8D-616360",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "goi-107",
+  "version": 1,
+  "status": "verified",
+  "category": "goi",
+  "topic": "所与の意味",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "次の語の意味として最も適当なものを選べ。\n「所与」",
+  "options": [
+   "他から与えられたもの。特に、問題を考えるうえで前提として与えられているもの。",
+   "自分の力で新たに作り出したもの。",
+   "ある人が所有している財産や持ち物。",
+   "証明を経てはじめて正しいと認められたもの。"
+  ],
+  "answer": 0,
+  "explanation": "所与は「与えられたところのもの」。他から与えられること・そのもの、特に解決されるべき問題の前提として与えられたものをいう（与件）。「所与の条件」のように使う。",
+  "optionNotes": [
+   "正しい。辞書の語釈どおり。",
+   "誤り。「与えられたもの」と逆。",
+   "誤り。「所有」と混同した誤り。",
+   "誤り。所与は、考える前提としてすでに与えられているもの。証明の結果ではない。"
+  ],
+  "pitfall": "「所」の字から「所有」を連想して選ぶ誤りが多い。",
+  "related": "類語：与件、前提。「所与のものとして受け入れる」は「疑わずに前提として受け入れる」の意。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「所与」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E6%89%80%E4%B8%8E-535212",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "goi-108",
+  "version": 1,
+  "status": "verified",
+  "category": "goi",
+  "topic": "畢竟の意味",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次の語の意味として最も適当なものを選べ。\n「畢竟」",
+  "options": [
+   "さまざまな経過を経ても、最終的な結論としては。つまるところ。",
+   "予想に反して。意外にも。",
+   "ほんの少しの間。しばらく。",
+   "思いがけず。たまたま。"
+  ],
+  "answer": 0,
+  "explanation": "「畢」も「竟」も終わる意。副詞の畢竟は、さまざまな経過を経ても最終的な結論としては、つまるところ、結局、の意。「畢竟人は死を免れえない」のように使う。",
+  "optionNotes": [
+   "正しい。辞書の語釈どおり。",
+   "誤り。「案外」などの意味。",
+   "誤り。「暫時」などの意味。",
+   "誤り。「偶然」などの意味。"
+  ],
+  "pitfall": "読み（ひっきょう）が分かっても意味があいまいな受験生が多い。「結局」「所詮」と置き換えられるかで判断する。",
+  "related": "類語：結局、所詮、詰まるところ、要するに。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「畢竟」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E7%95%A2%E7%AB%9F-610716",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "goi-109",
+  "version": 1,
+  "status": "verified",
+  "category": "goi",
+  "topic": "ア・プリオリの意味",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "次の語の意味として最も適当なものを選べ。\n「ア・プリオリ」",
+  "options": [
+   "経験に先立ち、経験に依存せずに成り立っていること。",
+   "経験に基づいて、あとから得られること。",
+   "ある事柄が起こる確からしさの度合い。",
+   "先入観をもって物事を見ること。"
+  ],
+  "answer": 0,
+  "explanation": "ア・プリオリはラテン語で「より先なるものから」の意。カント以後の認識論では、経験に依存せず、経験に先立っていることをさす。先天的とも訳す。",
+  "optionNotes": [
+   "正しい。辞書の語釈どおり。",
+   "誤り。これは対義語の「ア・ポステリオリ」の意味。",
+   "誤り。「蓋然性」の意味。",
+   "誤り。「偏見・先入観」の説明。「先に」という字面から作った誤り。"
+  ],
+  "pitfall": "対義語のア・ポステリオリ（経験に基づく）と取り違えやすい。「プリ」＝「先（プライオリティー）」と結び付けて覚える。",
+  "related": "「ア・プリオリな〜」は「経験に先立って（初めから）備わっている〜」の意。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「アプリオリ」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E3%81%82%E3%81%B7%E3%82%8A%E3%81%8A%E3%82%8A-3206739",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「アポステリオリ」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E3%81%82%E3%81%BD%E3%81%99%E3%81%A6%E3%82%8A%E3%81%8A%E3%82%8A-3141536",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "goi-110",
+  "version": 2,
+  "status": "verified",
+  "category": "goi",
+  "topic": "パラダイムの意味",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次の語の意味として最も適当なものを選べ。\n「パラダイム」",
+  "options": [
+   "ある時代に支配的な、物の見方や考え方の枠組み。",
+   "行動や考え方が固定的・画一的で、新鮮味のないこと。",
+   "自分が時間や環境が変わっても同じ自分であるという意識。",
+   "抑圧されていた感情が解き放たれ、心が晴れること。"
+  ],
+  "answer": 0,
+  "explanation": "パラダイムは、ある時代に支配的な物の考え方・認識の枠組み。科学史家クーンが1962年に提唱した概念で、広く使われるようになった。",
+  "optionNotes": [
+   "正しい。辞書の語釈どおり。",
+   "誤り。「ステレオタイプ」の意味。",
+   "誤り。「アイデンティティー（自己同一性）」の意味。",
+   "誤り。「カタルシス」の意味。"
+  ],
+  "pitfall": "「固定的な考え」という点だけでステレオタイプと混同しやすい。パラダイムは個人の偏りではなく、時代や学問の共同体が共有する枠組み。",
+  "related": "「パラダイムシフト（転換）」＝支配的な枠組みが大きく入れかわること。例：天動説から地動説へ。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「パラダイム」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E3%81%B1%E3%82%89%E3%81%A0%E3%81%84%E3%82%80-3164931",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「ステレオタイプ」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E3%81%99%E3%81%A6%E3%82%8C%E3%81%8A%E3%81%9F%E3%81%84%E3%81%B7-3156366",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "goi-111",
+  "version": 1,
+  "status": "verified",
+  "category": "goi",
+  "topic": "アイロニーの意味",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次の語の意味として最も適当なものを選べ。\n「アイロニー」",
+  "options": [
+   "皮肉。また、表面の意味とは反対の意味をこめた表現。",
+   "ある物を、それとよく似た別の物にたとえて表す表現。",
+   "自分の利益だけを考え、他人のことを顧みない考え方。",
+   "既存の価値や権威をすべて否定する思想や態度。"
+  ],
+  "answer": 0,
+  "explanation": "アイロニーは、皮肉・あてこすり、反語、逆説の意。表面の言葉と裏の意味をずらして示す表現をいう。「イロニー」とも。",
+  "optionNotes": [
+   "正しい。辞書の語釈どおり。",
+   "誤り。「比喩（メタファーなど）」の説明。",
+   "誤り。「エゴイズム（利己主義）」の意味。",
+   "誤り。「ニヒリズム（虚無主義）」の意味。"
+  ],
+  "pitfall": "カタカナ評論語は意味の近いものがそろいやすい。アイロニーは「皮肉・反語」と一言で押さえておく。",
+  "related": "辞書ではアイロニーの意味に「反語」「逆説」も挙がる。逆説はパラドックスともいう。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「アイロニー」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E3%81%82%E3%81%84%E3%82%8D%E3%81%AB%E3%83%BC-3140349",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "goi-112",
+  "version": 2,
+  "status": "verified",
+  "category": "goi",
+  "topic": "蓋然性（空欄補充）",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次の文の空欄に入る語として最も適当なものを選べ。\n目撃証言も物的証拠もそろっており、彼が犯人である〔　　〕は高いと考えられる。",
+  "options": [
+   "蓋然性",
+   "恣意性",
+   "両義性",
+   "普遍性"
+  ],
+  "answer": 0,
+  "explanation": "蓋然性は、ある事柄が起こる確実性や、ある事柄が真実として認められる確実性の度合い（確からしさ）。「犯人である確からしさが高い」という文意に合う。",
+  "optionNotes": [
+   "正しい。「確からしさ」の意味で文意に合う。",
+   "誤り。恣意性は「自分勝手で必然性がないこと」で、「高い」と結んで確からしさを表せない。",
+   "誤り。両義性は「二つの意味をもつこと」で、文意に合わない。",
+   "誤り。普遍性は「例外なくすべてに当てはまること」で、確からしさの度合いを表す語ではない。"
+  ],
+  "pitfall": "「蓋然性が高い／低い」の形で覚える。読みは「がいぜんせい」。",
+  "related": "蓋然性を数量化したものが確率。対になる語は「必然性」（必ずそうなること）。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「蓋然性」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E8%93%8B%E7%84%B6%E6%80%A7-42608",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「恣意的」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E6%81%A3%E6%84%8F%E7%9A%84",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「蓋然」",
+    "url": "https://kotobank.jp/word/%E8%93%8B%E7%84%B6-457788",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "goi-113",
+  "version": 2,
+  "status": "verified",
+  "category": "goi",
+  "topic": "相互補完的（空欄補充）",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次の文の空欄に入る語として最も適当なものを選べ。\n理論と実践は対立するものではなく、一方の不十分な点を他方が補う〔　　〕な関係にある。",
+  "options": [
+   "相互補完的",
+   "二律背反的",
+   "排他的",
+   "恣意的"
+  ],
+  "answer": 0,
+  "explanation": "「補完」は不十分な部分を補って完全なものにすること。互いの不十分な点を補い合う関係は「相互補完的」と表す。",
+  "optionNotes": [
+   "正しい。「互いに補い合う」という文意に合う。",
+   "誤り。二律背反は、相互に矛盾する二つの命題が同等の妥当性をもって主張されること。『対立するものではなく』と合わない。",
+   "誤り。排他的は「他を退ける」さまで、「補う」と合わない。",
+   "誤り。恣意的は「自分勝手なさま」で、二つのものの関係を表さない。"
+  ],
+  "pitfall": "前半の『対立するものではなく』と食い違う語（二律背反的）を選ばないこと。",
+  "related": "近い語：相補（互いに不足を補うこと）。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「補完」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E8%A3%9C%E5%AE%8C-629306",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「二律背反」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E4%BA%8C%E5%BE%8B%E8%83%8C%E5%8F%8D-110704",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「相補」",
+    "url": "https://kotobank.jp/word/%E7%9B%B8%E8%A3%9C-553162",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "goi-114",
+  "version": 1,
+  "status": "verified",
+  "category": "goi",
+  "topic": "刹那的（空欄補充）",
+  "format": "choice4",
+  "difficulty": 1,
+  "question": "次の文の空欄に入る語として最も適当なものを選べ。\n将来のことを考えず、その場の楽しみだけを追い求める〔　　〕な生き方には、どこか危うさがある。",
+  "options": [
+   "刹那的",
+   "普遍的",
+   "禁欲的",
+   "相対的"
+  ],
+  "answer": 0,
+  "explanation": "刹那的は、あと先を考えず今この瞬間だけを充実させて生きようとするさま、特に一時的な享楽にふけるさま。「刹那的な生き方」はそのまま辞書の用例。",
+  "optionNotes": [
+   "正しい。辞書の語釈・用例どおり。",
+   "誤り。普遍的は「すべてに当てはまるさま」で文意に合わない。",
+   "誤り。禁欲的は欲望をおさえるさまで、「楽しみを追い求める」と逆。",
+   "誤り。相対的は「他との関係で成り立つさま」で文意に合わない。"
+  ],
+  "pitfall": "「刹那」はきわめて短い時間の意。「せつな」と読む。",
+  "related": "類語：享楽的、刹那主義。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「刹那的」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E5%88%B9%E9%82%A3%E7%9A%84-681786",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "goi-115",
+  "version": 1,
+  "status": "verified",
+  "category": "goi",
+  "topic": "対義語（主観・相対）",
+  "format": "combo",
+  "difficulty": 2,
+  "question": "次のA・Bの語の対義語の組合せとして最も適当なものを選べ。\nA　主観　　B　相対",
+  "options": [
+   "A＝客観　B＝絶対",
+   "A＝客観　B＝普遍",
+   "A＝主体　B＝絶対",
+   "A＝主体　B＝普遍"
+  ],
+  "answer": 0,
+  "explanation": "主観の対義語は客観。相対（他との関係の上に成り立つこと）は、絶対（他に比較するものや対立するものがないこと）に対していう語。",
+  "optionNotes": [
+   "正しい。主観⇔客観、相対⇔絶対。",
+   "誤り。普遍の対義語は特殊で、相対の対義語ではない。",
+   "誤り。主体は主観の意味の一つとして辞書に挙がる近い語で、対義語ではない。",
+   "誤り。A・Bともに対義語ではない。"
+  ],
+  "pitfall": "「普遍」と「絶対」はどちらも「動かない・すべてに当てはまる」感じがして混同しやすい。普遍⇔特殊、絶対⇔相対とセットで覚える。",
+  "related": "主観的⇔客観的、相対的⇔絶対的も同じ組み合わせ。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「主観」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E4%B8%BB%E8%A6%B3-77561",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「客観」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E5%AE%A2%E8%A6%B3-51770",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「相対」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E7%9B%B8%E5%AF%BE-421490",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「絶対」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E7%B5%B6%E5%AF%BE-87315",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "goi-116",
+  "version": 2,
+  "status": "verified",
+  "category": "goi",
+  "topic": "対義語（帰納・普遍・形而上）",
+  "format": "combo",
+  "difficulty": 3,
+  "question": "次のa〜cの語の対義語の組合せとして最も適当なものを選べ。\na　帰納　　b　普遍　　c　形而上",
+  "options": [
+   "a＝演繹　b＝特殊　c＝形而下",
+   "a＝演繹　b＝絶対　c＝形而下",
+   "a＝抽象　b＝特殊　c＝形而下",
+   "a＝演繹　b＝特殊　c＝具象"
+  ],
+  "answer": 0,
+  "explanation": "帰納（個々の事例から一般的な法則を導く）⇔演繹（一般的な理論から個々の結論を導く）。普遍⇔特殊。形而上（形をもたないもの）⇔形而下（形を備えたもの）。",
+  "optionNotes": [
+   "正しい。三つとも辞書で対義語とされる組合せ。",
+   "誤り。bの普遍の対義語は特殊。絶対の対義語は相対。",
+   "誤り。aの帰納の対義語は演繹。抽象の対義語は具体・具象。",
+   "誤り。cの形而上の対義語は形而下。具象は抽象の対義語。"
+  ],
+  "pitfall": "一つでも違えば誤り。「形而上＝抽象的」と覚えていると「具象」を選んでしまう。",
+  "related": "帰納的⇔演繹的。形而上学＝経験を超えたものを考える学問。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「帰納」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E5%B8%B0%E7%B4%8D-51308",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「演繹」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E6%BC%94%E7%B9%B9-37947",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「普遍」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E6%99%AE%E9%81%8D-125714",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「特殊」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E7%89%B9%E6%AE%8A-582581",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「形而上」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E5%BD%A2%E8%80%8C%E4%B8%8A-58854",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「形而下」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E5%BD%A2%E8%80%8C%E4%B8%8B-488625",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "goi-117",
+  "version": 2,
+  "status": "verified",
+  "category": "goi",
+  "topic": "自明の用法",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "次の文のうち、「自明」の使い方が正しいものを選べ。",
+  "options": [
+   "誰もが自明のこととして疑わなかった前提を、筆者はあえて問い直した。",
+   "彼は自明に自分の非を認め、その場で謝罪した。",
+   "新薬の効果を自明するため、大規模な試験が行われた。",
+   "彼女は誰に対しても自明な態度で接するので、人望が厚い。"
+  ],
+  "answer": 0,
+  "explanation": "自明は、特に証明などをしなくても明らかであること、わかりきっていること。「自明のこととして疑わない」は正しい使い方。",
+  "optionNotes": [
+   "正しい。「わかりきったこととして」の意味で使えている。",
+   "誤り。「自ら・潔く」の意味で使っている。自明は「自分から」の意味ではない。",
+   "誤り。ここは『証明する』。自明はふつう名詞・形容動詞として使い、『自明する』は漢籍に由来する古い用法（自身で明らかにする）として辞書に載るだけで、現代文では使わない。",
+   "誤り。「率直な・公明な」などの意味で使っている。自明は人の態度を表す語ではない。"
+  ],
+  "pitfall": "「自」の字から「自分で・自ら」と結び付ける誤りが多い。自明の「自」は「おのずから（それ自体で）」。",
+  "related": "「自明の理」＝説明の必要がないほど明白な道理。評論では「自明とされてきた常識を疑う」型の論が頻出。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「自明」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E8%87%AA%E6%98%8E-523985",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "goi-118",
+  "version": 1,
+  "status": "verified",
+  "category": "goi",
+  "topic": "帰納（書き）",
+  "format": "write",
+  "difficulty": 1,
+  "question": "次の意味を表す語を、漢字2字で答えよ。\n個々の具体的な事例から、一般に通用する原理や法則を導き出すこと。",
+  "answerText": "帰納",
+  "accept": [
+   "帰納"
+  ],
+  "explanation": "帰納は、個々の具体的な事例から一般に通用するような原理・法則などを導き出すこと。対義語は演繹。",
+  "pitfall": "対義語の「演繹（一般的な理論から個々の結論を導く）」と取り違えやすい。「納」を「能」「脳」と書く誤りにも注意。",
+  "related": "帰納法⇔演繹法。例：「カラスAもBもCも黒い→カラスは黒い」が帰納。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「帰納」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E5%B8%B0%E7%B4%8D-51308",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「演繹」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E6%BC%94%E7%B9%B9-37947",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "goi-119",
+  "version": 1,
+  "status": "verified",
+  "category": "goi",
+  "topic": "陶冶（書き）",
+  "format": "write",
+  "difficulty": 2,
+  "question": "次の意味を表す語を、漢字2字で答えよ。\nもとは陶器や鋳物をつくることを意味し、転じて、人の性質や能力を円満に育て上げること。",
+  "answerText": "陶冶",
+  "accept": [
+   "陶冶"
+  ],
+  "explanation": "陶冶は、陶器をつくることと鋳物をつくることから転じて、人の性質や能力を円満に育て上げること。「人格を陶冶する」のように使う。",
+  "pitfall": "読みは「とうや」。「冶」を「治」と書く誤りが多い（さんずいではなく、にすい）。",
+  "related": "「人格を陶冶する」の形で覚える。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「陶冶」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E9%99%B6%E5%86%B6-581537",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "goi-120",
+  "version": 1,
+  "status": "verified",
+  "category": "goi",
+  "topic": "抽象（書き）",
+  "format": "write",
+  "difficulty": 2,
+  "question": "次の意味を表す語を、漢字2字で答えよ（対義語は「具体」「具象」）。\n事物や表象から、ある要素・側面・性質を抜き出して把握すること。",
+  "answerText": "抽象",
+  "accept": [
+   "抽象"
+  ],
+  "explanation": "抽象は、事物または表象からある要素・側面・性質をぬきだして把握すること。対義語は具象・具体。",
+  "pitfall": "抜き出す側が「抽象」、それ以外を切り捨てる側が「捨象」。「抽」を「柚」「軸」と書く誤りにも注意。",
+  "related": "抽象的⇔具体的。抽象と捨象は一つの働きの表と裏。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「抽象」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E6%8A%BD%E8%B1%A1-97265",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「捨象」（デジタル大辞泉・精選版日本国語大辞典）",
+    "url": "https://kotobank.jp/word/%E6%8D%A8%E8%B1%A1-525201",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "kan-101",
+  "version": 2,
+  "status": "verified",
+  "category": "kanyouku",
+  "topic": "他山の石（共通空欄）",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次の二つの文の空欄に共通して入る表現として最も適切なものを選べ。\n・他社の個人情報流出を□として、わが社も管理体制を点検した。\n・同僚の軽率な失言を□とし、自分の発言には慎重を期したい。",
+  "options": [
+   "他山の石",
+   "対岸の火事",
+   "火中の栗",
+   "紺屋の白袴"
+  ],
+  "answer": 0,
+  "explanation": "「他山の石」は、よその山のつまらない石でも自分の玉を磨くのに役立つことから、自分の修養の助けとなる他人の誤った言行をいう。どちらの文も「他人の失敗を自分の戒めにする」内容なので当てはまる。",
+  "optionNotes": [
+   "正しい。他人の失敗・誤りを自分の戒めとする",
+   "誤り。自分には関係がなく痛くもかゆくもない物事のたとえで、「点検した」「慎重を期したい」とつながらない",
+   "誤り。「火中の栗を拾う」の形で、他人のために危険を冒すこと。文意に合わない",
+   "誤り。他人のことに忙しく自分のことに手が回らないことのたとえ"
+  ],
+  "pitfall": "「先生の立派な生き方を他山の石とする」のように、目上の人のよい言行を手本にする意で使うのは本来は誤用。文化庁の平成25年度調査では本来の意味を選んだ人は30.8％にとどまった。",
+  "related": "反対の向きの語＝「対岸の火事」（自分には無関係）。似た発想＝「人のふり見てわがふり直せ」。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「他山の石」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E4%BB%96%E5%B1%B1%E3%81%AE%E7%9F%B3-560324",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "文化庁 平成25年度「国語に関する世論調査」の結果の概要",
+    "url": "https://www.bunka.go.jp/tokei_hakusho_shuppan/tokeichosa/kokugo_yoronchosa/pdf/h25_chosa_kekka.pdf",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "kan-102",
+  "version": 1,
+  "status": "verified",
+  "category": "kanyouku",
+  "topic": "対岸の火事（共通空欄）",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次の二つの文の空欄に共通して入る表現として最も適切なものを選べ。\n・遠い国の干ばつも、食料を輸入に頼る日本にとっては□ではない。\n・隣町で相次ぐ空き巣被害を□と考えず、戸締まりを徹底した。",
+  "options": [
+   "他山の石",
+   "対岸の火事",
+   "火中の栗",
+   "紺屋の明後日"
+  ],
+  "answer": 1,
+  "explanation": "「対岸の火事」は、向こう岸の火事は自分に燃え移る心配がないことから、自分には関係がなく何の苦痛もない物事のたとえ。どちらの文も「よそごとではない」と打ち消す形で使われている。",
+  "optionNotes": [
+   "誤り。他人の誤った言行を自分の戒めにする意。「〜ではない」「〜と考えず」と打ち消すと文意が通らない",
+   "正しい。自分には無関係な出来事のたとえ",
+   "誤り。「火中の栗を拾う」の形で、他人のために危険を冒すこと",
+   "誤り。約束の期日が当てにならないことのたとえ"
+  ],
+  "pitfall": "「対岸の火事」は「〜ではない」「〜視しない」と打ち消して「他人事ではない」と言う使い方が多い。打ち消しの形に惑わされて「他山の石」を選ばないこと。",
+  "related": "「対岸の火事視する」（他人事として傍観する）という言い方もある。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「対岸の火事」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E5%AF%BE%E5%B2%B8%E3%81%AE%E7%81%AB%E4%BA%8B-556624",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「他山の石」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E4%BB%96%E5%B1%B1%E3%81%AE%E7%9F%B3-560324",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "kan-103",
+  "version": 1,
+  "status": "verified",
+  "category": "kanyouku",
+  "topic": "火中の栗を拾う（意味）",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "「火中の栗を拾う」の意味として最も適切なものを選べ。",
+  "options": [
+   "危険を避けて、確実に利益の出る方法だけを選ぶこと",
+   "自分の得にならないのに、他人のために危険を冒すこと",
+   "わずかな利益に目がくらんで、大きな損をすること",
+   "苦しい時期を耐え抜いた末に、ようやく成果を手にすること"
+  ],
+  "answer": 1,
+  "explanation": "ラ・フォンテーヌの寓話「猿と猫」で、猿におだてられた猫が暖炉の栗を拾ってやけどをし、栗は猿に食べられてしまう話から。自分の利益にならないのに他人のために危険を冒すことのたとえ。",
+  "optionNotes": [
+   "誤り。危険を避ける話ではなく、危険を冒す話",
+   "正しい。辞書の語釈どおり",
+   "誤り。欲張って損をする意ではない（栗を得るのは他人）",
+   "誤り。苦労が報われる意ではない。拾った栗は自分のものにならない"
+  ],
+  "pitfall": "栗を「拾う」から「得をする」と考えがち。拾った栗は他人に取られる話なので、本人には利益がない点が要。",
+  "related": "近年は「危険を承知で、あえて困難な役目を引き受ける」意でも使われ、ことわざ辞典にはこの意味も載る。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「火中の栗を拾う」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E7%81%AB%E4%B8%AD%E3%81%AE%E6%A0%97%E3%82%92%E6%8B%BE%E3%81%86-463980",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "kan-104",
+  "version": 1,
+  "status": "verified",
+  "category": "kanyouku",
+  "topic": "紺屋の白袴（類義のことわざ）",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "「紺屋の白袴」と最も意味の近いことわざを選べ。",
+  "options": [
+   "医者の不養生",
+   "紺屋の明後日",
+   "弘法にも筆の誤り",
+   "猫に小判"
+  ],
+  "answer": 0,
+  "explanation": "「紺屋の白袴」は、染め物屋が自分の袴は染めずに白袴をはいていることから、他人のことに忙しくて自分のことには手が回らないことのたとえ。人の健康を説く医者が自分の健康に気をつけない「医者の不養生」が類義。",
+  "optionNotes": [
+   "正しい。辞書でも類語に挙げられる",
+   "誤り。同じ「紺屋」でも、約束の期日が当てにならないことのたとえ",
+   "誤り。名人でも失敗することがあるというたとえ",
+   "誤り。価値の分からない者に貴重な物を与えても無駄であることのたとえ"
+  ],
+  "pitfall": "「紺屋」で始まる二つのことわざを混同しやすい。白袴＝自分のことは後回し、明後日＝期日が当てにならない。読みは「こうや」（「こんや」とも）。",
+  "related": "類語：大工の掘っ建て、髪結い髪結わず、易者身の上知らず。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「紺屋の白袴」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E7%B4%BA%E5%B1%8B%E3%81%AE%E7%99%BD%E8%A2%B4-497660",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「紺屋の明後日」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E7%B4%BA%E5%B1%8B%E3%81%AE%E6%98%8E%E5%BE%8C%E6%97%A5-497658",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "kan-105",
+  "version": 1,
+  "status": "verified",
+  "category": "kanyouku",
+  "topic": "役不足（正しい使い方）",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "「役不足」の使い方として、本来の意味に合っているものを選べ。",
+  "options": [
+   "新人の私には役不足ですが、精いっぱい務めさせていただきます。",
+   "全国大会で優勝した実力者に地区予選の審判を頼むのは、さすがに役不足だろう。",
+   "経験の浅い彼女に、この大役は役不足ではないか。",
+   "人手が役不足で、作業が予定どおりに進まない。"
+  ],
+  "answer": 1,
+  "explanation": "「役不足」は、その人の力量に比べて役目が不相応に軽いこと。実力者に軽い役目を頼む場面で使うのが本来の用法。",
+  "optionNotes": [
+   "誤り。自分の力が足りないという謙遜なら「力不足」",
+   "正しい。力量に対して役目が軽すぎる",
+   "誤り。役目が重すぎて務まらない意なら「力不足」「荷が重い」",
+   "誤り。人数が足りない意なら「人手不足」"
+  ],
+  "pitfall": "「役（に対して力が）不足」と読み違えて謙遜に使う誤用が広まっている。文化庁の平成24年度調査では、本来でない「役目が重すぎる」を選んだ人（51.0％）が本来の意味（41.6％）を上回った。",
+  "related": "反対の意味を言いたいときは「力不足」。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「役不足」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E5%BD%B9%E4%B8%8D%E8%B6%B3-647972",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "文化庁 平成24年度「国語に関する世論調査」の結果の概要",
+    "url": "https://www.bunka.go.jp/tokei_hakusho_shuppan/tokeichosa/kokugo_yoronchosa/pdf/h24_chosa_kekka.pdf",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "kan-106",
+  "version": 1,
+  "status": "verified",
+  "category": "kanyouku",
+  "topic": "情けは人のためならず（意味）",
+  "format": "choice4",
+  "difficulty": 1,
+  "question": "「情けは人のためならず」の意味として最も適切なものを選べ。",
+  "options": [
+   "人に情けをかけると甘やかしになり、結局はその人のためにならない",
+   "人に親切にしておくと、巡り巡って自分によい報いが返ってくる",
+   "人への同情は表に出さず、心の中にとどめておくべきだ",
+   "人に親切にするときは、見返りを求めてはならない"
+  ],
+  "answer": 1,
+  "explanation": "「ならず」は「〜ではない」の意。「情けは人のためではない（自分のためである）」ということで、人に親切にすれば、やがてよい報いとなって自分に戻ってくるという意味。",
+  "optionNotes": [
+   "誤り。広まっている誤解。「ならず」を「ためにならない」と読み違えたもの",
+   "正しい。辞書・文化庁調査で本来の意味とされる",
+   "誤り。同情を隠せという意味はない",
+   "誤り。見返りを戒める教えではなく、むしろ自分に返ってくると説く"
+  ],
+  "pitfall": "文化庁の平成12年度調査では、本来の意味47.2％に対し、誤った「その人のためにならない」が48.7％とわずかに上回った。",
+  "related": "古語の「なり」（断定）＋「ず」（打消）＝「〜ではない」。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「情けは人の為ならず」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E6%83%85%E3%81%91%E3%81%AF%E4%BA%BA%E3%81%AE%E7%82%BA%E3%81%AA%E3%82%89%E3%81%9A-588620",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "文化庁 平成12年度「国語に関する世論調査」の結果について",
+    "url": "https://www.bunka.go.jp/tokei_hakusho_shuppan/tokeichosa/kokugo_yoronchosa/h12/",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "kan-107",
+  "version": 2,
+  "status": "verified",
+  "category": "kanyouku",
+  "topic": "流れに棹さす（正しい使い方）",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "「流れに棹さす」の使い方として、本来の意味に合っているものを選べ。",
+  "options": [
+   "景気回復の流れに棹さして、新規出店を一気に進めた。",
+   "改革が進む中、彼の反対意見は流れに棹さすものとして批判された。",
+   "時代の流れに棹さすように、彼はあえて手書きの手紙にこだわり続けた。",
+   "議論が白熱しすぎたので、休憩を入れて流れに棹さした。"
+  ],
+  "answer": 0,
+  "explanation": "「流れに棹さす」は、流れに棹を差して舟を進めるように、傾向に乗って勢いを増す・物事が思いどおりに進むこと。好機に乗って事業を進める文が本来の用法。",
+  "optionNotes": [
+   "正しい。流れに乗って勢いを増す",
+   "誤り。流れに逆らう意で使った誤用",
+   "誤り。時流に逆らう意で使った誤用",
+   "誤り。勢いを止める意で使った誤用"
+  ],
+  "pitfall": "「水を差す」と混同して「逆らう・止める」意で使う人が多い。文化庁の平成24年度調査では、誤った「傾向に逆らう」が59.4％、本来の意味は23.4％だった。",
+  "related": "誤って『時流・大勢に逆らう』意に用いることがあると、デジタル大辞泉にも注記がある。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「流れに棹さす」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E6%B5%81%E3%82%8C%E3%81%AB%E6%A3%B9%E3%81%95%E3%81%99-588227",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "文化庁 平成24年度「国語に関する世論調査」の結果の概要",
+    "url": "https://www.bunka.go.jp/tokei_hakusho_shuppan/tokeichosa/kokugo_yoronchosa/pdf/h24_chosa_kekka.pdf",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "kan-108",
+  "version": 1,
+  "status": "verified",
+  "category": "kanyouku",
+  "topic": "敷居が高い（本来の意味）",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "「あの家は、どうも敷居が高い。」の「敷居が高い」の本来の意味として最も適切なものを選べ。",
+  "options": [
+   "高級すぎたり上品すぎたりして、気軽に入りにくい",
+   "求められる水準が高く、手を出しにくい",
+   "不義理や面目ないことがあって、その人の家へ行きにくい",
+   "家柄や格式が違いすぎて、付き合いにくい"
+  ],
+  "answer": 2,
+  "explanation": "「敷居が高い」は本来、相手に不義理をしたり面目ないことがあったりして、その人の家へ行きにくいという意味。原因は自分の側の後ろめたさにある。",
+  "optionNotes": [
+   "誤り。文化庁調査で「本来の意味ではない」とされる方。近年はこの意味で使う人が多い",
+   "誤り。「ハードルが高い」との混同",
+   "正しい。辞書・文化庁調査で本来の意味とされる",
+   "誤り。格式の違いをいう意味ではない"
+  ],
+  "pitfall": "文化庁の平成20年度調査では、本来の意味42.1％に対し「高級すぎて入りにくい」が45.6％。「本来の意味」を問われたら、自分の不義理が原因かどうかで判断する。",
+  "related": "同じ調査で問われた語：手をこまねく（本来＝何もせず傍観する）、破天荒（本来＝誰も成し得なかったことをする）。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「敷居が高い」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E6%95%B7%E5%B1%85%E3%81%8C%E9%AB%98%E3%81%84-517593",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "文化庁 平成20年度「国語に関する世論調査」の結果について",
+    "url": "https://www.bunka.go.jp/tokei_hakusho_shuppan/tokeichosa/kokugo_yoronchosa/h20/",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "kan-109",
+  "version": 1,
+  "status": "verified",
+  "category": "kanyouku",
+  "topic": "失笑（正しい使い方）",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "「失笑」の使い方として、本来の意味に合っているものを選べ。",
+  "options": [
+   "厳粛な式の最中、子犬のおどけたしぐさに思わず失笑してしまった。",
+   "あまりに無責任な答弁に、笑う気も起きず失笑するしかなかった。",
+   "長年の努力が報われ、彼は満面に失笑を浮かべた。",
+   "彼は見事な演説で聴衆の失笑を買い、大きな拍手を浴びた。"
+  ],
+  "answer": 0,
+  "explanation": "「失笑」は、おかしさのあまり思わず笑い出してしまうこと（こらえきれず吹き出すこと）。笑ってはいけない場面で思わず吹き出す文が本来の用法。",
+  "optionNotes": [
+   "正しい。こらえきれず吹き出して笑う",
+   "誤り。「笑いも出ないくらいあきれる」意で使った誤用",
+   "誤り。喜びの笑顔の意味はない（「満面の笑み」など）",
+   "誤り。「失笑を買う」は愚かな言動で人に笑われること。称賛の場面には合わない"
+  ],
+  "pitfall": "文化庁の平成23年度調査では、本来の「こらえ切れず吹き出して笑う」27.7％に対し、誤った「笑いも出ないくらいあきれる」が60.4％だった。「失」を「笑いを失う」と読まないこと。",
+  "related": "「失笑を買う」＝愚かな言動のために笑われる。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「失笑」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E5%A4%B1%E7%AC%91-521422",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「失笑を買う」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E5%A4%B1%E7%AC%91%E3%82%92%E8%B2%B7%E3%81%86-521423",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "文化庁 平成23年度「国語に関する世論調査」の結果の概要",
+    "url": "https://www.bunka.go.jp/tokei_hakusho_shuppan/tokeichosa/kokugo_yoronchosa/pdf/h23_chosa_kekka.pdf",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "kan-110",
+  "version": 1,
+  "status": "verified",
+  "category": "kanyouku",
+  "topic": "誤用されやすい語の本来の意味（組合せ）",
+  "format": "combo",
+  "difficulty": 3,
+  "question": "次のa〜dのうち、言葉とその「本来の意味」の組合せが正しいものを二つ選んだ組合せとして、最も適切なものを選べ。\na　気が置けない ― 遠慮や気遣いをしなくてよい\nb　確信犯 ― 悪いことだと分かっていながら行う行為\nc　噴飯もの ― おかしくてたまらないこと\nd　割愛する ― 不必要なものを切り捨てる",
+  "options": [
+   "aとb",
+   "aとc",
+   "bとd",
+   "cとd"
+  ],
+  "answer": 1,
+  "explanation": "a「気が置けない」は本来、遠慮や気遣いをする必要がなく打ち解けられること。c「噴飯もの」は食べかけの飯を吹き出すほどおかしいこと。bとdは文化庁調査で「本来の意味ではない」とされる方。",
+  "optionNotes": [
+   "誤り。bは本来でない意味",
+   "正しい。aもcも本来の意味",
+   "誤り。bもdも本来でない意味",
+   "誤り。dは本来でない意味"
+  ],
+  "pitfall": "b「確信犯」の本来の意味は「政治的・宗教的な信念に基づき、正しいと信じて行う犯罪」（平成27年度調査で本来の意味は17.0％、誤りとされる方が69.4％）。d「割愛」の本来の意味は「惜しいと思うものを思い切って手放す」（平成23年度調査で17.6％）。c「噴飯もの」を「腹立たしい」と取る人も多い（平成24年度調査49.0％）。",
+  "related": "「気が置けない」の反対は「気が置ける」（遠慮される）。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「気が置けない」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E6%B0%97%E3%81%8C%E7%BD%AE%E3%81%91%E3%81%AA%E3%81%84-471844",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「確信犯」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E7%A2%BA%E4%BF%A1%E7%8A%AF-43672",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「噴飯」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E5%99%B4%E9%A3%AF-623505",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「割愛」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E5%89%B2%E6%84%9B-464080",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "文化庁 平成24年度「国語に関する世論調査」の結果の概要",
+    "url": "https://www.bunka.go.jp/tokei_hakusho_shuppan/tokeichosa/kokugo_yoronchosa/pdf/h24_chosa_kekka.pdf",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "文化庁 平成27年度「国語に関する世論調査」の結果の概要",
+    "url": "https://www.bunka.go.jp/tokei_hakusho_shuppan/tokeichosa/kokugo_yoronchosa/pdf/h27_chosa_kekka.pdf",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "文化庁 平成23年度「国語に関する世論調査」の結果の概要",
+    "url": "https://www.bunka.go.jp/tokei_hakusho_shuppan/tokeichosa/kokugo_yoronchosa/pdf/h23_chosa_kekka.pdf",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "kan-111",
+  "version": 1,
+  "status": "verified",
+  "category": "yoji",
+  "topic": "異口同音（空欄の漢字）",
+  "format": "choice4",
+  "difficulty": 1,
+  "question": "次の四字熟語の□に入る漢字として正しいものを選べ。\n「異□同音」（多くの人が口をそろえて同じことを言うこと）",
+  "options": [
+   "句",
+   "口",
+   "苦",
+   "区"
+  ],
+  "answer": 1,
+  "explanation": "「異口同音（いくどうおん）」は、異なる口（＝多くの人々）が同じ音（言葉）を発することから、多くの人が口をそろえて同じことを言うこと。",
+  "optionNotes": [
+   "誤り。「異句同音」と書くのはよくある誤り",
+   "正しい。「異なる口」＝多くの人",
+   "誤り。意味がつながらない",
+   "誤り。意味がつながらない"
+  ],
+  "pitfall": "「言葉＝句」と連想して「異句同音」と書きやすい。「口をそろえる」と結びつけて覚える。",
+  "related": "読みは「いくどうおん」。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「異口同音」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E7%95%B0%E5%8F%A3%E5%90%8C%E9%9F%B3-431493",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "kan-112",
+  "version": 1,
+  "status": "verified",
+  "category": "yoji",
+  "topic": "心機一転（空欄の漢字）",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "次の文の四字熟語の□に入る漢字として正しいものを選べ。\n「転勤を機に、□機一転して仕事に取り組む。」",
+  "options": [
+   "新",
+   "心",
+   "真",
+   "神"
+  ],
+  "answer": 1,
+  "explanation": "「心機一転」は、何かをきっかけにして気持ちがすっかり変わること。「心機」は心の動き・気持ちのこと。",
+  "optionNotes": [
+   "誤り。「新規」と混同した誤り",
+   "正しい。「心機」＝心の働き",
+   "誤り。意味がつながらない",
+   "誤り。意味がつながらない"
+  ],
+  "pitfall": "新年度・新生活の場面で使うため「新機一転」と書きやすい。辞書には「心気一転」も誤りと注記がある。",
+  "related": "似た意味：「気分一新」。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「心機一転」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E5%BF%83%E6%A9%9F%E4%B8%80%E8%BB%A2-536904",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "kan-113",
+  "version": 1,
+  "status": "verified",
+  "category": "yoji",
+  "topic": "四字熟語の誤字",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "次のうち、表記に誤りを含む四字熟語を選べ。",
+  "options": [
+   "危機一髪",
+   "五里霧中",
+   "絶対絶命",
+   "単刀直入"
+  ],
+  "answer": 2,
+  "explanation": "正しくは「絶体絶命」。「絶体」「絶命」はともに九星術でいう凶星の名で、どうにも逃れようのない差し迫った状態をいう。",
+  "optionNotes": [
+   "正しい表記。髪の毛一本ほどのわずかな差で危機に陥りそうな瀬戸際",
+   "正しい表記。「霧」が正しく「夢」は誤り",
+   "誤り。正しくは「絶体絶命」",
+   "正しい表記。刀一本で敵陣に切り込むように、すぐ本題に入ること"
+  ],
+  "pitfall": "「絶対」という身近な語につられて「絶対絶命」と書きやすい。逆に「危機一髪」は正しいのに「危機一発」と迷いやすい。",
+  "related": "「五里霧中」は後漢の張楷が五里にわたる霧を起こした故事から。「五里夢中」は誤り。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「絶体絶命」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E7%B5%B6%E4%BD%93%E7%B5%B6%E5%91%BD-548305",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「危機一髪」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E5%8D%B1%E6%A9%9F%E4%B8%80%E9%AB%AA-472640",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「五里霧中」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E4%BA%94%E9%87%8C%E9%9C%A7%E4%B8%AD-505210",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「単刀直入」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E5%8D%98%E5%88%80%E7%9B%B4%E5%85%A5-564511",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "kan-114",
+  "version": 1,
+  "status": "verified",
+  "category": "yoji",
+  "topic": "換骨奪胎（意味）",
+  "format": "choice4",
+  "difficulty": 3,
+  "question": "「その小説は、古典の説話を換骨奪胎した作品だ。」の「換骨奪胎」の意味として最も適切なものを選べ。",
+  "options": [
+   "苦心して作り上げたものを、一瞬で台無しにすること",
+   "相手の主張の核心を抜き取り、骨抜きにしてしまうこと",
+   "先人の作品の着想や形式を借り、新たな工夫を加えて独自の作品にすること",
+   "他人の手柄を横取りして、自分のものとすること"
+  ],
+  "answer": 2,
+  "explanation": "「換骨奪胎」は、先人の詩文などの着想・形式を借用し、新味を加えて独自の作品にすること。骨を取り換え、胎（子の宿る所）を奪って自分のものとする意から。",
+  "optionNotes": [
+   "誤り。台無しにする意はない",
+   "誤り。「骨」の字から連想した誤り。骨抜きにする意はない",
+   "正しい。辞書の語釈どおり",
+   "誤り。横取りする意はない"
+  ],
+  "pitfall": "字面から「骨を抜く」「奪う」など否定的な意味を想像しやすいが、本来は創作の技法をいうほめ言葉に近い語。",
+  "related": "単なる「焼き直し」の意で使われることもあるが、精選版日本国語大辞典はこれを誤用としている。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「換骨奪胎」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E6%8F%9B%E9%AA%A8%E5%A5%AA%E8%83%8E-469815",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "kan-115",
+  "version": 1,
+  "status": "verified",
+  "category": "yoji",
+  "topic": "自画自賛（書き取り）",
+  "format": "write",
+  "difficulty": 2,
+  "question": "次の文のカタカナ部分を、漢字4字で書け。\n「完成した企画書を、彼は『最高の出来だ』と「ジガジサン」した。」",
+  "answerText": "自画自賛",
+  "accept": [
+   "自画自賛"
+  ],
+  "explanation": "「自画自賛」は、もとは自分の描いた絵に自分で賛（絵に添える詩文）を書くこと。転じて、自分のしたことを自分でほめること。",
+  "pitfall": "「自我自賛」と書くのは誤り（辞書にも注記がある）。「自分で描いた画（え）」と覚える。",
+  "related": "類語：「手前味噌」。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「自画自賛」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E8%87%AA%E7%94%BB%E8%87%AA%E8%B3%9B-517268",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "kan-116",
+  "version": 1,
+  "status": "verified",
+  "category": "yoji",
+  "topic": "我田引水（書き取り）",
+  "format": "write",
+  "difficulty": 2,
+  "question": "次の文のカタカナ部分を、漢字4字で書け。\n「自社に都合のよいデータばかりを並べた「ガデンインスイ」の議論だ。」",
+  "answerText": "我田引水",
+  "accept": [
+   "我田引水"
+  ],
+  "explanation": "「我田引水」は、自分の田にだけ水を引く意から、物事を自分に都合のいいように言ったりしたりすること。",
+  "pitfall": "「我田」を「画田」「賀田」などと書かないこと。「わが田へ水を引く」と訓読して覚える。",
+  "related": "訓読の形「我が田へ水を引く」も同じ意味。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「我田引水」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E6%88%91%E7%94%B0%E5%BC%95%E6%B0%B4-464765",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "kan-117",
+  "version": 2,
+  "status": "verified",
+  "category": "bungakushi",
+  "topic": "作者と作品の組合せ（誤りを選ぶ）",
+  "format": "combo",
+  "difficulty": 3,
+  "question": "作者と作品の組合せとして誤っているものを選べ。",
+  "options": [
+   "森鷗外 ―『山椒大夫』",
+   "夏目漱石 ―『三四郎』",
+   "芥川龍之介 ―『羅生門』",
+   "太宰治 ―『山椒魚』"
+  ],
+  "answer": 3,
+  "explanation": "『山椒魚』は井伏鱒二の短編小説（岩屋から出られなくなった山椒魚を描く）。太宰治は井伏鱒二に師事した作家だが、『山椒魚』の作者ではない。",
+  "optionNotes": [
+   "正しい。森鷗外の歴史小説",
+   "正しい。夏目漱石の長編小説",
+   "正しい。芥川龍之介の短編小説",
+   "誤り。『山椒魚』の作者は井伏鱒二"
+  ],
+  "pitfall": "『山椒大夫』（森鷗外）と『山椒魚』（井伏鱒二）は題名が似ていて混同しやすい。師弟関係にある太宰治とも取り違えやすい。",
+  "related": "太宰治の代表作：『走れメロス』『斜陽』『人間失格』。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク『山椒魚』（作者・井伏鱒二）",
+    "url": "https://kotobank.jp/word/%E3%80%8E%E5%B1%B1%E6%A4%92%E9%AD%9A%E3%80%8F-899145",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「山椒大夫」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E5%B1%B1%E6%A4%92%E5%A4%A7%E5%A4%AB-711804",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「三四郎」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E4%B8%89%E5%9B%9B%E9%83%8E-70869",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク『羅生門』（デジタル大辞泉ほか）",
+    "url": "https://kotobank.jp/word/%E7%BE%85%E7%94%9F%E9%96%80-147211",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "kan-118",
+  "version": 1,
+  "status": "verified",
+  "category": "bungakushi",
+  "topic": "白樺派の作家",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "雑誌『白樺』に集まった「白樺派」の作家ではない人物を選べ。",
+  "options": [
+   "武者小路実篤",
+   "志賀直哉",
+   "有島武郎",
+   "永井荷風"
+  ],
+  "answer": 3,
+  "explanation": "白樺派は、1910年創刊の雑誌『白樺』に集まった武者小路実篤・志賀直哉・有島武郎らの一派で、人道主義・理想主義・個性の尊重を掲げた。永井荷風は耽美派の作家。",
+  "optionNotes": [
+   "白樺派。『白樺』創刊の中心人物",
+   "白樺派。『白樺』の創刊同人",
+   "白樺派。『白樺』の同人で『或る女』の作者",
+   "白樺派ではない。『三田文学』を拠点とした耽美派の作家"
+  ],
+  "pitfall": "白樺派も耽美派も「反自然主義」の立場で共通するため混同しやすい。白樺派＝人道主義・理想主義、耽美派＝美を最高の価値とする、と区別する。",
+  "related": "耽美派の作家：永井荷風、谷崎潤一郎、北原白秋（詩）など。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「白樺派」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E7%99%BD%E6%A8%BA%E6%B4%BE-186200",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「耽美派」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E8%80%BD%E7%BE%8E%E6%B4%BE-564659",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "kan-119",
+  "version": 1,
+  "status": "verified",
+  "category": "bungakushi",
+  "topic": "新感覚派の作家",
+  "format": "choice4",
+  "difficulty": 2,
+  "question": "大正末期に雑誌『文芸時代』を拠点として起こった「新感覚派」の中心となった作家の組合せとして正しいものを選べ。",
+  "options": [
+   "田山花袋・島崎藤村",
+   "武者小路実篤・志賀直哉",
+   "永井荷風・谷崎潤一郎",
+   "横光利一・川端康成"
+  ],
+  "answer": 3,
+  "explanation": "新感覚派は、1924年創刊の『文芸時代』に集まった横光利一・川端康成らの一派。感覚的で斬新な表現を特色とし、評論家の千葉亀雄が命名した。",
+  "optionNotes": [
+   "誤り。自然主義の代表的作家",
+   "誤り。白樺派の作家",
+   "誤り。耽美派の作家",
+   "正しい。新感覚派の中心人物"
+  ],
+  "pitfall": "川端康成はのちに『雪国』などで知られるため、新感覚派から出発したことを見落としやすい。",
+  "related": "横光利一『頭ならびに腹』は新感覚派の名が広まるきっかけになった作品。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「新感覚派」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E6%96%B0%E6%84%9F%E8%A6%9A%E6%B4%BE-81443",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「横光利一」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E6%A8%AA%E5%85%89%E5%88%A9%E4%B8%80-22099",
+    "checked": "2026-10-18"
+   }
+  ]
+ },
+ {
+  "id": "kan-120",
+  "version": 2,
+  "status": "verified",
+  "category": "bungakushi",
+  "topic": "文学流派と作家・作品（誤りを選ぶ）",
+  "format": "combo",
+  "difficulty": 3,
+  "question": "文学流派と、その流派の作家・作品の組合せとして誤っているものを選べ。",
+  "options": [
+   "自然主義 ― 田山花袋『田舎教師』",
+   "耽美派 ― 谷崎潤一郎『刺青』",
+   "白樺派 ― 武者小路実篤『お目出たき人』",
+   "新感覚派 ― 島崎藤村『夜明け前』"
+  ],
+  "answer": 3,
+  "explanation": "島崎藤村は『破戒』で知られる自然主義の代表的作家で、新感覚派ではない。新感覚派は横光利一・川端康成らの一派。",
+  "optionNotes": [
+   "正しい。田山花袋は『蒲団』などで知られる自然主義の代表的作家",
+   "正しい。『刺青』は谷崎が耽美派の作家として登場するきっかけとなった作品",
+   "正しい。『白樺』時代の武者小路実篤の作品",
+   "誤り。島崎藤村は自然主義の作家。新感覚派は横光利一・川端康成ら"
+  ],
+  "pitfall": "作品名だけで判断せず、まず「作家がどの流派か」を押さえる。藤村・花袋＝自然主義、武者小路・志賀・有島＝白樺派、荷風・谷崎＝耽美派、横光・川端＝新感覚派。",
+  "related": "自然主義の代表作：島崎藤村『破戒』、田山花袋『蒲団』。",
+  "isJiji": false,
+  "sources": [
+   {
+    "title": "コトバンク「島崎藤村」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E5%B3%B6%E5%B4%8E%E8%97%A4%E6%9D%91-18449",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「田山花袋」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E7%94%B0%E5%B1%B1%E8%8A%B1%E8%A2%8B-18832",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「谷崎潤一郎」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E8%B0%B7%E5%B4%8E%E6%BD%A4%E4%B8%80%E9%83%8E-18804",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「武者小路実篤」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E6%AD%A6%E8%80%85%E5%B0%8F%E8%B7%AF%E5%AE%9F%E7%AF%A4-17002",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「新感覚派」（デジタル大辞泉・精選版日本国語大辞典ほか）",
+    "url": "https://kotobank.jp/word/%E6%96%B0%E6%84%9F%E8%A6%9A%E6%B4%BE-81443",
+    "checked": "2026-10-18"
+   },
+   {
+    "title": "コトバンク「田舎教師」",
+    "url": "https://kotobank.jp/word/%E7%94%B0%E8%88%8E%E6%95%99%E5%B8%AB-31788",
+    "checked": "2026-10-18"
+   }
+  ]
+ }
+];
+
+/* ===== 家族からの応援メッセージ（連続3・7・14・30日の節目に表示。空なら出さない） ===== */
+const CHEERS = [];
+
+const CATS = {
+  kanji_kaki:"漢字の書き取り", kanji_yomi:"漢字の読み", doukun:"同音異義語・同訓異字", goi:"評論の語彙", kanyouku:"慣用句・ことわざ", yoji:"四字熟語", bungakushi:"文学史・文法"
+};
+const FORMATS = ["choice4","truefalse","combo","order","recall","write"];
+const BOSS_FORMATS = ["choice4","combo"]; // BOSSは実戦形式（多肢選択の正誤・組合せ・計算）だけ
+function isBossable(q){return q.difficulty===3&&BOSS_FORMATS.includes(q.format);}
+function norm(s){return String(s||"").normalize("NFKC").toLowerCase().replace(/[\s・･\.．。、,，「」『』（）()\[\]【】〔〕\-‐ー－]/g,"");}
+const DIFF = {1:"基本",2:"標準",3:"応用"};
+const INTERVAL = {1:1,2:3,3:7,4:16,5:35};
+const KEY = "march-gendai-drill";
+const APP_VER = "1.1";
+
+/* ===== アイコン ===== */
+const IC = {
+  flame:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1.2 3.4 4.8 5.2 4.8 10a4.8 4.8 0 0 1-9.6 0c0-1.9.7-3.1 1.8-4.2.2 1.8 1.2 2.4 1.8 2.4C10.8 7 10.8 4.4 12 2z"/></svg>',
+  x:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>',
+  ok:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" stroke-width="2.4"/><path d="M7.5 12.5l3 3 6-6.5"/></svg>',
+  ng:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 7.5v5.5M12 16.5v.2"/></svg>',
+  crown:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 11H5L3 8z"/></svg>',
+  flag:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg>'
+};
+
+/* ===== 声かけ ===== */
+const MSG = {
+  ok:["その調子！","正確。いい読みだった","知識が武器になってきた","迷わず取れたね","積み上げが効いてる","この1点が本番で効く","安定してる","完璧な判断","そう、それ！","いいリズム","本番でも同じように取れる","ちゃんと覚えてる証拠","よし、次もいこう","正誤の見極め、冴えてる","読み切った！","この感覚を覚えておこう","知識がつながってきた","合格点の取り方をしてる","手堅い！","強い。迷いがない","前より速く解けてる","基礎が固まってきた"],
+  ng:["ナイスチャレンジ！ここで穴が見つかってラッキー","今間違えたぶん、本番で取れる","解説を読めばもう自分のもの","間違いは記憶の入口","ここで気づけたのが大きい","引っかけの型をひとつ覚えた","次に出たときは取れる","惜しい！考え方は近い","弱点が見つかった。伸びしろそのもの","リベンジに登録した。必ず取り返そう","今の1問で、正解への道がはっきりした","知らなかったことを知れた。前進","この論点、もう忘れない","落とし穴を先に踏めた。本番では避けられる","迷った分だけ記憶に残る","大丈夫、ここから覚えればいい","解説を1回読むだけで変わる","次の出題で確かめよう","よく考えた跡がある","問題が教えてくれた。ありがたい1問"],
+  confNg:["自信ありの誤答は、直すと一番記憶に残るタイプ。チャンス！","思い込みに気づけた。ここが一番伸びるところ","自信があった分、正しい知識で上書きすると強く残る","本番前に見つかってよかった。最優先で復習に回す","「覚えたつもり」を見つけた。今日いちばんの収穫","この1問を直せば、同じ引っかけにもう掛からない","確信があった問題ほど、解説がよく効く","ここで修正できたのは大きい。次は自信を持って取れる"],
+  guessOk:["ナイスセーブ！でも要復習。リベンジに入れておいた","勘でも取れたのは実力のうち。次は確信で取ろう","正直に「勘」と言えたのが強い。復習で本物にしよう","当たりは当たり。でも本番に向けてもう一度","ラッキーを実力に変えよう。リベンジで待ってる","いい勘。根拠をつければ確実な1点になる","今の正解、解説で裏づけておこう","勘で取れた問題は伸びしろ。もう1回会おう"],
+  combo:{3:"3連続！波に乗ってる",5:"5連続！止まらない",7:"7連続！完全に流れをつかんだ",10:"10連続！今日は無敵"},
+  bossWin:["BOSS撃破！MARCHの引っかけを見破った","撃破！この1問が取れるなら本番も怖くない","ボスを倒した。応用レベルに手が届いてる","完勝！ここまで積み上げた成果","見事！激戦の1点をもぎ取った","撃破！自信を持っていい"],
+  bossLose:["BOSSは手強かった。リベンジに登録した。次は倒せる","惜しい！応用問題に挑めていること自体が成長","解説を読めば、次のボス戦は勝てる","ボスの手口が分かった。次に出たら返り討ち","ここで負けておくのが一番いい。本番で勝つために","強敵だった。リベンジで攻略しよう"],
+  eng:["英語で鍛えた読解力が、長い選択肢の見極めで効いてる","英語の強みと国際分野、相性がいい","長文を読む力が、正誤判定で生きてる"],
+  rest:"今日の集中は十分。寝ている間に記憶が固まる。続きは明日の自分に任せよう。"
+};
+
+/* ===== 保存 ===== */
+function fresh(){return {v:1,cards:{},log:[],days:{},streak:{count:0,last:null,freezeWeek:null},xp:0,popped:0,settings:{sound:false,conf:true,size:"m"},flags:[],extra:[],offset:0,cheered:[]};}
+function load(){try{const s=JSON.parse(localStorage.getItem(KEY));if(s&&s.v===1){return Object.assign(fresh(),s,{settings:Object.assign(fresh().settings,s.settings||{})});}}catch(e){}return fresh();}
+let S = load();
+function save(){S.savedAt=Date.now();try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+/* ===== 記録が残る開き方かの点検 ===== */
+const STORE_OK=(()=>{try{const k="__t"+Date.now();localStorage.setItem(k,"1");const ok=localStorage.getItem(k)==="1";localStorage.removeItem(k);return ok;}catch(e){return false;}})();
+const IN_APP=/\bLine\/|FBAN|FBAV|Instagram|MicroMessenger/i.test(navigator.userAgent||"");
+
+/* ===== クラウド保存（合言葉） ===== */
+const SYNC_URL=(window.DRILL_CONFIG&&window.DRILL_CONFIG.syncUrl)||"";
+const CODE_KEY="march-drill-code";
+function lsGet(k){try{return localStorage.getItem(k);}catch(e){return null;}}
+function lsSet(k,v){try{localStorage.setItem(k,v);}catch(e){}}
+function getCode(){return lsGet(CODE_KEY)||"";}
+function newCode(){const c="abcdefghjkmnpqrstuvwxyz23456789";let s="";for(let i=0;i<8;i++){s+=c[Math.floor(Math.random()*c.length)];if(i===3)s+="-";}return s;}
+function normCode(s){return String(s||"").normalize("NFKC").toLowerCase().replace(/[^a-z0-9-]/g,"");}
+function validCode(s){return /^[a-z0-9-]{6,20}$/.test(s);}
+if(SYNC_URL&&STORE_OK&&!getCode())lsSet(CODE_KEY,newCode());
+let SYNC={busy:false,dirty:false,last:+(lsGet(KEY+"-sync")||0),err:false};
+function summary(){
+  const L=S.log.slice(-50),t=today();const cats={};
+  Object.keys(CATS).forEach(k=>{const a=acc(k);cats[CATS[k]]=a.a==null?null:Math.round(a.a*100);});
+  return {total:S.log.length,recent:L.length?Math.round(L.filter(l=>l.ok).length/L.length*100):null,streak:streakView(),today:S.days[t]||0,revenge:revengePool().length,cats};
+}
+function cloudPush(keep){
+  const code=getCode();if(!SYNC_URL||!code||SYNC.busy)return;
+  SYNC.busy=true;SYNC.dirty=false;
+  const body=JSON.stringify({code,app:KEY,savedAt:S.savedAt||Date.now(),data:S,summary:summary()});
+  fetch(SYNC_URL,{method:"POST",keepalive:!!keep&&body.length<60000,headers:{"Content-Type":"text/plain;charset=utf-8"},body})
+    .then(r=>r.json()).then(j=>{if(!j.ok)throw 0;SYNC.last=Date.now();SYNC.err=false;lsSet(KEY+"-sync",String(SYNC.last));})
+    .catch(()=>{SYNC.err=true;SYNC.dirty=true;}).finally(()=>{SYNC.busy=false;});
+}
+async function cloudGet(code){
+  const r=await fetch(SYNC_URL+"?code="+encodeURIComponent(code)+"&app="+encodeURIComponent(KEY));const j=await r.json();
+  if(!j.ok)throw new Error("ng");return j.data||null;
+}
+function adopt(o){if(!o||o.v!==1||!o.cards)return false;S=Object.assign(fresh(),o,{settings:Object.assign(fresh().settings,o.settings||{})});try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}return true;}
+// 開いたとき：クラウドの方が新しければ取り込む（別の端末で解いた分）
+if(SYNC_URL&&getCode()){cloudGet(getCode()).then(o=>{if(o&&(o.savedAt||0)>(S.savedAt||0)+60000&&adopt(o)){if(!SES)render();toast("クラウドの新しい記録を読み込みました");}else if(SYNC.dirty||(S.savedAt||0)>SYNC.last)cloudPush();}).catch(()=>{});}
+addEventListener("pagehide",()=>{if(SYNC.dirty)cloudPush(true);});
+function syncLine(){
+  if(!SYNC_URL||!STORE_OK)return "";
+  const code=getCode();if(!code)return "";
+  let s=`・合言葉 <b>${esc(code)}</b>`;
+  if(SYNC.last){const d=new Date(SYNC.last);s+=`・クラウド保存 ${d.getMonth()+1}/${d.getDate()} ${d.getHours()}:${String(d.getMinutes()).padStart(2,"0")}`;}
+  return s;
+}
+function syncCard(){
+  if(!SYNC_URL)return "";
+  const code=getCode();
+  return `<div class="card stack"><h2>記録のクラウド保存</h2>
+    <p class="small muted" style="margin:0">1セット解くたびに、記録をクラウドにも保存しています。名前やメールアドレスは送りません。機種変更や記録が消えたときは、下の合言葉で元に戻せます。</p>
+    <div class="note" style="text-align:center"><div class="small muted">あなたの合言葉（政経・古文・現代文で共通）</div><div style="font-size:26px;font-weight:800;letter-spacing:.06em">${esc(code||"—")}</div></div>
+    <button class="btn slim" id="copyCode">合言葉をコピー（メモやLINEに残しておく）</button><textarea id="codeOut" hidden readonly></textarea>
+    <details><summary>前の合言葉で記録を戻す</summary><div class="stack">
+      <p class="small muted" style="margin:0">前に使っていた合言葉を入れると、その記録をこの端末に戻し、これからはその合言葉で保存します。今この端末にある記録は置き換わります。</p>
+      <input id="codeIn" class="inp" inputmode="latin" autocapitalize="off" autocomplete="off" placeholder="例：abcd-2345" style="font-size:18px;padding:12px;border-radius:12px;border:1px solid var(--line,#ccc);background:transparent;color:inherit">
+      <button class="btn slim sky" id="codeLoad">この合言葉の記録を戻す</button>
+    </div></details>
+  </div>`;
+}
+function bindSync(){
+  const c=document.getElementById("copyCode");if(c)c.onclick=()=>copyText(`MARCHドリルの合言葉：${getCode()}`,$("#codeOut"));
+  const b=document.getElementById("codeLoad");if(!b)return;
+  b.onclick=async()=>{
+    const code=normCode($("#codeIn").value);if(!validCode(code)){toast("合言葉の形が違います（例：abcd-2345）");return;}
+    if(b.dataset.step!=="1"){b.dataset.step="1";b.textContent="もう一度押すと、今の記録と置き換えます";return;}
+    b.disabled=true;b.textContent="読み込み中…";
+    try{const o=await cloudGet(code);
+      if(!o){toast("その合言葉の記録は見つかりませんでした");b.disabled=false;b.dataset.step="";b.textContent="この合言葉の記録を戻す";return;}
+      lsSet(CODE_KEY,code);adopt(o);render();toast("記録を戻しました");}
+    catch(e){toast("つながりませんでした。電波のよい所でもう一度");b.disabled=false;b.dataset.step="";b.textContent="この合言葉の記録を戻す";}
+  };
+}
+
+function storeBanner(){
+  if(IN_APP)return `<div class="storebox" role="alert"><b>LINEなどアプリの中で開いています</b>この開き方だと、閉じたときに記録が消えることがあります。画面のメニュー（「…」や共有ボタン）から「Safariで開く」を選んでください。</div>`;
+  if(!STORE_OK)return `<div class="storebox" role="alert"><b>この開き方では記録が保存できません</b>プライベートブラウズなどになっていないか確認し、Safariの通常の画面で開いてください。</div>`;
+  if(!S.savedAt)return `<div class="storeok">記録はこの端末に保存します（まだ記録はありません${syncLine()}）${SYNC_URL?"<br>前の記録がある人は「仕上がり」→「前の合言葉で記録を戻す」":""}</div>`;
+  const d=new Date(S.savedAt);
+  return `<div class="storeok">記録はこの端末に保存中（最後に保存：${d.getMonth()+1}/${d.getDate()} ${d.getHours()}:${String(d.getMinutes()).padStart(2,"0")}・解いた数 ${S.log.length}問${syncLine()}）</div>`;
+}
+
+/* ===== 日付 ===== */
+function today(){const d=new Date();return Math.floor(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())/864e5)+(S.offset||0);}
+function dlabel(n){const d=new Date(n*864e5);return (d.getUTCMonth()+1)+"/"+d.getUTCDate();}
+function wday(n){return "日月火水木金土"[new Date(n*864e5).getUTCDay()];}
+function weekOf(n){return Math.floor((n+3)/7);}
+
+/* ===== 道具 ===== */
+const $=s=>document.querySelector(s);
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function pick(a){return a[Math.floor(Math.random()*a.length)];}
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+const CIRC="①②③④⑤⑥⑦⑧";
+function toast(t){const e=$("#toast");e.textContent=t;e.hidden=false;clearTimeout(toast._t);toast._t=setTimeout(()=>e.hidden=true,2200);}
+function vib(p){try{navigator.vibrate&&navigator.vibrate(p);}catch(e){}}
+async function copyText(t,fallbackEl){try{await navigator.clipboard.writeText(t);toast("コピーしました");}catch(e){if(fallbackEl){fallbackEl.value=t;fallbackEl.hidden=false;fallbackEl.select();}toast("下の欄を長押しでコピーしてください");}}
+
+/* ===== 音（初期はOFF） ===== */
+let AC=null;
+function tone(seq){if(!S.settings.sound)return;try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();let t=AC.currentTime;seq.forEach(([f,d])=>{const o=AC.createOscillator(),g=AC.createGain();o.type="triangle";o.frequency.value=f;g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.18,t+.02);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g).connect(AC.destination);o.start(t);o.stop(t+d+.02);t+=d*.8;});}catch(e){}}
+const SND={ok:[[660,.12],[990,.18]],ng:[[300,.18],[240,.22]],fan:[[523,.12],[659,.12],[784,.12],[1047,.35]],pop:[[880,.08],[1320,.14]]};
+
+/* ===== 問題バンク ===== */
+function bank(){const m=new Map();BANK_BASE.forEach(q=>m.set(q.id,q));(S.extra||[]).forEach(q=>{const o=m.get(q.id);if(!o||(q.version||1)>=(o.version||1))m.set(q.id,q);});return [...m.values()].filter(q=>q.status==="verified");}
+function card(id){return S.cards[id]||(S.cards[id]={stage:0,due:null,seen:0,ok:0,ng:0,revenge:false,hits:0,hitDay:null,confWrong:false,grad:false,checkDue:null});}
+function isDue(q,t){const c=S.cards[q.id];if(!c||c.seen===0)return false;if(c.grad)return c.checkDue!=null&&c.checkDue<=t;return c.stage>=1&&c.due!=null&&c.due<=t;}
+function acc(cat,n=20){const L=S.log.filter(l=>l.cat===cat).slice(-n);if(!L.length)return {a:null,n:0};return {a:L.filter(l=>l.ok).length/L.length,n:L.length};}
+function targetDiff(cat){const {a,n}=acc(cat);if(a==null||n<4)return 2;if(a>.9)return 3;if(a<.6)return 1;return 2;}
+function mastery(cat){const qs=bank().filter(q=>q.category===cat);if(!qs.length)return null;let s=0;qs.forEach(q=>{const c=S.cards[q.id];if(!c)return;s+=c.grad?1:Math.min(c.stage,5)/5;});return s/qs.length;}
+function revengePool(){return bank().filter(q=>S.cards[q.id]&&S.cards[q.id].revenge);}
+
+function interleave(list){const out=[];let rest=list.slice();while(rest.length){let i=rest.findIndex(q=>!(out.length>=2&&out[out.length-1].category===q.category&&out[out.length-2].category===q.category));if(i<0)i=0;out.push(rest.splice(i,1)[0]);}return out;}
+
+function pickDaily(){
+  const B=bank(),t=today(),n=Math.min(10,B.length);
+  let due=B.filter(q=>isDue(q,t)).sort((a,b)=>{const A=S.cards[a.id],C=S.cards[b.id];return (C.confWrong-A.confWrong)||((A.due||A.checkDue||0)-(C.due||C.checkDue||0));}).slice(0,6);
+  const unseen=shuffle(B.filter(q=>!S.cards[q.id]||S.cards[q.id].seen===0)).sort((a,b)=>Math.abs(a.difficulty-targetDiff(a.category))-Math.abs(b.difficulty-targetDiff(b.category)));
+  const minNew=Math.min(3,unseen.length);
+  if(due.length>n-minNew)due=due.slice(0,n-minNew);
+  let set=due.concat(unseen.slice(0,n-due.length));
+  if(set.length<n){const ids=new Set(set.map(q=>q.id));const rest=shuffle(B.filter(q=>!ids.has(q.id))).sort((a,b)=>(acc(a.category).a??.5)-(acc(b.category).a??.5));set=set.concat(rest.slice(0,n-set.length));}
+  // BOSS（第10問）：応用問題を、苦手すぎない分野から
+  let bossIdx=-1,best=-1;
+  set.forEach((q,i)=>{if(!isBossable(q))return;const a=acc(q.category).a;const sc=(a==null?.6:(a>=.4&&a<=.9?1:.3))+Math.random()*.1;if(sc>best){best=sc;bossIdx=i;}});
+  if(bossIdx<0){const ids=new Set(set.map(q=>q.id));const cand=B.filter(q=>isBossable(q)&&!ids.has(q.id));if(cand.length&&set.length){const dueIds=new Set(due.map(q=>q.id));let ri=set.findIndex(q=>!dueIds.has(q.id));if(ri<0)ri=set.length-1;set[ri]=pick(cand);bossIdx=ri;}}
+  let boss=null;if(bossIdx>=0){boss=set.splice(bossIdx,1)[0];}
+  set=interleave(set);if(boss)set.push(boss);
+  return {list:set,bossId:boss?boss.id:null};
+}
+function pickCustom(cats,n){
+  const B=bank().filter(q=>cats.includes(q.category)),t=today();
+  const due=shuffle(B.filter(q=>isDue(q,t)));const ids=new Set(due.map(q=>q.id));
+  const unseen=shuffle(B.filter(q=>!ids.has(q.id)&&(!S.cards[q.id]||S.cards[q.id].seen===0)));unseen.forEach(q=>ids.add(q.id));
+  const rest=shuffle(B.filter(q=>!ids.has(q.id))).sort((a,b)=>(acc(a.category).a??.5)-(acc(b.category).a??.5));
+  return {list:interleave(due.concat(unseen,rest).slice(0,n)),bossId:null};
+}
+function pickRevenge(n=10){
+  const P=shuffle(revengePool()).sort((a,b)=>{const A=S.cards[a.id],C=S.cards[b.id];return (C.confWrong-A.confWrong)||(A.hits-C.hits);});
+  return {list:interleave(P.slice(0,n)),bossId:null};
+}
+
+/* ===== 判定後の記録（間隔反復） ===== */
+function applyResult(q,correct,conf){
+  const c=card(q.id),t=today(),r={};
+  c.seen++;S.log.push({id:q.id,cat:q.category,d:t,ok:correct,conf});if(S.log.length>3000)S.log=S.log.slice(-3000);
+  if(correct){
+    c.ok++;
+    if(conf==="guess"){c.revenge=true;if(c.stage<1)c.stage=1;c.grad=false;c.due=t+INTERVAL[c.stage];r.guess=true;}
+    else{
+      if(c.grad){c.checkDue=null;}
+      else if(c.stage>=5){c.grad=true;c.due=null;c.checkDue=t+60;r.grad=true;}
+      else{c.stage++;c.due=t+INTERVAL[c.stage];}
+      if(c.revenge){
+        if(c.hits>=1&&c.hitDay!=null&&c.hitDay<t){c.revenge=false;c.hits=0;c.hitDay=null;S.popped++;r.popped=true;}
+        else if(c.hits===0){c.hits=1;c.hitDay=t;r.cracked=true;}
+        else r.sameDay=true;
+      }
+      c.confWrong=false;
+    }
+  }else{
+    c.ng++;c.stage=1;c.due=t+1;c.grad=false;c.checkDue=null;c.revenge=true;c.hits=0;c.hitDay=null;
+    if(conf==="sure"){c.confWrong=true;r.confWrong=true;}
+  }
+  save();return r;
+}
+
+/* ===== 画面：タブ ===== */
+let TAB="daily";
+function setTab(t){TAB=t;document.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-selected",String(b.dataset.tab===t)));render();window.scrollTo(0,0);}
+document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>setTab(b.dataset.tab)));
+
+function streakView(){const t=today(),s=S.streak;if(s.last==null)return 0;if(s.last>=t-1)return s.count;if(s.last===t-2&&s.freezeWeek!==weekOf(t))return s.count;return 0;}
+function setsToday(){return S.days[today()]||0;}
+
+function render(){
+  document.documentElement.dataset.size=S.settings.size;
+  const rv=revengePool().length;const b=$("#rvBadge");b.hidden=!rv;b.textContent=rv;
+  const app=$("#app");
+  if(TAB==="daily")app.innerHTML=viewDaily();
+  else if(TAB==="custom")app.innerHTML=viewCustom();
+  else if(TAB==="revenge")app.innerHTML=viewRevenge();
+  else app.innerHTML=viewStatus();
+  bindView();
+}
+
+function weekDots(){
+  const t=today();let h="";
+  for(let i=6;i>=0;i--){const d=t-i;const on=(S.days[d]||0)>0;h+=`<div class="wd"><div class="dot ${on?"on":""} ${i===0?"today":""}">${on?"✓":""}</div>${wday(d)}</div>`;}
+  return h;
+}
+
+function viewDaily(){
+  const B=bank(),t=today();
+  const due=B.filter(q=>isDue(q,t)).length;
+  const unseen=B.filter(q=>!S.cards[q.id]||S.cards[q.id].seen===0).length;
+  const rv=revengePool().length;
+  const cw=B.filter(q=>S.cards[q.id]&&S.cards[q.id].confWrong).length;
+  const st=streakView(),sets=setsToday();
+  const freeLeft=S.streak.freezeWeek!==weekOf(t);
+  return `
+  <div class="stack">
+    <div class="row" style="justify-content:space-between"><h1>MARCH現代文ドリル</h1><span class="xpchip">${S.xp.toLocaleString()} XP</span></div>
+    ${storeBanner()}
+    <section class="hero">
+      <div class="hero-top">
+        <div><div class="streak">${IC.flame}<span>${st}日連続</span></div>
+        <div class="small muted">${st===0?"今日の1セットから、また積み上げよう":(sets>0?"今日のぶんは達成！":"今日1セットで "+(st+1)+"日連続")}</div></div>
+        <div class="small muted" style="text-align:right">お休みチケット<br><b style="color:var(--sky-d)">${freeLeft?"今週1枚あり":"今週は使用済み"}</b></div>
+      </div>
+      <div class="week">${weekDots()}</div>
+      <button class="btn primary" id="startDaily" ${B.length?"":"disabled"}>今日の${Math.min(10,B.length)}問を始める</button>
+      <div class="stats">
+        <div class="stat"><b>${due}</b><span>今日の復習</span></div>
+        <div class="stat"><b>${unseen}</b><span>新しい問題</span></div>
+        <div class="stat"><b>${rv}</b><span>リベンジ</span></div>
+      </div>
+    </section>
+    ${cw?`<div class="note red">自信ありで間違えた問題が <b>${cw}問</b> あります。直すと一番記憶に残るタイプなので、今日の10問に優先して入れています。</div>`:""}
+    ${sets>=5?`<div class="note sky">${MSG.rest}</div>`:(sets>0?`<div class="note green">今日は ${sets}セット解きました。</div>`:"")}
+    <div class="card small muted">1セットは約5分。第10問は応用の「BOSS」問題です。間違えた問題と勘で当たった問題は、リベンジに入り、忘れかけるころにまた出てきます。</div>
+  </div>`;
+}
+
+let CUST={cats:Object.keys(CATS),n:10};
+function viewCustom(){
+  const B=bank();const avail=B.filter(q=>CUST.cats.includes(q.category)).length;
+  return `<div class="stack">
+    <h1>範囲特訓</h1>
+    <p class="muted small" style="margin:0">定期テストや志望校の対策に合わせて、分野をしぼって解けます。</p>
+    <div class="card stack"><h2>分野</h2>
+      <div class="chips">${Object.entries(CATS).map(([k,v])=>`<button class="chip" data-cat="${k}" aria-pressed="${CUST.cats.includes(k)}">${esc(v)} <span class="muted small">${B.filter(q=>q.category===k).length}</span></button>`).join("")}</div>
+      <div class="row"><button class="btn slim" id="catAll" style="width:auto;flex:1">すべて選ぶ</button><button class="btn slim" id="catNone" style="width:auto;flex:1">すべて外す</button></div>
+    </div>
+    <div class="card stack"><h2>問題数</h2>
+      <div class="seg">${[5,10,20].map(n=>`<button class="chip" data-n="${n}" aria-pressed="${CUST.n===n}" style="text-align:center">${n}問</button>`).join("")}</div>
+    </div>
+    <button class="btn primary" id="startCustom" ${avail?"":"disabled"}>${avail?`${Math.min(CUST.n,avail)}問で始める`:"分野を選んでください"}</button>
+    ${avail&&avail<CUST.n?`<p class="small muted" style="margin:0">選んだ分野の問題は今 ${avail}問です。問題が増えると、ここも増えます。</p>`:""}
+  </div>`;
+}
+
+function viewRevenge(){
+  const P=revengePool();
+  if(!P.length)return `<div class="stack"><h1>リベンジ</h1><div class="card stack" style="text-align:center;padding:28px 16px"><div class="big">0</div><p style="margin:0">リベンジは空っぽ。<br>間違えた問題と、勘で当たった問題がここにたまります。</p><button class="btn primary" id="goDaily">デイリー10へ</button></div></div>`;
+  const t=today();
+  const items=P.slice().sort((a,b)=>(S.cards[b.id].confWrong-S.cards[a.id].confWrong)).map(q=>{const c=S.cards[q.id];
+    const state=c.hits>=1?(c.hitDay<t?`<span class="tag sky">ヒビ・今日倒せる</span>`:`<span class="tag sky">ヒビ・明日以降あと1回</span>`):"";
+    return `<div class="li"><div class="t"><div style="font-weight:800">${esc(q.topic)}</div><div class="row" style="gap:6px;margin-top:4px"><span class="tag">${esc(CATS[q.category])}</span>${c.confWrong?`<span class="tag red">自信ありで誤答</span>`:""}${state}</div></div></div>`;}).join("");
+  return `<div class="stack">
+    <div class="row" style="justify-content:space-between"><h1>リベンジ</h1><span class="tag red" style="font-size:.85rem">${P.length}問</span></div>
+    <p class="muted small" style="margin:0">1回正解するとヒビが入り、別の日にもう1回正解すると弾けて消えます。これまでに消した数：<b>${S.popped}</b></p>
+    <button class="btn red" id="startRevenge">リベンジ開始（${Math.min(10,P.length)}問）</button>
+    <div class="list">${items}</div>
+  </div>`;
+}
+
+let testTap=0;
+function viewStatus(){
+  const B=bank();
+  const total=S.log.length;
+  const rows=Object.entries(CATS).map(([k,v])=>{const m=mastery(k),a=acc(k);const pct=m==null?0:Math.round(m*100);
+    return `<div><div class="bar-h"><span>${esc(v)}</span><span>習熟 ${m==null?"—":pct+"%"}・正答率 ${a.a==null?"—":Math.round(a.a*100)+"%"}</span></div><div class="bar"><i style="width:${pct}%"></i></div></div>`;}).join("");
+  // データから強みの一言
+  let best=null;Object.keys(CATS).forEach(k=>{const a=acc(k);if(a.n>=5&&(!best||a.a>best.a))best={k,a:a.a,n:a.n};});
+  let msg="まずは数セット解いてみよう。データがたまると、ここに強みが出ます。";
+  if(best){msg=`いちばんの強みは「${CATS[best.k]}」。直近${best.n}問の正答率は${Math.round(best.a*100)}%。`;if(best.k==="kokusai"||best.k==="kokukei")msg+="英語で鍛えた読解力と相性のいい分野です。";else msg+="この分野は本番で確実に取る得点源にしよう。";}
+  const flags=S.flags.map((f,i)=>`<div class="li"><div class="t"><div style="font-weight:800">${esc(f.topic)} <span class="tag">${esc(f.id)}</span></div><div class="small muted">${esc(f.memo||"（メモなし）")}・${dlabel(f.day)}</div></div><button class="btn slim" data-unflag="${i}" style="width:auto">取り消す</button></div>`).join("");
+  return `<div class="stack">
+    <h1>仕上がり</h1>
+    <div class="stats">
+      <div class="stat"><b>${total}</b><span>解いた数</span></div>
+      <div class="stat"><b>${S.popped}</b><span>倒したリベンジ</span></div>
+      <div class="stat"><b>${streakView()}</b><span>連続日数</span></div>
+    </div>
+    <div class="note green">${esc(msg)}</div>
+    <div class="card stack"><h2>分野ごとの習熟度</h2><div class="bars">${rows}</div>
+      <p class="small muted" style="margin:0">習熟度は、その分野の問題を何段階まで覚えたか（最後まで卒業すると100%）。正答率は直近20問。問題は今 ${B.length}問。</p></div>
+    <div class="card stack"><h2>これ合ってる？（${S.flags.length}件）</h2>
+      ${S.flags.length?`<div class="list">${flags}</div><button class="btn sky" id="copyFlags">一覧をコピー（LINEで送る用）</button><textarea id="flagsOut" hidden readonly></textarea>`:`<p class="small muted" style="margin:0">解説画面の「これ合ってる？」で印を付けた問題がここに並びます。</p>`}
+    </div>
+    <div class="card stack"><h2>設定</h2>
+      <div class="toggle"><span>効果音</span><button class="sw" role="switch" id="swSound" aria-checked="${S.settings.sound}" aria-label="効果音"></button></div>
+      <div class="toggle"><span>確信度を聞く（自信あり／たぶん／勘）</span><button class="sw" role="switch" id="swConf" aria-checked="${S.settings.conf}" aria-label="確信度を聞く"></button></div>
+      <div><div style="margin-bottom:6px">文字の大きさ</div><div class="seg">${[["s","小"],["m","中"],["l","大"]].map(([k,v])=>`<button class="chip" data-size="${k}" aria-pressed="${S.settings.size===k}" style="text-align:center">${v}</button>`).join("")}</div></div>
+    </div>
+    ${syncCard()}
+    <div class="card stack"><h2>データ</h2>
+      <details><summary>学習記録の書き出し・復元</summary><div class="stack">
+        <p class="small muted" style="margin:0">機種変更や、記録が消えたときのために。書き出した文字をメモなどに保存し、復元するときは下の欄に貼り付けます。</p>
+        <button class="btn slim" id="exp">学習記録をコピー</button><textarea id="expOut" hidden readonly></textarea>
+        <textarea id="impIn" placeholder="ここに書き出した記録を貼り付け"></textarea><button class="btn slim sky" id="imp">記録を復元</button>
+      </div></details>
+      <details><summary>問題データの読み込み（親用）</summary><div class="stack">
+        <p class="small muted" style="margin:0">問題データ（JSON）を貼り付けて追加します。出題されるのは status が verified（検証済み）の問題だけです。同じIDは、版が新しいもので置き換わります。</p>
+        <textarea id="qIn" placeholder='[{"id":"kenpo-101", ...}]'></textarea><button class="btn slim sky" id="qImp">問題を追加</button>
+      </div></details>
+      <details><summary>記録を全部消す</summary><div class="stack"><p class="small muted" style="margin:0">学習記録・連続日数・リベンジがすべて消えます。元に戻せません。</p><button class="btn slim red" id="reset">全部消す</button></div></details>
+    </div>
+    <p class="small muted" id="ver" style="text-align:center;margin:0">版 ${APP_VER}</p>
+    <div class="card stack" id="testBox" hidden><h2>テスト用（親向け）</h2><p class="small muted" style="margin:0">復習の期日や連続日数の動きを試すために日付をずらします。今の日付：${dlabel(today())}（ずれ ${S.offset}日）</p>
+      <div class="row"><button class="btn slim" id="dPlus" style="flex:1;width:auto">1日進める</button><button class="btn slim" id="dMinus" style="flex:1;width:auto">1日戻す</button><button class="btn slim" id="dZero" style="flex:1;width:auto">元に戻す</button></div></div>
+  </div>`;
+}
+
+function bindView(){
+  const on=(id,f)=>{const e=document.getElementById(id);if(e)e.addEventListener("click",f);};
+  on("startDaily",()=>startSession("daily"));
+  on("startCustom",()=>startSession("custom"));
+  on("startRevenge",()=>startSession("revenge"));
+  on("goDaily",()=>setTab("daily"));
+  document.querySelectorAll("[data-cat]").forEach(b=>b.onclick=()=>{const k=b.dataset.cat;CUST.cats=CUST.cats.includes(k)?CUST.cats.filter(x=>x!==k):CUST.cats.concat(k);render();});
+  on("catAll",()=>{CUST.cats=Object.keys(CATS);render();});
+  on("catNone",()=>{CUST.cats=[];render();});
+  document.querySelectorAll("[data-n]").forEach(b=>b.onclick=()=>{CUST.n=+b.dataset.n;render();});
+  document.querySelectorAll("#app [data-size]").forEach(b=>b.onclick=()=>{S.settings.size=b.dataset.size;save();render();});
+  on("swSound",()=>{S.settings.sound=!S.settings.sound;save();render();if(S.settings.sound)tone(SND.ok);});
+  on("swConf",()=>{S.settings.conf=!S.settings.conf;save();render();});
+  document.querySelectorAll("[data-unflag]").forEach(b=>b.onclick=()=>{S.flags.splice(+b.dataset.unflag,1);save();render();});
+  on("copyFlags",()=>{const t="【これ合ってる？】\n"+S.flags.map(f=>`・${f.id}（版${f.version}）${f.topic}：${f.memo||"メモなし"}（${dlabel(f.day)}）\n　問題文：${f.q}`).join("\n");copyText(t,$("#flagsOut"));});
+  on("exp",()=>copyText(JSON.stringify(S),$("#expOut")));
+  on("imp",()=>{try{const o=JSON.parse($("#impIn").value);if(!o||o.v!==1||!o.cards)throw 0;S=Object.assign(fresh(),o);save();cloudPush();render();toast("記録を復元しました");}catch(e){toast("復元できませんでした。書き出した文字をそのまま貼り付けてください");}});
+  on("qImp",()=>{try{let a=JSON.parse($("#qIn").value);if(!Array.isArray(a))a=[a];let ok=0,ng=0;a.forEach(q=>{if(q&&q.id&&CATS[q.category]&&FORMATS.includes(q.format)&&q.question&&((q.format==="recall"||q.format==="write")?(q.answerText||q.accept):Array.isArray(q.options))){S.extra=(S.extra||[]).filter(x=>x.id!==q.id);S.extra.push(q);ok++;}else ng++;});save();render();toast(`追加 ${ok}問${ng?`・読めなかった ${ng}問`:""}`);}catch(e){toast("JSONの形が読めませんでした");}});
+  on("reset",e=>{const b=e.currentTarget;if(b.dataset.step==="2"){S=fresh();save();setTab("daily");toast("記録を消しました");}else if(b.dataset.step==="1"){b.dataset.step="2";b.textContent="最後の確認：本当に全部消す";}else{b.dataset.step="1";b.textContent="もう一度押すと消えます";}});
+  on("ver",()=>{if(++testTap>=5){$("#testBox").hidden=false;}});
+  on("dPlus",()=>{S.offset++;save();render();$("#testBox").hidden=false;});
+  on("dMinus",()=>{S.offset--;save();render();$("#testBox").hidden=false;});
+  on("dZero",()=>{S.offset=0;save();render();$("#testBox").hidden=false;});
+  bindSync();
+}
+
+/* ===== 出題 ===== */
+let SES=null;
+function startSession(mode){
+  const p=mode==="daily"?pickDaily():mode==="custom"?pickCustom(CUST.cats,CUST.n):pickRevenge(10);
+  if(!p.list.length){toast("出せる問題がありません");return;}
+  SES={mode,queue:p.list.map(q=>({q,retry:false})),idx:0,first:p.list.length,done:[],firstOk:0,retakes:0,retakeOk:0,xp:0,combo:0,maxCombo:0,wrongIds:[],bossId:p.bossId,boss:null,popped:0,cracked:0,confNg:0};
+  $("#tabs").hidden=true;$("#quiz").hidden=false;document.body.style.overflow="hidden";
+  showQ();
+}
+function quitSession(){SES=null;$("#quiz").hidden=true;$("#tabs").hidden=false;document.body.style.overflow="";render();}
+
+let QS=null; // 1問ぶんの状態
+function showQ(){
+  const item=SES.queue[SES.idx];const q=item.q;
+  const nOpt=(q.options||[]).length;const canShuffle=["choice4","combo"].includes(q.format)&&!(q.options||[]).some(o=>/^[ア-エ][\s　]/.test(o));
+  QS={item,q,sel:null,order:[],phase:"answer",revealed:false,perm:canShuffle?shuffle([...Array(nOpt).keys()]):[...Array(nOpt).keys()]};
+  const isBoss=q.id===SES.bossId&&!item.retry;
+  const quiz=$("#quiz");quiz.classList.toggle("boss",isBoss);
+  quiz.innerHTML=`
+   <header class="qhead"><div class="qhead-in">
+     <button class="x" id="qx" aria-label="中断する">${IC.x}</button>
+     <div class="prog" aria-hidden="true">${progHTML()}</div>
+     <div class="combo" id="combo">${SES.combo>=2?IC.flame+SES.combo:""}</div>
+   </div></header>
+   <div class="qbody" id="qbody"><div class="qbody-in">
+     ${isBoss?`<div class="bossbar">${IC.crown}BOSS BATTLE：MARCH激戦の応用・引っかけ問題</div>`:""}
+     ${item.retry?`<div class="note sky small">取り返しチャンス！さっき間違えた問題です</div>`:""}
+     <div class="qcard stack" id="qcard">
+       <div class="qmeta"><span class="tag">${esc(CATS[q.category])}</span><span class="tag">${DIFF[q.difficulty]||""}</span>${q.isJiji?`<span class="tag sky">時事 ${esc(q.asOf||"")}</span>`:""}</div>
+       <div class="qtext">${esc(q.question)}</div>
+       <div id="qarea"></div>
+     </div>
+     <div id="sheet"></div>
+   </div></div>
+   <footer class="qfoot"><div class="qfoot-in" id="qfoot"></div></footer>`;
+  $("#qx").onclick=()=>{if(confirmQuit())quitSession();};
+  renderArea();renderFoot();
+  $("#qbody").scrollTop=0;
+}
+let quitArm=0;
+function confirmQuit(){if(Date.now()-quitArm<2500)return true;quitArm=Date.now();toast("もう一度押すと中断します（ここまでの記録は残ります）");return false;}
+function progHTML(){
+  let h="";for(let i=0;i<SES.first;i++){const d=SES.done[i];const cls=d===true?"ok":d===false?"ng":(i===firstIndex()?"now":"");const isB=SES.bossId&&i===SES.first-1;h+=`<i class="${cls} ${isB?"boss":""}"></i>`;}return h;
+}
+function firstIndex(){let c=0;for(let i=0;i<SES.idx;i++)if(!SES.queue[i].retry)c++;return SES.queue[SES.idx]&&SES.queue[SES.idx].retry?-1:c;}
+
+function renderArea(){
+  const q=QS.q,a=$("#qarea");
+  if(q.format==="write"){
+    if(QS.phase==="reveal"){a.innerHTML=`<div class="recall-ans" style="text-align:left">あなたの答え：${esc(QS.typed||"（空欄）")}</div>`;return;}
+    a.innerHTML=`<input type="text" id="qin" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="答えを入力" value="${esc(QS.typed||"")}" style="font-size:1.1rem">`;
+    const inp=$("#qin");inp.oninput=()=>{QS.typed=inp.value;renderFoot();};inp.onkeydown=e=>{if(e.key==="Enter"&&inp.value.trim()){e.preventDefault();checkWrite();}};
+    return;
+  }
+  if(q.format==="recall"){
+    a.innerHTML=QS.revealed?`<div class="recall-ans">${esc(q.answerText)}</div>`:`<p class="muted small" style="margin:0">答えを頭の中で言ってから、めくってください。</p>`;
+    return;
+  }
+  if(q.format==="order"){
+    a.innerHTML=`<p class="muted small" style="margin:0 0 8px">古い順にタップ（${QS.order.length}/${q.options.length}）</p><div class="opts">${q.options.map((o,i)=>{const k=QS.order.indexOf(i);const cls=QS.phase==="reveal"?(QS.correct?"right":"wrong"):"";return `<button class="opt ${cls}" data-i="${i}" aria-pressed="${k>=0}" ${QS.phase==="reveal"?"disabled":""}><span class="n">${k>=0?k+1:""}</span><span>${esc(o)}</span></button>`;}).join("")}</div>`;
+    a.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{if(QS.phase==="reveal")return;const i=+b.dataset.i;if(QS.order.includes(i))return;QS.order.push(i);if(QS.order.length===q.options.length)QS.phase=S.settings.conf?"conf":"judge";renderArea();renderFoot();if(QS.phase==="judge")judge(null);});
+    return;
+  }
+  a.innerHTML=`<div class="opts">${QS.perm.map((i,k)=>{const o=q.options[i];let cls="";if(QS.phase==="reveal"){if(i===q.answer)cls="right";else if(i===QS.sel)cls="wrong";}return `<button class="opt ${cls}" data-i="${i}" aria-pressed="${QS.phase!=="reveal"&&QS.sel===i}" ${QS.phase==="reveal"?"disabled":""}><span class="n">${CIRC[k]||k+1}</span><span>${esc(o)}</span></button>`;}).join("")}</div>`;
+  a.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{if(QS.phase==="reveal")return;QS.sel=+b.dataset.i;if(S.settings.conf){QS.phase="conf";renderArea();renderFoot();}else{judge(null);}});
+}
+function renderFoot(){
+  const f=$("#qfoot"),q=QS.q;
+  if(QS.phase==="reveal"){f.innerHTML=`<button class="btn primary" id="next">${SES.idx+1<SES.queue.length?"次へ":"結果を見る"}</button>`;$("#next").onclick=next;return;}
+  if(q.format==="write"){
+    f.innerHTML=`<button class="btn primary" id="wchk" ${(QS.typed||"").trim()?"":"disabled"}>答え合わせ</button>`;$("#wchk").onclick=checkWrite;return;
+  }
+  if(q.format==="recall"){
+    if(!QS.revealed){f.innerHTML=`<button class="btn sky" id="flip">答えを見る</button>`;$("#flip").onclick=()=>{QS.revealed=true;renderArea();renderFoot();};}
+    else{f.innerHTML=`<div class="ask">言えた？</div><div class="confrow"><button class="btn" id="r1"><span class="e">🔥</span>言えた</button><button class="btn" id="r2"><span class="e">🤔</span>あいまい</button><button class="btn" id="r3"><span class="e">💭</span>言えなかった</button></div>`;
+      $("#r1").onclick=()=>judge("sure",true);$("#r2").onclick=()=>judge("guess",true);$("#r3").onclick=()=>judge(null,false);}
+    return;
+  }
+  if(QS.phase==="conf"){
+    f.innerHTML=`<div class="ask">どのくらい自信がある？</div><div class="confrow"><button class="btn" id="c1"><span class="e">🔥</span>自信あり</button><button class="btn" id="c2"><span class="e">🤔</span>たぶん</button><button class="btn" id="c3"><span class="e">🎲</span>勘</button></div>${q.format==="order"?`<button class="btn slim" id="redo">並べ直す</button>`:""}`;
+    $("#c1").onclick=()=>judge("sure");$("#c2").onclick=()=>judge("maybe");$("#c3").onclick=()=>judge("guess");
+    const r=$("#redo");if(r)r.onclick=()=>{QS.order=[];QS.phase="answer";renderArea();renderFoot();};
+    return;
+  }
+  if(q.format==="order"&&QS.order.length){f.innerHTML=`<button class="btn slim" id="redo">並べ直す</button>`;$("#redo").onclick=()=>{QS.order=[];renderArea();renderFoot();};return;}
+  f.innerHTML=`<div class="ask">${q.format==="order"?"順番にタップして答えよう":"答えをタップしよう"}</div>`;
+}
+
+function judge(conf,recallOk){
+  const q=QS.q,item=QS.item;
+  let correct;
+  if(q.format==="recall"||q.format==="write")correct=!!recallOk;
+  else if(q.format==="order")correct=JSON.stringify(QS.order)===JSON.stringify(q.answer);
+  else correct=QS.sel===q.answer;
+  QS.correct=correct;QS.phase="reveal";
+  const isBoss=q.id===SES.bossId&&!item.retry;
+  let r={};let gain=0;let bonus=false;
+  if(!item.retry){
+    r=applyResult(q,correct,conf);
+    SES.done.push(correct);if(correct)SES.firstOk++;
+    if(!correct){SES.wrongIds.push(q.id);SES.queue.push({q,retry:true});}
+    if(r.popped)SES.popped++;if(r.cracked)SES.cracked++;if(r.confWrong)SES.confNg++;
+    if(isBoss)SES.boss=correct;
+  }else{SES.retakes++;if(correct)SES.retakeOk++;}
+  if(correct){SES.combo++;SES.maxCombo=Math.max(SES.maxCombo,SES.combo);gain=item.retry?4:10;if(SES.combo>=3)gain+=5;if(isBoss)gain+=20;if(!item.retry&&Math.random()<.1){bonus=true;gain*=2;}}
+  else{SES.combo=0;gain=2;}
+  if(conf&&conf!=="guess"&&!item.retry)gain+=1;
+  SES.xp+=gain;S.xp+=gain;save();
+  // 演出
+  const qc=$("#qcard");qc.classList.remove("bounce","shake","burst");void qc.offsetWidth;
+  if(r.popped){qc.classList.add("burst");tone(SND.pop);vib([20,40,20]);}
+  else if(correct){qc.classList.add("bounce");tone(SND.ok);vib(15);}
+  else{qc.classList.add("shake");tone(SND.ng);vib([40,30,40]);}
+  if(isBoss&&correct){tone(SND.fan);confetti();}
+  const cb=$("#combo");cb.innerHTML=SES.combo>=2?IC.flame+SES.combo:"";if(SES.combo>=2){cb.classList.remove("pop");void cb.offsetWidth;cb.classList.add("pop");}
+  $(".prog").innerHTML=progHTML();
+  renderArea();renderFoot();renderSheet(correct,conf,r,isBoss,gain,bonus);
+}
+
+function message(correct,conf,r,isBoss){
+  if(isBoss)return pick(correct?MSG.bossWin:MSG.bossLose);
+  if(r.popped)return "撃破！カードが弾けて消えた。もう自分の知識だ";
+  if(r.cracked)return "ヒビが入った！別の日にもう1回正解で撃破";
+  if(!correct&&conf==="sure")return pick(MSG.confNg);
+  if(correct&&conf==="guess")return pick(MSG.guessOk);
+  if(correct&&MSG.combo[SES.combo])return MSG.combo[SES.combo];
+  if(correct&&(QS.q.category==="kokusai"||QS.q.category==="kokukei")&&Math.random()<.2)return pick(MSG.eng);
+  return pick(correct?MSG.ok:MSG.ng);
+}
+
+function renderSheet(correct,conf,r,isBoss,gain,bonus){
+  const q=QS.q;
+  let notes="";
+  if(q.format==="order"){
+    notes=`<div class="sec-t">正しい順番</div><ol class="onotes">${q.answer.map((i,k)=>`<li><span class="m ok">${k+1}</span><span>${esc(q.options[i])}${q.optionNotes&&q.optionNotes[i]?`<br><span class="muted">${esc(q.optionNotes[i])}</span>`:""}</span></li>`).join("")}</ol>`;
+  }else if(q.format!=="recall"&&q.format!=="write"&&q.optionNotes){
+    notes=`<div class="sec-t">選択肢ごとの説明</div><ul class="onotes">${QS.perm.map((i,k)=>{const n=q.optionNotes[i];return `<li><span class="m ${i===q.answer?"ok":"ng"}">${CIRC[k]||k+1}</span><span>${esc(n)}${i===QS.sel&&i!==q.answer?` <span class="tag red">あなたの答え</span>`:""}</span></li>`;}).join("")}</ul>`;
+  }
+  const src=(q.sources||[]).map(s=>s.url?`<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>`:esc(s.title)).join("<br>");
+  $("#sheet").innerHTML=`<section class="sheet ${correct?"ok":"ng"}" aria-live="polite">
+    <div class="verdict">${correct?IC.ok:IC.ng}<div><b>${correct?(isBoss?"BOSS撃破！":"正解！"):(isBoss?"BOSSに挑んだ！":"ナイスチャレンジ")}</b><div class="small">${esc(message(correct,conf,r,isBoss))}</div></div></div>
+    <div class="row" style="gap:8px"><span class="xpchip">+${gain} XP</span>${bonus?`<span class="tag sky">ボーナス解説 XP×2</span>`:""}${r.guess?`<span class="tag red">リベンジに追加</span>`:""}${!correct&&!QS.item.retry?`<span class="tag red">リベンジに追加</span>`:""}</div>
+    ${q.format!=="recall"&&q.format!=="write"&&q.format!=="order"&&!correct?`<div><div class="sec-t">正解</div><div style="font-weight:800">${CIRC[QS.perm.indexOf(q.answer)]||""} ${esc(q.options[q.answer])}</div></div>`:""}
+    ${q.format==="recall"||q.format==="write"?`<div><div class="sec-t">答え</div><div style="font-weight:800">${esc(q.answerText)}</div>${q.format==="write"&&q.accept&&q.accept.length>1?`<div class="small muted">正解にする表記：${q.accept.map(esc).join("／")}</div>`:""}</div>`:""}
+    ${q.format==="write"&&!correct&&!QS.item.retry&&(QS.typed||"").trim()?`<button class="btn slim" id="wfix">表記が違うだけで、合っていた</button>`:""}
+    <div><div class="sec-t">解説</div><div>${esc(q.explanation)}</div></div>
+    ${q.pitfall?`<div class="pit"><div class="sec-t">落とし穴</div><div>${esc(q.pitfall)}</div></div>`:""}
+    ${notes}
+    ${q.related?`<div><div class="sec-t">あわせて覚えると強い</div><div class="small">${esc(q.related)}</div></div>`:""}
+    ${src?`<div class="src">出典：${src}</div>`:""}
+    <div id="flagBox"><button class="btn slim" id="flagBtn">${IC.flag}これ合ってる？</button></div>
+  </section>`;
+  const wf=$("#wfix");if(wf)wf.onclick=()=>{fixWrite();};
+  const fb=$("#flagBtn");fb.onclick=()=>{$("#flagBox").innerHTML=`<div class="stack"><input type="text" id="flagMemo" placeholder="どこが気になった？（なくてもOK）"><button class="btn slim sky" id="flagSave">親に知らせる印を付ける</button></div>`;$("#flagSave").onclick=()=>{S.flags.push({id:q.id,version:q.version||1,topic:q.topic,q:String(q.question).slice(0,60),memo:$("#flagMemo").value.trim(),day:today()});save();$("#flagBox").innerHTML=`<div class="note sky small">印を付けました。「仕上がり」タブからまとめて親に送れます。</div>`;};};
+  setTimeout(()=>{const s=$("#sheet .sheet");if(s)s.scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"});},250);
+}
+
+function checkWrite(){const q=QS.q;const v=norm(QS.typed);const acc=(q.accept&&q.accept.length?q.accept:[q.answerText]).map(norm);const ok=acc.includes(v);judge(ok?"sure":null,ok);}
+function fixWrite(){ // 表記ゆれの自己申告：記録を正解に直す（勘扱い＝リベンジには残す）
+  const q=QS.q,c=card(q.id),t=today();
+  const L=S.log;for(let i=L.length-1;i>=0;i--){if(L[i].id===q.id&&L[i].d===t){L[i].ok=true;L[i].conf="guess";break;}}
+  c.ng=Math.max(0,c.ng-1);c.ok++;c.confWrong=false;c.stage=Math.max(c.stage,1);c.due=t+1;c.revenge=true;
+  SES.done[SES.done.length-1]=true;SES.firstOk++;SES.wrongIds=SES.wrongIds.filter(id=>id!==q.id);
+  const qi=SES.queue.findIndex((it,i)=>i>SES.idx&&it.retry&&it.q.id===q.id);if(qi>=0)SES.queue.splice(qi,1);
+  save();$(".prog").innerHTML=progHTML();const w=$("#wfix");if(w)w.outerHTML=`<div class="note green small">正解に直しました。念のためリベンジに残しています。</div>`;$("#next").textContent=SES.idx+1<SES.queue.length?"次へ":"結果を見る";
+}
+function next(){SES.idx++;if(SES.idx<SES.queue.length)showQ();else finish();}
+
+function finish(){
+  const t=today();
+  S.days[t]=(S.days[t]||0)+1;
+  const s=S.streak;let usedFreeze=false;
+  if(s.last!==t){if(s.last===t-1)s.count++;else if(s.last===t-2&&s.freezeWeek!==weekOf(t)){s.count++;s.freezeWeek=weekOf(t);usedFreeze=true;}else s.count=1;s.last=t;}
+  let cheer="";if(CHEERS.length&&[3,7,14,30].includes(s.count)&&!S.cheered.includes(s.count)){cheer=pick(CHEERS);S.cheered.push(s.count);}
+  save();cloudPush();
+  const sc=SES.firstOk,n=SES.first,rate=n?sc/n:0;
+  const head=rate===1?"パーフェクト！":rate>=.8?"すばらしい仕上がり！":rate>=.5?"着実に前進！":"いい練習になった！";
+  const good=[];good.push(`今日も${n}問を積み上げた`);if(SES.retakeOk)good.push(`間違えた問題を${SES.retakeOk}問その場で取り返した`);if(SES.popped)good.push(`リベンジを${SES.popped}問撃破`);if(SES.cracked)good.push(`${SES.cracked}問にヒビを入れた`);if(SES.maxCombo>=3)good.push(`最大${SES.maxCombo}連続正解`);if(SES.confNg)good.push(`思い込みを${SES.confNg}つ発見（ここが一番伸びる）`);
+  const wrongLeft=SES.wrongIds.filter(id=>S.cards[id]&&S.cards[id].revenge).length;
+  const sets=S.days[t];
+  const R=$("#result");
+  R.innerHTML=`<div class="wrap stack">
+    <div class="big">${esc(head)}</div>
+    ${SES.boss===true?`<div class="note" style="text-align:center;font-weight:800">${IC.crown.replace('<svg','<svg width="22" height="22" style="vertical-align:-4px;color:var(--gold)"')} BOSS撃破</div>`:SES.boss===false?`<div class="note sky" style="text-align:center">BOSSはリベンジに登録。次は倒せる</div>`:""}
+    <div class="card stack"><div class="sec-t">今日よかったこと</div><ul style="margin:0;padding-left:1.2em">${good.map(g=>`<li>${esc(g)}</li>`).join("")}</ul></div>
+    <div class="stats">
+      <div class="stat"><b>${sc}/${n}</b><span>正解</span></div>
+      <div class="stat"><b>+${SES.xp}</b><span>XP</span></div>
+      <div class="stat"><b>${s.count}</b><span>連続日数</span></div>
+    </div>
+    ${usedFreeze?`<div class="note sky small">お休みチケットを使って、連続記録をつなげました。</div>`:""}
+    ${cheer?`<div class="note"><div class="sec-t">家族から</div>${esc(cheer)}</div>`:""}
+    ${sets>=5?`<div class="note sky">${MSG.rest}</div>`:""}
+    ${wrongLeft?`<button class="btn red" id="goRv">間違えた${wrongLeft}問を今すぐリベンジ</button>`:""}
+    <button class="btn ${wrongLeft?"":"primary"}" id="again">${sets>=5?"それでももう1セット":"もう1セット"}</button>
+    <button class="btn slim" id="home">ホームへ</button>
+  </div>`;
+  R.hidden=false;R.scrollTop=0;$("#quiz").hidden=true;
+  const mode=SES.mode;SES=null;
+  const close=()=>{R.hidden=true;$("#tabs").hidden=false;document.body.style.overflow="";};
+  const g=$("#goRv");if(g)g.onclick=()=>{close();startSession("revenge");};
+  $("#again").onclick=()=>{close();startSession(mode==="revenge"?"daily":mode);};
+  $("#home").onclick=()=>{close();setTab("daily");};
+  if(rate===1)confetti();
+}
+
+/* ===== 紙吹雪 ===== */
+function confetti(){
+  if(window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+  const c=$("#fx");c.hidden=false;const x=c.getContext("2d");const W=c.width=innerWidth,H=c.height=innerHeight;
+  const cs=getComputedStyle(document.documentElement);const cols=["--green","--yellow","--sky","--red","--gold"].map(v=>cs.getPropertyValue(v).trim()||"#58CC02");
+  const P=Array.from({length:120},()=>({x:W/2+(Math.random()-.5)*W*.3,y:H*.35,vx:(Math.random()-.5)*10,vy:-Math.random()*11-4,r:Math.random()*6+4,c:pick(cols),a:Math.random()*6,va:(Math.random()-.5)*.3}));
+  let f=0;(function step(){x.clearRect(0,0,W,H);P.forEach(p=>{p.vy+=.35;p.x+=p.vx;p.y+=p.vy;p.a+=p.va;x.save();x.translate(p.x,p.y);x.rotate(p.a);x.fillStyle=p.c;x.fillRect(-p.r/2,-p.r/4,p.r,p.r/2);x.restore();});if(++f<110)requestAnimationFrame(step);else{x.clearRect(0,0,W,H);c.hidden=true;}})();
+}
+
+setTab("daily");
+</script>
+</body></html>
