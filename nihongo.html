@@ -6328,7 +6328,7 @@ function openCodeModal(first){
     if(!first&&code===getCode()){m.remove();return;}
     let cloud=null,net=true;
     try{cloud=await cloudGet(code);}catch(err){net=false;}
-    if(!net&&!first){msg.innerHTML=`<div class="note red small">つながりませんでした。電波のよい所でもう一度</div>`;reset();return;}
+    if(!net){msg.innerHTML=`<div class="note red small stack"><div>つながりませんでした。電波のよい所でもう一度押してください。</div>${first?`<button type="button" class="btn slim" id="skipNow">今はとばす（次に開いたときにまた聞きます）</button>`:""}</div>`;reset();const sk=document.getElementById("skipNow");if(sk)sk.onclick=()=>m.remove();return;}
     if(cloud&&cloud.log&&cloud.log.length){
       if(!S.log.length)return finish(id,code,cloud);
       msg.innerHTML=`<div class="note sky stack"><div><b>このIDの記録が見つかりました</b><br>クラウド：解いた数 ${cloud.log.length}問（${cloud.savedAt?fmtTime(cloud.savedAt):"—"}）<br>この端末：解いた数 ${S.log.length}問</div>
